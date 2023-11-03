@@ -1,0 +1,153 @@
+.row-contained-EzA {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    width: 100%
+}
+
+@media only screen and (max-width:767px) {
+
+    .column-root-k2m,
+    .row-root-SkX {
+        background-attachment: scroll !important
+    }
+
+    .column-root-k2m {
+        flex-basis: 100%
+    }
+
+    .columnGroup-root-Q2r {
+        flex-wrap: wrap
+    }
+}
+
+.text-root-zS_ {
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column
+}
+
+.buttons-root-nkA,
+.buttons-root-nkA>div {
+    max-width: 100%
+}
+
+.buttons-root-nkA button[class] {
+    max-width: 100%;
+    overflow: hidden
+}
+
+.buttons-stacked-Ylb {
+    flex-direction: column
+}
+
+.buttons-inline-zrH>div {
+    margin-inline-end: .5rem
+}
+
+.buttons-inline-zrH>div:last-child {
+    margin-inline-end: 0
+}
+
+.buttons-stacked-Ylb>div:last-child {
+    margin-bottom: 0
+}
+
+a.banner-link-pPa {
+    text-decoration: none
+}
+
+.banner-wrapper-WuE {
+    word-wrap: break-word;
+    background-clip: padding-box;
+    border-radius: inherit;
+    overflow: hidden;
+    overflow-wrap: break-word
+}
+
+.banner-overlay-EJq {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    transition: background-color .5s ease
+}
+
+.banner-content-rKR {
+    width: 100%
+}
+
+.banner-button-Nko {
+    margin: 20px 0 0;
+    max-width: 100%;
+    text-align: inherit;
+    transition: opacity .5s ease;
+    width: 100%;
+    word-break: break-word
+}
+
+.banner-root-Wut:hover .banner-buttonHover-B2w {
+    opacity: 1
+}
+
+.banner-buttonHover-B2w {
+    opacity: 0
+}
+
+.banner-posterOverlay-M6t {
+    align-content: center;
+    justify-content: center
+}
+
+.banner-posterOverlayHover-eyh {
+    background-color: transparent !important
+}
+
+.banner-collageLeftOverlay-SEh {
+    margin-right: auto;
+    max-width: 540px
+}
+
+.banner-collageLeftOverlayHover-OxF {
+    background-color: transparent !important
+}
+
+.banner-collageCenteredOverlay-fDQ {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 540px
+}
+
+.banner-collageCenteredOverlayHover-Pks {
+    background-color: transparent !important
+}
+
+.banner-collageRightOverlay-wRr {
+    margin-left: auto;
+    max-width: 540px
+}
+
+.banner-collageRightOverlayHover-DfZ {
+    background-color: transparent !important
+}
+
+.category-usps-wrapper {
+    border-top: 1px solid #e5e5e5
+}
+
+.category-usps-wrapper .trust-since-content {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.category-usps-wrapper .trust-since-block {
+    max-width: 1632px;
+    padding-left: 16px;
+    padding-right: 16px
+}
+
+@media(max-width:768px) {
+    .category-usps-wrapper .trust-since-content {
+        padding: 35px 0 40px
+    }
+}

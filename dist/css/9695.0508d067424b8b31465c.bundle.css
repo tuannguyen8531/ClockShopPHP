@@ -1,0 +1,649 @@
+.item-images-yv2 {
+    display: grid;
+    grid-template-areas: "main";
+    margin-bottom: .65rem
+}
+
+.item-imageContainer-zva {
+    grid-area: main
+}
+
+.item-image-Q12 {
+    display: block;
+    height: auto;
+    opacity: 1;
+    transition-duration: 512ms;
+    transition-property: opacity, visibility;
+    transition-timing-function: ease-out;
+    visibility: visible;
+    width: 100%
+}
+
+.item-imagePlaceholder-zhL {
+    background-color: rgb(var(--venia-grey))
+}
+
+.item-name-LrP,
+.item-price-O9S {
+    font-size: .875rem;
+    line-height: 1rem;
+    margin: .5rem 0;
+    min-height: 1rem
+}
+
+.item-image_pending-hQO {
+    background-color: rgb(var(--venia-grey))
+}
+
+.item-name_pending-dKM,
+.item-price_pending-Pkx {
+    background-color: rgb(var(--venia-grey))
+}
+
+.item-price_pending-Pkx {
+    width: 3rem
+}
+
+.trending-now-wrapper {
+    display: inline-block;
+    width: 100%
+}
+
+.trending-now-wrapper .row-contained-LS3 {
+    max-width: 100%
+}
+
+.trending-now-wrapper h2 {
+    color: #000;
+    font-weight: 600
+}
+
+.trending-now-wrapper .product-content {
+    position: relative
+}
+
+.trending-now-wrapper .product-content .btn-wishlist {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 9
+}
+
+.trending-now-wrapper .product-image {
+    margin-bottom: 0
+}
+
+.trending-now-wrapper .product-img {
+    filter: brightness(.97);
+    height: auto;
+    width: 100%
+}
+
+.trending-now-wrapper .product-name {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #393838;
+    display: -webkit-box;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis
+}
+
+.trending-now-wrapper .product-name:hover {
+    text-decoration: underline
+}
+
+.trending-now-wrapper .brand-name {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    text-transform: uppercase
+}
+
+.trending-now-wrapper .product-content {
+    padding: 10px 0
+}
+
+.trending-now-wrapper .price-wrapper {
+    float: left;
+    width: 100%
+}
+
+.trending-now-wrapper .normal-price,
+.trending-now-wrapper .now-price,
+.trending-now-wrapper .was-price-wrapper {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: normal;
+    text-decoration: none;
+    text-transform: capitalize
+}
+
+.trending-now-wrapper .normal-price,
+.trending-now-wrapper .now-price,
+.trending-now-wrapper .was-wrapper {
+    margin-right: 18px
+}
+
+.trending-now-wrapper .was-label {
+    padding-right: 2px
+}
+
+.trending-now-wrapper .discount-value {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    margin-left: 10px
+}
+
+.trending-now-wrapper .discount-value.show-red {
+    color: #b63539
+}
+
+.trending-now-wrapper .was-price-wrapper,
+.trending-now-wrapper .was-price-wrapper .discount-value {
+    color: #595959
+}
+
+.trending-now-wrapper .normal-price {
+    color: #393838;
+    font-weight: 700;
+    margin-top: 4px
+}
+
+.trending-now-wrapper .normal-price .discount-value {
+    color: #b63539
+}
+
+.trending-now-wrapper .now-price {
+    font-weight: 700;
+    line-height: 18px
+}
+
+.trending-now-wrapper .after-price {
+    color: #161616;
+    font-size: 13px
+}
+
+.trending-slider-wrapper .trending-block .btn:hover {
+    background-color: #fff;
+    color: #000
+}
+
+@media(max-width:767px) {
+    .trending-now-wrapper {
+        margin-top: 8px;
+        padding-top: 24px
+    }
+
+    .trending-now-wrapper h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 24px
+    }
+
+    .trending-now-wrapper .swiper-wrapper {
+        margin: 0 0 0 10px
+    }
+
+    .trending-now-wrapper .swiper-button-next,
+    .trending-now-wrapper .swiper-button-prev {
+        display: none
+    }
+
+    .trending-now-wrapper .swiper-slide {
+        background: #fff;
+        margin: 0 10px 0 0
+    }
+
+    .trending-now-wrapper .product-content {
+        background: #fff;
+        float: left;
+        padding: 10px 3% 6px;
+        width: 100%
+    }
+
+    .trending-now-wrapper .product-image {
+        margin-bottom: 31px
+    }
+
+    .trending-now-wrapper .product-name {
+        max-height: 35px;
+        min-height: 35px
+    }
+
+    .trending-now-wrapper .brand-name,
+    .trending-now-wrapper .product-name {
+        font-size: 12px
+    }
+
+    .trending-now-wrapper .was-price-wrapper {
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 1px
+    }
+
+    .trending-now-wrapper .was-price-wrapper .discount-value {
+        margin: 0
+    }
+
+    .trending-now-wrapper .was-price-wrapper .was-wrapper {
+        padding-right: 10px
+    }
+
+    .trending-now-wrapper .normal-price,
+    .trending-now-wrapper .now-price,
+    .trending-now-wrapper .was-wrapper {
+        margin-right: 27px
+    }
+
+    .trending-now-wrapper .discount-value {
+        font-size: 12px
+    }
+
+    .trending-now-wrapper .normal-price,
+    .trending-now-wrapper .now-price {
+        font-size: 12px;
+        line-height: 16px
+    }
+
+    .trending-now-wrapper .now-price .now-label {
+        padding-right: 3px
+    }
+
+    .trending-now-wrapper .after-price {
+        font-size: 11px;
+        line-height: 15px;
+        margin-bottom: 2px
+    }
+
+    .trending-now-wrapper .after-price .after-label {
+        padding-right: 3px
+    }
+
+    .trending-now-wrapper .was-price-wrapper+.now-price {
+        display: inline-block;
+        left: 1px;
+        position: relative;
+        top: -3px;
+        width: 80%
+    }
+}
+
+@media(min-width:767px) {
+    .trending-row-first .homepage-general-h2-style {
+        margin-bottom: 40px
+    }
+
+    .trending-now-wrapper {
+        margin-top: 47px;
+        padding-bottom: 0;
+        padding-top: 0
+    }
+
+    .trending-now-wrapper .intro-card {
+        padding: 4% 1% 4.72% 2.2%;
+        text-align: left;
+        width: 18.4% !important
+    }
+
+    .trending-now-wrapper .intro-card .btn-primary {
+        background: 0 0;
+        border: 1px solid #fff;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0 0 0 -3px;
+        max-width: 198px;
+        padding: 11px 31px 9px;
+        width: 100%
+    }
+
+    .trending-now-wrapper .intro-card h3 {
+        color: #fff;
+        display: inline-block;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 32px;
+        margin-bottom: 29px;
+        margin-top: 14px
+    }
+
+    .trending-now-wrapper .intro-card p {
+        color: #fff;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 23px;
+        margin-bottom: 24px
+    }
+
+    .trending-now-wrapper h2 {
+        font-size: 28px;
+        line-height: normal;
+        margin-bottom: 56px
+    }
+
+    .trending-now-wrapper .product-card {
+        padding-bottom: 40px
+    }
+
+    .trending-now-wrapper .product-name {
+        font-size: 14px;
+        line-height: 17px;
+        max-height: 34px;
+        max-width: 81%;
+        min-height: 34px
+    }
+
+    .trending-now-wrapper .product-name:hover {
+        text-decoration: underline
+    }
+
+    .trending-now-wrapper .product-content {
+        padding: 10px 0
+    }
+
+    .trending-now-wrapper .after-price,
+    .trending-now-wrapper .was-price-wrapper+.now-price {
+        display: none
+    }
+
+    .trending-now-wrapper .now-price {
+        letter-spacing: -.5px;
+        line-height: 18px
+    }
+
+    .trending-now-wrapper .swiper-wrapper {
+        padding: 0 10px
+    }
+
+    .trending-now-wrapper .swiper-slide {
+        padding: 0 8px
+    }
+
+    .trending-now-wrapper .swiper-button-next,
+    .trending-now-wrapper .swiper-button-prev {
+        background: #ececec;
+        border-radius: 0;
+        height: 59px;
+        min-width: auto;
+        opacity: 1;
+        width: 41px
+    }
+
+    .trending-now-wrapper .swiper-button-next:after,
+    .trending-now-wrapper .swiper-button-prev:after {
+        border-top: .13em solid #393939;
+        content: "";
+        display: inline-block;
+        font-size: 9px;
+        height: 3em;
+        margin-top: -13px;
+        opacity: 1;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        width: 3em
+    }
+
+    .trending-now-wrapper .swiper-button-prev {
+        left: 0
+    }
+
+    .trending-now-wrapper .swiper-button-prev:after {
+        border-left: .13em solid #393939;
+        transform: rotate(-45deg)
+    }
+
+    .trending-now-wrapper .swiper-button-next {
+        right: 0
+    }
+
+    .trending-now-wrapper .swiper-button-next:after {
+        border-right: .13em solid #393939;
+        right: 16px;
+        transform: rotate(45deg)
+    }
+}
+
+@media(min-width:1024px) {
+    .trending-now-wrapper .swiper-wrapper {
+        padding: 0 12px
+    }
+}
+
+@media(min-width:1280px) {
+    .trending-now-wrapper .swiper-wrapper {
+        padding: 0 15px
+    }
+}
+
+@media(min-width:1440px) {
+    .trending-now-wrapper .swiper-wrapper {
+        padding: 0
+    }
+}
+
+.algolia-trending .was-price-wrapper+.now-price {
+    display: inline-block
+}
+
+.algolia-trending .product-content {
+    text-align: left
+}
+
+.algolia-trending .was-price-wrapper {
+    color: #595959;
+    float: left;
+    width: 100%
+}
+
+.algolia-trending .was-price-wrapper .was-wrapper {
+    display: inline-block
+}
+
+.algolia-trending .now-label,
+.algolia-trending .was-label {
+    padding-right: 3px
+}
+
+.algolia-trending .now-price {
+    color: #393838;
+    float: left
+}
+
+.algolia-trending .after-price {
+    display: inline-block;
+    float: left;
+    width: 100%
+}
+
+.algolia-trending .swiper-slide,
+.algolia-trending .swiper-wrapper {
+    margin: 0
+}
+
+@media(max-width:767px) {
+    .algolia-trending .was-price-wrapper .was-wrapper {
+        margin-right: 20px
+    }
+
+    .algolia-trending .trending-now-mobile .trending-now-item {
+        background-color: #fff
+    }
+}
+
+.trending-slider-wrapper {
+    position: relative
+}
+
+.trending-row>div>div {
+    overflow: hidden;
+    position: relative;
+    width: 100%
+}
+
+.trending-row .trending-block {
+    align-self: center;
+    background-color: #a58a68;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 30px 25px;
+    text-align: left
+}
+
+.trending-row .trending-block.trending-block-first {
+    margin-right: 50px
+}
+
+.trending-row .trending-block.trending-block-seconds {
+    background-color: #41798e;
+    margin-left: 50px
+}
+
+.trending-row .trending-block>div {
+    width: 100%
+}
+
+.trending-row .trending-block-title {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 35px
+}
+
+.trending-row .trending-block-norm {
+    color: #fff;
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 20px
+}
+
+.trending-row .trending-block .btn {
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    height: 48px;
+    justify-content: center;
+    margin: 25px 0 0;
+    min-width: auto;
+    text-decoration: none;
+    width: 100%
+}
+
+.trending-row .trending-block .btn:hover {
+    background-color: #fff;
+    color: #000
+}
+
+@media(min-width:1024px) {
+    .trending-now-wrapper {
+        margin-top: 0
+    }
+
+    .trending-now-wrapper .product-card .product-content {
+        padding: 0
+    }
+
+    .trending-row+.trending-row>div>div {
+        flex-direction: row-reverse
+    }
+}
+
+@media(max-width:767px) {
+    .algolia-trending .intro-card {
+        width: 100%
+    }
+
+    .trending-wrapper {
+        margin-bottom: 20px;
+        padding-top: 14px
+    }
+
+    .trending-row {
+        overflow: hidden
+    }
+
+    .trending-row .algolia-trending.product-card {
+        overflow-x: auto
+    }
+}
+
+@media(max-width:767px) {
+    .trending-row .algolia-trending.product-card::-webkit-scrollbar {
+        height: 0;
+        width: 0
+    }
+
+    .trending-row .algolia-trending.product-card::-webkit-scrollbar-thumb,
+    .trending-row .algolia-trending.product-card::-webkit-scrollbar-track {
+        background: 0 0
+    }
+
+    .trending-row>div>div {
+        flex-wrap: nowrap
+    }
+
+    .trending-row .slider-wrapper {
+        padding-right: 0 !important
+    }
+
+    .trending-row .trending-now-wrapper {
+        margin-top: 0;
+        padding-top: 0
+    }
+
+    .trending-row .trending-block {
+        align-self: start !important;
+        max-width: 45%;
+        min-width: 45%;
+        padding: 30px 15px;
+        text-align: left
+    }
+
+    .trending-row .trending-block.trending-block-first,
+    .trending-row .trending-block.trending-block-seconds {
+        margin-right: 15px
+    }
+
+    .trending-row .trending-block-title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24px
+    }
+
+    .trending-row .trending-block-norm {
+        font-size: 14px;
+        line-height: 17px;
+        margin-top: 15px
+    }
+
+    .trending-row .trending-block .btn {
+        font-size: 12px;
+        font-weight: 600;
+        margin: 15px 0 0
+    }
+
+    .trending-row+.trending-row>div>div .trending-block {
+        margin-left: 0
+    }
+
+    .trending-now-mobile {
+        display: flex;
+        flex-wrap: nowrap
+    }
+
+    .trending-now-mobile .trending-now-item {
+        min-width: calc(50vw - 25px)
+    }
+}

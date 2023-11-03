@@ -1,0 +1,13 @@
+.slider-root-WZR {
+    display: block;
+    position: relative;
+    touch-action: pan-y;
+    user-select: none
+}
+
+.slider-bannerLink-dpZ,
+.slider-bannerPosterOverlay-HOx,
+.slider-bannerRoot-Dq3,
+.slider-bannerWrapper-m7k {
+    min-height: inherit
+}

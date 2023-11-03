@@ -1,0 +1,48 @@
+.deployment-notification-container {
+    -webkit-animation: deployment-notification-fadein .5s;
+    animation: deployment-notification-fadein .5s;
+    background-color: #0070ba;
+    border-radius: 2px;
+    color: #fff;
+    left: 50%;
+    margin-left: -125px;
+    min-width: 250px;
+    padding: 16px;
+    position: fixed;
+    text-align: center;
+    top: 30px;
+    z-index: 500
+}
+
+@-webkit-keyframes deployment-notification-fadein {
+    0% {
+        opacity: 0;
+        top: 0
+    }
+
+    to {
+        opacity: 1;
+        top: 30px
+    }
+}
+
+@keyframes deployment-notification-fadein {
+    0% {
+        opacity: 0;
+        top: 0
+    }
+
+    to {
+        opacity: 1;
+        top: 30px
+    }
+}
+
+@media(max-width:767px) {
+    .deployment-notification-container {
+        margin-left: 0;
+        min-width: 80vw;
+        transform: translate(-50%);
+        z-index: 999
+    }
+}
