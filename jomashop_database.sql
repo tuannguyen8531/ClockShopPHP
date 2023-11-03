@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 04:51 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Nov 03, 2023 at 09:07 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,6 +44,15 @@ CREATE TABLE `authorities` (
   `authId` int(10) NOT NULL,
   `authName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `authorities`
+--
+
+INSERT INTO `authorities` (`authId`, `authName`) VALUES
+(1, 'admin'),
+(2, 'manager'),
+(3, 'customer');
 
 -- --------------------------------------------------------
 
@@ -87,6 +96,30 @@ CREATE TABLE `brands` (
   `brandName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`brandId`, `brandName`) VALUES
+(1, 'Baume'),
+(2, 'Breitling'),
+(3, 'Cartier'),
+(4, 'Citizen'),
+(5, 'Hamilton'),
+(6, 'Hublot'),
+(7, 'Invicta'),
+(8, 'IWC'),
+(9, 'Longines'),
+(10, 'Michael'),
+(11, 'Movado'),
+(12, 'Omega'),
+(13, 'Panerai'),
+(14, 'Rolex'),
+(15, 'Seiko'),
+(16, 'Tag'),
+(17, 'Tissot'),
+(18, 'Tudor');
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +155,22 @@ CREATE TABLE `caseshapes` (
   `caseName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `caseshapes`
+--
+
+INSERT INTO `caseshapes` (`caseId`, `caseName`) VALUES
+(1, 'Cushion'),
+(2, 'Dodecagon'),
+(3, 'Octagon'),
+(4, 'Oval'),
+(5, 'Rectangle'),
+(6, 'Round'),
+(7, 'Square'),
+(8, 'Tonneau'),
+(9, 'Triangle'),
+(10, 'Unique');
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +181,14 @@ CREATE TABLE `categories` (
   `cateId` int(10) NOT NULL,
   `cateName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cateId`, `cateName`) VALUES
+(1, 'Smart Watch'),
+(2, 'Watches');
 
 -- --------------------------------------------------------
 
@@ -166,6 +223,53 @@ CREATE TABLE `features` (
   `feaName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `features`
+--
+
+INSERT INTO `features` (`feaId`, `feaName`) VALUES
+(1, 'Alarm'),
+(2, 'Alligator Leather'),
+(3, 'Altimeter'),
+(4, 'Analog'),
+(5, 'Annual Calendar'),
+(6, 'Atomic Timekeeping'),
+(7, 'Bluetooth'),
+(8, 'Calculator'),
+(9, 'Calendar'),
+(10, 'Ceramic'),
+(11, 'Chronograph'),
+(12, 'Chronometer'),
+(13, 'Compass'),
+(14, 'Day/Night Indicator'),
+(15, 'Diamond'),
+(16, 'Digital'),
+(17, 'Equation of Time'),
+(18, 'Flyback'),
+(19, 'GMT'),
+(20, 'Gold'),
+(21, 'GPS'),
+(22, 'Heart Rate Monitor'),
+(23, 'Leap Year Indicator'),
+(24, 'Leather'),
+(25, 'Month'),
+(26, 'Moon Phase'),
+(27, 'Perpetual'),
+(28, 'Plastic'),
+(29, 'Platinum'),
+(30, 'Power Reserve Indicator'),
+(31, 'Rattrapante'),
+(32, 'Repeater'),
+(33, 'Retrograde'),
+(34, 'Rubber'),
+(35, 'Solar'),
+(36, 'Stainless Steel'),
+(37, 'Thermometer'),
+(38, 'Time Zone'),
+(39, 'Titanium'),
+(40, 'Tourbillon'),
+(41, 'World Time');
+
 -- --------------------------------------------------------
 
 --
@@ -191,6 +295,17 @@ CREATE TABLE `movements` (
   `moveName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `movements`
+--
+
+INSERT INTO `movements` (`moveId`, `moveName`) VALUES
+(1, 'Movement'),
+(2, 'Automatic'),
+(3, 'Eco-Drive'),
+(4, 'Hand Wind'),
+(5, 'Quartz');
+
 -- --------------------------------------------------------
 
 --
@@ -201,6 +316,17 @@ CREATE TABLE `statuses` (
   `statusId` int(10) NOT NULL,
   `statusName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `statuses`
+--
+
+INSERT INTO `statuses` (`statusId`, `statusName`) VALUES
+(1, 'Ordered'),
+(2, 'Acepted'),
+(3, 'Delivering'),
+(4, 'Delivered'),
+(5, 'Cancelled');
 
 -- --------------------------------------------------------
 
@@ -213,6 +339,22 @@ CREATE TABLE `styles` (
   `styleName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `styles`
+--
+
+INSERT INTO `styles` (`styleId`, `styleName`) VALUES
+(1, 'Casual'),
+(2, 'Dive'),
+(3, 'Dress'),
+(4, 'Fashion'),
+(5, 'Luxury'),
+(6, 'Military'),
+(7, 'Pilot'),
+(8, 'Smart'),
+(9, 'Sport'),
+(10, 'Travel');
+
 -- --------------------------------------------------------
 
 --
@@ -223,6 +365,15 @@ CREATE TABLE `types` (
   `typeId` int(10) NOT NULL,
   `typeName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `types`
+--
+
+INSERT INTO `types` (`typeId`, `typeName`) VALUES
+(1, 'Analog'),
+(2, 'Analog-Digital'),
+(3, 'Analog-Digital');
 
 -- --------------------------------------------------------
 
@@ -417,7 +568,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `authorities`
 --
 ALTER TABLE `authorities`
-  MODIFY `authId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `authId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `billdetails`
@@ -435,7 +586,7 @@ ALTER TABLE `bills`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `brandId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `brandId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `cartdetails`
@@ -453,13 +604,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `caseshapes`
 --
 ALTER TABLE `caseshapes`
-  MODIFY `caseId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `caseId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cateId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cateId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -471,7 +622,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
-  MODIFY `feaId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `feaId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `managers`
@@ -483,25 +634,25 @@ ALTER TABLE `managers`
 -- AUTO_INCREMENT for table `movements`
 --
 ALTER TABLE `movements`
-  MODIFY `moveId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `moveId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `statuses`
 --
 ALTER TABLE `statuses`
-  MODIFY `statusId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `statusId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `styles`
 --
 ALTER TABLE `styles`
-  MODIFY `styleId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `styleId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
-  MODIFY `typeId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `typeId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `watches`
