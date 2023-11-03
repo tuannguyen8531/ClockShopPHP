@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 09:07 AM
+-- Generation Time: Nov 03, 2023 at 11:57 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -431,6 +431,16 @@ CREATE TABLE `watches` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `watches`
+--
+
+INSERT INTO `watches` (`id`, `name`, `brand`, `description`, `price`, `model`, `gender`, `sale`, `caseSize`, `img1`, `img2`, `img3`, `instock`, `watchLabel`, `movement`, `engine`, `powerReserve`, `caseThickness`, `caseMaterial`, `caseShape`, `caseBack`, `bandMaterial`, `bandType`, `bandColor`, `bandLength`, `bandWidth`, `clasp`, `dialColor`, `type`, `crystal`, `hands`, `dialMarkers`, `secondMarkers`, `lumine`, `bezel`, `bezelColor`, `bezelMaterial`, `crown`, `waterRes`, `calendar`, `func`, `features`, `style`, `warranty`, `department`, `category`) VALUES
+(1, '5 Automatic Black Dial Stainless Steel Men\'s Watch', 15, 'Stainless steel case with a stainless steel bracelet. Fixed stainless steel bezel. Black dial with luminous hands and index hour markers. Minute markers around the outer rim. Dial Type: Analog. Luminescent hands and markers. Day of the week and date display at the 3 o\'clock position. Seiko caliber 7S26 automatic movement with a 40-hour power reserve. Scratch resistant Hardlex crystal. Skeleton case back. Round case shape. Case size: 37 mm. Case thickness: 12 mm. Band width: 19 mm. Fold over clasp with a push button release. Water resistant at 30 meters / 100 feet. Functions: date, day, hour, minute, second. Additional Info: day and date display at 3. silver tone hands, hour markers. Casual watch style. Seiko 5 Automatic Black Dial Stainless Steel Men\'s Watch SNXS79K1.', 109, 'SNXS79K1', 1, 56, 37, 'Seiko1_1.jpg', 'Seiko1_2.jpg', 'Seiko1_3.jpg', 100, 'Seiko 5', 2, 'Seiko Caliber 7S26', 40, 12, 'Stainless Steel', 6, 'Skeleton', 'Stainless Steel', 'Bracelet', 'Silver-tone', 0, 19, 'Fold Over with Push Button Release', 'Black', 1, 'Scratch Resistant Hardlex', 'Luminous', 'Index', 'Minute markers around the outer rim', 'Hands and Markers', 'Fixed', 'Silver-tone', 'Stainless Steel', '', '30 meters / 100 feet', 'Day of the week and Date display at the 3 o\'clock position', 'Date, Day, Hour, Minute, Second', 36, 1, '3 Year Jomashop Warranty', 'Watches', 2),
+(2, '5 Automatic Black Arabic Dial Men\'s Watch', 15, 'Silver-tone stainless steel case and bracelet. Fixed silver-tone stainless steel bezel. Black dial with luminous silver-tone hands and arabic numeral hour markers. Minute markers around the outer rim. Dial Type: Analog. Luminescent hands and markers. Day of the week and date display at the 3 o\'clock position. Seiko Caliber 7S26 Automatic movement, based upon Seiko 7002, containing 21 Jewels, bitting at 21600 vph, and has a power reserve of approximately 40 hours. Scratch resistant mineral crystal. Pull / push crown. Transparent see through case back. Round case shape, case size: 42 mm. Band width: 22 mm. Fold over clasp with a push button release. Water resistant at 50 meters / 165 feet. Functions: date, day, hour, minute, second. Seiko 5 Series. Casual watch style. Watch label: Made in Japan. Seiko 5 Automatic Black Dial Men\'s Watch SNKP21J1.', 169, 'SNKP21J1', 1, 32, 42, 'Seiko2_1.jpg', 'Seiko2_2.jpg', 'Seiko2_3.jpg', 100, 'Seiko 5', 2, 'Seiko Caliber 7S26', 40, 0, 'Stainless Steel', 6, 'Transparent See Through', 'Stainless Steel', 'Bracelet', 'Silver-tone', 0, 22, 'Fold Over with Push Button Release', 'Black', 1, 'Scratch Resistant Mineral', 'Luminous Silver-tone', 'Arabic Numeral', 'Minute Markers around the outer rim', 'Hands and Markers', 'Fixed', 'Silver-tone', 'Stainless Steel', 'Pull / Push', '50 meters / 165 feet', 'Day of the Week and Date display at the 3 o\'clock position', 'Date, Day, Hour, Minute, Second', 4, 1, '3 Year Jomashop Warranty', 'Watches', 2),
+(3, 'Chronograph Quartz Champagne Dial Men\'s Watch\r\n', 15, 'Stainless steel case with a black leather strap. Fixed stainless steel bezel. Champagne dial with luminous silver-tone dauphine-style hands and index hour markers. Minute markers. Tachymeter markings around the outer rim. Dial Type: Analog. Luminescent hands and markers. Date display between the 4 and 5 o\'clock positions. Chronograph - three sub-dials displaying: 60 second, 60 minute and 12 hour. Seiko caliber 8T67 quartz movement. Scratch resistant Hardlex crystal. Pull / push crown. Solid case back. Round case shape. Case size: 40 mm. Case thickness: 12 mm. Band width: 20 mm. Tang clasp. Water resistant at 100 meters / 330 feet. Functions: date, hour, minute, second, tachymeter. Chronograph Series. Sport watch style. Watch label: Japan Movt. Seiko Chronograph Quartz Champagne Dial Men\'s Watch SSB383.', 120, 'SSB383', 1, 63, 42, 'Seiko3_1.jpg', 'Seiko3_2.jpg', 'Seiko3_3.jpg', 100, 'Chronograph', 5, 'Seiko Caliber 8T67', 0, 12, 'Stainless Steel', 6, 'Solid', 'Leather', 'Strap', 'Black', 0, 20, 'Tang', 'Champagne', 1, 'Scratch Resistant Hardlex', 'Luminous Silver-tone Dauphine-style', 'Index', 'Minute Markers. Tachymeter Markings around the outer rim', 'Hands and Markers', 'Fixed', 'Silver-tone', 'Stainless Steel', 'Pull / Push', '100 meters / 330 feet', 'Date display between the 4 and 5 o\'clock positions', 'Date, Hour, Minute, Second, Tachymeter', 11, 9, '3 Year Jomashop Warranty', 'Watches', 2),
+(4, 'Essentials Quartz White Dial Unisex Watch', 15, 'Yellow gold-tone stainless steel case with a black (croco-embossed) leather strap. Fixed yellow gold-tone stainless steel bezel. White dial with black hands and Roman numeral hour markers. Minute markers around an inner ring. Dial Type: Analog. Caliber 4N30 quartz movement. Scratch resistant Hardlex crystal. Pull / push crown. Solid case back. Rectangle case shape, case size: 38 x 28 mm, case thickness: 6 mm. Band width: 24 mm. Tang clasp. Water resistant at 30 meters / 100 feet. Functions: hour, minute. Essentials Series. Casual watch style. Watch label: Japan Movt. Seiko Essentials Quartz White Dial Unisex Watch SWR052.', 129, 'SWR052', 2, 40, 38.28, 'Seiko4_1.jpg', 'Seiko4_2.jpg', 'Seiko4_3.jpg', 100, 'Essentials', 5, 'Caliber 4N30', 0, 6, 'Stainless Steel', 5, 'Solid', '(Croco-Embossed) Leather', 'Strap', 'Black', 0, 24, 'Tang', 'White', 1, 'Scratch Resistant Hardlex', 'Black', 'Roman Numeral', 'Minute Markers around an inner ring', '', 'Fixed', 'Yellow Gold-tone', 'Stainless Steel', 'Pull / Push', '30 meters / 100 feet', '', 'Hour, Minute', 20, 1, '3 Year Jomashop Warranty', 'Watches', 2);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -658,7 +668,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `watches`
 --
 ALTER TABLE `watches`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
