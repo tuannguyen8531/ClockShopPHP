@@ -1,0 +1,25 @@
+.bottom-promo .banner,
+.bottom-promo-mob .banner {
+    background-color: #e9e4db;
+}
+
+.productImageBlock .product-badges {
+    z-index: 1;
+}
+
+.banner .banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner .banner-content .shop-now {
+    color: #d31a29;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.banner .banner-content .text span::after {
+    content: '|';
+    padding-left: 7px;
+}
