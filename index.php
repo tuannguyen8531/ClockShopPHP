@@ -1241,8 +1241,382 @@
                     </div>
                 </div>
             </div>
+            <div class="category-usps-wrapper">
+                <div>
+                    <div>
+                        <div class="click-handler">
+                            <div class="row-contained-EzA trust-since-block">
+                                <div style="display: flex; justify-content: flex-start; flex-direction: column;">
+                                    <div class="">
+                                        <style>
+                                            .tw-2023-trust-since-1999 * {
+                                                font-family: "Inter";
+                                            }
+
+
+                                            .tw-2023-trust-since-1999 {
+                                                max-width: 100%;
+                                                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                                            }
+
+                                            .trust-since-content {
+                                                padding: 50px 16px;
+                                                flex-direction: column;
+                                                gap: 8px;
+                                                display: flex;
+                                            }
+
+                                            .trust-since-content .trust-item {
+                                                display: flex;
+                                                gap: 23px;
+                                                align-items: center;
+                                                cursor: pointer;
+                                            }
+
+                                            .trust-since-content .trust-item img {
+                                                width: 60px;
+                                                height: 60px;
+                                                flex-shrink: 0;
+                                                object-fit: cover;
+                                            }
+
+                                            .trust-since-content .trust-item p {
+                                                font-size: 16px;
+                                                line-height: 21px;
+                                                color: #000000;
+                                                margin: 0;
+                                                text-align: left;
+                                            }
+
+                                            @media screen and (min-width: 768px) {
+                                                .trust-since-content {
+                                                padding: 50px 10px;
+                                                gap: 16px;
+                                                display: grid;
+                                                grid-template-columns: repeat(4, 1fr);
+                                                }
+
+                                                .trust-since-content .trust-item {
+                                                gap: 0;
+                                                }
+
+                                                .trust-since-content .trust-item p {
+                                                margin-left: 20px;
+                                                }
+
+                                                .trust-since-content .trust-item img {
+                                                width: 90px;
+                                                height: 90px;
+                                                }
+                                            }
+
+                                            @media screen and (min-width: 1024px) {
+                                                .trust-since-content {
+                                                padding: 50px 10px;
+                                                }
+                                            }
+
+                                            /* The Modal (background) */
+                                            .modal-trust {
+                                                display: none;
+                                                /* Hidden by default */
+                                                position: fixed;
+                                                /* Stay in place */
+                                                z-index: 1;
+                                                /* Sit on top */
+                                                padding-top: 20px;
+                                                padding-bottom: 20px;
+                                                left: 0;
+                                                top: 0;
+                                                width: 100%;
+                                                /* Full width */
+                                                height: 100%;
+                                                /* Full height */
+                                                overflow: auto;
+                                                /* Enable scroll if needed */
+                                                background-color: rgb(0, 0, 0);
+                                                /* Fallback color */
+                                                background-color: rgba(0, 0, 0, 0.4);
+                                                /* Black w/ opacity */
+                                                z-index: 9999;
+                                            }
+
+                                            /* Modal Content */
+                                            .modal-trust .modal-content {
+                                                position: relative;
+                                                background-color: #fefefe;
+                                                margin: auto;
+                                                padding: 0;
+                                                border: 1px solid #888;
+                                                width: 80%;
+                                                max-width: 800px;
+                                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
+                                                0 6px 20px 0 rgba(80, 62, 62, 0.1);
+                                                -webkit-animation-name: animatemodal;
+                                                -webkit-animation-duration: 0.4s;
+                                                animation-name: animatemodal;
+                                                animation-duration: 0.4s;
+                                                padding: 70px;
+                                                border-radius: 10px;
+
+                                            }
+
+                                            .modal-trust .trust-close {
+                                                position: absolute;
+                                                top: 30px;
+                                                right: 30px;
+                                                z-index: 1;
+                                                cursor: pointer;
+                                            }
+
+                                            .modal-trust .modal-header {
+                                                padding: 0;
+                                            }
+
+                                            .modal-trust .title {
+                                                font-size: 32px;
+                                                font-family: "Inter";
+                                                font-weight: 600;
+                                                line-height: 120%;
+                                                color: #000;
+                                                margin-top: 0;
+                                                margin-bottom: 30px;
+                                                text-align: left;
+                                            }
+
+                                            .modal-trust .tabs {
+                                                display: flex;
+                                                align-items: center;
+                                                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                                                padding-bottom: 12px;
+                                                clear: both;
+                                            }
+
+                                            .modal-trust .tabs-wrapper {
+                                                overflow-y: hidden;
+                                                overflow-x: auto;
+                                                clear: both;
+                                            }
+
+                                            .modal-trust .tabs-wrapper::-webkit-scrollbar {
+                                                width: 0;
+                                                height: 0;
+                                            }
+
+                                            .modal-trust .tabs-wrapper::-webkit-scrollbar-track {
+                                                background: transparent;
+                                            }
+
+                                            .modal-trust .tabs-wrapper::-webkit-scrollbar-thumb {
+                                                background: transparent;
+                                            }
+
+                                            .modal-trust .tabs .tablinks {
+                                                position: relative;
+                                                font-size: 16px;
+                                                font-family: "Inter";
+                                                font-weight: 600;
+                                                line-height: 130%;
+                                                margin-right: 25px;
+                                                color: rgba(0, 0, 0, 0.5);
+                                                background: transparent;
+                                                border: none;
+                                                padding: 0;
+                                                cursor: pointer;
+                                                min-width: auto;
+                                                white-space: nowrap;
+                                            }
+
+                                            .modal-trust .tabs .tablinks::after {
+                                                content: "";
+                                                position: absolute;
+                                                width: 100%;
+                                                height: 3px;
+                                                background-color: #000;
+                                                bottom: -13px;
+                                                left: 0;
+                                                display: none;
+                                            }
+
+                                            .modal-trust .tabs .tablinks.active {
+                                                color: #000;
+                                            }
+
+                                            .modal-trust .tabs .tablinks.active::after {
+                                                display: block;
+                                            }
+
+                                            .modal-trust .tabcontent {
+                                                display: none;
+                                                padding: 20px 0 0;
+                                                text-align: left;
+                                            }
+
+                                            .modal-trust .tabcontent.active {
+                                                display: block;
+                                            }
+
+                                            .modal-trust .tabcontent img {
+                                                max-width: 100%;
+                                            }
+
+                                            .modal-trust .tabcontent p {
+                                                font-size: 16px;
+                                                font-family: "Inter";
+                                                line-height: 130%;
+                                                color: #000;
+                                                margin-bottom: 0;
+                                            }
+
+                                            .modal-trust .tabcontent iframe {
+                                                width: 100%;
+                                                height: 380px;
+                                                margin-bottom: 10px;
+                                                margin-top: 10px;
+                                            }
+
+                                            /* Add Animation */
+                                            @-webkit-keyframes animatemodal {
+                                                from {
+                                                opacity: 0;
+                                                }
+
+                                                to {
+                                                top: 0;
+                                                opacity: 1;
+                                                }
+                                            }
+
+                                            /* Mobile view */
+                                            @media (max-width: 767px) {
+                                                .modal-trust {
+                                                padding-top: 0;
+                                                padding-bottom: 0;
+                                                }
+
+                                                .modal-trust .modal-content {
+                                                padding: 50px 16px;
+                                                width: 100%;
+                                                height: 100%;
+                                                border-radius: 0px;
+                                                overflow: visible;
+                                                border: 1px solid transparent;
+                                                }
+
+                                                .modal-trust .tabcontent iframe {
+                                                width: 100%;
+                                                height: 200px;
+                                                max-width: 100%;
+                                                }
+
+                                                .modal-trust .trust-close {
+                                                top: 16px;
+                                                right: 16px;
+                                                }
+
+                                                .modal-trust .title {
+                                                font-size: 26px;
+                                                margin-bottom: 25px;
+                                                }
+
+                                                .modal-trust .tabs .tablinks {
+                                                font-size: 14px;
+                                                }
+
+                                                .modal-trust .tabcontent p {
+                                                font-size: 14px;
+                                                }
+                                            }
+                                        </style>
+                                        <div>
+                                            <div>
+                                                <div class="trust-since-content">
+                                                    <div class="trust-item" data-type-tab="Trust">
+                                                        <img src="./img/svg/trusted.svg" alt="">
+                                                        <p>Trusted <b>since 1999</b></p>
+                                                    </div>
+                                                    <div class="trust-item" data-type-tab="Authenticity">
+                                                        <img src="./img/svg/authenticity_green.svg" alt="">
+                                                        <p><b>75,000+ items</b> from authentic brands</p>
+                                                    </div>
+                                                    <div class="trust-item" data-type-tab="AboutUs">
+                                                        <img src="./img/svg/fivestars.svg" alt="">
+                                                        <p><b>500,000+ five star </b> reviews</p>
+                                                    </div>
+                                                    <div class="trust-item" data-type-tab="Shipping">
+                                                        <img src="./img/svg/shipping.svg" alt="">
+                                                        <p>Shipped <b>10M+ orders</b> to <b>150+ countries</b></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- The Modal -->
+                                            <div id="ModalTrust" class="modal modal-trust">
+                                                <!-- Modal content -->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h2 class="title">The Jomashop Promise</h2>
+                                                        <span class="trust-close">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z" fill="black"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <div class="tabs-wrapper">
+                                                        <div class="tabs">
+                                                            <button class="tablinks active" data-electronic="AboutUs">About us</button>
+                                                            <button class="tablinks" data-electronic="Authenticity">Authenticity</button>
+                                                            <button class="tablinks" data-electronic="Trust">Trust</button>
+                                                            <button class="tablinks" data-electronic="Shipping">Shipping</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Tab content -->
+                                                    <div class="wrapper_tabcontent">
+                                                        <div id="AboutUs" class="tabcontent active">
+                                                            <p>
+                                                                For over two decades, Jomashop has established itself as a premier online destination,
+                                                                offering a diverse range of luxury and fashion items to discerning customers worldwide.
+                                                                With an impressive catalog of over 75,000 unique products, whether it's a watch,
+                                                                handbag, pair of sunglasses, shoes, or fragrance, Jomashop is the go-to platform for all
+                                                                your luxury needs.
+                                                            </p>
+                                                        </div>
+                                                        <div id="Authenticity" class="tabcontent">
+                                                            <p>
+                                                                Your trust is paramount to us. Every product listed on Jomashop.com comes with a 100%
+                                                                authenticity guarantee. Our inventory sources directly from authorized dealers or
+                                                                trusted industry wholesalers and distributors. Each watch we sell is brand new, boasting
+                                                                its original manufacturer’s serial numbers. With Jomashop, authenticity isn't a promise;
+                                                                it's a guarantee.
+                                                            </p>
+                                                        </div>
+                                                        <div id="Trust" class="tabcontent">
+                                                            <p>
+                                                                Our commitment goes beyond just providing you with genuine products. We believe in
+                                                                delivering unmatched value. We ensure every watch you purchase from Jomashop is backed
+                                                                by our very own warranty. Your peace of mind is a priority, and with Jomashop's warranty
+                                                                policy, trust is built in.
+                                                            </p>
+                                                        </div>
+                                                        <div id="Shipping" class="tabcontent">
+                                                            <p>
+                                                                Jomashopoffers free Ground shipping on every order over $100, fulfilled via trusted
+                                                                partners like FedEx, UPS, or USPS, with transit times ranging from 1 to 6 business days.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="./dist/js/config.js"></script>
+    <script type="text/javascript" src="./dist/js/modal.js"></script>
 </body>
 </html>
