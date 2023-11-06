@@ -122,7 +122,8 @@
                                         <li class="menu-item level-1 watches">
                                             <div class="menu-item-header">
                                                 <input class="menu-item-input" aria-label="Watches">
-                                                <a class="levelTop" href="" aria-label="Watches" tabindex="-1">Watches</a></div>
+                                                <a class="levelTop" href="" aria-label="Watches" tabindex="-1">Watches</a>
+                                            </div>
                                             <div class="subCat">
                                                 <div class="subCatParent">
                                                     <div class="imageWrapper imageWrapper-1"></div>
@@ -132,7 +133,8 @@
                                         <li class="menu-item level-1 flash-sale-offers">
                                             <div class="menu-item-header">
                                                 <input class="menu-item-input" aria-label="Sale">
-                                                <a class="levelTop" href="" aria-label="Sale" tabindex="-1">Sale</a></div>
+                                                <a class="levelTop" href="" aria-label="Sale" tabindex="-1">Sale</a>
+                                            </div>
                                             <div class="subCat">
                                                 <div class="subCatParent">
                                                     <div class="imageWrapper imageWrapper-1"></div>
@@ -1057,9 +1059,188 @@
                             <div></div>
                         </div>
                     </div>
+                    <div class="row-contained-EzA usp-block">
+                        <div style="display: flex; justify-content: flex-start; flex-direction: column;">
+                            <div class="">
+                                <div class="row-root-SkX usp-wrapper" style="background-color: rgb(83, 95, 110); border-style: none; border-image: initial; display: flex; justify-content: flex-start; flex-direction: column;">
+                                    <div class="columnGroup-root-Q2r" style="display: flex;">
+                                        <div class="column-root-k2m pagebuilder-column" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; width: 33.3333%;">
+                                            <h2 class="headline" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;">
+                                                ASSURANCE OF BUYING
+                                            </h2>
+                                            <h3 class="sub-headline"
+                                                style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;">
+                                                AUTHENTICITY GUARANTEED
+                                            </h3>
+                                            <div class="buttons-root-nkA buttons-inline-zrH links"
+                                                style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; justify-content: flex-start;">
+                                                <div>
+                                                    <button priority="low" type="button" class="btn btn-primary" style="text-align: center; justify-content: center;">
+                                                        Find out more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column-root-k2m pagebuilder-column" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; width: 33.3333%;">
+                                            <h2 class="headline" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;">
+                                                JOMASHOP PROMISE
+                                            </h2>
+                                            <h3 class="sub-headline" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;">
+                                                WARRANTY INCLUDED
+                                            </h3>
+                                            <div class="buttons-root-nkA buttons-inline-zrH links"
+                                                style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; justify-content: flex-start;">
+                                                <div>
+                                                    <button priority="low" type="button" class="btn btn-primary" style="text-align: center; justify-content: center;">
+                                                        Find out more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column-root-k2m pagebuilder-column" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; width: 33.3333%;">
+                                            <h2 class="headline" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;">
+                                                EXPERT GUIDANCE
+                                            </h2>
+                                            <h3 class="sub-headline" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;">
+                                                FAST &amp; EASY RETURNS
+                                            </h3>
+                                            <div class="buttons-root-nkA buttons-inline-zrH links" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; justify-content: flex-start;">
+                                                <div>
+                                                    <button priority="low" type="button" class="btn btn-primary" style="text-align: center; justify-content: center;"> 
+                                                        Find out more
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="global-overlay overlay-hide "></div>
             </main>
+            <div class="cross-sell-wrapper">
+                <div class="container-width">
+                    <h2>Shop by Category</h2>
+                    <div>
+                        <div>
+                            <div class="click-handler">
+                                <div class="row-contained-EzA entire-catalog-wrapper homepage-general-h2-style">
+                                    <div style="display: flex; justify-content: flex-start; flex-direction: column;">
+                                        <div class="">
+                                            <style>
+                                                .home-page .new-design .cross-sell-wrapper {
+                                                display: none;
+                                                }
+                                            </style>
+                                            <div class="entire-catalog-row">
+                                                <div class="entire-catalog-item">
+                                                    <a href="/watches-for-men.html" aria-label="Men's Watches">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt=""src="./img/catalog/home_mens_watches.png" title="Men's Watches">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/watches-for-men.html" aria-label="Men's Watches" class="entire-catalog-btn">Men’s Watches</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/watches-for-women.html" aria-label="Women’s watches">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="" src="./img/catalog/home_womens_watches.png" title="Women’s watches">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/watches-for-women.html" aria-label="Women’s watches" class="entire-catalog-btn">Women’s watches</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/sunglasses.html" aria-label="SUNGLASSES">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="" src="./img/catalog/home_sunglasses.png" title="SUNGLASSES">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/sunglasses.html" aria-label="SUNGLASSES" class="entire-catalog-btn">SUNGLASSES</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/fragrances.html" aria-label="Fragrances">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Fragrances" src="./img/catalog/home_fragrances.png" title="Fragrances">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/fragrances.html" aria-label="Fragrances" class="entire-catalog-btn">Fragrances</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/handbags-accessories.html" aria-label="Bags">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Bags" src="./img/catalog/home_bags.png" title="Bags">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/handbags-accessories.html" aria-label="Bags" class="entire-catalog-btn">Bags</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/shoes.html" aria-label="Shoes">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Shoes" src="./img/catalog/home_shoes.png" title="Shoes">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/shoes.html" aria-label="Shoes" class="entire-catalog-btn">Shoes</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/ladies-mens-apparel.html" aria-label="Apparel">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Apparel" src="./img/catalog/home_apparel.png" title="Apparel">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/ladies-mens-apparel.html" aria-label="Apparel" class="entire-catalog-btn">Apparel</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/fashion-and-apparel.html?apparel_type=Scarves%7CBelts%7CShoe+Accessories"
+                                                        aria-label="Accessories">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Accessories" src="./img/catalog/home_accessories.png" title="Accessories">
+                                                        </div>
+                                                    </a>
+                                                    <a href="" aria-label="Accessories" class="entire-catalog-btn">Accessories</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/jewelry.html" aria-label="Jewelry">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Jewelry" src="./img/catalog/home_jewelry.png" title="Jewelry">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/jewelry.html" aria-label="Jewelry" class="entire-catalog-btn">Jewelry</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/luxury-pens.html" aria-label="Luxury pens">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Luxury pens" src="./img/catalog/home_pens.png" title="Luxury pens">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/luxury-pens.html" aria-label="Luxury pens" class="entire-catalog-btn">Luxury pens</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/preowned.html" aria-label="Preowned">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Preowned" src="./img/catalog/home_preowned.png" title="Preowned">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/preowned.html" aria-label="Preowned" class="entire-catalog-btn">Preowned</a>
+                                                </div>
+                                                <div class="entire-catalog-item">
+                                                    <a href="/flash-sale-offers.html" aria-label="Sales">
+                                                        <div class="entire-catalog-image">
+                                                            <img loading="lazy" alt="Sales" src="./img/catalog/home_sale.png" title="Sales">
+                                                        </div>
+                                                    </a>
+                                                    <a href="/flash-sale-offers.html" aria-label="Sales" class="entire-catalog-btn">Sales</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="./dist/js/config.js"></script>

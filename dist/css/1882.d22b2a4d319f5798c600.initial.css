@@ -2120,7 +2120,7 @@ select.input-select {
 }
 
 .trending-wrapper {
-    min-height: 1150px
+    min-height: 0px
 }
 
 .lto-wrapper {
@@ -2394,7 +2394,7 @@ select.input-select {
     }
 
     .trending-wrapper {
-        min-height: 888px
+        min-height: 0px
     }
 
     .lto-wrapper {
