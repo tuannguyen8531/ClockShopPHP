@@ -13,11 +13,20 @@
     $numRows = $result->num_rows;
 
     $ramdomDisplay = array();
-    for($i=0; $i<4; $i++) {
+    $index = 0;
+    while($index < 4) {
         $randomNum = rand(1, $numRows);
-        $ramdomDisplay[$i] = $randomNum;
+        $has = false;
+        foreach($ramdomDisplay as $x) {
+            if($x==$randomNum) $has = true;
+        }
+        if(!$has) {
+            $ramdomDisplay[$index] = $randomNum;
+            $index++;
+        } 
     }
 
+    // Featured Daily Deals
     $sqlFeaturedDailyDeals = 'SELECT * FROM watches
         JOIN brands ON watches.brand = brands.brandId
         JOIN styles ON watches.style = styles.styleId
@@ -28,7 +37,6 @@
         JOIN caseshapes ON watches.caseShape = caseshapes.caseId
         WHERE watches.id LIKE ?';
     
-    // Featured Daily Deals
     $stmt = $conn->prepare($sqlFeaturedDailyDeals);
     $stmt->bind_param('i', $ramdomDisplay[0]);
     $stmt->execute();
