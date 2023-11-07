@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jomashop.com: Online Shopping for Watches &amp; More - Jomashop</title>
     <link rel="stylesheet" href="./dist/css/1882.d22b2a4d319f5798c600.initial.css">
-    <link rel="stylesheet" href="./dist/css/1312.31d6cfe0d16ae931b73c.bundle.css">
     <link rel="stylesheet" href="./dist/css/1634.1a661808a4dbdbef312c.initial.css">
-    <link rel="stylesheet" href="./dist/css/2557.53c4e93c6ec21bc19e7c.bundle.css">
-    <link rel="stylesheet" href="./dist/css/256.9a4d8502ef8eea2ebf3f.bundle.css">
     <link rel="stylesheet" href="./dist/css/3482.0051ec8bf96fa0b92067.bundle.css">
-    <link rel="stylesheet" href="./dist/css/5531.2501ef6314da696e9b86.bundle.css">
-    <link rel="stylesheet" href="./dist/css/5606.6b4ee6bd0876f7792e52.bundle.css">
     <link rel="stylesheet" href="./dist/css/591.af82319651e53c8c3f1a.bundle.css">
-    <link rel="stylesheet" href="./dist/css/629.ac02469f0d06a538712a.bundle.css">
-    <link rel="stylesheet" href="./dist/css/8825.51df8c031c82efbe88b4.bundle.css">
+
+    <link rel="stylesheet" href="./dist/css/1312.31d6cfe0d16ae931b73c.bundle.css">
+    <link rel="stylesheet" href="./dist/css/5531.2501ef6314da696e9b86.bundle.css">
+    <link rel="stylesheet" href="./dist/css/2557.53c4e93c6ec21bc19e7c.bundle.css">
     <link rel="stylesheet" href="./dist/css/9695.0508d067424b8b31465c.bundle.css">
+    <link rel="stylesheet" href="./dist/css/629.ac02469f0d06a538712a.bundle.css">
+
+    <link rel="stylesheet" href="./dist/css/256.9a4d8502ef8eea2ebf3f.bundle.css">
+    <link rel="stylesheet" href="./dist/css/5606.6b4ee6bd0876f7792e52.bundle.css">
+    <link rel="stylesheet" href="./dist/css/8825.51df8c031c82efbe88b4.bundle.css">
+
 </head>
 <body>
     <div id="root" data-react-rendered="true" class="home-page">
@@ -836,35 +839,7 @@
                                 <div class="row-contained-EzA trending-tabs-wrapper">
                                     <div >
                                         <div class="">
-                                            <style>
-            
-                                                .trending-tabs {
-                                                    display: none;
-                                                }
-
-                                                .btn-new-design.tag {
-                                                    font-size: 16px;
-                                                    font-family: 'Inter';
-                                                    font-weight: 600;
-                                                    line-height: 130%;
-                                                    padding: 10px 13px 11px;
-                                                    border-radius: 5px;
-                                                    border: 1px solid rgba(0, 0, 0, 0.15);
-                                                    color: #000;
-                                                }
-
-                                                .btn-new-design.tag.active {
-                                                    border: 1px solid #000;
-                                                    background-color: transparent;
-                                                    color: #000;
-                                                }
-
-                                                .btn-new-design.tag:hover {
-                                                    border: 1px solid #000;
-                                                    background-color: transparent;
-                                                    color: #000;
-                                                }
-                                            </style>
+                                            
                                             <div class="trending-tabs" id="trending-tabs">
                                                 <span class="btn-new-design tag tab-item active" data-trending-id="1">
                                                     Watches
@@ -901,7 +876,15 @@
                                                 <div class="trending-now-wrapper">
                                                     <div class="algolia-trending product-card">
                                                         <div class="trending-slider-wrapper trending-slider-algolia-id-1">
-                                                            <div class="swiper">
+                                                            <div class="swiper" >
+                                                            <style>
+                                                
+                                                                @media (max-width: 767px) {
+                                                                    .swiper {
+                                                                    display: none;
+                                                                    }
+                                                                }
+                                                            </style>
                                                                 <div class="slider-container" style="position: relative;">
                                                                     <div aria-live="polite" aria-atomic="true" tabindex="-1" style="position: absolute; width: 1px; height: 1px; overflow: hidden; padding: 0px; margin: -1px; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;">
                                                                         Slide 1 of 20
@@ -1046,12 +1029,325 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="trending-now-mobile">
+                                                                <style>
+                                                                    @media (min-width: 767px) {
+                                                                        .trending-now-mobile {
+                                                                        display: none;
+                                                                        }
+                                                                }
+                                                                </style>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/tissot-watch-t0064083605700.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-le-locle-automatic-cosc-black-pvd-men_s-watch-t0064083605700.jpg"
+                                                                                alt="Tissot Le Locle Automatic COSC Black PVD Men's Watch T006.408.36.057.00" width="250"
+                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/tissot-watch-t0064083605700.html"><span class="brand-name">Tissot </span><span
+                                                                                title="Le Locle Automatic COSC Black PVD Men's Watch T006.408.36.057.00">Le Locle Automatic COSC
+                                                                                Black PVD Men's Watch T006.408.36.057.00</span></a>
+                                                                        <div class="price-wrapper trending" wz_dt_ref="true">
+                                                                            <div class="now-price"><span>$349.00</span><span class="discount-value show-red">74% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/tissot-le-locle-automatic-black-dial-mens-watch-t006-428-36-052-00.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-le-locle-automatic-black-dial-mens-watch-t0064283605200-t0064283605200.jpg"
+                                                                                alt="Tissot Le Locle Automatic Black Dial Men's Watch T006.428.36.052.00" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/tissot-le-locle-automatic-black-dial-mens-watch-t006-428-36-052-00.html"><span
+                                                                                class="brand-name">Tissot </span><span
+                                                                                title="Le Locle Automatic Black Dial Men's Watch T006.428.36.052.00">Le Locle Automatic Black Dial
+                                                                                Men's Watch T006.428.36.052.00</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$284.00</span><span class="discount-value show-red">59% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg"
+                                                                                alt="Seiko Chronograph Quartz Champagne Dial Men's Watch SSB383" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span class="brand-name">Seiko
+                                                                            </span><span title="Chronograph Quartz Champagne Dial Men's Watch SSB383">Chronograph Quartz Champagne
+                                                                                Dial Men's Watch SSB383</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$120.00</span><span class="discount-value show-red">63% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/tissot-heritage-automatic-champagne-dial-mens-watch-t1184301602100.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-heritage-automatic-champagne-dial-mens-watch-t1184301602100.jpg"
+                                                                                alt="Tissot Heritage Automatic Champagne Dial Men's Watch T1184301602100" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/tissot-heritage-automatic-champagne-dial-mens-watch-t1184301602100.html"><span
+                                                                                class="brand-name">Tissot </span><span
+                                                                                title="Heritage Automatic Champagne Dial Men's Watch T1184301602100">Heritage Automatic Champagne
+                                                                                Dial Men's Watch T1184301602100</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$309.00</span><span class="discount-value show-red">56% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/ice-watch-quartz-crystal-black-dial-unisex-watch-020383.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/i/c/icewatch-quartz-crystal-black-dial-unisex-watch-020383.jpg"
+                                                                                alt="Ice-Watch Quartz Crystal Black Dial Unisex Watch 020383" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/ice-watch-quartz-crystal-black-dial-unisex-watch-020383.html"><span class="brand-name">Ice-Watch
+                                                                            </span><span title="Quartz Crystal Black Dial Unisex Watch 020383">Quartz Crystal Black Dial Unisex
+                                                                                Watch 020383</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$59.99</span><span class="discount-value show-red">67% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/tissot-watch-t0064081105700.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-le-locle-chronometre-black-dial-stainless-steel-men_s-watch-t0064081105700.jpg"
+                                                                                alt="Tissot Le Locle Chronometre Automatic Black Dial Men's Watch T006.408.11.057.00" width="250"
+                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/tissot-watch-t0064081105700.html"><span class="brand-name">Tissot </span><span
+                                                                                title="Le Locle Chronometre Automatic Black Dial Men's Watch T006.408.11.057.00">Le Locle
+                                                                                Chronometre Automatic Black Dial Men's Watch T006.408.11.057.00</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$369.00</span><span class="discount-value show-red">72% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/tissot-tissot-prx-automatic-green-dial-mens-watch-t1374071109100.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-prx-powermatic-80-automatic-green-dial-mens-watch-t1374071109100-t1374071109100.jpg"
+                                                                                alt="Tissot PRX Powermatic 80 Automatic Green Dial Men's Watch T137.407.11.091.00" width="250"
+                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/tissot-tissot-prx-automatic-green-dial-mens-watch-t1374071109100.html"><span
+                                                                                class="brand-name">Tissot </span><span
+                                                                                title="PRX Powermatic 80 Automatic Green Dial Men's Watch T137.407.11.091.00">PRX Powermatic 80
+                                                                                Automatic Green Dial Men's Watch T137.407.11.091.00</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$569.00</span><span class="discount-value show-red">22% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/certina-watch-c001-407-11-087-00.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/c/e/certina-ds-podium-automatic-grey-dial-stainless-steel-men_s-watch-c001.407.11.087.00.jpg"
+                                                                                alt="Certina DS Podium Automatic Grey Dial Men's Watch C001.407.11.087.00" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/certina-watch-c001-407-11-087-00.html"><span class="brand-name">Certina </span><span
+                                                                                title="DS Podium Automatic Grey Dial Men's Watch C001.407.11.087.00">DS Podium Automatic Grey Dial
+                                                                                Men's Watch C001.407.11.087.00</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$248.00</span><span class="discount-value show-red">66% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/tissot-seastar-1000-watch-t1204071704100.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-seastar-1000-automatic-blue-dial-mens-watch-t1204071704100.jpg"
+                                                                                alt="Tissot Seastar 1000 Automatic Blue Dial Men's Watch T1204071704100" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/tissot-seastar-1000-watch-t1204071704100.html"><span class="brand-name">Tissot </span><span
+                                                                                title="Seastar 1000 Automatic Blue Dial Men's Watch T1204071704100">Seastar 1000 Automatic Blue Dial
+                                                                                Men's Watch T1204071704100</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$489.00</span><span class="discount-value show-red">35% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/seiko-chronograph-green-dial-mens-watch-ssb385.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-green-dial-mens-watch-ssb385.jpg"
+                                                                                alt="Seiko Chronograph Quartz Green Dial Men's Watch SSB385" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/seiko-chronograph-green-dial-mens-watch-ssb385.html"><span class="brand-name">Seiko </span><span
+                                                                                title="Chronograph Quartz Green Dial Men's Watch SSB385">Chronograph Quartz Green Dial Men's Watch
+                                                                                SSB385</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$120.00</span><span class="discount-value show-red">63% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/seiko-chronograph-blue-dial-mens-watch-ssb377.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-blue-dial-mens-watch-ssb377.jpg"
+                                                                                alt="Seiko Chronograph Quartz Blue Dial Men's Watch SSB377" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/seiko-chronograph-blue-dial-mens-watch-ssb377.html"><span class="brand-name">Seiko </span><span
+                                                                                title="Chronograph Quartz Blue Dial Men's Watch SSB377">Chronograph Quartz Blue Dial Men's Watch
+                                                                                SSB377</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$119.00</span><span class="discount-value show-red">63% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001001.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/o/m/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001001-31030425001001_1.jpg"
+                                                                                alt="Omega Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.001" width="250"
+                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001001.html"><span
+                                                                                class="brand-name">Omega </span><span
+                                                                                title="Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.001">Speedmaster
+                                                                                Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.001</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$5,400.00</span><span class="discount-value show-red">23% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/sevenfriday-q-series-automatic-mens-leather-watch.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/sevenfriday-qseries-automatic-mens-leather-watch-q103.jpg"
+                                                                                alt="Sevenfriday Q-Series Automatic Men's Leather Watch" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/sevenfriday-q-series-automatic-mens-leather-watch.html"><span class="brand-name">Sevenfriday
+                                                                            </span><span title="Q-Series Automatic Men's Leather Watch">Q-Series Automatic Men's Leather
+                                                                                Watch</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="was-price-wrapper">
+                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$845.00</span></div><span
+                                                                                    class="discount-value ">67% Off</span>
+                                                                            </div>
+                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$485.00</span></div>
+                                                                            <div class="after-price">after $360 coupon</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/citizen-automatic-blue-dial-mens-watch-nj0151-88x.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/c/i/citizen-automatic-blue-dial-mens-watch-nj015188x.jpg"
+                                                                                alt="Citizen Automatic Blue Dial Men's Watch NJ0151-88X" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/citizen-automatic-blue-dial-mens-watch-nj0151-88x.html"><span class="brand-name">Citizen
+                                                                            </span><span title="Automatic Blue Dial Men's Watch NJ0151-88X">Automatic Blue Dial Men's Watch
+                                                                                NJ0151-88X</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$249.00</span><span class="discount-value show-red">58% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/seiko-chronograph-gmt-quartz-white-dial-mens-watch-ssb425p1.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-gmt-quartz-white-dial-mens-watch-ssb425p1_1.jpg"
+                                                                                alt="Seiko Chronograph Quartz White Dial Men's Watch SSB425P1" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/seiko-chronograph-gmt-quartz-white-dial-mens-watch-ssb425p1.html"><span class="brand-name">Seiko
+                                                                            </span><span title="Chronograph Quartz White Dial Men's Watch SSB425P1">Chronograph Quartz White Dial
+                                                                                Men's Watch SSB425P1</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$137.42</span><span class="discount-value show-red">72% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/technomarine-sea-automatic-blue-dial-mens-watch-tm-219050.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/e/technomarine-sea-automatic-blue-dial-mens-watch-tm219050.jpg"
+                                                                                alt="Technomarine Sea Automatic Blue Dial Men's Watch TM-219050" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/technomarine-sea-automatic-blue-dial-mens-watch-tm-219050.html"><span
+                                                                                class="brand-name">Technomarine </span><span
+                                                                                title="Sea Automatic Blue Dial Men's Watch TM-219050">Sea Automatic Blue Dial Men's Watch
+                                                                                TM-219050</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$74.99</span><span class="discount-value show-red">83% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/tissot-gent-xl-automatic-black-dial-mens-watch-t116-407-36-051-01.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/placeholder/default/placeholder_1.png"
+                                                                                alt="Tissot Gent XL Automatic Black Dial Men's Watch T116.407.36.051.01" width="250" height="250"
+                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/tissot-gent-xl-automatic-black-dial-mens-watch-t116-407-36-051-01.html"><span
+                                                                                class="brand-name">Tissot </span><span
+                                                                                title="Gent XL Automatic Black Dial Men's Watch T116.407.36.051.01">Gent XL Automatic Black Dial
+                                                                                Men's Watch T116.407.36.051.01</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$209.00</span><span class="discount-value show-red">58% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-310-30-42-50-01-002.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/o/m/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001002-31030425001002.jpg"
+                                                                                alt="Omega Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.002" width="250"
+                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-310-30-42-50-01-002.html"><span
+                                                                                class="brand-name">Omega </span><span
+                                                                                title="Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.002">Speedmaster
+                                                                                Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.002</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$6,650.00</span><span class="discount-value show-red">17% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/mathey-tissot-watch-d810bi.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/m/a/matheytissot-mathey-iii-quartz-crystal-silver-dial-ladies-watch-d810bi.jpg"
+                                                                                alt="Mathey-Tissot Mathey III Quartz Crystal Silver Dial Ladies Watch D810BI" width="250"
+                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/mathey-tissot-watch-d810bi.html"><span class="brand-name">Mathey-Tissot </span><span
+                                                                                title="Mathey III Quartz Crystal Silver Dial Ladies Watch D810BI">Mathey III Quartz Crystal Silver
+                                                                                Dial Ladies Watch D810BI</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="now-price"><span>$89.99</span><span class="discount-value show-red">64% Off</span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="trending-now-item">
+                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
+                                                                            href="/corum-watch-503-101-20-0f01-ak10.html"><img
+                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/c/o/corum-admirals-cup-annual-calendar-automatic-mens-watch-503101200f01ak10.jpg"
+                                                                                alt="Corum Admirals Cup Annual Calendar Automatic Men's Watch 503101200F01AK10" width="250"
+                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
+                                                                            href="/corum-watch-503-101-20-0f01-ak10.html"><span class="brand-name">Corum </span><span
+                                                                                title="Admirals Cup Annual Calendar Automatic Men's Watch 503101200F01AK10">Admirals Cup Annual
+                                                                                Calendar Automatic Men's Watch 503101200F01AK10</span></a>
+                                                                        <div class="price-wrapper trending">
+                                                                            <div class="was-price-wrapper">
+                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$2,850.00</span></div><span
+                                                                                    class="discount-value ">81% Off</span>
+                                                                            </div>
+                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$2,350.00</span></div>
+                                                                            <div class="after-price">after $500 coupon</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                        
+                                                            
+                          
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
+
+                                                
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -1248,286 +1544,6 @@
                             <div class="row-contained-EzA trust-since-block">
                                 <div style="display: flex; justify-content: flex-start; flex-direction: column;">
                                     <div class="">
-                                        <style>
-                                            .tw-2023-trust-since-1999 * {
-                                                font-family: "Inter";
-                                            }
-
-
-                                            .tw-2023-trust-since-1999 {
-                                                max-width: 100%;
-                                                border-top: 1px solid rgba(0, 0, 0, 0.1);
-                                            }
-
-                                            .trust-since-content {
-                                                padding: 50px 16px;
-                                                flex-direction: column;
-                                                gap: 8px;
-                                                display: flex;
-                                            }
-
-                                            .trust-since-content .trust-item {
-                                                display: flex;
-                                                gap: 23px;
-                                                align-items: center;
-                                                cursor: pointer;
-                                            }
-
-                                            .trust-since-content .trust-item img {
-                                                width: 60px;
-                                                height: 60px;
-                                                flex-shrink: 0;
-                                                object-fit: cover;
-                                            }
-
-                                            .trust-since-content .trust-item p {
-                                                font-size: 16px;
-                                                line-height: 21px;
-                                                color: #000000;
-                                                margin: 0;
-                                                text-align: left;
-                                            }
-
-                                            @media screen and (min-width: 768px) {
-                                                .trust-since-content {
-                                                padding: 50px 10px;
-                                                gap: 16px;
-                                                display: grid;
-                                                grid-template-columns: repeat(4, 1fr);
-                                                }
-
-                                                .trust-since-content .trust-item {
-                                                gap: 0;
-                                                }
-
-                                                .trust-since-content .trust-item p {
-                                                margin-left: 20px;
-                                                }
-
-                                                .trust-since-content .trust-item img {
-                                                width: 90px;
-                                                height: 90px;
-                                                }
-                                            }
-
-                                            @media screen and (min-width: 1024px) {
-                                                .trust-since-content {
-                                                padding: 50px 10px;
-                                                }
-                                            }
-
-                                            /* The Modal (background) */
-                                            .modal-trust {
-                                                display: none;
-                                                /* Hidden by default */
-                                                position: fixed;
-                                                /* Stay in place */
-                                                z-index: 1;
-                                                /* Sit on top */
-                                                padding-top: 20px;
-                                                padding-bottom: 20px;
-                                                left: 0;
-                                                top: 0;
-                                                width: 100%;
-                                                /* Full width */
-                                                height: 100%;
-                                                /* Full height */
-                                                overflow: auto;
-                                                /* Enable scroll if needed */
-                                                background-color: rgb(0, 0, 0);
-                                                /* Fallback color */
-                                                background-color: rgba(0, 0, 0, 0.4);
-                                                /* Black w/ opacity */
-                                                z-index: 9999;
-                                            }
-
-                                            /* Modal Content */
-                                            .modal-trust .modal-content {
-                                                position: relative;
-                                                background-color: #fefefe;
-                                                margin: auto;
-                                                padding: 0;
-                                                border: 1px solid #888;
-                                                width: 80%;
-                                                max-width: 800px;
-                                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
-                                                0 6px 20px 0 rgba(80, 62, 62, 0.1);
-                                                -webkit-animation-name: animatemodal;
-                                                -webkit-animation-duration: 0.4s;
-                                                animation-name: animatemodal;
-                                                animation-duration: 0.4s;
-                                                padding: 70px;
-                                                border-radius: 10px;
-
-                                            }
-
-                                            .modal-trust .trust-close {
-                                                position: absolute;
-                                                top: 30px;
-                                                right: 30px;
-                                                z-index: 1;
-                                                cursor: pointer;
-                                            }
-
-                                            .modal-trust .modal-header {
-                                                padding: 0;
-                                            }
-
-                                            .modal-trust .title {
-                                                font-size: 32px;
-                                                font-family: "Inter";
-                                                font-weight: 600;
-                                                line-height: 120%;
-                                                color: #000;
-                                                margin-top: 0;
-                                                margin-bottom: 30px;
-                                                text-align: left;
-                                            }
-
-                                            .modal-trust .tabs {
-                                                display: flex;
-                                                align-items: center;
-                                                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-                                                padding-bottom: 12px;
-                                                clear: both;
-                                            }
-
-                                            .modal-trust .tabs-wrapper {
-                                                overflow-y: hidden;
-                                                overflow-x: auto;
-                                                clear: both;
-                                            }
-
-                                            .modal-trust .tabs-wrapper::-webkit-scrollbar {
-                                                width: 0;
-                                                height: 0;
-                                            }
-
-                                            .modal-trust .tabs-wrapper::-webkit-scrollbar-track {
-                                                background: transparent;
-                                            }
-
-                                            .modal-trust .tabs-wrapper::-webkit-scrollbar-thumb {
-                                                background: transparent;
-                                            }
-
-                                            .modal-trust .tabs .tablinks {
-                                                position: relative;
-                                                font-size: 16px;
-                                                font-family: "Inter";
-                                                font-weight: 600;
-                                                line-height: 130%;
-                                                margin-right: 25px;
-                                                color: rgba(0, 0, 0, 0.5);
-                                                background: transparent;
-                                                border: none;
-                                                padding: 0;
-                                                cursor: pointer;
-                                                min-width: auto;
-                                                white-space: nowrap;
-                                            }
-
-                                            .modal-trust .tabs .tablinks::after {
-                                                content: "";
-                                                position: absolute;
-                                                width: 100%;
-                                                height: 3px;
-                                                background-color: #000;
-                                                bottom: -13px;
-                                                left: 0;
-                                                display: none;
-                                            }
-
-                                            .modal-trust .tabs .tablinks.active {
-                                                color: #000;
-                                            }
-
-                                            .modal-trust .tabs .tablinks.active::after {
-                                                display: block;
-                                            }
-
-                                            .modal-trust .tabcontent {
-                                                display: none;
-                                                padding: 20px 0 0;
-                                                text-align: left;
-                                            }
-
-                                            .modal-trust .tabcontent.active {
-                                                display: block;
-                                            }
-
-                                            .modal-trust .tabcontent img {
-                                                max-width: 100%;
-                                            }
-
-                                            .modal-trust .tabcontent p {
-                                                font-size: 16px;
-                                                font-family: "Inter";
-                                                line-height: 130%;
-                                                color: #000;
-                                                margin-bottom: 0;
-                                            }
-
-                                            .modal-trust .tabcontent iframe {
-                                                width: 100%;
-                                                height: 380px;
-                                                margin-bottom: 10px;
-                                                margin-top: 10px;
-                                            }
-
-                                            /* Add Animation */
-                                            @-webkit-keyframes animatemodal {
-                                                from {
-                                                opacity: 0;
-                                                }
-
-                                                to {
-                                                top: 0;
-                                                opacity: 1;
-                                                }
-                                            }
-
-                                            /* Mobile view */
-                                            @media (max-width: 767px) {
-                                                .modal-trust {
-                                                padding-top: 0;
-                                                padding-bottom: 0;
-                                                }
-
-                                                .modal-trust .modal-content {
-                                                padding: 50px 16px;
-                                                width: 100%;
-                                                height: 100%;
-                                                border-radius: 0px;
-                                                overflow: visible;
-                                                border: 1px solid transparent;
-                                                }
-
-                                                .modal-trust .tabcontent iframe {
-                                                width: 100%;
-                                                height: 200px;
-                                                max-width: 100%;
-                                                }
-
-                                                .modal-trust .trust-close {
-                                                top: 16px;
-                                                right: 16px;
-                                                }
-
-                                                .modal-trust .title {
-                                                font-size: 26px;
-                                                margin-bottom: 25px;
-                                                }
-
-                                                .modal-trust .tabs .tablinks {
-                                                font-size: 14px;
-                                                }
-
-                                                .modal-trust .tabcontent p {
-                                                font-size: 14px;
-                                                }
-                                            }
-                                        </style>
                                         <div>
                                             <div>
                                                 <div class="trust-since-content">
