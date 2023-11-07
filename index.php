@@ -1,5 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    include 'config.php';
+
+    session_start();
+    $_SESSION['username'] = 'none';
+
+    $sql = 'SELECT * FROM watches';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $numRows = $result->num_rows;
+
+    $ramdomDisplay = array();
+    for($i=0; $i<4; $i++) {
+        $randomNum = rand(1, $numRows);
+        $ramdomDisplay[$i] = $randomNum;
+    }
+
+    $sqlFeaturedDailyDeals = 'SELECT * FROM watches
+        JOIN brands ON watches.brand = brands.brandId
+        JOIN styles ON watches.style = styles.styleId
+        JOIN movements ON watches.movement = movements.moveId
+        JOIN categories ON watches.category = categories.cateId
+        JOIN features ON watches.features = features.feaId
+        JOIN types ON watches.type = types.typeId
+        JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+        WHERE watches.id LIKE ?';
+    
+    // Featured Daily Deals
+    $stmt = $conn->prepare($sqlFeaturedDailyDeals);
+    $stmt->bind_param('i', $ramdomDisplay[0]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $featuredDeals0 = $result->fetch_assoc();
+
+    $stmt = $conn->prepare($sqlFeaturedDailyDeals);
+    $stmt->bind_param('i', $ramdomDisplay[1]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $featuredDeals1 = $result->fetch_assoc();
+
+    $stmt = $conn->prepare($sqlFeaturedDailyDeals);
+    $stmt->bind_param('i', $ramdomDisplay[2]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $featuredDeals2 = $result->fetch_assoc();
+
+    $stmt = $conn->prepare($sqlFeaturedDailyDeals);
+    $stmt->bind_param('i', $ramdomDisplay[3]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $featuredDeals3 = $result->fetch_assoc();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -694,27 +747,38 @@
                                                 <ul>
                                                     <li data-content-type="product-daily-deails">
                                                         <a href="">
-                                                            <img width="300" height="300" loading="lazy" src="./img/watches/Rolex1_1.jpg" alt="Rolex">
+                                                            <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals0['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
-                                                                <b>Rolex</b>
-                                                                Explorer Automatic Black Dial Men's Watch
+                                                                <b><?php echo $featuredDeals0['brandName'] ?></b>
+                                                                <?php echo $featuredDeals0['name'] ?>
                                                             </span>
                                                             <div class="price-wrapper">
                                                                 <div class="was-price-wrapper">
                                                                     <span class="was-wrapper">
                                                                         Was:
-                                                                        <span class="convert-currency">$5,495.00</span>
+                                                                        <span class="convert-currency">
+                                                                            $<?php
+                                                                                $was1 = $featuredDeals0['price'] / ($featuredDeals0['sale'] / 100);
+                                                                                $was1 = number_format($was1, 2, '.', '');
+                                                                                echo $was1;
+                                                                            ?>
+                                                                        </span>
                                                                     </span>
                                                                     <span class="discount-value ">
-                                                                        80% Off </span>
+                                                                        <?php echo $featuredDeals0['sale'] ?>% Off </span>
                                                                 </div>
                                                                 <div class="now-price">
                                                                     Now:
-                                                                    <span class="convert-currency">$$5,095.00</span>
+                                                                    <span class="convert-currency">$<?php echo $featuredDeals0['price'] ?></span>
                                                                 </div>
                                                                 <div class="after-price">
                                                                     after
-                                                                    <span class="convert-currency">$400.00</span>
+                                                                    <span class="convert-currency">
+                                                                        $<?php
+                                                                            $coupon1 = $was1 - $featuredDeals0['price'];
+                                                                            echo $coupon1;
+                                                                        ?>
+                                                                    </span>
                                                                     coupon
                                                                 </div>
                                                             </div>
@@ -722,27 +786,38 @@
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
                                                         <a href="">
-                                                            <img width="300" height="300" loading="lazy" src="./img/watches/Omega7_1.jpg" alt="Seamaster Railmaster Automatic Chronometer Blue Dial Men's Watch">
+                                                            <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals1['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
-                                                                <b>Omega</b>
-                                                                Seamaster Railmaster Automatic Chronometer Blue Dial Men's Watch
+                                                                <b><?php echo $featuredDeals1['brandName'] ?></b>
+                                                                <?php echo $featuredDeals1['name'] ?>
                                                             </span>
                                                             <div class="price-wrapper">
                                                                 <div class="was-price-wrapper">
                                                                     <span class="was-wrapper">
                                                                         Was:
-                                                                        <span class="convert-currency">$5,046.99</span>
+                                                                        <span class="convert-currency">
+                                                                            $<?php
+                                                                                $was2 = $featuredDeals1['price'] / ($featuredDeals1['sale'] / 100);
+                                                                                $was2 = number_format($was2, 2, '.', '');
+                                                                                echo $was2;
+                                                                            ?>
+                                                                        </span>
                                                                     </span>
                                                                     <span class="discount-value ">
-                                                                        60% Off </span>
+                                                                        <?php echo $featuredDeals1['sale'] ?>% Off </span>
                                                                 </div>
                                                                 <div class="now-price">
                                                                     Now:
-                                                                    <span class="convert-currency">$3,290.00</span>
+                                                                    <span class="convert-currency">$<?php echo $featuredDeals1['price'] ?></span>
                                                                 </div>
                                                                 <div class="after-price">
                                                                     after
-                                                                    <span class="convert-currency">$1190.00</span>
+                                                                    <span class="convert-currency">
+                                                                        $<?php
+                                                                            $coupon2 = $was2 - $featuredDeals1['price'];
+                                                                            echo $coupon2;
+                                                                        ?>
+                                                                    </span>
                                                                     coupon
                                                                 </div>
                                                             </div>
@@ -750,26 +825,38 @@
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
                                                         <a href="">
-                                                            <img width="300" height="300" loading="lazy" src="./img/watches/citizen8.jpg" alt="Eco Drive Blue Angels Chronograph Men's Watch">
+                                                            <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals2['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
-                                                                <b>Citizen</b>
-                                                                Eco Drive Blue Angels Chronograph Men's Watch</span>
+                                                                <b><?php echo $featuredDeals2['brandName'] ?></b>
+                                                                <?php echo $featuredDeals2['name'] ?>
+                                                            </span>
                                                             <div class="price-wrapper">
                                                                 <div class="was-price-wrapper">
                                                                     <span class="was-wrapper">
                                                                         Was:
-                                                                        <span class="convert-currency">$605.99</span>
+                                                                        <span class="convert-currency">
+                                                                            $<?php
+                                                                                $was3 = $featuredDeals2['price'] / ($featuredDeals0['sale'] / 100);
+                                                                                $was3 = number_format($was3, 2, '.', '');
+                                                                                echo $was3;
+                                                                            ?>
+                                                                        </span>
                                                                     </span>
                                                                     <span class="discount-value ">
-                                                                        60% Off </span>
+                                                                        <?php echo $featuredDeals2['sale'] ?>% Off </span>
                                                                 </div>
                                                                 <div class="now-price">
                                                                     Now:
-                                                                    <span class="convert-currency">$329.00</span>
+                                                                    <span class="convert-currency">$<?php echo $featuredDeals2['price'] ?></span>
                                                                 </div>
                                                                 <div class="after-price">
                                                                     after
-                                                                    <span class="convert-currency">280.00</span>
+                                                                    <span class="convert-currency">
+                                                                        $<?php
+                                                                            $coupon3 = $was3 - $featuredDeals2['price'];
+                                                                            echo $coupon3;
+                                                                        ?>
+                                                                    </span>
                                                                     coupon
                                                                 </div>
                                                             </div>
@@ -777,26 +864,38 @@
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
                                                         <a href="">
-                                                            <img width="300" height="300" loading="lazy" src="./img/watches/Tissot1_1.jpg" alt="Couturier Automatic Black Dial Men's Watch">
+                                                            <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals3['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
-                                                                <b>Tissot</b>
-                                                                Couturier Automatic Black Dial Men's Watch</span>
+                                                                <b><?php echo $featuredDeals3['brandName'] ?></b>
+                                                                <?php echo $featuredDeals3['name'] ?>
+                                                            </span>
                                                             <div class="price-wrapper">
                                                                 <div class="was-price-wrapper">
                                                                     <span class="was-wrapper">
                                                                         Was:
-                                                                        <span class="convert-currency">$584.99</span>
+                                                                        $<span class="convert-currency">
+                                                                            <?php
+                                                                                $was4 = $featuredDeals3['price'] / ($featuredDeals3['sale'] / 100);
+                                                                                $was4 = number_format($was4, 2, '.', '');
+                                                                                echo $was4;
+                                                                            ?>
+                                                                        </span>
                                                                     </span>
                                                                     <span class="discount-value ">
-                                                                        70% Off </span>
+                                                                        <?php echo $featuredDeals3['sale'] ?>% Off </span>
                                                                 </div>
                                                                 <div class="now-price">
                                                                     Now:
-                                                                    <span class="convert-currency">$299.00</span>
+                                                                    <span class="convert-currency">$<?php echo $featuredDeals3['price'] ?></span>
                                                                 </div>
                                                                 <div class="after-price">
                                                                     after
-                                                                    <span class="convert-currency">$150.68</span>
+                                                                    <span class="convert-currency">
+                                                                        $<?php
+                                                                            $coupon4 = $was4 - $featuredDeals3['price'];
+                                                                            echo $coupon4;
+                                                                        ?>
+                                                                    </span>
                                                                     coupon
                                                                 </div>
                                                             </div>
