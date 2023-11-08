@@ -60,6 +60,21 @@
     $stmt->execute();
     $result = $stmt->get_result();
     $featuredDeals3 = $result->fetch_assoc();
+
+    // Trending Slider
+    $sqlTrending = 'SELECT * FROM watches 
+        JOIN brands ON watches.brand = brands.brandId
+        JOIN styles ON watches.style = styles.styleId
+        JOIN movements ON watches.movement = movements.moveId
+        JOIN categories ON watches.category = categories.cateId
+        JOIN features ON watches.features = features.feaId
+        JOIN types ON watches.type = types.typeId
+        JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+        ORDER BY watches.view DESC
+        LIMIT 10';
+    $stmt = $conn->prepare($sqlTrending);
+    $stmt->execute(); 
+    $trendingResult = $stmt->get_result();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -83,7 +98,7 @@
 </head>
 <body>
     <div id="root" data-react-rendered="true" class="home-page">
-        <div class="Main search-sticky-bar" data-render-context="lazy">
+        <div class="Main" data-render-context="lazy">
             <header class="page-header">
                 <div class="header-toolbar">
                     <div class="center-content">
@@ -984,14 +999,14 @@
                                                     <div class="algolia-trending product-card">
                                                         <div class="trending-slider-wrapper trending-slider-algolia-id-1">
                                                             <div class="swiper" >
-                                                            <style>
-                                                
-                                                                @media (max-width: 767px) {
-                                                                    .swiper {
-                                                                    display: none;
+                                                                <style>
+                                                    
+                                                                    @media (max-width: 767px) {
+                                                                        .swiper {
+                                                                        display: none;
+                                                                        }
                                                                     }
-                                                                }
-                                                            </style>
+                                                                </style>
                                                                 <div class="slider-container" style="position: relative;">
                                                                     <div aria-live="polite" aria-atomic="true" tabindex="-1" style="position: absolute; width: 1px; height: 1px; overflow: hidden; padding: 0px; margin: -1px; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;">
                                                                         Slide 1 of 20
@@ -1008,130 +1023,27 @@
                                                                     </div>
                                                                     <div class="slider-frame swiper-wrapper" aria-label="carousel-slider" role="region" tabindex="-1" style="overflow: hidden; width: 100%; position: relative; outline: none; height: auto; transition: height 300ms ease-in-out 0s; will-change: height; user-select: none;">
                                                                         <div id="slideshow1" class="slider-list" style="width: 200%;user-select: auto; display: flex; margin: 0 auto;transition: transform 0.3s ease;">
-                                                                            <div class="slide slide-current slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/tissot-watch-t035-407-16-051-03.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-couturier-black-dial-automatic-men_s-watch-t035.407.16.051.03.jpg" alt="Tissot Couturier Automatic Black Dial Men's Watch T035.407.16.051.03" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/tissot-watch-t035-407-16-051-03.html"><span class="brand-name">Tissot </span><span title="Couturier Automatic Black Dial Men's Watch T035.407.16.051.03">Couturier
-                                                                                                Automatic Black Dial Men's Watch T035.407.16.051.03</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="now-price"><span>$299.00</span><span class="discount-value show-red">59% Off</span></div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/ice-watch-ice-steel-gold-blue-medium-ch-chronograph-quartz-blue-dial-unisex-watch-017674.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/i/c/icewatch-chronograph-quartz-blue-dial-goldtone-unisex-watch-017674.jpg" alt="Ice-Watch Chronograph Quartz Blue Dial Men's Watch 017674" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/ice-watch-ice-steel-gold-blue-medium-ch-chronograph-quartz-blue-dial-unisex-watch-017674.html"><span class="brand-name">Ice-Watch </span><span title="Chronograph Quartz Blue Dial Men's Watch 017674">Chronograph
-                                                                                                Quartz Blue Dial Men's Watch 017674</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="was-price-wrapper">
-                                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$88.88</span></div><span class="discount-value ">92% Off</span>
+                                                                            <?php $indexTrending = 1; ?>
+                                                                            <?php while($trendingRow = $trendingResult->fetch_assoc()) { ?>
+                                                                                <div class="slide slide-current <?php if($indexTrending==1 or $indexTrending==6) echo 'slide-visible'; else echo ''?>" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                                                    <div class="swiper-slide">
+                                                                                        <div class="item-root-XLH product-content">
+                                                                                            <a class="item-images-yv2 product-image" href="">
+                                                                                                <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy" draggable="false">
+                                                                                            </a>
+                                                                                            <a class="item-name-LrP product-name" href="">
+                                                                                                <span class="brand-name"> <?= $trendingRow['brandName'] ?> </span>
+                                                                                                <span>
+                                                                                                    <?= $trendingRow['name'] ?>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                            <div class="price-wrapper trending">
+                                                                                                <div class="now-price"><span>$<?= $trendingRow['price'] ?></span><span class="discount-value show-red"><?= $trendingRow['sale'] ?>% Off</span></div>
                                                                                             </div>
-                                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$28.88</span></div>
-                                                                                            <div class="after-price">after $60 coupon</div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/luminox-bear-grylls-x-tide-limited-quartz-blue-dial-mens-watch-xb-3703-c.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/l/u/luminox-bear-grylls-x-tide-limited-quartz-blue-dial-mens-watch-xb3703c-xb3703c.jpg" alt="Luminox Bear Grylls x Tide Limited Quartz Blue Dial Men's Watch XB.3703.C" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/luminox-bear-grylls-x-tide-limited-quartz-blue-dial-mens-watch-xb-3703-c.html"><span class="brand-name">Luminox </span><span title="Bear Grylls x Tide Limited Quartz Blue Dial Men's Watch XB.3703.C">Bear
-                                                                                                Grylls x Tide Limited Quartz Blue Dial Men's Watch XB.3703.C</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="now-price"><span>$198.00</span><span class="discount-value show-red">60% Off</span></div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/salvatore-ferragamo-chronograph-legacy-quartz-white-mother-of-pearl-dial-watch-sfmw00322.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/a/salvatore-ferragamo-chronograph-legacy-quartz-white-mother-of-pearl-dial-watch-sfmw00322.jpg" alt="Salvatore Ferragamo Chronograph Legacy Quartz White Mother of Pearl Dial Watch SFMW00322" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/salvatore-ferragamo-chronograph-legacy-quartz-white-mother-of-pearl-dial-watch-sfmw00322.html"><span class="brand-name">Salvatore Ferragamo </span><span title="Chronograph Legacy Quartz White Mother of Pearl Dial Watch SFMW00322">Chronograph
-                                                                                                Legacy Quartz White Mother of Pearl Dial Watch SFMW00322</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="was-price-wrapper">
-                                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$749.99</span></div><span class="discount-value ">72% Off</span>
-                                                                                            </div>
-                                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$424.99</span></div>
-                                                                                            <div class="after-price">after $325 coupon</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/breitling-endurance-pro-black-dial-mens-watch-x82310d91b1s1.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/b/r/breitling-endurance-pro-chronograph-quartz-black-dial-mens-watch-x82310d91b1s1.jpg" alt="Breitling Endurance Pro Chronograph Quartz Black Dial Men's Watch X82310D91B1S1" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/breitling-endurance-pro-black-dial-mens-watch-x82310d91b1s1.html"><span class="brand-name">Breitling </span><span title="Endurance Pro Chronograph Quartz Black Dial Men's Watch X82310D91B1S1">Endurance
-                                                                                                Pro Chronograph Quartz Black Dial Men's Watch X82310D91B1S1</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="was-price-wrapper">
-                                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$2,545.00</span></div><span class="discount-value ">30% Off</span>
-                                                                                            </div>
-                                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$2,395.00</span></div>
-                                                                                            <div class="after-price">after $150 coupon</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-current slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/tissot-watch-t035-407-16-051-03.html"><img src="./img/watches/baume2.jpg" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/tissot-watch-t035-407-16-051-03.html"><span class="brand-name">Tissot </span><span title="Couturier Automatic Black Dial Men's Watch T035.407.16.051.03">Couturier
-                                                                                                Automatic Black Dial Men's Watch T035.407.16.051.03</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="now-price"><span>$299.00</span><span class="discount-value show-red">59% Off</span></div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/ice-watch-ice-steel-gold-blue-medium-ch-chronograph-quartz-blue-dial-unisex-watch-017674.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/i/c/icewatch-chronograph-quartz-blue-dial-goldtone-unisex-watch-017674.jpg" alt="Ice-Watch Chronograph Quartz Blue Dial Men's Watch 017674" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/ice-watch-ice-steel-gold-blue-medium-ch-chronograph-quartz-blue-dial-unisex-watch-017674.html"><span class="brand-name">Ice-Watch </span><span title="Chronograph Quartz Blue Dial Men's Watch 017674">Chronograph
-                                                                                                Quartz Blue Dial Men's Watch 017674</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="was-price-wrapper">
-                                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$88.88</span></div><span class="discount-value ">92% Off</span>
-                                                                                            </div>
-                                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$28.88</span></div>
-                                                                                            <div class="after-price">after $60 coupon</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/luminox-bear-grylls-x-tide-limited-quartz-blue-dial-mens-watch-xb-3703-c.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/l/u/luminox-bear-grylls-x-tide-limited-quartz-blue-dial-mens-watch-xb3703c-xb3703c.jpg" alt="Luminox Bear Grylls x Tide Limited Quartz Blue Dial Men's Watch XB.3703.C" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/luminox-bear-grylls-x-tide-limited-quartz-blue-dial-mens-watch-xb-3703-c.html"><span class="brand-name">Luminox </span><span title="Bear Grylls x Tide Limited Quartz Blue Dial Men's Watch XB.3703.C">Bear
-                                                                                                Grylls x Tide Limited Quartz Blue Dial Men's Watch XB.3703.C</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="now-price"><span>$198.00</span><span class="discount-value show-red">60% Off</span></div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/salvatore-ferragamo-chronograph-legacy-quartz-white-mother-of-pearl-dial-watch-sfmw00322.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/a/salvatore-ferragamo-chronograph-legacy-quartz-white-mother-of-pearl-dial-watch-sfmw00322.jpg" alt="Salvatore Ferragamo Chronograph Legacy Quartz White Mother of Pearl Dial Watch SFMW00322" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/salvatore-ferragamo-chronograph-legacy-quartz-white-mother-of-pearl-dial-watch-sfmw00322.html"><span class="brand-name">Salvatore Ferragamo </span><span title="Chronograph Legacy Quartz White Mother of Pearl Dial Watch SFMW00322">Chronograph
-                                                                                                Legacy Quartz White Mother of Pearl Dial Watch SFMW00322</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="was-price-wrapper">
-                                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$749.99</span></div><span class="discount-value ">72% Off</span>
-                                                                                            </div>
-                                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$424.99</span></div>
-                                                                                            <div class="after-price">after $325 couponsdkfhkdsfhkdshf</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="slide slide-visible" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
-                                                                                <div class="swiper-slide">
-                                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image" href="/breitling-endurance-pro-black-dial-mens-watch-x82310d91b1s1.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/b/r/breitling-endurance-pro-chronograph-quartz-black-dial-mens-watch-x82310d91b1s1.jpg" alt="Breitling Endurance Pro Chronograph Quartz Black Dial Men's Watch X82310D91B1S1" width="250" height="250" class="product-img" loading="lazy" draggable="false"></a><a class="item-name-LrP product-name" href="/breitling-endurance-pro-black-dial-mens-watch-x82310d91b1s1.html"><span class="brand-name">Breitling </span><span title="Endurance Pro Chronograph Quartz Black Dial Men's Watch X82310D91B1S1">Endurance
-                                                                                                Pro Chronograph Quartz Black Dial Men's Watch X82310D91B1S1</span></a>
-                                                                                        <div class="price-wrapper trending">
-                                                                                            <div class="was-price-wrapper">
-                                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$2,545.00</span></div><span class="discount-value ">30% Off</span>
-                                                                                            </div>
-                                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$2,395.00</span></div>
-                                                                                            <div class="after-price">after $150 coupon</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                            <?php } ?>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1144,317 +1056,44 @@
                                                                         }
                                                                 }
                                                                 </style>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/tissot-watch-t0064083605700.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-le-locle-automatic-cosc-black-pvd-men_s-watch-t0064083605700.jpg"
-                                                                                alt="Tissot Le Locle Automatic COSC Black PVD Men's Watch T006.408.36.057.00" width="250"
-                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/tissot-watch-t0064083605700.html"><span class="brand-name">Tissot </span><span
-                                                                                title="Le Locle Automatic COSC Black PVD Men's Watch T006.408.36.057.00">Le Locle Automatic COSC
-                                                                                Black PVD Men's Watch T006.408.36.057.00</span></a>
-                                                                        <div class="price-wrapper trending" wz_dt_ref="true">
-                                                                            <div class="now-price"><span>$349.00</span><span class="discount-value show-red">74% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/tissot-le-locle-automatic-black-dial-mens-watch-t006-428-36-052-00.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-le-locle-automatic-black-dial-mens-watch-t0064283605200-t0064283605200.jpg"
-                                                                                alt="Tissot Le Locle Automatic Black Dial Men's Watch T006.428.36.052.00" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/tissot-le-locle-automatic-black-dial-mens-watch-t006-428-36-052-00.html"><span
-                                                                                class="brand-name">Tissot </span><span
-                                                                                title="Le Locle Automatic Black Dial Men's Watch T006.428.36.052.00">Le Locle Automatic Black Dial
-                                                                                Men's Watch T006.428.36.052.00</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$284.00</span><span class="discount-value show-red">59% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg"
-                                                                                alt="Seiko Chronograph Quartz Champagne Dial Men's Watch SSB383" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span class="brand-name">Seiko
-                                                                            </span><span title="Chronograph Quartz Champagne Dial Men's Watch SSB383">Chronograph Quartz Champagne
-                                                                                Dial Men's Watch SSB383</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$120.00</span><span class="discount-value show-red">63% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/tissot-heritage-automatic-champagne-dial-mens-watch-t1184301602100.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-heritage-automatic-champagne-dial-mens-watch-t1184301602100.jpg"
-                                                                                alt="Tissot Heritage Automatic Champagne Dial Men's Watch T1184301602100" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/tissot-heritage-automatic-champagne-dial-mens-watch-t1184301602100.html"><span
-                                                                                class="brand-name">Tissot </span><span
-                                                                                title="Heritage Automatic Champagne Dial Men's Watch T1184301602100">Heritage Automatic Champagne
-                                                                                Dial Men's Watch T1184301602100</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$309.00</span><span class="discount-value show-red">56% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/ice-watch-quartz-crystal-black-dial-unisex-watch-020383.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/i/c/icewatch-quartz-crystal-black-dial-unisex-watch-020383.jpg"
-                                                                                alt="Ice-Watch Quartz Crystal Black Dial Unisex Watch 020383" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/ice-watch-quartz-crystal-black-dial-unisex-watch-020383.html"><span class="brand-name">Ice-Watch
-                                                                            </span><span title="Quartz Crystal Black Dial Unisex Watch 020383">Quartz Crystal Black Dial Unisex
-                                                                                Watch 020383</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$59.99</span><span class="discount-value show-red">67% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/tissot-watch-t0064081105700.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-le-locle-chronometre-black-dial-stainless-steel-men_s-watch-t0064081105700.jpg"
-                                                                                alt="Tissot Le Locle Chronometre Automatic Black Dial Men's Watch T006.408.11.057.00" width="250"
-                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/tissot-watch-t0064081105700.html"><span class="brand-name">Tissot </span><span
-                                                                                title="Le Locle Chronometre Automatic Black Dial Men's Watch T006.408.11.057.00">Le Locle
-                                                                                Chronometre Automatic Black Dial Men's Watch T006.408.11.057.00</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$369.00</span><span class="discount-value show-red">72% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/tissot-tissot-prx-automatic-green-dial-mens-watch-t1374071109100.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-prx-powermatic-80-automatic-green-dial-mens-watch-t1374071109100-t1374071109100.jpg"
-                                                                                alt="Tissot PRX Powermatic 80 Automatic Green Dial Men's Watch T137.407.11.091.00" width="250"
-                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/tissot-tissot-prx-automatic-green-dial-mens-watch-t1374071109100.html"><span
-                                                                                class="brand-name">Tissot </span><span
-                                                                                title="PRX Powermatic 80 Automatic Green Dial Men's Watch T137.407.11.091.00">PRX Powermatic 80
-                                                                                Automatic Green Dial Men's Watch T137.407.11.091.00</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$569.00</span><span class="discount-value show-red">22% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/certina-watch-c001-407-11-087-00.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/c/e/certina-ds-podium-automatic-grey-dial-stainless-steel-men_s-watch-c001.407.11.087.00.jpg"
-                                                                                alt="Certina DS Podium Automatic Grey Dial Men's Watch C001.407.11.087.00" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/certina-watch-c001-407-11-087-00.html"><span class="brand-name">Certina </span><span
-                                                                                title="DS Podium Automatic Grey Dial Men's Watch C001.407.11.087.00">DS Podium Automatic Grey Dial
-                                                                                Men's Watch C001.407.11.087.00</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$248.00</span><span class="discount-value show-red">66% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/tissot-seastar-1000-watch-t1204071704100.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/i/tissot-seastar-1000-automatic-blue-dial-mens-watch-t1204071704100.jpg"
-                                                                                alt="Tissot Seastar 1000 Automatic Blue Dial Men's Watch T1204071704100" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/tissot-seastar-1000-watch-t1204071704100.html"><span class="brand-name">Tissot </span><span
-                                                                                title="Seastar 1000 Automatic Blue Dial Men's Watch T1204071704100">Seastar 1000 Automatic Blue Dial
-                                                                                Men's Watch T1204071704100</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$489.00</span><span class="discount-value show-red">35% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/seiko-chronograph-green-dial-mens-watch-ssb385.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-green-dial-mens-watch-ssb385.jpg"
-                                                                                alt="Seiko Chronograph Quartz Green Dial Men's Watch SSB385" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/seiko-chronograph-green-dial-mens-watch-ssb385.html"><span class="brand-name">Seiko </span><span
-                                                                                title="Chronograph Quartz Green Dial Men's Watch SSB385">Chronograph Quartz Green Dial Men's Watch
-                                                                                SSB385</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$120.00</span><span class="discount-value show-red">63% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/seiko-chronograph-blue-dial-mens-watch-ssb377.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-blue-dial-mens-watch-ssb377.jpg"
-                                                                                alt="Seiko Chronograph Quartz Blue Dial Men's Watch SSB377" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/seiko-chronograph-blue-dial-mens-watch-ssb377.html"><span class="brand-name">Seiko </span><span
-                                                                                title="Chronograph Quartz Blue Dial Men's Watch SSB377">Chronograph Quartz Blue Dial Men's Watch
-                                                                                SSB377</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$119.00</span><span class="discount-value show-red">63% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001001.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/o/m/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001001-31030425001001_1.jpg"
-                                                                                alt="Omega Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.001" width="250"
-                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001001.html"><span
-                                                                                class="brand-name">Omega </span><span
-                                                                                title="Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.001">Speedmaster
-                                                                                Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.001</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$5,400.00</span><span class="discount-value show-red">23% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/sevenfriday-q-series-automatic-mens-leather-watch.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/sevenfriday-qseries-automatic-mens-leather-watch-q103.jpg"
-                                                                                alt="Sevenfriday Q-Series Automatic Men's Leather Watch" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/sevenfriday-q-series-automatic-mens-leather-watch.html"><span class="brand-name">Sevenfriday
-                                                                            </span><span title="Q-Series Automatic Men's Leather Watch">Q-Series Automatic Men's Leather
-                                                                                Watch</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="was-price-wrapper">
-                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$845.00</span></div><span
-                                                                                    class="discount-value ">67% Off</span>
+                                                                <?php 
+                                                                    $sqlTrending = 'SELECT * FROM watches 
+                                                                    JOIN brands ON watches.brand = brands.brandId
+                                                                    JOIN styles ON watches.style = styles.styleId
+                                                                    JOIN movements ON watches.movement = movements.moveId
+                                                                    JOIN categories ON watches.category = categories.cateId
+                                                                    JOIN features ON watches.features = features.feaId
+                                                                    JOIN types ON watches.type = types.typeId
+                                                                    JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+                                                                    ORDER BY watches.view DESC
+                                                                    LIMIT 20';
+                                                                    $stmt = $conn->prepare($sqlTrending);
+                                                                    $stmt->execute(); 
+                                                                    $trendingResult = $stmt->get_result();
+                                                                ?>
+                                                                <?php while($trendingRow = $trendingResult->fetch_assoc()) { ?>
+                                                                    <div class="trending-now-item">
+                                                                        <div class="item-root-XLH product-content">
+                                                                            <a class="item-images-yv2 product-image" href="">
+                                                                                <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy">
+                                                                            </a>
+                                                                            <a class="item-name-LrP product-name" href="">
+                                                                                <span class="brand-name"><?= $trendingRow['brandName'] ?> </span>
+                                                                                <span><?= $trendingRow['name'] ?></span>
+                                                                            </a>
+                                                                            <div class="price-wrapper trending" wz_dt_ref="true">
+                                                                                <div class="now-price"><span>$<?= $trendingRow['price'] ?></span><span class="discount-value show-red"><?= $trendingRow['sale'] ?>% Off</span></div>
                                                                             </div>
-                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$485.00</span></div>
-                                                                            <div class="after-price">after $360 coupon</div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/citizen-automatic-blue-dial-mens-watch-nj0151-88x.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/c/i/citizen-automatic-blue-dial-mens-watch-nj015188x.jpg"
-                                                                                alt="Citizen Automatic Blue Dial Men's Watch NJ0151-88X" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/citizen-automatic-blue-dial-mens-watch-nj0151-88x.html"><span class="brand-name">Citizen
-                                                                            </span><span title="Automatic Blue Dial Men's Watch NJ0151-88X">Automatic Blue Dial Men's Watch
-                                                                                NJ0151-88X</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$249.00</span><span class="discount-value show-red">58% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/seiko-chronograph-gmt-quartz-white-dial-mens-watch-ssb425p1.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-gmt-quartz-white-dial-mens-watch-ssb425p1_1.jpg"
-                                                                                alt="Seiko Chronograph Quartz White Dial Men's Watch SSB425P1" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/seiko-chronograph-gmt-quartz-white-dial-mens-watch-ssb425p1.html"><span class="brand-name">Seiko
-                                                                            </span><span title="Chronograph Quartz White Dial Men's Watch SSB425P1">Chronograph Quartz White Dial
-                                                                                Men's Watch SSB425P1</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$137.42</span><span class="discount-value show-red">72% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/technomarine-sea-automatic-blue-dial-mens-watch-tm-219050.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/t/e/technomarine-sea-automatic-blue-dial-mens-watch-tm219050.jpg"
-                                                                                alt="Technomarine Sea Automatic Blue Dial Men's Watch TM-219050" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/technomarine-sea-automatic-blue-dial-mens-watch-tm-219050.html"><span
-                                                                                class="brand-name">Technomarine </span><span
-                                                                                title="Sea Automatic Blue Dial Men's Watch TM-219050">Sea Automatic Blue Dial Men's Watch
-                                                                                TM-219050</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$74.99</span><span class="discount-value show-red">83% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/tissot-gent-xl-automatic-black-dial-mens-watch-t116-407-36-051-01.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/placeholder/default/placeholder_1.png"
-                                                                                alt="Tissot Gent XL Automatic Black Dial Men's Watch T116.407.36.051.01" width="250" height="250"
-                                                                                class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/tissot-gent-xl-automatic-black-dial-mens-watch-t116-407-36-051-01.html"><span
-                                                                                class="brand-name">Tissot </span><span
-                                                                                title="Gent XL Automatic Black Dial Men's Watch T116.407.36.051.01">Gent XL Automatic Black Dial
-                                                                                Men's Watch T116.407.36.051.01</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$209.00</span><span class="discount-value show-red">58% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-310-30-42-50-01-002.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/o/m/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-31030425001002-31030425001002.jpg"
-                                                                                alt="Omega Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.002" width="250"
-                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/omega-speedmaster-chronograph-hand-wind-black-dial-mens-watch-310-30-42-50-01-002.html"><span
-                                                                                class="brand-name">Omega </span><span
-                                                                                title="Speedmaster Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.002">Speedmaster
-                                                                                Chronograph Hand Wind Black Dial Men's Watch 310.30.42.50.01.002</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$6,650.00</span><span class="discount-value show-red">17% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/mathey-tissot-watch-d810bi.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/m/a/matheytissot-mathey-iii-quartz-crystal-silver-dial-ladies-watch-d810bi.jpg"
-                                                                                alt="Mathey-Tissot Mathey III Quartz Crystal Silver Dial Ladies Watch D810BI" width="250"
-                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/mathey-tissot-watch-d810bi.html"><span class="brand-name">Mathey-Tissot </span><span
-                                                                                title="Mathey III Quartz Crystal Silver Dial Ladies Watch D810BI">Mathey III Quartz Crystal Silver
-                                                                                Dial Ladies Watch D810BI</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="now-price"><span>$89.99</span><span class="discount-value show-red">64% Off</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="trending-now-item">
-                                                                    <div class="item-root-XLH product-content"><a class="item-images-yv2 product-image"
-                                                                            href="/corum-watch-503-101-20-0f01-ak10.html"><img
-                                                                                src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/c/o/corum-admirals-cup-annual-calendar-automatic-mens-watch-503101200f01ak10.jpg"
-                                                                                alt="Corum Admirals Cup Annual Calendar Automatic Men's Watch 503101200F01AK10" width="250"
-                                                                                height="250" class="product-img" loading="lazy"></a><a class="item-name-LrP product-name"
-                                                                            href="/corum-watch-503-101-20-0f01-ak10.html"><span class="brand-name">Corum </span><span
-                                                                                title="Admirals Cup Annual Calendar Automatic Men's Watch 503101200F01AK10">Admirals Cup Annual
-                                                                                Calendar Automatic Men's Watch 503101200F01AK10</span></a>
-                                                                        <div class="price-wrapper trending">
-                                                                            <div class="was-price-wrapper">
-                                                                                <div class="was-wrapper"><span class="was-label">Was:</span><span>$2,850.00</span></div><span
-                                                                                    class="discount-value ">81% Off</span>
-                                                                            </div>
-                                                                            <div class="now-price"><span class="now-label">Now:</span><span>$2,350.00</span></div>
-                                                                            <div class="after-price">after $500 coupon</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                                <?php } ?>
                                                             </div>
-                                                                                                                        
-                                                            
-                          
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-
-                                                
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
