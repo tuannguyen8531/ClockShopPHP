@@ -674,8 +674,15 @@
                                 <div class="row-root-SkX hero-banner-wrapper" style="text-align: center; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin-right: 0px; margin-left: 0px; display: flex; justify-content: center; flex-direction: column;">
                                     <div class="columnGroup-root-Q2r" style="display: flex;">
                                         <div class="column-root-k2m pagebuilder-column" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; width: 100%;">
-                                            <div class="banner-root-Wut hero-banner __PRIMARY_CONTENT_PRELOAD__"><a class="banner-link-pPa" href="" aria-label="Hero banner primary">
-                                                    <div class="banner-wrapper-WuE" style="background-image: url(&quot;./img/banner/banner_main_HALLOWEEN_2023_1600_1.jpg&quot;); background-size: cover; background-position: center center; background-attachment: scroll; background-repeat: no-repeat;">
+                                            <div class="banner-root-Wut hero-banner __PRIMARY_CONTENT_PRELOAD__">
+                                                <?php 
+                                                    $randomBanner = rand(1, 50);
+                                                    if($randomBanner%2==0) {
+                                                        $banner = 'banner_main_HALLOWEEN_2023_1600_1.jpg';
+                                                    } else $banner = 'banner_main_EARLY_BIRD_2023_1600_03.jpg';
+                                                ?>
+                                                <a class="banner-link-pPa" href="" aria-label="Hero banner primary">
+                                                    <div class="banner-wrapper-WuE" style="background-image: url(&quot;./img/banner/<?= $banner ?>&quot;); background-size: cover; background-position: center center; background-attachment: scroll; background-repeat: no-repeat;">
                                                         <div class="banner-posterOverlay-M6t banner-overlay-EJq">
                                                             <div class="banner-content-rKR" style="width: 100%;"></div>
                                                         </div>
@@ -1107,7 +1114,7 @@
                                             <div class="widget block block-product-daily-deals">
                                                 <ul>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals0['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals0['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals0['brandName'] ?></b>
@@ -1146,7 +1153,7 @@
                                                         </a>
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals1['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals1['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals1['brandName'] ?></b>
@@ -1185,7 +1192,7 @@
                                                         </a>
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals2['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals2['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals2['brandName'] ?></b>
@@ -1224,7 +1231,7 @@
                                                         </a>
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals3['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals3['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals3['brandName'] ?></b>
@@ -1363,10 +1370,10 @@
                                                                                 <div class="slide slide-visible <?php if($indexTrending==1 or $indexTrending==6 or $indexTrending==11 or $indexTrending==16) echo 'slide-current'; else echo ''?>" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
                                                                                     <div class="swiper-slide">
                                                                                         <div class="item-root-XLH product-content">
-                                                                                            <a class="item-images-yv2 product-image" href="">
+                                                                                            <a class="item-images-yv2 product-image" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                                 <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy" draggable="false">
                                                                                             </a>
-                                                                                            <a class="item-name-LrP product-name" href="">
+                                                                                            <a class="item-name-LrP product-name" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                                 <span class="brand-name"> <?= $trendingRow['brandName'] ?> </span>
                                                                                                 <span>
                                                                                                     <?= $trendingRow['name'] ?>
@@ -1410,10 +1417,10 @@
                                                                 <?php while($trendingRow = $trendingResult->fetch_assoc()) { ?>
                                                                     <div class="trending-now-item">
                                                                         <div class="item-root-XLH product-content">
-                                                                            <a class="item-images-yv2 product-image" href="">
+                                                                            <a class="item-images-yv2 product-image" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                 <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy">
                                                                             </a>
-                                                                            <a class="item-name-LrP product-name" href="">
+                                                                            <a class="item-name-LrP product-name" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                 <span class="brand-name"><?= $trendingRow['brandName'] ?> </span>
                                                                                 <span><?= $trendingRow['name'] ?></span>
                                                                             </a>
