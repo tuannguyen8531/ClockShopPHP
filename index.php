@@ -779,7 +779,7 @@
                                             <div class="widget block block-product-daily-deals">
                                                 <ul>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals0['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals0['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals0['brandName'] ?></b>
@@ -818,7 +818,7 @@
                                                         </a>
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals1['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals1['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals1['brandName'] ?></b>
@@ -857,7 +857,7 @@
                                                         </a>
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals2['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals2['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals2['brandName'] ?></b>
@@ -896,7 +896,7 @@
                                                         </a>
                                                     </li>
                                                     <li data-content-type="product-daily-deails">
-                                                        <a href="">
+                                                        <a href="./detail.php?model=<?= $featuredDeals3['model'] ?>">
                                                             <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals3['img1'] ?>" alt="Rolex">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals3['brandName'] ?></b>
@@ -1035,10 +1035,10 @@
                                                                                 <div class="slide slide-current <?php if($indexTrending==1 or $indexTrending==6) echo 'slide-visible'; else echo ''?>" style="width: 1.66667%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
                                                                                     <div class="swiper-slide">
                                                                                         <div class="item-root-XLH product-content">
-                                                                                            <a class="item-images-yv2 product-image" href="">
+                                                                                            <a class="item-images-yv2 product-image" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                                 <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy" draggable="false">
                                                                                             </a>
-                                                                                            <a class="item-name-LrP product-name" href="">
+                                                                                            <a class="item-name-LrP product-name" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                                 <span class="brand-name"> <?= $trendingRow['brandName'] ?> </span>
                                                                                                 <span>
                                                                                                     <?= $trendingRow['name'] ?>
@@ -1081,10 +1081,10 @@
                                                                 <?php while($trendingRow = $trendingResult->fetch_assoc()) { ?>
                                                                     <div class="trending-now-item">
                                                                         <div class="item-root-XLH product-content">
-                                                                            <a class="item-images-yv2 product-image" href="">
+                                                                            <a class="item-images-yv2 product-image" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                 <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy">
                                                                             </a>
-                                                                            <a class="item-name-LrP product-name" href="">
+                                                                            <a class="item-name-LrP product-name" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                 <span class="brand-name"><?= $trendingRow['brandName'] ?> </span>
                                                                                 <span><?= $trendingRow['name'] ?></span>
                                                                             </a>

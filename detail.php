@@ -1,5 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    if(isset($_GET['model'])) {
+        include 'config.php';
+
+        $model = $_GET['model'];
+        $sqlProduct = 'SELECT * FROM watches
+            JOIN brands ON watches.brand = brands.brandId
+            JOIN styles ON watches.style = styles.styleId
+            JOIN movements ON watches.movement = movements.moveId
+            JOIN categories ON watches.category = categories.cateId
+            JOIN features ON watches.features = features.feaId
+            JOIN types ON watches.type = types.typeId
+            JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+            WHERE watches.model LIKE ?';
+        
+        $stmt = $conn->prepare($sqlProduct);
+        $stmt->bind_param('s', $model);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $product = $result->fetch_assoc();
+    }
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -272,13 +294,13 @@
                                         <div class="image-main">
                                             <div class="image-main__gallery">
                                                 <div class="slide-item slide-item-active">
-                                                    <img id="product-main-image-gallery" src="https://cdn2.jomashop.com/media/catalog/product/cache/fde19e4197824625333be074956e7640/h/a/hamilton-khaki-field-king-automatic-silver-dial-mens-watch-h64455523.jpg?width=546&amp;height=546" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
+                                                    <img id="product-main-image-gallery" src="./img/watches/<?= $product['img1'] ?>" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
                                                 </div>
                                                 <div class="slide-item">
-                                                    <img src="https://cdn2.jomashop.com/media/catalog/product/cache/fde19e4197824625333be074956e7640/h/a/hamilton-khaki-field-king-automatic-silver-dial-mens-watch-h64455523_2.jpg?width=546&amp;height=546" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546 Image #2" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
+                                                    <img src="./img/watches/<?= $product['img2'] ?>" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546 Image #2" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
                                                 </div>
                                                 <div class="slide-item">
-                                                    <img src="https://cdn2.jomashop.com/media/catalog/product/cache/fde19e4197824625333be074956e7640/h/a/hamilton-khaki-field-king-automatic-silver-dial-mens-watch-h64455523_3.jpg?width=546&amp;height=546" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546 Image #3" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
+                                                    <img src="./img/watches/<?= $product['img3'] ?>" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546 Image #3" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
                                                 </div>
                                                 <div class="social-proof-pdp">
                                                     <div class="social-proof-wrapper">
@@ -297,17 +319,17 @@
                                                 <div class="thumbs-items-wrapper simple-slider-wrapper">
                                                     <div class="thumb-item simple-slider-slide selected">
                                                         <a href="#" aria-label="View Image 1">
-                                                            <img id="img-1" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/h/a/hamilton-khaki-field-king-automatic-silver-dial-mens-watch-h64455523.jpg?width=80&amp;height=80" class="image-wrapper" longdesc="#product-description-guarantee">
+                                                            <img id="img-1" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="./img/watches/<?= $product['img1'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
                                                         </a>
                                                     </div>
                                                     <div class="thumb-item simple-slider-slide">
                                                         <a href="#" aria-label="View Image 2">
-                                                            <img id="img-2" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/h/a/hamilton-khaki-field-king-automatic-silver-dial-mens-watch-h64455523_2.jpg?width=80&amp;height=80" class="image-wrapper" longdesc="#product-description-guarantee">
+                                                            <img id="img-2" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="./img/watches/<?= $product['img2'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
                                                         </a>
                                                     </div>
                                                     <div class="thumb-item simple-slider-slide">
                                                         <a href="#" aria-label="View Image 3">
-                                                            <img id="img-3" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/h/a/hamilton-khaki-field-king-automatic-silver-dial-mens-watch-h64455523_3.jpg?width=80&amp;height=80" class="image-wrapper" longdesc="#product-description-guarantee">
+                                                            <img id="img-3" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="./img/watches/<?= $product['img3'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
                                                         </a>
                                                     </div>
                                                 </div>
