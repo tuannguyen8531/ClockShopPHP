@@ -1,4 +1,3 @@
-
 let slideshow = document.querySelector("#slideshow1");
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
