@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2023 at 12:58 PM
+-- Generation Time: Nov 09, 2023 at 04:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,6 +33,28 @@ CREATE TABLE `accounts` (
   `accPassword` text NOT NULL,
   `accAuthority` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`accId`, `accUsername`, `accPassword`, `accAuthority`) VALUES
+(1, 'admin', 'admin', 1),
+(2, 'moulsan', '123456789', 2),
+(3, 'anhtuan', '123456789', 2),
+(4, 'dangkhoa', '123456789', 2),
+(5, 'quochuy', '123456789', 2),
+(6, 'tuankiet', '123456789', 2),
+(7, 'ngoctuyet', '12345678', 3),
+(8, 'phonghanh', '12345678', 3),
+(9, 'tranthien', '12345678', 3),
+(10, 'kimvu', '12345678', 3),
+(11, 'phamanh', '12345678', 3),
+(12, 'lehien', '12345678', 3),
+(13, 'maingoc', '12345678', 3),
+(14, 'namphong', '12345678', 3),
+(15, 'quyethanh', '12345678', 3),
+(16, 'thanhviem', '12345678', 3);
 
 -- --------------------------------------------------------
 
@@ -212,6 +234,22 @@ CREATE TABLE `customers` (
   `cusAccount` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`cusId`, `cusFirstName`, `cusLastName`, `cusCompany`, `cusPhone`, `cusEmail`, `cusAdd1`, `cusAdd2`, `cusCity`, `cusState`, `cusZip`, `cusCountry`, `cusAccount`) VALUES
+(1, 'Tuyet', 'Ngoc', '', '012345678', 'ngoctuyet@gmail.com', 'Di Linh', 'Đà Lạt', 'Nha Trang', '', '65000', 'Việt Nam', 7),
+(2, 'Hanh', 'Phong', '', '0123456789', 'phonghanh@gmail.com', 'Di Linh', 'Đà Lạt', 'Nha Trang', '', '65000', 'Việt Nam', 8),
+(3, 'thien', 'tran', '', '0123456789', 'tranthien@gmail.com', 'Diên Khánh', 'Cam Ranh', 'Nha Trang', '', '65000', 'Việt Nam', 9),
+(4, 'vu', 'kim', '', '0123456789', 'kimvu@gmail.com', 'Diên Khánh', 'Cam Ranh', 'Nha Trang', '', '65000', 'Viêt Nam', 10),
+(5, 'anh', 'pham', '', '0123456789', 'phamanh@gmail.com', 'Cam Ranh', 'Huế', 'Nha Trang', '', '65000', 'Việt Nam', 11),
+(6, 'hien', 'le', '', '0123456789', 'lehien@gmail.com', 'Cam Ranh', 'Huế', 'Nha Trang', '', '65000', 'Việt Nam', 12),
+(7, 'ngoc', 'mai', '', '0123456789', 'maingoc@gmail.com', 'Ninh Thuận', 'Nha Trang', 'Hà Nội', '', '65000', 'Việt Nam', 13),
+(8, 'phong', 'nam', '', '0123456789', 'namphong@gmail.com', 'Hà Nội', 'Đà nẵng', 'Hồ Chí Minh', '', '65000', 'Việt Nam', 14),
+(9, 'thanh', 'quyet', '', '0123456789', 'quyetthanh@gmail.com', 'Bình Dương', 'Khánh Hòa', 'Nha Trang', '', '65000', 'Việt Nam', 15),
+(10, 'viem', 'thanh', '', '0123456789', 'thanhviem@gmail.com', 'Hải Phòng', 'Thái Bình', 'Nam Định', '', '65000', 'Việt Nam', 16);
+
 -- --------------------------------------------------------
 
 --
@@ -283,6 +321,17 @@ CREATE TABLE `managers` (
   `manPhone` text NOT NULL,
   `manAccount` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `managers`
+--
+
+INSERT INTO `managers` (`manId`, `manFirstName`, `manLastName`, `manPhone`, `manAccount`) VALUES
+(1, 'Sàn', 'Moul', '055877421', 2),
+(2, 'Tuấn', 'Nguyễn Dương Anh', '0658897413', 4),
+(3, 'Khoa', 'Nguyễn Đăng', '0569987422', 3),
+(4, 'Huy', 'Nguyễn Xanh', '0366698574', 5),
+(5, 'Kiệt', 'Nguyễn Tuấn', '0255521489', 6);
 
 -- --------------------------------------------------------
 
@@ -720,7 +769,7 @@ ALTER TABLE `watches`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `accId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `accId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `authorities`
@@ -774,7 +823,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `cusId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cusId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `features`
@@ -786,7 +835,7 @@ ALTER TABLE `features`
 -- AUTO_INCREMENT for table `managers`
 --
 ALTER TABLE `managers`
-  MODIFY `manId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `manId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `movements`
