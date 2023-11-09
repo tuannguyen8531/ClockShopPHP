@@ -861,7 +861,104 @@
                             <h3 class="title">You may also like </h3>
                             <div class="slider-root">
                                 <div class="arrow-carousal-new-design arrow-next"></div>
+                                <div class="arrow-carousal-new-design arrow-prev"></div>
                                 <div class="slider-list-wrapper slider-grid-wrapper">
+                                    <div class="product-content productItem">
+                                        <button class="wishlist-icon-new-design">
+                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        </button>
+                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
+                                        </a>
+                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
+                                        </a>
+                                        <div class="tag-wrapper">
+                                            <span class="tag-new-design discount-label">32% Off</span>
+                                        </div>
+                                        <div class="price-wrapper trending">
+                                            <div class="was-price-wrapper">
+                                                <div class="was-wrapper">
+                                                    <span>$695.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="now-price">
+                                                <span>$475.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content productItem">
+                                        <button class="wishlist-icon-new-design">
+                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        </button>
+                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
+                                        </a>
+                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
+                                        </a>
+                                        <div class="tag-wrapper">
+                                            <span class="tag-new-design discount-label">32% Off</span>
+                                        </div>
+                                        <div class="price-wrapper trending">
+                                            <div class="was-price-wrapper">
+                                                <div class="was-wrapper">
+                                                    <span>$695.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="now-price">
+                                                <span>$475.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content productItem">
+                                        <button class="wishlist-icon-new-design">
+                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        </button>
+                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
+                                        </a>
+                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
+                                        </a>
+                                        <div class="tag-wrapper">
+                                            <span class="tag-new-design discount-label">32% Off</span>
+                                        </div>
+                                        <div class="price-wrapper trending">
+                                            <div class="was-price-wrapper">
+                                                <div class="was-wrapper">
+                                                    <span>$695.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="now-price">
+                                                <span>$475.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content productItem">
+                                        <button class="wishlist-icon-new-design">
+                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        </button>
+                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
+                                        </a>
+                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
+                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
+                                        </a>
+                                        <div class="tag-wrapper">
+                                            <span class="tag-new-design discount-label">32% Off</span>
+                                        </div>
+                                        <div class="price-wrapper trending">
+                                            <div class="was-price-wrapper">
+                                                <div class="was-wrapper">
+                                                    <span>$695.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="now-price">
+                                                <span>$475.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="product-content productItem">
                                         <button class="wishlist-icon-new-design">
                                             <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -1476,4 +1573,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./dist/js/detail.js"></script>
+    <script type="text/javascript" src="./dist/js/config.js"></script>
 </body>
+</html>
