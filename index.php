@@ -336,19 +336,36 @@
                         style="
                             <?php 
                             if (isset($_POST['continue'])) {
-                                $email = $_POST['emailC']; 
+                                
+                                $emailC = $_POST['emailC']; 
                                 $errEmailC="";
                                 $mail_ex = "/[a-zA-Z0-9]*@[a-zA-Z0-9]*.[a-zA-Z0-9]*/i";
-                                if (empty($email)) {
+                                if (empty($emailC)) {
                                     $errEmailC="This field is required";
                                 } else { 
-                                    if (!preg_match($mail_ex, $email)){
+                                    if (!preg_match($mail_ex, $emailC)){
                                         $errEmailC="Invalid email";
-                                    } else{
-                                        echo "display:none";
+                                    } else {
+                                        
+                                        $sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
+                                        $stmt = $conn->prepare($sql);
+                                        $stmt->bind_param('s', $emailC);
+                                        $stmt->execute();
+                                        $num_rows = $stmt->get_result()->num_rows;
+                           
+                                        if ($num_rows >0){
+                                             
+                                            $errEmailC = "Email already exist";
+                                            echo "display:none"; 
+
+                                        } else {                                        
+                                            echo "display:none";              
+                                        }
+
                                     }
                                     
                                 }
+
                                 
                             }                   
                         ?>
@@ -413,76 +430,89 @@
                         </form>
                     </div>
                     <?php 
-
                         if (isset($_POST['create'])) {
-                            $email=$_POST['email'];
+                            $email=$_POST['email'];    
                             $firstName = $_POST['firstname'];
                             $lastName = $_POST['lastname'];
                             $passWord = $_POST['password'];
                             $confirm = $_POST['confirm'];
+                            $errEmail="";
+                            $errFirstName="";
+                            $errLastName="";
                             $errPass = "";
                             $errConfirm="";
-                      
-                            // if (!empty($email) && !empty($firstName) && !empty($lastName) && !empty($passWord) && !empty($confirm) ) {
-
-                            // } else {
-                                
-                                if (empty($passWord)) $errPass="Password required";
-                                else {
-                                    if (strlen($passWord) < 8 || !preg_match('/[A-Z]/', $passWord) or !preg_match('/[a-z]/', $passWord) or !preg_match('/[0-9]/', $passWord) or !preg_match('/[^a-zA-Z0-9]/', $passWord)) {
-                                        $errPass = "too short<br>";
-                                        $errPass .="A password must contain at least 3 of the following: lowercase, uppercase, digits, special characters.";
-                                 
-                                    }
-              
-                                } 
-                                if (empty($confirm)) $errConfirm="Confirm Password required";
-                                else {
-                                    if ($passWord!=$confirm) {
-                                        $errConfirm = "Passwords must match";
-                                    }
-
+                            
+                            if (empty($email)) {
+                                $errEmail = "Email required";
+                            }
+                            if (empty($firstName)) {
+                                $errFirstName = "First Name required";
+                            }
+                            if (empty($lastName)) {
+                                $errLastName = "Last Name required";
+                            }
+                            
+                            if (empty($passWord)) $errPass="Password required";
+                            else {
+                                if (strlen($passWord) < 8 || !preg_match('/[A-Z]/', $passWord) or !preg_match('/[a-z]/', $passWord) or !preg_match('/[0-9]/', $passWord) or !preg_match('/[^a-zA-Z0-9]/', $passWord)) {
+                                    $errPass = "too short<br>";
+                                    $errPass .="A password must contain at least 3 of the following: lowercase, uppercase, digits, special characters.";
+                            
                                 }
-            
-                                
-                            // }
-                            echo $errConfirm;
-                            echo $errPass;
-                            if($errPass=="" and $errConfirm=="") {
-                                echo $email;
-                                echo $passWord;
-                                $sqlAcc = 'INSERT INTO accounts(accUsername, accPassword, accAuthority) VALUES (?,?,?)';
-                                $stmt = $conn->prepare($sqlAcc);
-                                $stmt->bind_param("ssi", $email, $passWord, 3);
-                                $stmt->execute();
 
-                                
-
-                                // $sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
-                                // $stmt = $conn->prepare($sql);
-                                // $stmt->bind_param('s', $email);
-                                // $stmt->execute();
-                                // $result = $stmt->get_result()->fetch_assoc();
-
-                                
-
-                                // $insertCus = 'INSERT INTO customers (cusFirstName, cusLastName, cusCompany, cusPhone, cusEmail, cusAdd1, cusAdd2, cusCity, cusState, cusZip, cusCountry, cusAccount) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
-                                // $stmt = $conn->prepare($insertCus);
-                                // $stmt->bind_param('sssssssssssi', $firstName, $lastName, "", "", "", "", "", "", "", "", "", $result['accId']);
-                                // $stmt->execute();
+                            } 
+                            if (empty($confirm)) $errConfirm="Confirm Password required";
+                            else {
+                                if ($passWord!=$confirm) {
+                                    $errConfirm = "Passwords must match";
+                                }
 
                             }
 
+                            if($errPass=="" and $errConfirm=="" and $errEmail=="" and $errFirstName=="" and $errLastName=="") {
+         
+                                $option = [
+                                    'cost' => 12,
+                                ];
+           
+                                $passHash = password_hash($passWord, PASSWORD_DEFAULT, $option);    
+                                $accAuthority = 3;
+                                $sqlAcc = 'INSERT INTO accounts(accUsername, accPassword, accAuthority) VALUES (?,?,?)';
+                                $stmt = $conn->prepare($sqlAcc);
+                                $stmt->bind_param("ssi", $email, $passHash, $accAuthority);
+                                $stmt->execute();
 
-                        }
-       
-                    
+                                $sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
+                                $stmt = $conn->prepare($sql);
+                                $stmt->bind_param('s', $email);
+                                $stmt->execute();
+                                $result = $stmt->get_result()->fetch_assoc();
+                                
+                                $cusCompany="";
+                                $cusPhone="";
+                                $cusAdd1="";
+                                $cusAdd2="";
+                                $cusCity="";
+                                $cusState="";
+                                $cusZip="";
+                                $cusCountry="";
+                                $accId = $result['accId'];
+                                $insertCus = 'INSERT INTO customers (cusFirstName, cusLastName, cusCompany, cusPhone, cusEmail, cusAdd1, cusAdd2, cusCity, cusState, cusZip, cusCountry, cusAccount) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
+                                $stmt = $conn->prepare($insertCus);
+                                $stmt->bind_param("sssssssssssi",$firstName, $lastName,$cusCompany, $cusPhone,$email, $cusAdd1, $cusAdd2, $cusCity, $cusState, $cusZip,$cusCountry, $accId);
+                                $stmt->execute(); 
+                            }
+                        }             
                     ?>
-                    <div aria-labelledby="account-register-form-heading" class="account-register-form account-form-wrapper" 
-                        style="
-            
-                        "
-                    >
+                    <div aria-labelledby="account-register-form-heading" class="account-register-form account-form-wrapper"
+                        style="<?php  
+                            if (isset($_POST['continue']) and $errEmailC=="") {
+                                echo "display:block";
+                            } else {
+                                
+                                echo "display:none";
+                            }                
+                               ?>">
                         <div class="welcome">Welcome!</div>
                         <div class="title">Add password to create your account</div>
                         <form method="post">
@@ -490,10 +520,10 @@
                                     class="label">Email<span class="requiredSymbol">*</span></label>
                                 <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;"><span class="input-block"><input
                                             type="email" autocomplete="off" placeholder="Email" aria-required="true" class=""
-                                            id="email_address" name="email" value="<?php if (isset($email)) echo $email ?>"></span><span
+                                            id="email_address" name="email" value="<?php if (isset($emailC)) echo $emailC ?>"></span><span
                                         class="before"></span><span class="after"></span></div>
                                     <span class="message-root"> 
-                                        <p class="root<?php if (isset($email) and empty($email)) echo "_error"?>"  > <?php if (isset($email) and empty($email)) echo "Email required";?></p>
+                                        <p class="root<?php if (isset($errEmail) and $errEmail!="") echo "_error"?>"  > <?php if (isset($errEmail)) echo $errEmail;?></p>
                                     </span>
                             </div>
                             <div class="field-wrapper  can-focus  "><label for="first_name" class="label">First Name<span
@@ -502,7 +532,7 @@
                                             type="text" autocomplete="given-name" placeholder="First Name" aria-required="true" class=""
                                             id="first_name" name="firstname" value="<?php if (isset($firstName)) echo $firstName ?>"></span><span class="before"></span><span
                                         class="after"></span></div><span class="message-root">
-                                        <p class="root<?php if (isset($firstName) and empty($firstName)) echo "_error"?>"  > <?php if (isset($firstName) and empty($firstName)) echo "First Name required";?></p>
+                                        <p class="root<?php if (isset($errFirstName) and $errFirstName!="") echo "_error"?>"  > <?php if (isset($errFirstName)) echo $errFirstName;?></p>
                                 </span>
                             </div>
                             <div class="field-wrapper  can-focus  "><label for="last_name" class="label">Last Name<span
@@ -511,7 +541,7 @@
                                             type="text" autocomplete="family-name" placeholder="Last Name" aria-required="true" class=""
                                             id="last_name" name="lastname" value="<?php if (isset($lastName)) echo $lastName ?>"></span><span class="before"></span><span
                                         class="after"></span></div><span class="message-root">
-                                        <p class="root<?php if (isset($lastName) and empty($lastName)) echo "_error"?>"  > <?php if (isset($lastName) and empty($lastName)) echo "Last Name required";?></p>
+                                        <p class="root<?php if (isset($errLastName) and $errLastName!="") echo "_error"?>"  > <?php if (isset($errLastName)) echo $errLastName;?></p>
                                 </span>
                             </div>
                             <div class="ReactPasswordStrength input-password-wrapper is-strength-null">
@@ -563,13 +593,69 @@
                             <button class="btn-new-design link" title="Sign In">Sign In</button>
                         </div>
                     </div>
-                    
+                    <?php 
+                        if (isset($_POST['login'])) {
+                            $passLogin = $_POST['passLogin'];
+                            $emailLogin = $_POST['emailLogin'];
+                            $sqlLogin = 'SELECT * FROM accounts';
+                            $stmt = $conn->prepare($sqlLogin);
+                            $stmt->execute();
+                            $result = $stmt->get_result();
 
-                </div>
+                            if (!$result) die ('<br <b> Query failed </b>');
+                            if ($result->num_rows!=0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    if ($row['accUsername'] == $emailLogin and password_verify($passLogin, $row['accPassword'])) {
+                                        $_SESSION['username'] = $emailLogin;
+                                        echo $_SESSION['username'];
+                                        // header("Location: welcome.php");
+                                        break;
+                                    };
+                                }
+                            }
+                        }
+                    
+                    ?>
+                    <div aria-labelledby="account-login-form-heading" class="account-login-form account-form-wrapper" 
+                        style="<?php 
+                                    if (isset($_POST['continue']) and $errEmailC == "Email already exist") {
+                                        echo "display:block";
+                                    } else {
+                                        echo "display:none";
+                                    }                    
+                                ?>"     
+                        >
+                        <div id="account-login-form-heading" class="customer exist"><span>Enter your password to continue</span></div>
+                            <form method="post">
+                                <div class="field-wrapper  can-focus  "><label for="email_address" class="label">Email<span class="requiredSymbol">*</span></label>
+                                    <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;"><span class="input-block"><input class="input-box-new-design" field="email" type="email" autocomplete="email" placeholder="Email" id="email_address" aria-required="true" name="emailLogin" value="<?php if (isset($emailC)) echo $emailC ?>" sr-value="*************"></span><span class="before"></span><span class="after"></span></div><span class="message-root">
+                                        <p class="root"></p>
+                                    </span>
+                                </div>
+                                <div class="field-wrapper  can-focus  "><label for="password" class="label">Password<span class="requiredSymbol">*</span></label>
+                                    <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;"><span class="input-block" style="position: relative;"><input class="input-box-new-design" field="password" type="password" autocomplete="new-password" placeholder="Password" id="password" aria-required="true" value="" name="passLogin" style="width: 290px !important; margin-right: 78px !important; transition: none 0s ease 0s;"><ownid-win-button-widget data-or="or" position="end" height="44" language="en" tabindex="0" style="--ownid-button-widget-background: #FFFFFF; --ownid-button-widget-color: #0070F2; --ownid-button-widget-border-color: #000000; opacity: 1; height: 44px; --ownid-qr-or-width: 24px; top: 0px; left: 300px;">Skip Password<ownid-tooltip-expandable slot="tooltip" position="bottom" arrow-position="right" data-title="Sign-in faster without a password" data-details-title="Sign-in faster without a password" data-details-description="Sign in securely with your device’s unlock method, when available, or by scanning a QR code. Biometric data never leaves your device." data-c="Close" data-mi="More info" style="--ownid-tooltip-arrow-bg-color: var(--ownid-tooltip-bg-color); --ownid-tooltip-arrow-horizontal-pos: 22px;"></ownid-tooltip-expandable></ownid-win-button-widget></span><span class="before"></span><span class="after"></span></div><span class="message-root">
+                                        <p class="root"></p>
+                                    </span>
+                                </div>
+                                <div class="actions-toolbar"><button class="btn-new-design primary" type="submit" name="login">Sign In</button>
+                                    <div></div><a title="Forgot password?" class="forgot-password-link" href="/">Forgot password?</a>
+                                </div>
+                            </form>
+                            <p class="text-align-center">Or</p>
+                            <form class="form-email-onetime"><button class="btn-new-design primary" type="submit">Email One Time Link</button></form>
+                        </div>
+                    </div>
             </div>
-            <div class="account-form signin">
+            <div class="account-form signin" 
+                 style="<?php 
+                            if($_SESSION['username']!="") {
+                                echo "display:block";
+                            }
+                 
+                        ?>"
+                >
                 <div class="account-form-dropdown">
-                    <h3 class="account-form-title"><a href="#">Welcome, Rip!</a></h3>
+                    <h3 class="account-form-title"><a href="#">Welcome, <?php echo $_SESSION['username'] ?>!</a></h3>
                     <div class="account-form-group">
                         <h4 class="group-title">Recent Orders</h4><a href="#" class="group-item"><svg
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
