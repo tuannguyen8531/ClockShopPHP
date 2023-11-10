@@ -44,7 +44,7 @@ let accountTab = document.querySelector(".account-tab");
 let slideOutContent = document.querySelector(".slide-out-content");
 let accountForm = document.querySelector(".account-form");
 let cartPage = document.querySelector(".cart-page");
-let signIn = document.querySelector(".signin");
+// let signIn = document.querySelector(".signin");
 let globalOverlay = document.querySelector(".global-overlay");
 
 function open(a){
@@ -86,7 +86,7 @@ function open(a){
 
     }
 
-    signIn.style.display = "none";
+    // signIn.style.display = "none";
     
 }
 
