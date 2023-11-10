@@ -19,13 +19,22 @@
         $stmt->bind_param('s', $model);
         $stmt->execute();
         $result = $stmt->get_result();
+        if($result->num_rows == 0) {
+            header('location: error404.php');
+        }
         $product = $result->fetch_assoc();
+
+        $upView = 'UPDATE watches SET view = view+1 WHERE watches.model LIKE ?';
+        $stmt = $conn->prepare($upView);
+        $stmt->bind_param('s', $model);
+        $stmt->execute();
     }
 ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jomashop.com: Online Shopping for Watches &amp; More - Jomashop</title>
+    <link rel="shortcut icon" href="./dist/file/usd.0fb3ccd8c33808902bbd.svg" />
     <link rel="stylesheet" href="./dist/css/1882.d22b2a4d319f5798c600.initial.css">
     <link rel="stylesheet" href="./dist/css/1312.31d6cfe0d16ae931b73c.bundle.css">
     <link rel="stylesheet" href="./dist/css/1634.1a661808a4dbdbef312c.initial.css">
@@ -358,11 +367,11 @@
                                 <div class="pdp-heading-wrapper">
                                     <h1 class="brand-name-container">
                                         <a href="/hamilton.html">
-                                            <span class="brand-name" data-promo="Holiday Early Bird Sale">Hamilton </span>
+                                            <span class="brand-name" data-promo="Holiday Early Bird Sale"><?= $product['brandName'] ?> </span>
                                         </a>
                                         <span class="product-name-container">
-                                            <span id="product-h1-product-name" class="product-name">Khaki Automatic Men's Watch</span>
-                                            <span class="product-info-stock-sku">Item No. H64455523</span>
+                                            <span id="product-h1-product-name" class="product-name"><?= $product['name'] ?></span>
+                                            <span class="product-info-stock-sku">Item No. <?= $product['model'] ?></span>
                                         </span>
                                     </h1>
                                     <div class="product-info-block">
@@ -380,8 +389,12 @@
                                         </div>
                                     </div>
                                     <div class="tag-wrapper">
-                                        <span class="tag-new-design stock-label">IN STOCK</span>
-                                        <span class="tag-new-design discount-label">34% Off</span>
+                                        <span class="tag-new-design stock-label">
+                                            <?php 
+                                                if($product['instock'] > 0) echo 'IN STOCK'; else echo 'OUT OF STOCK';
+                                            ?>
+                                        </span>
+                                        <span class="tag-new-design discount-label"><?= $product['sale'] ?>% Off</span>
                                     </div>
                                 </div>
                                 <div class="box-to-cart">
@@ -389,18 +402,28 @@
                                         <div class="price-wrapper ">
                                             <div class="retail-price-wrapper">
                                                 <div class="retail-wrapper">
-                                                    <span class="retail-label">Retail</span><span>$695.00</span>
+                                                    <span class="retail-label">Retail</span>
+                                                    <span>
+                                                        $<?php 
+                                                            $was = $product['price'] / ($product['sale'] / 100);
+                                                            $was = number_format($was, 2, '.', '');
+                                                            $retail = $was + 30.00;
+                                                            $retail = number_format($retail, 2, '.', '');
+                                                            echo $retail;
+                                                        ?>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="was-price-wrapper">
                                                 <div class="was-wrapper">
-                                                    <span class="was-label">Was</span><span>$591.99</span>
+                                                    <span class="was-label">Was</span>
+                                                    <span>$<?= $was ?></span>
                                                 </div>
                                             </div>
                                             <div class="now-price">
-                                                <span>$459.00</span><span class="spacer"></span>
+                                                <span>$<?= $product['price'] ?></span><span class="spacer"></span>
                                                 <p class="affirm-as-low-as" data-page-type="product" data-amount="45900">As low as 
-                                                    <span class="affirm-ala-price">$42</span>
+                                                    <span class="affirm-ala-price">$<?= (int)(($was-$product['price']) / 12) ?></span>
                                                     <span class="month">/mo</span> with 
                                                     <span class="__affirm-logo __affirm-logo-blue __ligature__affirm_full_logo__ __processed">Affirm</span>. 
                                                     <a class="affirm-modal-trigger" aria-label="Learn more about Affirm Financing (opens in modal)" href="javascript:void(0)">Prequalify now</a>
@@ -429,7 +452,11 @@
                                                             <rect width="20" height="20" fill="white" transform="translate(0.5)"></rect>
                                                         </clipPath>
                                                     </defs>
-                                                </svg>Want it by Thursday, November 9?
+                                                </svg>Want it by <?php 
+                                                    $now = date("l, F d");
+                                                    $delivery = date('l, F d', strtotime($now .' +5 day'));
+                                                    echo $delivery;
+                                                 ?>?
                                             </div>
                                             <div class="text">Choose Next Day Shipping at Checkout.</div>
                                         </div>
@@ -438,117 +465,37 @@
                             </div>
                             <div class="more-choice">
                                 <h2 class="title">
-                                    <a href="/filters/watches?manufacturer=Hamilton&amp;series=Khaki">View more <strong>Hamilton Khaki</strong></a>
+                                    <a href="">View more <strong><?= $product['brandName'] ?></strong></a>
                                 </h2>
                                 <div>
                                     <div class="simple-slider-horizontal">
                                         <div class="arrow-carousal-new-design arrow-prev"></div>
+                                        <div class="arrow-carousal-new-design arrow-next"></div>
                                         <div class="simple-slider-wrapper" sr-scroll-left="1692" sr-scroll-top="0">
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-mens-khaki-king-watch-h70455733.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" class="render-img" title="Hamilton Khaki Field Automatic Men's Watch H70455733">
-                                                    </a>
+                                            <?php 
+                                                $sqlMoreChoice = 'SELECT * FROM watches
+                                                    JOIN brands ON watches.brand = brands.brandId
+                                                    JOIN styles ON watches.style = styles.styleId
+                                                    JOIN movements ON watches.movement = movements.moveId
+                                                    JOIN categories ON watches.category = categories.cateId
+                                                    JOIN features ON watches.features = features.feaId
+                                                    JOIN types ON watches.type = types.typeId
+                                                    JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+                                                    WHERE (watches.brand LIKE ?) AND (watches.id NOT LIKE ?)';
+                                                $stmt = $conn->prepare($sqlMoreChoice);
+                                                $stmt->bind_param('ii', $product['brand'], $product['id']);
+                                                $stmt->execute();
+                                                $resultMoreChoice = $stmt->get_result();
+                                            ?>
+                                            <?php while($rowMore = $resultMoreChoice->fetch_assoc()) { ?>
+                                                <div class="simple-slider-slide">
+                                                    <div class="product-content">
+                                                        <a href="detail.php?model=<?= $rowMore['model'] ?>">
+                                                            <img loading="lazy" alt="<?= $rowMore['name'] ?>" src="./img/watches/<?= $rowMore['img1'] ?>" class="render-img" title="<?= $rowMore['name'] ?>">
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-mens-watch-h64455533.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki King Series Automatic Men's Watch H64455533" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-king-series-automatic-mens-watch-h64455533.jpg" class="render-img" title="Hamilton Khaki King Series Automatic Men's Watch H64455533">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-khaki-field-mens-watch-h70555533.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Field Automatic Black Dial Men's Watch H70555533" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-black-dial-mens-watch-h70555533--.jpg" class="render-img" title="Hamilton Khaki Field Automatic Black Dial Men's Watch H70555533">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-khaki-mens-watch-h70515137.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70515137" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-men_s-watch-h70515137.jpg" class="render-img" title="Hamilton Khaki Field Automatic Men's Watch H70515137">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-watch-h77715553.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Navy Pioneer Automatic Silver Dial Men's Watch H77715553" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-navy-pioneer-automatic-silver-dial-men_s-watch-h77715553.jpg" class="render-img" title="Hamilton Khaki Navy Pioneer Automatic Silver Dial Men's Watch H77715553">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-watch-h68551833.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Black Dial Tan Suede Men's Watch H68551833" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-black-dial-tan-suede-men_s-watch-h68551833.jpg" class="render-img" title="Hamilton Khaki Black Dial Tan Suede Men's Watch H68551833">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-khaki-aviation-converter-automatic-black-dial-mens-watch-h76635730.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Aviation Converter Automatic Black Dial Men's Watch H76635730" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-aviation-converter-automatic-black-dial-mens-watch-h76635730_1.jpg" class="render-img" title="Hamilton Khaki Aviation Converter Automatic Black Dial Men's Watch H76635730">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-khaki-pilot-men-watch-h64715885.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Pilot Automatic Men's Watch H64715885" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-pilot-automatic-men_s-watch-h64715885.jpg" class="render-img" title="Hamilton Khaki Pilot Automatic Men's Watch H64715885">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-watch-h70455533.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Automatic Black Dial Men's Watch H70455533" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-automatic-black-dial-mens-watch-h70455533.jpg" class="render-img" title="Hamilton Khaki Automatic Black Dial Men's Watch H70455533">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-watch-h76512133.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Pilot Pioneer Chronograph Men's Watch H76512133" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-pilot-pioneer-chronograph-mens-watch-h76512133.jpg" class="render-img" title="Hamilton Khaki Pilot Pioneer Chronograph Men's Watch H76512133">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-watch-h70455553.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Field Automatic Silver Dial Men's Watch H70455553" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-silver-dial-men_s-watch-h70455553.jpg" class="render-img" title="Hamilton Khaki Field Automatic Silver Dial Men's Watch H70455553">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-hamilton-khaki-field-blue-dial-mens-watch-h70545540.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Field Automatic Blue Dial Men's Watch H70545540" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-blue-dial-mens-watch-h70545540.jpg" class="render-img" title="Hamilton Khaki Field Automatic Blue Dial Men's Watch H70545540">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-watch-h64615135.html">
-                                                        <img loading="lazy" alt="Hamilton Pilot Day Date Automatic Black Dial Men's Watch H64615135" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-pilot-day-date-automatic-black-dial-men_s-watch-h64615135.jpg" class="render-img" title="Hamilton Pilot Day Date Automatic Black Dial Men's Watch H64615135">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-khaki-field-automatic-grey-dial-mens-watch-h70215880.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Field Automatic Grey Dial Men's Watch H70215880" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-grey-dial-mens-watch-h70215880.jpg" class="render-img" title="Hamilton Khaki Field Automatic Grey Dial Men's Watch H70215880">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="simple-slider-slide">
-                                                <div class="product-content">
-                                                    <a href="https://www.jomashop.com/hamilton-khaki-field-watch-h69439511.html">
-                                                        <img loading="lazy" alt="Hamilton Khaki Field Hand Wind White Dial Men's Watch H69439511" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-hand-wind-white-dial-mens-watch-h69439511.jpg" class="render-img" title="Hamilton Khaki Field Hand Wind White Dial Men's Watch H69439511">
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -627,7 +574,7 @@
                                                     <h2 class="desc-head" id="des">Decription</h2>
                                                     <div class="desc-content">
                                                         <div>
-                                                        Silver-tone stainless steel case with a brown leather strap. Fixed silver-tone stainless steel bezel. Beige dial with luminous hands and Arabic numeral hour markers. Minute markers around the outer rim, 24 hour (GMT) scale around an inner ring. Dial Type: Analog. Luminescent hands and markers. Day of the week and date display at the 12 o'clock position. Hamilton Calibre H-40 Automatic movement, containing 25 Jewels, bitting at 21600 vph, and has a power reserve of approximately 80 hours. Scratch resistant sapphire crystal. Skeleton case back. Round case shape, case size: 40 mm, case thickness: 11 mm. Band width: 20 mm. Tang clasp. Water resistant at 50 meters / 165 feet. Functions: date, day, hour, minute, second, 24 hours. Khaki Series. Dress watch style. Watch label: Swiss Made. Hamilton Khaki Field King Automatic Silver Dial Men's Watch H64455523.
+                                                            <?= $product['description'] ?>
                                                         </div>
                                                     </div>
                                                     <div class="more-detail-wrapper">
@@ -636,180 +583,182 @@
                                                     <div class="more-detail-body">
                                                         <div class="more-detail-Row">
                                                             <h3 class="more-detail-head">General</h3>
-                                                            <div class="more-detail-content" wz_dt_ref="true"><h4 class="more-label">Color </h4><span class="more-value">Beige / Brown / Skeleton</span></div>
+                                                            <div class="more-detail-content" wz_dt_ref="true">
+                                                                <h4 class="more-label">Color </h4>
+                                                                <span class="more-value"><?= $product['bezelColor'] ?></span>
+                                                            </div>
                                                         </div>
                                                         <div class="more-detail-Row">
                                                             <h3 class="more-detail-head">Infomation</h3>
                                                             <div class="more-detail-content" wz_dt_ref="true">
                                                                 <h4 class="more-label">brand </h4>
-                                                                <span class="more-value">Hamilton</span>
-                                                            </div>
-                                                            <div class="more-detail-content" wz_dt_ref="true">
-                                                                <h4 class="more-label">series label </h4>
-                                                                <span class="more-value">Khaki</span>
+                                                                <span class="more-value"><?= $product['brandName'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content" wz_dt_ref="true">
                                                                 <h4 class="more-label">Gender </h4>
-                                                                <span class="more-value">Men's</span>
+                                                                <span class="more-value">
+                                                                    <?php 
+                                                                        if($product['gender']==1) {
+                                                                            echo "Men's";
+                                                                        } else if($product['gender']==0) echo "Ladies";
+                                                                        else echo 'Unisex';
+                                                                    ?>
+                                                                </span>
                                                             </div>   
                                                             <div class="more-detail-content" wz_dt_ref="true">
                                                                 <h4 class="more-label">model </h4>
-                                                                <span class="more-value">H64455523</span>
+                                                                <span class="more-value"><?= $product['model'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content" wz_dt_ref="true">
                                                                 <h4 class="more-label">Watch label </h4>
-                                                                <span class="more-value">Swiss Made</span>
+                                                                <span class="more-value"><?= $product['watchLabel']!= null ? $product['watchLabel'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content" wz_dt_ref="true">
                                                                 <h4 class="more-label">Movement </h4>
-                                                                <span class="more-value">Automatic</span>
+                                                                <span class="more-value"><?= $product['moveName'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content" wz_dt_ref="true">
                                                                 <h4 class="more-label">Engine </h4>
-                                                                <span class="more-value">Hamilton Calibre H-40</span>
+                                                                <span class="more-value"><?= $product['engine']!= null ? $product['engine'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content" wz_dt_ref="true">
                                                                 <h4 class="more-label">Power reserve </h4>
-                                                                <span class="more-value">80 hours</span>
+                                                                <span class="more-value"><?= $product['powerReserve']!= 0 ? $product['powerReserve'] . ' hours' : 'No information'; ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="more-detail-Row">
                                                             <h3 class="more-detail-head">Case</h3>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Case Size </h4>
-                                                                <span class="more-value">40 mm</span>
+                                                                <span class="more-value"><?= $product['caseSize'] ?> mm</span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Case Thickness </h4>
-                                                                <span class="more-value">11 mm</span>
-                                                            </div>
-                                                            <div class="more-detail-content">
-                                                                <h4 class="more-label">Case Color </h4>
-                                                                <span class="more-value">Silver-Tone</span>
+                                                                <span class="more-value"><?= $product['caseThickness'] != 0 ? $product['caseThickness'] . ' mm' : 'No information' ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Case Material </h4>
-                                                                <span class="more-value">Stainless Steel</span>
+                                                                <span class="more-value"><?= $product['caseMaterial'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Case Shape </h4>
-                                                                <span class="more-value">Round</span>
+                                                                <span class="more-value"><?= $product['caseName'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Case Back </h4>
-                                                                <span class="more-value">Skeleton</span>
+                                                                <span class="more-value"><?= $product['caseBack']!= null ? $product['caseBack'] : 'No information'; ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="more-detail-Row">
                                                             <h3 class="more-detail-head">Band</h3>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Band Material </h4>
-                                                                <span class="more-value">Leather</span>
+                                                                <span class="more-value"><?= $product['bandMaterial'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Band Type </h4>
-                                                                <span class="more-value">Strap</span>
+                                                                <span class="more-value"><?= $product['bandType'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Band Color </h4>
-                                                                <span class="more-value">Brown</span>
+                                                                <span class="more-value"><?= $product['bandColor'] ?></span>
+                                                            </div>
+                                                            <div class="more-detail-content">
+                                                                <h4 class="more-label">Band Length </h4>
+                                                                <span class="more-value"><?= $product['bandLength'] != 0 ? $product['bandLength'] . ' mm' : 'No information' ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Band Width </h4>
-                                                                <span class="more-value">20 mm</span>
+                                                                <span class="more-value"><?= $product['bandWidth'] != 0 ? $product['bandWidth'] . ' mm' : 'No information' ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Clasp </h4>
-                                                                <span class="more-value">Tang</span>
+                                                                <span class="more-value"><?= $product['clasp'] ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="more-detail-Row">
                                                             <h3 class="more-detail-head">Dial</h3>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Dial Color </h4>
-                                                                <span class="more-value">Beige</span>
+                                                                <span class="more-value"><?= $product['dialColor'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Type </h4>
-                                                                <span class="more-value">Analog</span>
+                                                                <span class="more-value"><?= $product['typeName'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Crystal </h4>
-                                                                <span class="more-value">Scratch Resistant Sapphire</span>
+                                                                <span class="more-value"><?= $product['crystal']!= null ? $product['crystal'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Hands </h4>
-                                                                <span class="more-value">Luminous</span>
+                                                                <span class="more-value"><?= $product['hands']!= null ? $product['hands'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Dial Markers </h4>
-                                                                <span class="more-value">Arabic Numeral</span>
+                                                                <span class="more-value"><?= $product['dialMarkers']!= null ? $product['dialMarkers'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Second Markers </h4>
-                                                                <span class="more-value">Minute Markers around the outer rim, 24 Hour (GMT) scale around an inner ring</span>
+                                                                <span class="more-value"><?= $product['secondMarkers']!= null ? $product['secondMarkers'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Luminiscence </h4>
-                                                                <span class="more-value">Hands and Markers</span>
+                                                                <span class="more-value"><?= $product['lumine']!= null ? $product['lumine'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Bezel </h4>
-                                                                <span class="more-value">Fixed</span>
+                                                                <span class="more-value"><?= $product['bezel'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Bezel Color </h4>
-                                                                <span class="more-value">Silver-tone</span>
+                                                                <span class="more-value"><?= $product['bezelColor']!= null ? $product['bezelColor'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Bezel Material </h4>
-                                                                <span class="more-value">Stainless Steel</span>
+                                                                <span class="more-value"><?= $product['bezelMaterial']!= null ? $product['bezelMaterial'] : 'No information'; ?></span>
+                                                            </div>
+                                                            <div class="more-detail-content">
+                                                                <h4 class="more-label">Crown </h4>
+                                                                <span class="more-value"><?= $product['crown']!= null ? $product['crown'] : 'No information'; ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="more-detail-Row">
                                                             <h3 class="more-detail-head">Features</h3>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Water Resistance </h4>
-                                                                <span class="more-value">50 meters / 165 feet</span>
+                                                                <span class="more-value"><?= $product['waterRes'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Calendar </h4>
-                                                                <span class="more-value">Day of the week and date display at the 12 o'clock position</span>
+                                                                <span class="more-value"><?= $product['calendar']!= null ? $product['calendar'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Functions </h4>
-                                                                <span class="more-value">Date, Day, Hour, Minute, Second, 24 Hours</span>
+                                                                <span class="more-value"><?= $product['func'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Watch Features </h4>
-                                                                <span class="more-value">Stainless Steel, Leather, GMT, Analog</span>
+                                                                <span class="more-value"><?= $product['feaName'] ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="more-detail-Row">
                                                             <h3 class="more-detail-head">Additional Info</h3>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Watch Style </h4>
-                                                                <span class="more-value">Dress</span>
+                                                                <span class="more-value"><?= $product['styleName'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Warranty </h4>
-                                                                <span class="more-value">2 Year Jomashop Warranty</span>
-                                                            </div>
-                                                            <div class="more-detail-content">
-                                                                <h4 class="more-label">UPC Code </h4>
-                                                                <span class="more-value">7640113835477</span>
-                                                            </div>
-                                                            <div class="more-detail-content">
-                                                                <h4 class="more-label">Jomashop Sku </h4>
-                                                                <span class="more-value">HML-H64455523</span>
+                                                                <span class="more-value"><?= $product['warranty']!= null ? $product['warranty'] : 'No information'; ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Department </h4>
-                                                                <span class="more-value">Watches</span>
+                                                                <span class="more-value"><?= $product['department'] ?></span>
                                                             </div>
                                                             <div class="more-detail-content">
                                                                 <h4 class="more-label">Category </h4>
-                                                                <span class="more-value">Watches</span>
+                                                                <span class="more-value"><?= $product['cateName'] ?></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -862,327 +811,121 @@
                                 <div class="arrow-carousal-new-design arrow-next"></div>
                                 <div class="arrow-carousal-new-design arrow-prev"></div>
                                 <div class="slider-list-wrapper slider-grid-wrapper" id="item-list">
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
+                                    <?php 
+                                        $sqlMinId = 'SELECT MIN(brandId) AS minId FROM brands';
+                                        $result = $conn->query($sqlMinId)->fetch_assoc();
+                                        $minId = $result['minId'];
+
+                                        $sqlMaxId = 'SELECT MAX(brandId) AS maxId FROM brands';
+                                        $result = $conn->query($sqlMaxId)->fetch_assoc();
+                                        $maxId = $result['maxId'];
+
+                                        do {
+                                            $random = rand($minId, $maxId);
+                                        } while($random==$product['brandId']);
+                                        
+                                        $sqlAlsoLike = 'SELECT * FROM watches
+                                            JOIN brands ON watches.brand = brands.brandId
+                                            JOIN styles ON watches.style = styles.styleId
+                                            JOIN movements ON watches.movement = movements.moveId
+                                            JOIN categories ON watches.category = categories.cateId
+                                            JOIN features ON watches.features = features.feaId
+                                            JOIN types ON watches.type = types.typeId
+                                            JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+                                            WHERE (watches.brand LIKE ?) AND (watches.id NOT LIKE ?) OR (watches.brand LIKE ?)';
+                                        $stmt = $conn->prepare($sqlAlsoLike);
+                                        $stmt->bind_param('iii', $product['brand'], $product['id'], $random);
+                                        $stmt->execute();
+                                        $resultAlsoLike = $stmt->get_result();
+                                    ?>
+                                    <?php while($rowAlso = $resultAlsoLike->fetch_assoc()) { ?>
+                                        <div class="product-content productItem">
+                                            <button class="wishlist-icon-new-design">
+                                                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                            </button>
+                                            <a class="product-image" href="detail.php?model=<?= $rowAlso['model'] ?>">
+                                                <img loading="lazy" alt="<?= $rowAlso['name'] ?>" src="./img/watches/<?= $rowAlso['img1'] ?>" title="<?= $rowAlso['name'] ?>" width="250" height="250" class="product-img">
+                                            </a>
+                                            <a class="product-name" href="detail.php?model=<?= $rowAlso['model'] ?>">
+                                                <span class="brand-name"><?= $rowAlso['brandName'] ?></span>
+                                                <span title="" class="productName-link"><?= $rowAlso['name'] ?></span>
+                                            </a>
+                                            <div class="tag-wrapper">
+                                                <span class="tag-new-design discount-label"><?= $rowAlso['sale'] ?>% Off</span>
+                                            </div>
+                                            <div class="price-wrapper trending">
+                                                <div class="was-price-wrapper">
+                                                    <div class="was-wrapper">
+                                                        <span>$<?php
+                                                            $was = $product['price'] / ($rowAlso['sale'] / 100);
+                                                            $was = number_format($was, 2, '.', '');
+                                                            echo $was;
+                                                        ?>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="now-price">
+                                                    <span>$<?= $rowAlso['price'] ?></span>
                                                 </div>
                                             </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content productItem">
-                                        <button class="wishlist-icon-new-design">
-                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </button>
-                                        <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                        </a>
-                                        <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                            <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                        </a>
-                                        <div class="tag-wrapper">
-                                            <span class="tag-new-design discount-label">32% Off</span>
-                                        </div>
-                                        <div class="price-wrapper trending">
-                                            <div class="was-price-wrapper">
-                                                <div class="was-wrapper">
-                                                    <span>$695.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="now-price">
-                                                <span>$475.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="recently-view">
-                        <h3 class="title">Recently Viewed</h3>
+                        <h3 class="title">Most Viewed</h3>
                         <div class="slider-root">
                             <div class="arrow-carousal-new-design arrow-next"></div>
                             <div class="slider-list-wrapper slider-grid-wrapper">
-                                <div class="product-content productItem">
-                                    <button class="wishlist-icon-new-design">
-                                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                    </button>
-                                    <a class="product-image" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                        <img loading="lazy" alt="Hamilton Khaki Field Automatic Men's Watch H70455733" src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/h/a/hamilton-khaki-field-automatic-men_s-watch-h70455733.jpg" title="Hamilton Khaki Field Automatic Men's Watch H70455733" width="250" height="250" class="product-img">
-                                    </a>
-                                    <a class="product-name" href="/hamilton-mens-khaki-king-watch-h70455733.html">
-                                        <span class="brand-name">Hamilton</span><span title="Khaki Field Automatic Men's Watch H70455733" class="productName-link">Khaki Field Automatic Men's Watch H70455733</span>
-                                    </a>
-                                    <div class="tag-wrapper">
-                                        <span class="tag-new-design discount-label">32% Off</span>
-                                    </div>
-                                    <div class="price-wrapper trending">
-                                        <div class="was-price-wrapper">
-                                            <div class="was-wrapper">
-                                                <span>$695.00</span>
+                                <?php
+                                    $sqlTrending = 'SELECT * FROM watches 
+                                    JOIN brands ON watches.brand = brands.brandId
+                                    JOIN styles ON watches.style = styles.styleId
+                                    JOIN movements ON watches.movement = movements.moveId
+                                    JOIN categories ON watches.category = categories.cateId
+                                    JOIN features ON watches.features = features.feaId
+                                    JOIN types ON watches.type = types.typeId
+                                    JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+                                    ORDER BY watches.view DESC
+                                    LIMIT 20';
+                                    $stmt = $conn->prepare($sqlTrending);
+                                    $stmt->execute(); 
+                                    $trendingResult = $stmt->get_result();
+                                ?>
+                                <?php while($rowTrending = $trendingResult->fetch_assoc()) { ?>
+                                    <div class="product-content productItem">
+                                        <button class="wishlist-icon-new-design">
+                                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        </button>
+                                        <a class="product-image" href="detail.php?model=<?= $rowTrending['model'] ?>">
+                                            <img loading="lazy" alt="<?= $rowTrending['name'] ?>" src="./img/watches/<?= $rowTrending['img1'] ?>" title="<?= $rowTrending['name'] ?>" width="250" height="250" class="product-img">
+                                        </a>
+                                        <a class="product-name" href="detail.php?model=<?= $rowTrending['model'] ?>">
+                                            <span class="brand-name"><?= $rowTrending['brandName'] ?></span>
+                                            <span title="" class="productName-link"><?= $rowTrending['name'] ?></span>
+                                        </a>
+                                        <div class="tag-wrapper">
+                                            <span class="tag-new-design discount-label"><?= $rowTrending['sale'] ?>% Off</span>
+                                        </div>
+                                        <div class="price-wrapper trending">
+                                            <div class="was-price-wrapper">
+                                                <div class="was-wrapper">
+                                                    <span>$<?php
+                                                        $was = $product['price'] / ($rowTrending['sale'] / 100);
+                                                        $was = number_format($was, 2, '.', '');
+                                                        echo $was;
+                                                    ?>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="now-price">
+                                                <span>$<?= $rowTrending['price'] ?></span>
                                             </div>
                                         </div>
-                                        <div class="now-price">
-                                            <span>$475.00</span>
-                                        </div>
                                     </div>
-                                </div>    
+                                <?php } ?> 
                             </div>
                         </div>
                     </div>
