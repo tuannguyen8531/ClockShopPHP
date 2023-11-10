@@ -768,10 +768,27 @@
                                         <div class="column-root-k2m pagebuilder-column" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; width: 100%;">
                                             <div class="banner-root-Wut hero-banner __PRIMARY_CONTENT_PRELOAD__">
                                                 <?php 
-                                                    $randomBanner = rand(1, 50);
-                                                    if($randomBanner%2==0) {
-                                                        $banner = 'banner_main_HALLOWEEN_2023_1600_1.jpg';
-                                                    } else $banner = 'banner_main_EARLY_BIRD_2023_1600_03.jpg';
+                                                    $randomBanner = rand(1, 9);
+                                                    switch($randomBanner) {
+                                                        case 1:
+                                                        case 2:
+                                                        case 3: {
+                                                            $banner = 'banner_main_HALLOWEEN_2023_1600_1.jpg';
+                                                            break;
+                                                        }
+                                                        case 4:
+                                                        case 5:
+                                                        case 6: {
+                                                            $banner = 'banner_main_EARLY_BIRD_2023_1600_03.jpg';
+                                                            break;
+                                                        }
+                                                        case 7:
+                                                        case 8:
+                                                        case 9: {
+                                                            $banner = 'banner_main_1111_2023_1600.jpg';
+                                                            break;
+                                                        }
+                                                    }
                                                 ?>
                                                 <a class="banner-link-pPa" href="" aria-label="Hero banner primary">
                                                     <div class="banner-wrapper-WuE" style="background-image: url(&quot;./img/banner/<?= $banner ?>&quot;); background-size: cover; background-position: center center; background-attachment: scroll; background-repeat: no-repeat;">
