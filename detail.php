@@ -28,6 +28,8 @@
         $stmt = $conn->prepare($upView);
         $stmt->bind_param('s', $model);
         $stmt->execute();
+    } else {
+        header('location: error404.php');
     }
 ?>
 <head>
@@ -325,7 +327,7 @@
                                                 <div class="simple-slider-prev swiper-prev"></div>
                                                 <div class="simple-slider-next swiper-next"></div>
                                                 <div class="thumbs-items-wrapper simple-slider-wrapper">
-                                                    <div class="thumb-item simple-slider-slide selected" style="<?= $product['img1']!=null ? '' : 'display: none' ?>">
+                                                    <div class="thumb-item simple-slider-slide" style="<?= $product['img1']!=null ? '' : 'display: none' ?>">
                                                         <a href="#" aria-label="View Image 1">
                                                             <img id="img-1" loading="lazy" alt="<?= $product['name'] ?>" src="./img/watches/<?= $product['img1'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
                                                         </a>
@@ -1050,13 +1052,13 @@
                                 <div class="accordion-item col-0 contact-us opened">
                                     <div class="accordion-head">Contact Us</div>
                                     <div class="accordion-content collapse show">
-                                        <li><a class="" href="/customer-service/">Customer Service</a></li>
-                                        <li><a class="" href="/help-center/order-status/">Order Status</a></li>
-                                        <li><a class="/email-preference-footer" href="/my-account/email-preferences/">Update Your Email Preferences</a></li>
-                                        <li><a class="" href="/trade-in.html?transaction=trade&amp;referrer=footer">Trade-In Your Watch</a></li>
-                                        <li><a class="" href="/sell-us-your-rolex.html?transaction=sell&amp;referrer=footerRolex">Sell my Rolex</a></li>
-                                        <li><a class="" href="/sell-us-your-watch.html?transaction=trade&amp;referrer=footer">Sell my Watch</a></li>
-                                        <li><a class="" href="/sell-on-jomashop-vendor-application-form.html">Become a Vendor</a></li>
+                                        <li><a class="" href="">Customer Service</a></li>
+                                        <li><a class="" href="">Order Status</a></li>
+                                        <li><a class="">Update Your Email Preferences</a></li>
+                                        <li><a class="" href="">Trade-In Your Watch</a></li>
+                                        <li><a class="" href="">Sell my Rolex</a></li>
+                                        <li><a class="" href="">Sell my Watch</a></li>
+                                        <li><a class="" href="">Become a Vendor</a></li>
                                     </div>
                                 </div>
                                 <div class="accordion-item col-1 company-info opened">

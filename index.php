@@ -901,7 +901,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="sunglasses" src="./img/catalog/sunglasses.png" title="sunglasses" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -911,7 +911,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="handbag accessories" src="./img/catalog/handbags_round_150.png" title="handbag accessories" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -921,7 +921,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="luxury pends" src="./img/catalog/pens_round_150.png" title="luxury pends" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -931,7 +931,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="beauty" src="./img/catalog/beauty_round_150.png" title="beauty" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -953,7 +953,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="jewelry" src="./img/catalog/jewelry_round_150.png" title="jewelry" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -963,7 +963,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="accessories" src="./img/catalog/accessories_round_150.png" title="accessories" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -973,7 +973,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="apparel" src="./img/catalog/outerwear_round_150.png" title="apparel" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -983,7 +983,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="shoes" src="./img/catalog/shoes_round_150.png" title="shoes" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -993,7 +993,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./error404.php">
                                                         <img loading="lazy" alt="preowned watches" src="./img/catalog/preowned_round_150.png" title="preowned watches" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
@@ -1014,15 +1014,20 @@
                                     <div style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;">
                                         <div class="">
                                             <div class="popular-wrapper" style="text-transform: uppercase;">
-                                                <a href="" class="popular-item">Baume</a>
-                                                <a href="" class="popular-item">Rolex</a>
-                                                <a href="" class="popular-item">Tissot</a>
-                                                <a href="" class="popular-item">Seiko</a>
-                                                <a href="" class="popular-item">Tudor</a>
-                                                <a href="" class="popular-item">Michael</a>
-                                                <a href="" class="popular-item">Longines</a>
-                                                <a href="" class="popular-item">Omega</a>
-                                                <a href="" class="popular-item">Hamilton</a>
+                                                <?php
+                                                    $sqlBrands = 'SELECT brandName, SUM(view) AS total
+                                                    FROM brands
+                                                    INNER JOIN watches ON brands.brandId = watches.brand
+                                                    GROUP BY brands.brandName
+                                                    ORDER BY total DESC
+                                                    LIMIT 9';
+                                                    $stmt = $conn->prepare($sqlBrands);
+                                                    $stmt->execute();
+                                                    $resultBrands = $stmt->get_result();
+                                                ?>
+                                                <?php while($brand = $resultBrands->fetch_assoc()) { ?>
+                                                    <a href="" class="popular-item"><?= $brand['brandName'] ?></a>
+                                                <?php } ?>
                                                 <a href="" class="popular-item popular-active">SHOW ALL BRANDS</a>
                                             </div>
                                             <style>
@@ -1081,7 +1086,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="sunglasses" src="./img/catalog/sunglasses.png" title="preowned"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="sunglasses" src="./img/catalog/sunglasses.png" title="preowned"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1093,7 +1098,7 @@
                                         <div class="columnGroup-root-Q2r" style="display: flex;">
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="beauty" src="./img/catalog/beauty_round_150.png" title="beauty"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="beauty" src="./img/catalog/beauty_round_150.png" title="beauty"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1103,7 +1108,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="wallets" src="./img/catalog/accessories_round_150.png" title="wallets"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="wallets" src="./img/catalog/accessories_round_150.png" title="wallets"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1115,7 +1120,7 @@
                                         <div class="columnGroup-root-Q2r" style="display: flex;">
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="handbags" src="./img/catalog/handbags_round_150.png" title="handbags"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="handbags" src="./img/catalog/handbags_round_150.png" title="handbags"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1125,7 +1130,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="jewelry" src="./img/catalog/jewelry_round_150.png" title="jewelry"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="jewelry" src="./img/catalog/jewelry_round_150.png" title="jewelry"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-stacked-Ylb buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1137,7 +1142,7 @@
                                         <div class="columnGroup-root-Q2r" style="display: flex;">
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="outerwear" src="./img/catalog/outerwear_round_150.png" title="outerwear"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="outerwear" src="./img/catalog/outerwear_round_150.png" title="outerwear"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1147,7 +1152,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="shoes" src="./img/catalog/shoes_round_150.png" title="shoes"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="shoes" src="./img/catalog/shoes_round_150.png" title="shoes"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1159,7 +1164,7 @@
                                         <div class="columnGroup-root-Q2r" style="display: flex;">
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="pens" src="./img/catalog/pens_round_150.png" title="pens"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="pens" src="./img/catalog/pens_round_150.png" title="pens"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1169,7 +1174,7 @@
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="preowned" src="./img/catalog/preowned_round_150.png" title="preowned"></a>
+                                                    <a href="./error404.php"><img loading="lazy" alt="preowned" src="./img/catalog/preowned_round_150.png" title="preowned"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
@@ -1207,7 +1212,7 @@
                                                     <?php while($featuredDeals = $result->fetch_assoc()) { ?>
                                                     <li data-content-type="product-daily-deails">
                                                         <a href="./detail.php?model=<?= $featuredDeals['model'] ?>">
-                                                            <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals['img1'] ?>" alt="Rolex">
+                                                            <img width="300" height="300" loading="lazy" src="./img/watches/<?php echo $featuredDeals['img1'] ?>" alt="<?= $featuredDeals['brandName'] ?>">
                                                             <span class="product-name">
                                                                 <b><?php echo $featuredDeals['brandName'] ?></b>
                                                                 <?php echo $featuredDeals['name'] ?>
@@ -1347,7 +1352,7 @@
                                                                                     <div class="swiper-slide">
                                                                                         <div class="item-root-XLH product-content">
                                                                                             <a class="item-images-yv2 product-image" href="./detail.php?model=<?= $trendingRow['model'] ?>">
-                                                                                                <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy" draggable="false">
+                                                                                                <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="<?= $trendingRow['name'] ?>" width="250" height="250" class="product-img" loading="lazy" draggable="false">
                                                                                             </a>
                                                                                             <a class="item-name-LrP product-name" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                                 <span class="brand-name"> <?= $trendingRow['brandName'] ?> </span>
@@ -1394,7 +1399,7 @@
                                                                     <div class="trending-now-item">
                                                                         <div class="item-root-XLH product-content">
                                                                             <a class="item-images-yv2 product-image" href="./detail.php?model=<?= $trendingRow['model'] ?>">
-                                                                                <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="" width="250" height="250" class="product-img" loading="lazy">
+                                                                                <img src="./img/watches/<?= $trendingRow['img1'] ?>" alt="<?= $trendingRow['name'] ?>" width="250" height="250" class="product-img" loading="lazy">
                                                                             </a>
                                                                             <a class="item-name-LrP product-name" href="./detail.php?model=<?= $trendingRow['model'] ?>">
                                                                                 <span class="brand-name"><?= $trendingRow['brandName'] ?> </span>
@@ -2098,7 +2103,7 @@
                                                             <img loading="lazy" alt="Accessories" src="./img/catalog/home_accessories.png" title="Accessories">
                                                         </div>
                                                     </a>
-                                                    <a href="" aria-label="Accessories" class="entire-catalog-btn">Accessories</a>
+                                                    <a href="./error404.php" aria-label="Accessories" class="entire-catalog-btn">Accessories</a>
                                                 </div>
                                                 <div class="entire-catalog-item">
                                                     <a href="/jewelry.html" aria-label="Jewelry">
@@ -2364,32 +2369,32 @@
                                 <div class="accordion-item col-1 company-info opened">
                                     <div class="accordion-head">Company Info</div>
                                     <div class="accordion-content collapse show">
-                                        <li><a href="" class="">About Jomashop</a></li>
-                                        <li><a class="" href="">Jomashop Reviews</a></li>
-                                        <li><a href="" class="">The Parlor: Our Blog</a></li>
-                                        <li><a href="" class="">Affiliate Program</a></li>
-                                        <li><a href="" class="">Authenticity Guarantee</a></li>
-                                        <li><a class="" href="">Jomashop Coupon Codes</a></li>
-                                        <li><a class="" href="">Jomashop Gift Cards</a></li>
+                                        <li><a href="./error404.php" class="">About Jomashop</a></li>
+                                        <li><a class="" href="./error404.php">Jomashop Reviews</a></li>
+                                        <li><a href="./error404.php" class="">The Parlor: Our Blog</a></li>
+                                        <li><a href="./error404.php" class="">Affiliate Program</a></li>
+                                        <li><a href="./error404.php" class="">Authenticity Guarantee</a></li>
+                                        <li><a class="" href="./error404.php">Jomashop Coupon Codes</a></li>
+                                        <li><a class="" href="./error404.php">Jomashop Gift Cards</a></li>
                                     </div>
                                 </div>
                                 <div class="accordion-item col-2 help-center opened">
                                     <div class="accordion-head">Help Center</div>
                                     <div class="accordion-content collapse show">
-                                        <li><a href="" class="">Order Information</a></li>
-                                        <li><a href="" class="">Shipping Options</a></li>
-                                        <li><a href="" class="">International Shipping</a></li>
-                                        <li><a href="" class="">Payment Options</a></li>
-                                        <li><a class="" href="">Pay with Bitpay / Crypto</a></li>
+                                        <li><a href="./error404.php" class="">Order Information</a></li>
+                                        <li><a href="./error404.php" class="">Shipping Options</a></li>
+                                        <li><a href="./error404.php" class="">International Shipping</a></li>
+                                        <li><a href="./error404.php" class="">Payment Options</a></li>
+                                        <li><a class="" href="./error404.php">Pay with Bitpay / Crypto</a></li>
                                     </div>
                                 </div>
                                 <div class="accordion-item col-3 returns-&amp;-warranty opened">
                                     <div class="accordion-head">Returns &amp; Warranty</div>
                                     <div class="accordion-content collapse show">
-                                        <li><a href="" class="">Returns &amp; Exchange Policy</a></li>
-                                        <li><a href="" class="">Returns Center</a></li>
-                                        <li><a href="" class="">Warranty Policy</a></li>
-                                        <li><a href="" class="">Warranty Repair Center</a></li>
+                                        <li><a href="./error404.php" class="">Returns &amp; Exchange Policy</a></li>
+                                        <li><a href="./error404.php" class="">Returns Center</a></li>
+                                        <li><a href="./error404.php" class="">Warranty Policy</a></li>
+                                        <li><a href="./error404.php" class="">Warranty Repair Center</a></li>
                                     </div>
                                 </div>
                                 <div class="accordion-item col-4 customer-service opened">
@@ -2520,7 +2525,7 @@
                                         </a>
                                     </li>
                                     <li class="whatsapp-item">
-                                        <a href="" title="Tap here to Live Chat" target="_blank" rel="noreferrer">
+                                        <a href="./error404.php" title="Tap here to Live Chat" target="_blank" rel="noreferrer">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0_649_65720)">
                                                 <path
@@ -2543,25 +2548,25 @@
                                 <div class="accordion-item col-0 contact-us opened">
                                     <div class="accordion-head">Contact Us</div>
                                     <div class="accordion-content collapse show">
-                                        <li><a class="" href="">Customer Service</a></li>
-                                        <li><a class="" href="">Order Status</a></li>
-                                        <li><a class="/email-preference-footer" href="">Update Your Email Preferences</a></li>
-                                        <li><a class="" href="">Trade-In Your Watch</a> </li>
-                                        <li><a class="" href="">Sell my Rolex</a></li>
-                                        <li><a class="" href="">Sell my Watch</a></li>
-                                        <li><a class="" href="">Become a Vendor</a></li>
+                                        <li><a class="" href="./error404.php">Customer Service</a></li>
+                                        <li><a class="" href="./error404.php">Order Status</a></li>
+                                        <li><a class="/email-preference-footer" href="./error404.php">Update Your Email Preferences</a></li>
+                                        <li><a class="" href="./error404.php">Trade-In Your Watch</a> </li>
+                                        <li><a class="" href="./error404.php">Sell my Rolex</a></li>
+                                        <li><a class="" href="./error404.php">Sell my Watch</a></li>
+                                        <li><a class="" href="./error404.php">Become a Vendor</a></li>
                                     </div>
                                 </div>
                                 <div class="accordion-item col-1 company-info opened">
                                     <div class="accordion-head">Company Info</div>
                                     <div class="accordion-content collapse show">
                                         <li><a href="/" class="">About Jomashop</a></li>
-                                        <li><a class="" href="">Jomashop Reviews</a></li>
-                                        <li><a href="" class="">The Parlor: Our Blog</a></li>
-                                        <li><a href="" class="">Affiliate Program</a></li>
-                                        <li><a href="" lass="">Authenticity Guarantee</a></li>
-                                        <li><a class="" href="">Jomashop Coupon Codes</a></li>
-                                        <li><a class="" href="">Jomashop Gift Cards</a></li>
+                                        <li><a class="" href="./error404.php">Jomashop Reviews</a></li>
+                                        <li><a href="./error404.php" class="">The Parlor: Our Blog</a></li>
+                                        <li><a href="./error404.php" class="">Affiliate Program</a></li>
+                                        <li><a href="./error404.php" lass="">Authenticity Guarantee</a></li>
+                                        <li><a class="" href="./error404.php">Jomashop Coupon Codes</a></li>
+                                        <li><a class="" href="./error404.php">Jomashop Gift Cards</a></li>
                                     </div>
                                 </div>
                                 <div class="accordion-item col-2 help-center opened">

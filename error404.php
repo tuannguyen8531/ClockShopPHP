@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    session_start();
+    if(empty($_SESSION['history']))
+        $_SESSION['history'] = array($_SERVER['PHP_SELF']);
+    else {
+        $_SESSION['history'][] = $_SERVER['PHP_SELF'];
+        if(count($_SESSION['history']) > 5)
+            array_shift($_SESSION['history']);
+    }
+    var_dump($_SESSION['history']);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -242,7 +253,7 @@
             </div>
             <h1 style="font-size: 30px;">SOMETHING WENT WRONG</h1>
             <h3>
-                It seems the product you find is not found. 
+                It seems the page you need is not found. 
                 <span>
                     <a href="index.php" style="text-decoration: none; color: red">Go back to Homepage!</a>
                 </span>
