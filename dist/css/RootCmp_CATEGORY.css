@@ -1065,7 +1065,7 @@
 
 .simple-slider-horizontal .simple-slider-wrapper {
     flex-direction: row;
-    /* overflow-x: auto */
+     overflow-x: auto 
 }
 
 .simple-slider-vertical {
