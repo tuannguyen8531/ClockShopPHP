@@ -302,13 +302,13 @@
                                         <div class="image-main">
                                             <div class="image-main__gallery">
                                                 <div class="slide-item slide-item-active">
-                                                    <img id="product-main-image-gallery" src="./img/watches/<?= $product['img1'] ?>" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
+                                                    <img id="product-main-image-gallery" src="./img/watches/<?= $product['img1'] ?>" alt="<?= $product['name'] ?>" aria-describedby="product-description-guarantee" width="546" height="546" title="<?= $product['name'] ?>" class="slide-item-main-image">
                                                 </div>
                                                 <div class="slide-item">
-                                                    <img src="./img/watches/<?= $product['img2'] ?>" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546 Image #2" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
+                                                    <img src="./img/watches/<?= $product['img2'] ?>" alt="<?= $product['name'] ?>" aria-describedby="product-description-guarantee" width="546" height="546" title="<?= $product['name'] ?>" class="slide-item-main-image">
                                                 </div>
                                                 <div class="slide-item">
-                                                    <img src="./img/watches/<?= $product['img3'] ?>" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 546x546 Image #3" aria-describedby="product-description-guarantee" width="546" height="546" title="Hamilton Khaki Automatic Men's Watch H64455523" class="slide-item-main-image">
+                                                    <img src="./img/watches/<?= $product['img3'] ?>" alt="<?= $product['name'] ?>" aria-describedby="product-description-guarantee" width="546" height="546" title="<?= $product['name'] ?>" class="slide-item-main-image">
                                                 </div>
                                                 <div class="social-proof-pdp">
                                                     <div class="social-proof-wrapper">
@@ -325,19 +325,19 @@
                                                 <div class="simple-slider-prev swiper-prev"></div>
                                                 <div class="simple-slider-next swiper-next"></div>
                                                 <div class="thumbs-items-wrapper simple-slider-wrapper">
-                                                    <div class="thumb-item simple-slider-slide selected">
+                                                    <div class="thumb-item simple-slider-slide selected" style="<?= $product['img1']!=null ? '' : 'display: none' ?>">
                                                         <a href="#" aria-label="View Image 1">
-                                                            <img id="img-1" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="./img/watches/<?= $product['img1'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
+                                                            <img id="img-1" loading="lazy" alt="<?= $product['name'] ?>" src="./img/watches/<?= $product['img1'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
                                                         </a>
                                                     </div>
-                                                    <div class="thumb-item simple-slider-slide">
+                                                    <div class="thumb-item simple-slider-slide" style="<?= $product['img2']!=null ? '' : 'display: none' ?>">
                                                         <a href="#" aria-label="View Image 2">
-                                                            <img id="img-2" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="./img/watches/<?= $product['img2'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
+                                                            <img id="img-2" loading="lazy" alt="<?= $product['name'] ?>" src="./img/watches/<?= $product['img2'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
                                                         </a>
                                                     </div>
-                                                    <div class="thumb-item simple-slider-slide">
+                                                    <div class="thumb-item simple-slider-slide" style="<?= $product['img3']!=null ? '' : 'display: none' ?>">
                                                         <a href="#" aria-label="View Image 3">
-                                                            <img id="img-3" loading="lazy" alt="Hamilton Khaki Automatic Men's Watch H64455523 - 70x70" src="./img/watches/<?= $product['img3'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
+                                                            <img id="img-3" loading="lazy" alt="<?= $product['name'] ?>" src="./img/watches/<?= $product['img3'] ?>" class="image-wrapper" longdesc="#product-description-guarantee">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -366,7 +366,7 @@
                             <div class="product-info-details">
                                 <div class="pdp-heading-wrapper">
                                     <h1 class="brand-name-container">
-                                        <a href="/hamilton.html">
+                                        <a href="">
                                             <span class="brand-name" data-promo="Holiday Early Bird Sale"><?= $product['brandName'] ?> </span>
                                         </a>
                                         <span class="product-name-container">
