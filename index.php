@@ -189,7 +189,7 @@
                                         <li class="menu-item level-1 watches">
                                             <div class="menu-item-header">
                                                 <input class="menu-item-input" aria-label="Watches">
-                                                <a class="levelTop" href="" aria-label="Watches" tabindex="-1">Watches</a>
+                                                <a class="levelTop" href="./list.php" aria-label="Watches" tabindex="-1">Watches</a>
                                             </div>
                                             <div class="subCat">
                                                 <div class="subCatParent">

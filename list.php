@@ -289,14 +289,15 @@
                                         <ul class="filter-list-wrap">
                                             <div class="checkbox-new-design filter-item filter-item-check">
                                                 <input type="checkbox" id="get_it_fast" class="checkbox-input">
-                                                <label title="Get It Fast" for="get_it_fast" class="checkbox-label">Get
-                                                    It Fast </label>
+                                                <label title="Get It Fast" for="get_it_fast" class="checkbox-label">
+                                                    Get It Fast 
+                                                </label>
                                             </div>
-                                            <div
-                                                class="checkbox-new-design filter-item filter-item-check filter-item-check-last">
-                                                <input type="checkbox" id="has_coupon" class="checkbox-input"><label
-                                                    title="Coupon Offers" for="has_coupon" class="checkbox-label">Coupon
-                                                    Offers</label>
+                                            <div class="checkbox-new-design filter-item filter-item-check filter-item-check-last">
+                                                <input type="checkbox" id="has_coupon" class="checkbox-input">
+                                                <label title="Coupon Offers" for="has_coupon" class="checkbox-label">
+                                                    Coupon Offers
+                                                </label>
                                             </div>
                                             <li class="filter-price">
                                                 <div class="accordion"><button role="tab" aria-selected="false"
@@ -387,9 +388,9 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat gender">
-                                                            <li class="filter-item"><input type="checkbox" name="26" id="product_checkbox_26" class="input-checkbox" aria-label="Ladies"><a href="/collections/watches/Ladies-Watches~Z2VuZGVyfkxhZGllcw?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Ladies</a></li>
-                                                            <li class="filter-item"><input type="checkbox" name="25" id="product_checkbox_25" class="input-checkbox" aria-label="Men's"><a href="/collections/watches/Men's-Watches~Z2VuZGVyfk1lbidz?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Men's</a></li>
-                                                            <li class="filter-item"><input type="checkbox" name="27" id="product_checkbox_27" class="input-checkbox" aria-label="Unisex"><a href="/collections/watches/Unisex-Watches~Z2VuZGVyflVuaXNleA?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Unisex</a>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="26" id="product_checkbox_26" class="checkbox-input" aria-label="Ladies"><a href="/collections/watches/Ladies-Watches~Z2VuZGVyfkxhZGllcw?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Ladies</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="25" id="product_checkbox_25" class="checkbox-input" aria-label="Men's"><a href="/collections/watches/Men's-Watches~Z2VuZGVyfk1lbidz?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Men's</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="27" id="product_checkbox_27" class="checkbox-input" aria-label="Unisex"><a href="/collections/watches/Unisex-Watches~Z2VuZGVyflVuaXNleA?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Unisex</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -403,31 +404,31 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat style">
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="45099" id="product_checkbox_45099" class="input-checkbox" aria-label="Casual">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="45099" id="product_checkbox_45099" class="checkbox-input" aria-label="Casual">
                                                                 <a href="/collections/watches/Casual-Watches~c3R5bGV-Q2FzdWFs" class="label-checkbox">Casual</a>
                                                             </li>
-                                                            <li class="filter-item"><input type="checkbox" name="45115" id="product_checkbox_45115" class="input-checkbox" aria-label="Dive">
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="45115" id="product_checkbox_45115" class="checkbox-input" aria-label="Dive">
                                                                 <a href="/collections/watches/Dive-Watches~c3R5bGV-RGl2ZQ" class="label-checkbox">Dive</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="45098" id="product_checkbox_45098" class="input-checkbox" aria-label="Dress">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="45098" id="product_checkbox_45098" class="checkbox-input" aria-label="Dress">
                                                                 <a href="/collections/watches/Dress-Watches~c3R5bGV-RHJlc3M" class="label-checkbox">Dress</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="45476" id="product_checkbox_45476" class="input-checkbox" aria-label="Fashion">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="45476" id="product_checkbox_45476" class="checkbox-input" aria-label="Fashion">
                                                                 <a href="/collections/watches/Fashion-Watches~c3R5bGV-RmFzaGlvbg" class="label-checkbox">Fashion</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="45137" id="product_checkbox_45137" class="input-checkbox" aria-label="Luxury">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="45137" id="product_checkbox_45137" class="checkbox-input" aria-label="Luxury">
                                                                 <a href="/collections/watches/Luxury-Watches~c3R5bGV-THV4dXJ5" class="label-checkbox">Luxury</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="45128" id="product_checkbox_45128" class="input-checkbox" aria-label="Military">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="45128" id="product_checkbox_45128" class="checkbox-input" aria-label="Military">
                                                                 <a href="/collections/watches/Military-Watches~c3R5bGV-TWlsaXRhcnk" class="label-checkbox">Military</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="45395" id="product_checkbox_45395" class="input-checkbox" aria-label="Pilot">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="45395" id="product_checkbox_45395" class="checkbox-input" aria-label="Pilot">
                                                                 <a href="/collections/watches/Pilot-Watches~c3R5bGV-UGlsb3Q" class="label-checkbox">Pilot</a>
                                                             </li>
                                                         </ul>
@@ -443,19 +444,19 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat movement">
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="404" id="product_checkbox_404" class="input-checkbox" aria-label="Automatic">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="404" id="product_checkbox_404" class="checkbox-input" aria-label="Automatic">
                                                                 <a href="/collections/watches/Automatic-Watches~bW92ZW1lbnR-QXV0b21hdGlj" class="label-checkbox">Automatic</a>
                                                             </li>
-                                                            <li class="filter-item"><input type="checkbox" name="24345" id="product_checkbox_24345" class="input-checkbox" aria-label="Eco-Drive">
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="24345" id="product_checkbox_24345" class="checkbox-input" aria-label="Eco-Drive">
                                                                 <a href="/collections/watches/Eco-Drive-Watches~bW92ZW1lbnR-RWNvLURyaXZl" class="label-checkbox">Eco-Drive</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="1082" id="product_checkbox_1082" class="input-checkbox" aria-label="Hand Wind">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="1082" id="product_checkbox_1082" class="checkbox-input" aria-label="Hand Wind">
                                                                 <a href="/collections/watches/Hand-Wind-Watches~bW92ZW1lbnR-SGFuZCUyMFdpbmQ" class="label-checkbox">Hand Wind</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="1084" id="product_checkbox_1084" class="input-checkbox" aria-label="Quartz">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="1084" id="product_checkbox_1084" class="checkbox-input" aria-label="Quartz">
                                                                 <a href="/collections/watches/Quartz-Watches~bW92ZW1lbnR-UXVhcnR6" class="label-checkbox">Quartz</a>
                                                             </li>
                                                         </ul>
@@ -472,28 +473,28 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="false" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat features">
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="437" id="product_checkbox_437" class="input-checkbox" aria-label="Alarm">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="437" id="product_checkbox_437" class="checkbox-input" aria-label="Alarm">
                                                                 <a href="/collections/watches/Alarm-Watches~ZmVhdHVyZXN-QWxhcm0" class="label-checkbox">Alarm</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="87311" id="product_checkbox_87311" class="input-checkbox" aria-label="Alligator Leather">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="87311" id="product_checkbox_87311" class="checkbox-input" aria-label="Alligator Leather">
                                                                 <a href="/collections/watches/Alligator-Leather-Watches~ZmVhdHVyZXN-QWxsaWdhdG9yJTIwTGVhdGhlcg" class="label-checkbox">Alligator Leather</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="438" id="product_checkbox_438" class="input-checkbox" aria-label="Altimeter">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="438" id="product_checkbox_438" class="checkbox-input" aria-label="Altimeter">
                                                                 <a href="/collections/watches/Altimeter-Watches~ZmVhdHVyZXN-QWx0aW1ldGVy" class="label-checkbox">Altimeter</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="82002" id="product_checkbox_82002" class="input-checkbox" aria-label="Analog">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="82002" id="product_checkbox_82002" class="checkbox-input" aria-label="Analog">
                                                                 <a href="/collections/watches/Analog-Watches~ZmVhdHVyZXN-QW5hbG9n" class="label-checkbox">Analog</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="28313" id="product_checkbox_28313" class="input-checkbox" aria-label="Annual Calendar">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="28313" id="product_checkbox_28313" class="checkbox-input" aria-label="Annual Calendar">
                                                                 <a href="/collections/watches/Annual-Calendar-Watches~ZmVhdHVyZXN-QW5udWFsJTIwQ2FsZW5kYXI" class="label-checkbox">Annual Calendar</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="439" id="product_checkbox_439" class="input-checkbox" aria-label="Atomic Timekeeping">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="439" id="product_checkbox_439" class="checkbox-input" aria-label="Atomic Timekeeping">
                                                                 <a href="/collections/watches/Atomic-Timekeeping-Watches~ZmVhdHVyZXN-QXRvbWljJTIwVGltZWtlZXBpbmc" class="label-checkbox">Atomic Timekeeping</a>
                                                             </li>
                                                         </ul>
@@ -510,12 +511,12 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse">
                                                         <ul class="item-sub-cat case_shape">
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="25827" id="product_checkbox_25827" class="input-checkbox" aria-label="Cushion">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="25827" id="product_checkbox_25827" class="checkbox-input" aria-label="Cushion">
                                                                 <a href="/collections/watches/Cushion-Watches~Y2FzZV9zaGFwZX5DdXNoaW9u" class="label-checkbox">Cushion</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="351" id="product_checkbox_351" class="input-checkbox" aria-label="Dodecagon">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="351" id="product_checkbox_351" class="checkbox-input" aria-label="Dodecagon">
                                                                 <a href="/collections/watches/Dodecagon-Watches~Y2FzZV9zaGFwZX5Eb2RlY2Fnb24" class="label-checkbox">Dodecagon</a>
                                                             </li>
                                                         </ul>
@@ -532,11 +533,11 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat band_type">
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="24333" id="product_checkbox_24333" class="input-checkbox" aria-label="Bracelet">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="24333" id="product_checkbox_24333" class="checkbox-input" aria-label="Bracelet">
                                                                 <a href="/collections/watches/Bracelet-Watches~YmFuZF90eXBlfkJyYWNlbGV0" class="label-checkbox">Bracelet</a>
                                                             </li>
-                                                            <li class="filter-item"><input type="checkbox" name="24331" id="product_checkbox_24331" class="input-checkbox" aria-label="Strap">
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="24331" id="product_checkbox_24331" class="checkbox-input" aria-label="Strap">
                                                                 <a href="/collections/watches/Strap-Watches~YmFuZF90eXBlflN0cmFw" class="label-checkbox">Strap</a>
                                                             </li>
                                                         </ul>
@@ -553,16 +554,16 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat dial_type">
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="24339" id="product_checkbox_24339" class="input-checkbox" aria-label="Analog">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="24339" id="product_checkbox_24339" class="checkbox-input" aria-label="Analog">
                                                                 <a href="/collections/watches/Analog-Watches~ZGlhbF90eXBlfkFuYWxvZw" class="label-checkbox">Analog</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="24337" id="product_checkbox_24337" class="input-checkbox" aria-label="Analog-Digital">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="24337" id="product_checkbox_24337" class="checkbox-input" aria-label="Analog-Digital">
                                                                 <a href="/collections/watches/Analog-Digital-Watches~ZGlhbF90eXBlfkFuYWxvZy1EaWdpdGFs" class="label-checkbox">Analog-Digital</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="24341" id="product_checkbox_24341" class="input-checkbox" aria-label="Digital">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="24341" id="product_checkbox_24341" class="checkbox-input" aria-label="Digital">
                                                                 <a href="/collections/watches/Digital-Watches~ZGlhbF90eXBlfkRpZ2l0YWw" class="label-checkbox">Digital</a>
                                                             </li>
                                                         </ul>
@@ -579,22 +580,22 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat watchsize">
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="28379" id="product_checkbox_28379" class="input-checkbox" aria-label="<20 mm">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="28379" id="product_checkbox_28379" class="checkbox-input" aria-label="<20 mm">
                                                                 <a href="/collections/watches/%3C20-mm-Watches~d2F0Y2hzaXplfiUzQzIwJTIwbW0" class="label-checkbox">&lt;20 mm</a>
                                                             </li>
-                                                            <li class="filter-item">
-                                                                <input type="checkbox" name="28363" id="product_checkbox_28363" class="input-checkbox" aria-label=">55 mm">
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="28363" id="product_checkbox_28363" class="checkbox-input" aria-label=">55 mm">
                                                                 <a href="/collections/watches/%3E55-mm-Watches~d2F0Y2hzaXplfiUzRTU1JTIwbW0" class="label-checkbox">&gt;55 mm</a>
                                                             </li>
-                                                            <li class="filter-item"><input type="checkbox" name="28377" id="product_checkbox_28377" class="input-checkbox" aria-label="20-25 mm"><a href="/collections/watches/20-25-mm-Watches~d2F0Y2hzaXplfjIwLTI1JTIwbW0" class="label-checkbox">20-25 mm</a></li>
-                                                            <li class="filter-item"><input type="checkbox" name="28375" id="product_checkbox_28375" class="input-checkbox" aria-label="25-30 mm"><a href="/collections/watches/25-30-mm-Watches~d2F0Y2hzaXplfjI1LTMwJTIwbW0" class="label-checkbox">25-30 mm</a></li>
-                                                            <li class="filter-item"><input type="checkbox" name="28373" id="product_checkbox_28373" class="input-checkbox" aria-label="30-35 mm"><a href="/collections/watches/30-35-mm-Watches~d2F0Y2hzaXplfjMwLTM1JTIwbW0" class="label-checkbox">30-35 mm</a></li>
-                                                            <li class="filter-item"><input type="checkbox" name="28371" id="product_checkbox_28371" class="input-checkbox" aria-label="35-40 mm"><a href="/collections/watches/35-40-mm-Watches~d2F0Y2hzaXplfjM1LTQwJTIwbW0" class="label-checkbox">35-40 mm</a></li>
-                                                            <li class="filter-item"><input type="checkbox" name="28369" id="product_checkbox_28369" class="input-checkbox" aria-label="40-45 mm"><a href="/collections/watches/40-45-mm-Watches~d2F0Y2hzaXplfjQwLTQ1JTIwbW0" class="label-checkbox">40-45 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28377" id="product_checkbox_28377" class="checkbox-input" aria-label="20-25 mm"><a href="/collections/watches/20-25-mm-Watches~d2F0Y2hzaXplfjIwLTI1JTIwbW0" class="label-checkbox">20-25 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28375" id="product_checkbox_28375" class="checkbox-input" aria-label="25-30 mm"><a href="/collections/watches/25-30-mm-Watches~d2F0Y2hzaXplfjI1LTMwJTIwbW0" class="label-checkbox">25-30 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28373" id="product_checkbox_28373" class="checkbox-input" aria-label="30-35 mm"><a href="/collections/watches/30-35-mm-Watches~d2F0Y2hzaXplfjMwLTM1JTIwbW0" class="label-checkbox">30-35 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28371" id="product_checkbox_28371" class="checkbox-input" aria-label="35-40 mm"><a href="/collections/watches/35-40-mm-Watches~d2F0Y2hzaXplfjM1LTQwJTIwbW0" class="label-checkbox">35-40 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28369" id="product_checkbox_28369" class="checkbox-input" aria-label="40-45 mm"><a href="/collections/watches/40-45-mm-Watches~d2F0Y2hzaXplfjQwLTQ1JTIwbW0" class="label-checkbox">40-45 mm</a></li>
                                                             <li><a class="see-more" href="#">See More</a></li>
-                                                            <li class="filter-item no-display"><input type="checkbox" name="28367" id="product_checkbox_28367" class="input-checkbox" aria-label="45-50 mm"><a href="/collections/watches/45-50-mm-Watches~d2F0Y2hzaXplfjQ1LTUwJTIwbW0" class="label-checkbox">45-50 mm</a></li>
-                                                            <li class="filter-item no-display"><input type="checkbox" name="28365" id="product_checkbox_28365" class="input-checkbox" aria-label="50-55 mm"><a href="/collections/watches/50-55-mm-Watches~d2F0Y2hzaXplfjUwLTU1JTIwbW0" class="label-checkbox">50-55 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design no-display"><input type="checkbox" name="28367" id="product_checkbox_28367" class="checkbox-input" aria-label="45-50 mm"><a href="/collections/watches/45-50-mm-Watches~d2F0Y2hzaXplfjQ1LTUwJTIwbW0" class="label-checkbox">45-50 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design no-display"><input type="checkbox" name="28365" id="product_checkbox_28365" class="checkbox-input" aria-label="50-55 mm"><a href="/collections/watches/50-55-mm-Watches~d2F0Y2hzaXplfjUwLTU1JTIwbW0" class="label-checkbox">50-55 mm</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
