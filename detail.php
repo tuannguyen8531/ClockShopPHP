@@ -69,7 +69,7 @@
                         </nav>
                         <div class="center">
                             <span class="logo">
-                                <a href="/"><img src="./dist/file/jomashop_logo.7c0762d85d36b44f0c59.png" alt="logo"></a>
+                                <a href="index.php"><img src="./dist/file/jomashop_logo.7c0762d85d36b44f0c59.png" alt="logo"></a>
                             </span>
                             <div class="header-search-bar-desktop">
                                 <div class="searchbar">
@@ -405,7 +405,7 @@
                                                     <span class="retail-label">Retail</span>
                                                     <span>
                                                         $<?php 
-                                                            $was = $product['price'] / ($product['sale'] / 100);
+                                                            $was = $product['price'] / (1 - ($product['sale'] / 100));
                                                             $was = number_format($was, 2, '.', '');
                                                             $retail = $was + 30.00;
                                                             $retail = number_format($retail, 2, '.', '');
@@ -857,7 +857,7 @@
                                                 <div class="was-price-wrapper">
                                                     <div class="was-wrapper">
                                                         <span>$<?php
-                                                            $was = $rowAlso['price'] / ($rowAlso['sale'] / 100);
+                                                            $was = $rowAlso['price'] / (1 - ($rowAlso['sale'] / 100));
                                                             $was = number_format($was, 2, '.', '');
                                                             echo $was;
                                                         ?>
@@ -914,7 +914,7 @@
                                             <div class="was-price-wrapper">
                                                 <div class="was-wrapper">
                                                     <span>$<?php
-                                                        $was = $product['price'] / ($rowTrending['sale'] / 100);
+                                                        $was = $rowTrending['price'] / (1 - ($rowTrending['sale'] / 100));
                                                         $was = number_format($was, 2, '.', '');
                                                         echo $was;
                                                     ?>
