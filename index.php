@@ -60,22 +60,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jomashop.com: Online Shopping for Watches &amp; More - Jomashop</title>
-    <link rel="stylesheet" href="./dist/css/1882.d22b2a4d319f5798c600.initial.css">
-    <link rel="stylesheet" href="./dist/css/1634.1a661808a4dbdbef312c.initial.css">
-    <link rel="stylesheet" href="./dist/css/3482.0051ec8bf96fa0b92067.bundle.css">
-    <link rel="stylesheet" href="./dist/css/591.af82319651e53c8c3f1a.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/1882.d22b2a4d319f5798c600.initial.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/1634.1a661808a4dbdbef312c.initial.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/3482.0051ec8bf96fa0b92067.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/591.af82319651e53c8c3f1a.bundle.css">
 
-    <link rel="stylesheet" href="./dist/css/1312.31d6cfe0d16ae931b73c.bundle.css">
-    <link rel="stylesheet" href="./dist/css/5531.2501ef6314da696e9b86.bundle.css">
-    <link rel="stylesheet" href="./dist/css/2557.53c4e93c6ec21bc19e7c.bundle.css">
-    <link rel="stylesheet" href="./dist/css/9695.0508d067424b8b31465c.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/1312.31d6cfe0d16ae931b73c.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/5531.2501ef6314da696e9b86.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/2557.53c4e93c6ec21bc19e7c.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/9695.0508d067424b8b31465c.bundle.css">
    
-    <link rel="stylesheet" href="./dist/css/5458.6250c0fd295eeca21e3a.bundle.css">
-    <link rel="stylesheet" href="./dist/css/629.ac02469f0d06a538712a.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/5458.6250c0fd295eeca21e3a.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/629.ac02469f0d06a538712a.bundle.css">
 
-    <link rel="stylesheet" href="./dist/css/256.9a4d8502ef8eea2ebf3f.bundle.css">
-    <link rel="stylesheet" href="./dist/css/5606.6b4ee6bd0876f7792e52.bundle.css">
-    <link rel="stylesheet" href="./dist/css/8825.51df8c031c82efbe88b4.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/256.9a4d8502ef8eea2ebf3f.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/5606.6b4ee6bd0876f7792e52.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/8825.51df8c031c82efbe88b4.bundle.css">
+
+    <link rel="stylesheet" type="text/css" href="./dist/css/3409.9bd6de7ba69766f5a656.initial.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/3482.3bf6683f27a44ebcd105.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/5421.2501ef6314da696e9b86.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/6468.2501ef6314da696e9b86.bundle.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/8890.6659a6f809d9fbafb555.bundle.css">
 
 </head>
 <body id="body" >
