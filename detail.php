@@ -469,8 +469,8 @@
                                 </h2>
                                 <div>
                                     <div class="simple-slider-horizontal">
-                                        <div class="arrow-carousal-new-design arrow-prev"></div>
-                                        <div class="arrow-carousal-new-design arrow-next"></div>
+                                        <div class="arrow-carousal-new-design arrow-prev" id="more-prev"></div>
+                                        <div class="arrow-carousal-new-design arrow-next" id="more-next"></div>
                                         <div class="simple-slider-wrapper" sr-scroll-left="1692" sr-scroll-top="0">
                                             <?php 
                                                 $sqlMoreChoice = 'SELECT * FROM watches
@@ -808,8 +808,8 @@
                         <div class="you-may-also-like">
                             <h3 class="title">You may also like </h3>
                             <div class="slider-root">
-                                <div class="arrow-carousal-new-design arrow-next"></div>
-                                <div class="arrow-carousal-new-design arrow-prev"></div>
+                                <div class="arrow-carousal-new-design arrow-next" id="also-next"></div>
+                                <div class="arrow-carousal-new-design arrow-prev" id="also-prev"></div>
                                 <div class="slider-list-wrapper slider-grid-wrapper" id="item-list">
                                     <?php 
                                         $sqlMinId = 'SELECT MIN(brandId) AS minId FROM brands';
@@ -857,7 +857,7 @@
                                                 <div class="was-price-wrapper">
                                                     <div class="was-wrapper">
                                                         <span>$<?php
-                                                            $was = $product['price'] / ($rowAlso['sale'] / 100);
+                                                            $was = $rowAlso['price'] / ($rowAlso['sale'] / 100);
                                                             $was = number_format($was, 2, '.', '');
                                                             echo $was;
                                                         ?>
@@ -877,7 +877,8 @@
                     <div class="recently-view">
                         <h3 class="title">Most Viewed</h3>
                         <div class="slider-root">
-                            <div class="arrow-carousal-new-design arrow-next"></div>
+                            <div class="arrow-carousal-new-design arrow-next" id="view-next"></div>
+                            <div class="arrow-carousal-new-design arrow-prev" id="view-prev"></div>
                             <div class="slider-list-wrapper slider-grid-wrapper">
                                 <?php
                                     $sqlTrending = 'SELECT * FROM watches 
