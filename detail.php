@@ -468,10 +468,10 @@
                                     <a href="">View more <strong><?= $product['brandName'] ?></strong></a>
                                 </h2>
                                 <div>
-                                    <div class="simple-slider-horizontal">
+                                    <div class="simple-slider-horizontal" style="overflow: hidden;">
                                         <div class="arrow-carousal-new-design arrow-prev" id="more-prev"></div>
                                         <div class="arrow-carousal-new-design arrow-next" id="more-next"></div>
-                                        <div class="simple-slider-wrapper" sr-scroll-left="1692" sr-scroll-top="0">
+                                        <div class="simple-slider-wrapper simple-slider-wrapper-more" sr-scroll-left="1692" sr-scroll-top="0" style="transition: transform 0.3s ease;">
                                             <?php 
                                                 $sqlMoreChoice = 'SELECT * FROM watches
                                                     JOIN brands ON watches.brand = brands.brandId
@@ -488,7 +488,7 @@
                                                 $resultMoreChoice = $stmt->get_result();
                                             ?>
                                             <?php while($rowMore = $resultMoreChoice->fetch_assoc()) { ?>
-                                                <div class="simple-slider-slide">
+                                                <div class="simple-slider-slide simple-slider-more">
                                                     <div class="product-content">
                                                         <a href="detail.php?model=<?= $rowMore['model'] ?>">
                                                             <img loading="lazy" alt="<?= $rowMore['name'] ?>" src="./img/watches/<?= $rowMore['img1'] ?>" class="render-img" title="<?= $rowMore['name'] ?>">
@@ -1388,5 +1388,38 @@
         </div>
     </div>
     <script type="text/javascript" src="./dist/js/detail.js"></script>
+    <script>
+      // xử lý slide
+let slideshow = document.querySelector(".simple-slider-wrapper-more");
+let currentSlide = 0;
+const slides = document.querySelectorAll(".simple-slider-more");
+const slidesToShow = 4; // Số lượng slide được hiển thị cùng lúc
+
+// Hàm chuyển slide trước
+function prevSlide() {
+currentSlide = (currentSlide - slidesToShow + slides.length) % slides.length;
+updateSlide();
+}
+
+//Hàm chuyển slide tiếp theo
+function nextSlide() {
+currentSlide = (currentSlide + slidesToShow) % slides.length;
+updateSlide();
+}
+
+
+// Cập nhật trạng thái hiển thị slide
+function updateSlide() {
+const slideWidth = slides[0].clientWidth;
+slideshow.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}
+
+
+// Thêm sự kiện cho nút trước
+document.querySelector("#more-prev").addEventListener("click", prevSlide);
+
+// Thêm sự kiện cho nút sau
+document.querySelector("#more-next").addEventListener("click", nextSlide);  
+    </script>
 </body>
 </html>
