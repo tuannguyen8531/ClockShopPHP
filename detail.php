@@ -471,7 +471,7 @@
                                     <div class="simple-slider-horizontal" style="overflow: hidden;">
                                         <div class="arrow-carousal-new-design arrow-prev" id="more-prev"></div>
                                         <div class="arrow-carousal-new-design arrow-next" id="more-next"></div>
-                                        <div class="simple-slider-wrapper simple-slider-wrapper-more" sr-scroll-left="1692" sr-scroll-top="0" style="transition: transform 0.3s ease;">
+                                        <div class="simple-slider-wrapper simple-slider-wrapper-more" sr-scroll-left="1692" sr-scroll-top="0" style="overflow: visible; transition: transform 0.3s ease;">
                                             <?php 
                                                 $sqlMoreChoice = 'SELECT * FROM watches
                                                     JOIN brands ON watches.brand = brands.brandId
@@ -810,7 +810,7 @@
                             <div class="slider-root">
                                 <div class="arrow-carousal-new-design arrow-next" id="also-next"></div>
                                 <div class="arrow-carousal-new-design arrow-prev" id="also-prev"></div>
-                                <div class="slider-list-wrapper slider-grid-wrapper" id="item-list">
+                                <div class="slider-list-wrapper slider-grid-wrapper" id="item-list" style="overflow: visible; transition: transform 0.3s ease 0s;">
                                     <?php 
                                         $sqlMinId = 'SELECT MIN(brandId) AS minId FROM brands';
                                         $result = $conn->query($sqlMinId)->fetch_assoc();
@@ -839,7 +839,7 @@
                                         $resultAlsoLike = $stmt->get_result();
                                     ?>
                                     <?php while($rowAlso = $resultAlsoLike->fetch_assoc()) { ?>
-                                        <div class="product-content productItem">
+                                        <div class="product-content productItem productItem-more">
                                             <button class="wishlist-icon-new-design">
                                                 <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                                             </button>
@@ -879,7 +879,7 @@
                         <div class="slider-root">
                             <div class="arrow-carousal-new-design arrow-next" id="view-next"></div>
                             <div class="arrow-carousal-new-design arrow-prev" id="view-prev"></div>
-                            <div class="slider-list-wrapper slider-grid-wrapper">
+                            <div class="slider-list-wrapper slider-grid-wrapper" id="recent-list" style="overflow: visible; transition: transform 0.3s ease 0s; ">
                                 <?php
                                     $sqlTrending = 'SELECT * FROM watches 
                                     JOIN brands ON watches.brand = brands.brandId
@@ -896,7 +896,7 @@
                                     $trendingResult = $stmt->get_result();
                                 ?>
                                 <?php while($rowTrending = $trendingResult->fetch_assoc()) { ?>
-                                    <div class="product-content productItem">
+                                    <div class="product-content productItem recent-item-more">
                                         <button class="wishlist-icon-new-design">
                                             <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                                         </button>
@@ -1390,36 +1390,61 @@
     <script type="text/javascript" src="./dist/js/detail.js"></script>
     <script>
       // xử lý slide
+      
+
 let slideshow = document.querySelector(".simple-slider-wrapper-more");
+let alsoLike = document.querySelector("#item-list");
+let recent = document.querySelector("#recent-list");
 let currentSlide = 0;
 const slides = document.querySelectorAll(".simple-slider-more");
-const slidesToShow = 4; // Số lượng slide được hiển thị cùng lúc
+
+const  alsoLikes = document.querySelectorAll(".productItem-more");
+const  recentList = document.querySelectorAll(".recent-item-more");
+// const slidesToShow = 4; // Số lượng slide được hiển thị cùng lúc
 
 // Hàm chuyển slide trước
-function prevSlide() {
+function prevSlide(slidesToShow, slideshow, slides) {
 currentSlide = (currentSlide - slidesToShow + slides.length) % slides.length;
-updateSlide();
+updateSlide(slideshow,slides);
 }
 
 //Hàm chuyển slide tiếp theo
-function nextSlide() {
+function nextSlide(slidesToShow, slideshow, slides) {
 currentSlide = (currentSlide + slidesToShow) % slides.length;
-updateSlide();
+updateSlide(slideshow,slides);
 }
 
 
 // Cập nhật trạng thái hiển thị slide
-function updateSlide() {
+function updateSlide(slideshow, slides) {
 const slideWidth = slides[0].clientWidth;
 slideshow.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
 }
 
 
 // Thêm sự kiện cho nút trước
-document.querySelector("#more-prev").addEventListener("click", prevSlide);
+document.querySelector("#more-prev").addEventListener("click", function() {
+    prevSlide(4, slideshow, slides);
+});
 
 // Thêm sự kiện cho nút sau
-document.querySelector("#more-next").addEventListener("click", nextSlide);  
+document.querySelector("#more-next").addEventListener("click", function() {
+    nextSlide(4, slideshow, slides);
+});  
+currentSlide = 0;
+document.querySelector("#also-prev").addEventListener("click", function() {
+    prevSlide(5, alsoLike, alsoLikes);
+});
+document.querySelector("#also-next").addEventListener("click", function() {
+    nextSlide(5, alsoLike, alsoLikes);
+});
+currentSlide = 0;
+document.querySelector("#view-prev").addEventListener("click", function() {
+    prevSlide(5, recent, recentList);
+});
+document.querySelector("#view-next").addEventListener("click", function() {
+    nextSlide(5, recent, recentList);
+});  
     </script>
 </body>
 </html>
