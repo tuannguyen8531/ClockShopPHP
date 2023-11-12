@@ -2,14 +2,7 @@
 <html lang="en">
 <?php
     session_start();
-    if(empty($_SESSION['history']))
-        $_SESSION['history'] = array($_SERVER['PHP_SELF']);
-    else {
-        $_SESSION['history'][] = $_SERVER['PHP_SELF'];
-        if(count($_SESSION['history']) > 5)
-            array_shift($_SESSION['history']);
-    }
-    var_dump($_SESSION['history']);
+    var_dump($_SESSION['customer']);
 ?>
 <head>
     <meta charset="UTF-8">

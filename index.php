@@ -1749,7 +1749,6 @@
                                                     }
                                                 }
                                             </style>
-
                                             <div class="find-for-anyone-container">
                                                 <div class="find-for-anyone-header">
                                                     <div class="find-for-anyone-header-title">
@@ -1903,801 +1902,134 @@
                                                     </div>
                                                 </div>
 
-                                                    <div class="find-for-anyone-body">
-                                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
-                                                                        <button type="button" class="find-for-anyone-collapsible">
-                                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <g clip-path="url(#clip0_1370_35302)">
-                                                                                    <path
-                                                                                        d="M9.79562 1.59244C9.89521 1.45107 10.1048 1.45107 10.2044 1.59244L10.8475 2.50545C11.3345 3.19667 12.246 3.44091 13.0133 3.08575L14.0268 2.61665C14.1837 2.54401 14.3652 2.64881 14.3808 2.82103L14.4813 3.9333C14.5574 4.77538 15.2246 5.44265 16.0667 5.51873L17.179 5.61922C17.3512 5.63478 17.456 5.81629 17.3834 5.97322L16.9142 6.98672C16.5591 7.75403 16.8033 8.66552 17.4946 9.15246L18.4076 9.79562C18.5489 9.8952 18.5489 10.1048 18.4076 10.2044L17.4946 10.8475C16.8033 11.3345 16.5591 12.246 16.9142 13.0133L17.3834 14.0268C17.456 14.1837 17.3512 14.3652 17.179 14.3808L16.0667 14.4813C15.2246 14.5574 14.5574 15.2246 14.4813 16.0667L14.3808 17.179C14.3652 17.3512 14.1837 17.456 14.0268 17.3834L13.0133 16.9142C12.246 16.5591 11.3345 16.8033 10.8475 17.4946L10.2044 18.4076C10.1048 18.5489 9.8952 18.5489 9.79562 18.4076L9.15245 17.4946C8.66552 16.8033 7.75402 16.5591 6.98672 16.9142L5.97322 17.3834C5.81629 17.456 5.63478 17.3512 5.61922 17.179L5.51873 16.0667C5.44265 15.2246 4.77538 14.5574 3.9333 14.4813L2.82103 14.3808C2.64881 14.3652 2.54401 14.1837 2.61665 14.0268L3.08575 13.0133C3.44091 12.246 3.19667 11.3345 2.50545 10.8475L1.59244 10.2044C1.45107 10.1048 1.45107 9.89521 1.59244 9.79562L2.50545 9.15245C3.19667 8.66552 3.44091 7.75403 3.08575 6.98672L2.61665 5.97322C2.54401 5.81629 2.64881 5.63478 2.82103 5.61922L3.9333 5.51873C4.77538 5.44265 5.44265 4.77538 5.51873 3.9333L5.61922 2.82103C5.63478 2.64881 5.81629 2.54401 5.97322 2.61665L6.98672 3.08575C7.75403 3.44091 8.66552 3.19667 9.15246 2.50545L9.79562 1.59244Z"
-                                                                                        stroke="white" stroke-width="1.5"></path>
-                                                                                    <path
-                                                                                        d="M14 8.56666L12.9333 7.5L9.19945 11.2328L7.06667 9.09996L6 10.1667L9.19997 13.3667L14 8.56666Z"
-                                                                                        fill="white"></path>
-                                                                                </g>
-                                                                                <defs>
-                                                                                    <clipPath id="clip0_1370_35302">
-                                                                                        <rect width="20" height="20" fill="white"></rect>
-                                                                                    </clipPath>
-                                                                                </defs>
-                                                                            </svg>
-                                                                            Authenticity
-                                                                        </button>
-                                                                        <div class="find-for-anyone-content" style="max-height: 0">
-                                                                            <p>
-                                                                                All products are 100% authentic guaranteed. We purchase our inventory
-                                                                                via authorized dealers or respected industry wholesalers/distributors.
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
-                                                                        <button type="button" class="find-for-anyone-collapsible">
-                                                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path
-                                                                                    d="M9 0.75L15.1627 2.11948C15.5059 2.19574 15.75 2.5001 15.75 2.85163V10.3417C15.75 11.8462 14.998 13.2513 13.7461 14.0859L9 17.25L4.25385 14.0859C3.00196 13.2513 2.25 11.8462 2.25 10.3417V2.85163C2.25 2.5001 2.49415 2.19574 2.8373 2.11948L9 0.75ZM9 2.28659L3.75 3.45326V10.3417C3.75 11.3447 4.2513 12.2814 5.0859 12.8378L9 15.4472L12.9141 12.8378C13.7487 12.2814 14.25 11.3447 14.25 10.3417V3.45326L9 2.28659ZM12.3393 6.16637L13.4 7.22703L8.62695 12L5.44499 8.81805L6.50566 7.75732L8.62642 9.87818L12.3393 6.16637Z"
-                                                                                    fill="white"></path>
-                                                                            </svg>
-                                                                            Warranty
-                                                                        </button>
-                                                                        <div class="find-for-anyone-content" style="max-height: 0">
-                                                                            <p>
-                                                                                Jomashop warranties are now automatically registered when you purchase
-                                                                                a watch.*
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
-                                                                        <button type="button" class="find-for-anyone-collapsible">
-                                                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path
-                                                                                    d="M15.75 12.0013V5.99804C15.7498 5.80155 15.6981 5.60856 15.6001 5.43826C15.502 5.26796 15.3611 5.1263 15.1914 5.02738L9.84762 1.91746C9.59015 1.76757 9.29756 1.6886 8.99965 1.6886C8.70173 1.6886 8.40914 1.76757 8.15168 1.91746L2.80863 5.02738C2.63886 5.1263 2.49796 5.26796 2.39995 5.43826C2.30194 5.60856 2.25024 5.80155 2.25 5.99804V12.0013C2.25012 12.1979 2.30176 12.3911 2.39977 12.5615C2.49779 12.7319 2.63876 12.8737 2.80863 12.9727L8.15238 16.0826C8.40992 16.2323 8.70248 16.3111 9.00035 16.3111C9.29822 16.3111 9.59079 16.2323 9.84832 16.0826L15.1921 12.9727C15.3618 12.8736 15.5026 12.7318 15.6005 12.5614C15.6984 12.391 15.75 12.1979 15.75 12.0013Z"
-                                                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                                                <path
-                                                                                    d="M2.42578 5.4137L9 9.28088M9 9.28088L15.5742 5.4137M9 9.28088V16.3121"
-                                                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                                                <path d="M8.625 4.5L12 6.75V14.25" stroke="white" stroke-linecap="round">
-                                                                                </path>
-                                                                            </svg>
-                                                                            Fast &amp; Easy Returns
-                                                                        </button>
-                                                                        <div class="find-for-anyone-content" style="max-height: 0">
-                                                                            <p>
-                                                                                Not 100% satisfied with your purchase? Request a return within 30 days* for
-                                                                                a refund.
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
-                                                                        <button type="button" class="find-for-anyone-collapsible">
-                                                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path
-                                                                                    d="M14.625 5.0625H3.375C2.44302 5.0625 1.6875 5.81802 1.6875 6.75V13.5C1.6875 14.432 2.44302 15.1875 3.375 15.1875H14.625C15.557 15.1875 16.3125 14.432 16.3125 13.5V6.75C16.3125 5.81802 15.557 5.0625 14.625 5.0625Z"
-                                                                                    stroke="white" stroke-width="1.25" stroke-linejoin="round"></path>
-                                                                                <path
-                                                                                    d="M14.4619 5.06254V4.00786C14.4618 3.74918 14.4046 3.49371 14.2944 3.25967C14.1842 3.02564 14.0238 2.8188 13.8244 2.65393C13.6251 2.48905 13.3919 2.37021 13.1413 2.30586C12.8908 2.24152 12.6291 2.23326 12.375 2.28169L3.11625 3.86196C2.71418 3.93858 2.35144 4.15312 2.09062 4.46856C1.82979 4.784 1.68722 5.18058 1.6875 5.58989V7.31254"
-                                                                                    stroke="white" stroke-width="1.25" stroke-linejoin="round"></path>
-                                                                                <path
-                                                                                    d="M12.9375 11.25C12.715 11.25 12.4975 11.184 12.3125 11.0604C12.1275 10.9368 11.9833 10.7611 11.8981 10.5555C11.813 10.35 11.7907 10.1238 11.8341 9.90552C11.8775 9.6873 11.9847 9.48684 12.142 9.32951C12.2993 9.17217 12.4998 9.06503 12.718 9.02162C12.9363 8.97821 13.1625 9.00049 13.368 9.08564C13.5736 9.17078 13.7493 9.31498 13.8729 9.49998C13.9965 9.68499 14.0625 9.9025 14.0625 10.125C14.0625 10.4234 13.944 10.7095 13.733 10.9205C13.522 11.1315 13.2359 11.25 12.9375 11.25Z"
-                                                                                    fill="white"></path>
-                                                                            </svg>
-                                                                            Never Pay Retail
-                                                                        </button>
-                                                                        <div class="find-for-anyone-content" style="max-height: 0">
-                                                                            <p>Buy what you love at a price you love even more.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
+                                                <div class="find-for-anyone-body">
+                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
+                                                        <button type="button" class="find-for-anyone-collapsible">
+                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g clip-path="url(#clip0_1370_35302)">
+                                                                    <path
+                                                                        d="M9.79562 1.59244C9.89521 1.45107 10.1048 1.45107 10.2044 1.59244L10.8475 2.50545C11.3345 3.19667 12.246 3.44091 13.0133 3.08575L14.0268 2.61665C14.1837 2.54401 14.3652 2.64881 14.3808 2.82103L14.4813 3.9333C14.5574 4.77538 15.2246 5.44265 16.0667 5.51873L17.179 5.61922C17.3512 5.63478 17.456 5.81629 17.3834 5.97322L16.9142 6.98672C16.5591 7.75403 16.8033 8.66552 17.4946 9.15246L18.4076 9.79562C18.5489 9.8952 18.5489 10.1048 18.4076 10.2044L17.4946 10.8475C16.8033 11.3345 16.5591 12.246 16.9142 13.0133L17.3834 14.0268C17.456 14.1837 17.3512 14.3652 17.179 14.3808L16.0667 14.4813C15.2246 14.5574 14.5574 15.2246 14.4813 16.0667L14.3808 17.179C14.3652 17.3512 14.1837 17.456 14.0268 17.3834L13.0133 16.9142C12.246 16.5591 11.3345 16.8033 10.8475 17.4946L10.2044 18.4076C10.1048 18.5489 9.8952 18.5489 9.79562 18.4076L9.15245 17.4946C8.66552 16.8033 7.75402 16.5591 6.98672 16.9142L5.97322 17.3834C5.81629 17.456 5.63478 17.3512 5.61922 17.179L5.51873 16.0667C5.44265 15.2246 4.77538 14.5574 3.9333 14.4813L2.82103 14.3808C2.64881 14.3652 2.54401 14.1837 2.61665 14.0268L3.08575 13.0133C3.44091 12.246 3.19667 11.3345 2.50545 10.8475L1.59244 10.2044C1.45107 10.1048 1.45107 9.89521 1.59244 9.79562L2.50545 9.15245C3.19667 8.66552 3.44091 7.75403 3.08575 6.98672L2.61665 5.97322C2.54401 5.81629 2.64881 5.63478 2.82103 5.61922L3.9333 5.51873C4.77538 5.44265 5.44265 4.77538 5.51873 3.9333L5.61922 2.82103C5.63478 2.64881 5.81629 2.54401 5.97322 2.61665L6.98672 3.08575C7.75403 3.44091 8.66552 3.19667 9.15246 2.50545L9.79562 1.59244Z"
+                                                                        stroke="white" stroke-width="1.5"></path>
+                                                                    <path
+                                                                        d="M14 8.56666L12.9333 7.5L9.19945 11.2328L7.06667 9.09996L6 10.1667L9.19997 13.3667L14 8.56666Z"
+                                                                        fill="white"></path>
+                                                                </g>
+                                                                <defs>
+                                                                    <clipPath id="clip0_1370_35302">
+                                                                        <rect width="20" height="20" fill="white"></rect>
+                                                                    </clipPath>
+                                                                </defs>
+                                                            </svg>
+                                                            Authenticity
+                                                        </button>
+                                                        <div class="find-for-anyone-content" style="max-height: 0">
+                                                            <p>
+                                                                All products are 100% authentic guaranteed. We purchase our inventory
+                                                                via authorized dealers or respected industry wholesalers/distributors.
+                                                            </p>
                                                         </div>
-                                                        <div class="">
-                                                            <script>
-                                                                var coll = document.getElementsByClassName(
-                                                                    "tw2023-find-for-anyone-collapsible-wrapper"
-                                                                );
-                                                                var i;
+                                                    </div>
 
-                                                                for (i = 0; i < coll.length; i++) {
-                                                                    let index = i;
-                                                                    coll[i]
-                                                                        .getElementsByClassName("find-for-anyone-collapsible")[0]
-                                                                        .addEventListener("click", function () {
-                                                                            coll[index].classList.toggle("active");
-                                                                            // var content = this.nextElementSibling;
-                                                                            // content.classList.toggle("active");
+                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
+                                                        <button type="button" class="find-for-anyone-collapsible">
+                                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M9 0.75L15.1627 2.11948C15.5059 2.19574 15.75 2.5001 15.75 2.85163V10.3417C15.75 11.8462 14.998 13.2513 13.7461 14.0859L9 17.25L4.25385 14.0859C3.00196 13.2513 2.25 11.8462 2.25 10.3417V2.85163C2.25 2.5001 2.49415 2.19574 2.8373 2.11948L9 0.75ZM9 2.28659L3.75 3.45326V10.3417C3.75 11.3447 4.2513 12.2814 5.0859 12.8378L9 15.4472L12.9141 12.8378C13.7487 12.2814 14.25 11.3447 14.25 10.3417V3.45326L9 2.28659ZM12.3393 6.16637L13.4 7.22703L8.62695 12L5.44499 8.81805L6.50566 7.75732L8.62642 9.87818L12.3393 6.16637Z"
+                                                                    fill="white"></path>
+                                                            </svg>
+                                                            Warranty
+                                                        </button>
+                                                        <div class="find-for-anyone-content" style="max-height: 0">
+                                                            <p>
+                                                                Jomashop warranties are now automatically registered when you purchase
+                                                                a watch.*
+                                                            </p>
+                                                        </div>
+                                                    </div>
 
-                                                                            for (j = 0; j < coll.length; j++) {
-                                                                                if (j !== index) {
-                                                                                    console.log(index, j);
-                                                                                    coll[j].classList.remove("active");
-                                                                                }
-                                                                            }
-                                                                        });
-                                                                }
-                                                            </script>
+                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
+                                                        <button type="button" class="find-for-anyone-collapsible">
+                                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M15.75 12.0013V5.99804C15.7498 5.80155 15.6981 5.60856 15.6001 5.43826C15.502 5.26796 15.3611 5.1263 15.1914 5.02738L9.84762 1.91746C9.59015 1.76757 9.29756 1.6886 8.99965 1.6886C8.70173 1.6886 8.40914 1.76757 8.15168 1.91746L2.80863 5.02738C2.63886 5.1263 2.49796 5.26796 2.39995 5.43826C2.30194 5.60856 2.25024 5.80155 2.25 5.99804V12.0013C2.25012 12.1979 2.30176 12.3911 2.39977 12.5615C2.49779 12.7319 2.63876 12.8737 2.80863 12.9727L8.15238 16.0826C8.40992 16.2323 8.70248 16.3111 9.00035 16.3111C9.29822 16.3111 9.59079 16.2323 9.84832 16.0826L15.1921 12.9727C15.3618 12.8736 15.5026 12.7318 15.6005 12.5614C15.6984 12.391 15.75 12.1979 15.75 12.0013Z"
+                                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                <path
+                                                                    d="M2.42578 5.4137L9 9.28088M9 9.28088L15.5742 5.4137M9 9.28088V16.3121"
+                                                                    stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                <path d="M8.625 4.5L12 6.75V14.25" stroke="white" stroke-linecap="round">
+                                                                </path>
+                                                            </svg>
+                                                            Fast &amp; Easy Returns
+                                                        </button>
+                                                        <div class="find-for-anyone-content" style="max-height: 0">
+                                                            <p>
+                                                                Not 100% satisfied with your purchase? Request a return within 30 days* for
+                                                                a refund.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tw2023-find-for-anyone-collapsible-wrapper">
+                                                        <button type="button" class="find-for-anyone-collapsible">
+                                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M14.625 5.0625H3.375C2.44302 5.0625 1.6875 5.81802 1.6875 6.75V13.5C1.6875 14.432 2.44302 15.1875 3.375 15.1875H14.625C15.557 15.1875 16.3125 14.432 16.3125 13.5V6.75C16.3125 5.81802 15.557 5.0625 14.625 5.0625Z"
+                                                                    stroke="white" stroke-width="1.25" stroke-linejoin="round"></path>
+                                                                <path
+                                                                    d="M14.4619 5.06254V4.00786C14.4618 3.74918 14.4046 3.49371 14.2944 3.25967C14.1842 3.02564 14.0238 2.8188 13.8244 2.65393C13.6251 2.48905 13.3919 2.37021 13.1413 2.30586C12.8908 2.24152 12.6291 2.23326 12.375 2.28169L3.11625 3.86196C2.71418 3.93858 2.35144 4.15312 2.09062 4.46856C1.82979 4.784 1.68722 5.18058 1.6875 5.58989V7.31254"
+                                                                    stroke="white" stroke-width="1.25" stroke-linejoin="round"></path>
+                                                                <path
+                                                                    d="M12.9375 11.25C12.715 11.25 12.4975 11.184 12.3125 11.0604C12.1275 10.9368 11.9833 10.7611 11.8981 10.5555C11.813 10.35 11.7907 10.1238 11.8341 9.90552C11.8775 9.6873 11.9847 9.48684 12.142 9.32951C12.2993 9.17217 12.4998 9.06503 12.718 9.02162C12.9363 8.97821 13.1625 9.00049 13.368 9.08564C13.5736 9.17078 13.7493 9.31498 13.8729 9.49998C13.9965 9.68499 14.0625 9.9025 14.0625 10.125C14.0625 10.4234 13.944 10.7095 13.733 10.9205C13.522 11.1315 13.2359 11.25 12.9375 11.25Z"
+                                                                    fill="white"></path>
+                                                            </svg>
+                                                            Never Pay Retail
+                                                        </button>
+                                                        <div class="find-for-anyone-content" style="max-height: 0">
+                                                            <p>Buy what you love at a price you love even more.</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="">
+                                            <script>
+                                                var coll = document.getElementsByClassName(
+                                                    "tw2023-find-for-anyone-collapsible-wrapper"
+                                                );
+                                                var i;
+
+                                                for (i = 0; i < coll.length; i++) {
+                                                    let index = i;
+                                                    coll[i]
+                                                        .getElementsByClassName("find-for-anyone-collapsible")[0]
+                                                        .addEventListener("click", function () {
+                                                            coll[index].classList.toggle("active");
+                                                            // var content = this.nextElementSibling;
+                                                            // content.classList.toggle("active");
+
+                                                            for (j = 0; j < coll.length; j++) {
+                                                                if (j !== index) {
+                                                                    console.log(index, j);
+                                                                    coll[j].classList.remove("active");
+                                                                }
+                                                            }
+                                                        });
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="global-overlay overlay-hide "></div>
             </main>
-            <div class="cross-sell-wrapper">
-                <div class="container-width">
-                    <h2>Shop by Category</h2>
-                    <div>
-                        <div>
-                            <div class="click-handler">
-                                <div class="row-contained-EzA entire-catalog-wrapper homepage-general-h2-style">
-                                    <div style="display: flex; justify-content: flex-start; flex-direction: column;">
-                                        <div class="">
-                                            <style>
-                                                .home-page .new-design .cross-sell-wrapper {
-                                                display: none;
-                                                }
-                                            </style>
-                                            <div class="entire-catalog-row">
-                                                <div class="entire-catalog-item">
-                                                    <a href="/watches-for-men.html" aria-label="Men's Watches">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt=""src="./img/catalog/home_mens_watches.png" title="Men's Watches">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/watches-for-men.html" aria-label="Men's Watches" class="entire-catalog-btn">Men’s Watches</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/watches-for-women.html" aria-label="Women’s watches">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="" src="./img/catalog/home_womens_watches.png" title="Women’s watches">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/watches-for-women.html" aria-label="Women’s watches" class="entire-catalog-btn">Women’s watches</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/sunglasses.html" aria-label="SUNGLASSES">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="" src="./img/catalog/home_sunglasses.png" title="SUNGLASSES">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/sunglasses.html" aria-label="SUNGLASSES" class="entire-catalog-btn">SUNGLASSES</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/fragrances.html" aria-label="Fragrances">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Fragrances" src="./img/catalog/home_fragrances.png" title="Fragrances">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/fragrances.html" aria-label="Fragrances" class="entire-catalog-btn">Fragrances</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/handbags-accessories.html" aria-label="Bags">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Bags" src="./img/catalog/home_bags.png" title="Bags">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/handbags-accessories.html" aria-label="Bags" class="entire-catalog-btn">Bags</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/shoes.html" aria-label="Shoes">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Shoes" src="./img/catalog/home_shoes.png" title="Shoes">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/shoes.html" aria-label="Shoes" class="entire-catalog-btn">Shoes</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/ladies-mens-apparel.html" aria-label="Apparel">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Apparel" src="./img/catalog/home_apparel.png" title="Apparel">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/ladies-mens-apparel.html" aria-label="Apparel" class="entire-catalog-btn">Apparel</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/fashion-and-apparel.html?apparel_type=Scarves%7CBelts%7CShoe+Accessories"
-                                                        aria-label="Accessories">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Accessories" src="./img/catalog/home_accessories.png" title="Accessories">
-                                                        </div>
-                                                    </a>
-                                                    <a href="./error404.php" aria-label="Accessories" class="entire-catalog-btn">Accessories</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/jewelry.html" aria-label="Jewelry">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Jewelry" src="./img/catalog/home_jewelry.png" title="Jewelry">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/jewelry.html" aria-label="Jewelry" class="entire-catalog-btn">Jewelry</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/luxury-pens.html" aria-label="Luxury pens">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Luxury pens" src="./img/catalog/home_pens.png" title="Luxury pens">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/luxury-pens.html" aria-label="Luxury pens" class="entire-catalog-btn">Luxury pens</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/preowned.html" aria-label="Preowned">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Preowned" src="./img/catalog/home_preowned.png" title="Preowned">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/preowned.html" aria-label="Preowned" class="entire-catalog-btn">Preowned</a>
-                                                </div>
-                                                <div class="entire-catalog-item">
-                                                    <a href="/flash-sale-offers.html" aria-label="Sales">
-                                                        <div class="entire-catalog-image">
-                                                            <img loading="lazy" alt="Sales" src="./img/catalog/home_sale.png" title="Sales">
-                                                        </div>
-                                                    </a>
-                                                    <a href="/flash-sale-offers.html" aria-label="Sales" class="entire-catalog-btn">Sales</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="category-usps-wrapper">
-                <div>
-                    <div>
-                        <div class="click-handler">
-                            <div class="row-contained-EzA trust-since-block">
-                                <div style="display: flex; justify-content: flex-start; flex-direction: column;">
-                                    <div class="">
-                                        <div>
-                                            <div>
-                                                <div class="trust-since-content">
-                                                    <div class="trust-item" data-type-tab="Trust">
-                                                        <img src="./img/svg/trusted.svg" alt="">
-                                                        <p>Trusted <b>since 1999</b></p>
-                                                    </div>
-                                                    <div class="trust-item" data-type-tab="Authenticity">
-                                                        <img src="./img/svg/authenticity_green.svg" alt="">
-                                                        <p><b>75,000+ items</b> from authentic brands</p>
-                                                    </div>
-                                                    <div class="trust-item" data-type-tab="AboutUs">
-                                                        <img src="./img/svg/fivestars.svg" alt="">
-                                                        <p><b>500,000+ five star </b> reviews</p>
-                                                    </div>
-                                                    <div class="trust-item" data-type-tab="Shipping">
-                                                        <img src="./img/svg/shipping.svg" alt="">
-                                                        <p>Shipped <b>10M+ orders</b> to <b>150+ countries</b></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- The Modal -->
-                                            <div id="ModalTrust" class="modal modal-trust">
-                                                <!-- Modal content -->
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h2 class="title">The Jomashop Promise</h2>
-                                                        <span class="trust-close">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z" fill="black"></path>
-                                                            </svg>
-                                                        </span>
-                                                    </div>
-                                                    <div class="tabs-wrapper">
-                                                        <div class="tabs">
-                                                            <button class="tablinks active" data-electronic="AboutUs">About us</button>
-                                                            <button class="tablinks" data-electronic="Authenticity">Authenticity</button>
-                                                            <button class="tablinks" data-electronic="Trust">Trust</button>
-                                                            <button class="tablinks" data-electronic="Shipping">Shipping</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Tab content -->
-                                                    <div class="wrapper_tabcontent">
-                                                        <div id="AboutUs" class="tabcontent active">
-                                                            <p>
-                                                                For over two decades, Jomashop has established itself as a premier online destination,
-                                                                offering a diverse range of luxury and fashion items to discerning customers worldwide.
-                                                                With an impressive catalog of over 75,000 unique products, whether it's a watch,
-                                                                handbag, pair of sunglasses, shoes, or fragrance, Jomashop is the go-to platform for all
-                                                                your luxury needs.
-                                                            </p>
-                                                        </div>
-                                                        <div id="Authenticity" class="tabcontent">
-                                                            <p>
-                                                                Your trust is paramount to us. Every product listed on Jomashop.com comes with a 100%
-                                                                authenticity guarantee. Our inventory sources directly from authorized dealers or
-                                                                trusted industry wholesalers and distributors. Each watch we sell is brand new, boasting
-                                                                its original manufacturer’s serial numbers. With Jomashop, authenticity isn't a promise;
-                                                                it's a guarantee.
-                                                            </p>
-                                                        </div>
-                                                        <div id="Trust" class="tabcontent">
-                                                            <p>
-                                                                Our commitment goes beyond just providing you with genuine products. We believe in
-                                                                delivering unmatched value. We ensure every watch you purchase from Jomashop is backed
-                                                                by our very own warranty. Your peace of mind is a priority, and with Jomashop's warranty
-                                                                policy, trust is built in.
-                                                            </p>
-                                                        </div>
-                                                        <div id="Shipping" class="tabcontent">
-                                                            <p>
-                                                                Jomashopoffers free Ground shipping on every order over $100, fulfilled via trusted
-                                                                partners like FedEx, UPS, or USPS, with transit times ranging from 1 to 6 business days.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <footer id="footer" class="footer-container">
-                <div id="Footer_Desktop">
-                    <div class="footer-content-wrapper">
-                        <div class="footer-top-wrapper">
-                            <div class="footer-inner-content container-width">
-                                <div class="footer-top">
-                                    <div class="logo-footer">
-                                        <img src="./dist/file/footer_logo.f00d90d3496073687709.png" alt="Logo Foolter">
-                                        <p class="description-footer">— Since 1999</p>
-                                        <p class="description-footer description-opacity">Your Online Shopping for Watches, Handbags and More.</p>
-                                    </div>
-                                    <div class="footer-social-links">
-                                        <div class="social-new-design">
-                                            <a href="https://www.facebook.com/JomaShop" target="_blank" class="social-item" rel="noreferrer">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g clip-path="url(#clip0_2510_108117)">
-                                                        <path d="M10.5 10.125H12.375L13.125 7.125H10.5V5.625C10.5 4.8525 10.5 4.125 12 4.125H13.125V1.605C12.8805 1.57275 11.9572 1.5 10.9822 1.5C8.946 1.5 7.5 2.74275 7.5 5.025V7.125H5.25V10.125H7.5V16.5H10.5V10.125Z" fill="white"></path>
-                                                    </g>
-                                                    <defs>
-                                                        <clipPath id="clip0_2510_108117">
-                                                            <rect width="18" height="18" fill="white"></rect>
-                                                        </clipPath>
-                                                    </defs>
-                                                </svg>
-                                            </a>
-                                            <a href="https://twitter.com/Jomashop" target="_blank" class="social-item" rel="noreferrer">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 18 18" fill="white">
-                                                    <g>
-                                                        <path
-                                                            d="M 6 1.5 L 0.75 1.5 L 6.945312 9.761719 L 1.085938 16.5 L 3.074219 16.5 L 7.867188 10.988281 L 12 16.5 L 17.25 16.5 L 10.792969 7.890625 L 16.351562 1.5 L 14.363281 1.5 L 9.875 6.664062 Z M 12.75 15 L 3.75 3 L 5.25 3 L 14.25 15 Z M 12.75 15 ">
-                                                        </path>
-                                                    </g>
-                                                </svg>
-                                            </a>
-                                            <a href="https://www.instagram.com/jomashop/" target="_blank" class="social-item" rel="noreferrer">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g clip-path="url(#clip0_2510_108127)">
-                                                        <path d="M9 1.5C11.0378 1.5 11.292 1.5075 12.0915 1.545C12.8902 1.5825 13.434 1.70775 13.9125 1.89375C14.4075 2.08425 14.8245 2.34225 15.2415 2.7585C15.6229 3.13342 15.918 3.58694 16.1063 4.0875C16.2915 4.56525 16.4175 5.10975 16.455 5.9085C16.4903 6.708 16.5 6.96225 16.5 9C16.5 11.0378 16.4925 11.292 16.455 12.0915C16.4175 12.8902 16.2915 13.434 16.1063 13.9125C15.9185 14.4133 15.6233 14.867 15.2415 15.2415C14.8665 15.6227 14.413 15.9178 13.9125 16.1063C13.4347 16.2915 12.8902 16.4175 12.0915 16.455C11.292 16.4903 11.0378 16.5 9 16.5C6.96225 16.5 6.708 16.4925 5.9085 16.455C5.10975 16.4175 4.566 16.2915 4.0875 16.1063C3.58674 15.9184 3.13315 15.6232 2.7585 15.2415C2.37705 14.8666 2.08195 14.4131 1.89375 13.9125C1.70775 13.4347 1.5825 12.8902 1.545 12.0915C1.50975 11.292 1.5 11.0378 1.5 9C1.5 6.96225 1.5075 6.708 1.545 5.9085C1.5825 5.109 1.70775 4.566 1.89375 4.0875C2.08143 3.58663 2.3766 3.13299 2.7585 2.7585C3.13325 2.37692 3.58682 2.0818 4.0875 1.89375C4.566 1.70775 5.109 1.5825 5.9085 1.545C6.708 1.50975 6.96225 1.5 9 1.5ZM9 5.25C8.00544 5.25 7.05161 5.64509 6.34835 6.34835C5.64509 7.05161 5.25 8.00544 5.25 9C5.25 9.99456 5.64509 10.9484 6.34835 11.6517C7.05161 12.3549 8.00544 12.75 9 12.75C9.99456 12.75 10.9484 12.3549 11.6517 11.6517C12.3549 10.9484 12.75 9.99456 12.75 9C12.75 8.00544 12.3549 7.05161 11.6517 6.34835C10.9484 5.64509 9.99456 5.25 9 5.25ZM13.875 5.0625C13.875 4.81386 13.7762 4.5754 13.6004 4.39959C13.4246 4.22377 13.1861 4.125 12.9375 4.125C12.6889 4.125 12.4504 4.22377 12.2746 4.39959C12.0988 4.5754 12 4.81386 12 5.0625C12 5.31114 12.0988 5.5496 12.2746 5.72541C12.4504 5.90123 12.6889 6 12.9375 6C13.1861 6 13.4246 5.90123 13.6004 5.72541C13.7762 5.5496 13.875 5.31114 13.875 5.0625ZM9 6.75C9.59674 6.75 10.169 6.98705 10.591 7.40901C11.0129 7.83097 11.25 8.40326 11.25 9C11.25 9.59674 11.0129 10.169 10.591 10.591C10.169 11.0129 9.59674 11.25 9 11.25C8.40326 11.25 7.83097 11.0129 7.40901 10.591C6.98705 10.169 6.75 9.59674 6.75 9C6.75 8.40326 6.98705 7.83097 7.40901 7.40901C7.83097 6.98705 8.40326 6.75 9 6.75Z" fill="white"></path>
-                                                    </g>
-                                                    <defs>
-                                                        <clipPath id="clip0_2510_108127">
-                                                            <rect width="18" height="18" fill="white"></rect>
-                                                        </clipPath>
-                                                    </defs>
-                                                </svg>
-                                            </a>
-                                            <a href="https://www.tiktok.com/@jomashop" target="_blank" class="social-item" rel="noreferrer">
-                                                <svg fill="#ffffff" width="15" height="15" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-                                                    <g stroke-width="0"></g>
-                                                    <g stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8640000000000001"></g>
-                                                    <g>
-                                                        <path
-                                                            d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z">
-                                                        </path>
-                                                    </g>
-                                                </svg>
-                                            </a>
-                                            <a href="https://www.youtube.com/@jomashop" target="_blank" class="social-item" rel="noreferrer">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g clip-path="url(#clip0_2510_108135)">
-                                                        <path
-                                                            d="M16.1572 4.8735C16.5 6.21 16.5 9 16.5 9C16.5 9 16.5 11.79 16.1572 13.1265C15.9667 13.8653 15.4095 14.4465 14.7037 14.643C13.422 15 9 15 9 15C9 15 4.58025 15 3.29625 14.643C2.5875 14.4435 2.031 13.863 1.84275 13.1265C1.5 11.79 1.5 9 1.5 9C1.5 9 1.5 6.21 1.84275 4.8735C2.03325 4.13475 2.5905 3.5535 3.29625 3.357C4.58025 3 9 3 9 3C9 3 13.422 3 14.7037 3.357C15.4125 3.5565 15.969 4.137 16.1572 4.8735ZM7.5 11.625L12 9L7.5 6.375V11.625Z" fill="white">
-                                                        </path>
-                                                    </g>
-                                                    <defs>
-                                                        <clipPath id="clip0_2510_108135">
-                                                            <rect width="18" height="18" fill="white"></rect>
-                                                        </clipPath>
-                                                    </defs>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer-top-content -left">
-                                    <div class="styled-subscription-wrapper ">
-                                        <div>
-                                            <div>
-                                                <div class="click-handler">
-                                                    <div class="">
-                                                        <div class="footer-sign-up-exclusive-email">
-                                                            Subscribe for exclusive offers
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <form id="newsLetterForm" novalidate="">
-                                            <input type="hidden" name="crvs" value="gmOC6zTLL27NnfmNCVsSNn0QPJVmQGgJxEaNaandxymy_GqwvytQg7O3XE7dHn9ddMQdgK7-8jH3ZZ5AqMcZD422V8YcpJ4TTYFARIPJOZbcYjlDSKwxh0ROoYriww143AsH7IIbByY1YklU0W_szjYvBzo78w2tPGs6JZe3Voknsd0s8C4KpvmmTv3peNuF0TiPEbrBIQ8WF-2-TXHogTKaxLYSX2rSGdRj-dWXHkE">
-                                            <input type="hidden" name="CheckBox.Source.Mini-Form" value="on">
-                                            <div class="field-wrapper  can-focus  ">
-                                                <label class="label">Enter your email</label>
-                                                <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                    <span class="input-block">
-                                                        <input type="email" placeholder="Enter your email" class="" id="newsLetterEmail" name="email" value="">
-                                                    </span>
-                                                    <span class="before"></span>
-                                                    <span class="after"></span>
-                                                </div>
-                                                <span class="message-root">
-                                                    <p class="root"></p>
-                                                </span>
-                                                <button class="btn-new-design primary btn" id="newsLetterSubmit" type="submit">Subscribe</button>
-                                                <span id="newsLetterError" class="root_error message-root">Please enter a valid email</span>
-                                            </div>
-                                            <span class="description-subscribing">By subscribing you agree with our 
-                                                <a href="https://www.iubenda.com/privacy-policy/848793" title="privacy policy">Privacy Policy</a>
-                                            </span>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-links-wrapper container-width">
-                            <ul class="item-sub-cat">
-                                <div class="accordion-item col-0 contact-us opened">
-                                    <div class="accordion-head">Contact Us</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a class="" href="/customer-service/">Customer Service</a></li>
-                                        <li><a class="" href="/help-center/order-status/">Order Status</a></li>
-                                        <li><a class="/email-preference-footer" href="/my-account/email-preferences/">Update Your Email Preferences</a></li>
-                                        <li><a class="" href="/trade-in.html?transaction=trade&amp;referrer=footer">Trade-In Your Watch</a></li>
-                                        <li><a class="" href="/sell-us-your-rolex.html?transaction=sell&amp;referrer=footerRolex">Sell my Rolex</a></li>
-                                        <li><a class="" href="/sell-us-your-watch.html?transaction=trade&amp;referrer=footer">Sell my Watch</a></li>
-                                        <li><a class="" href="/sell-on-jomashop-vendor-application-form.html">Become a Vendor</a></li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-1 company-info opened">
-                                    <div class="accordion-head">Company Info</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a href="./error404.php" class="">About Jomashop</a></li>
-                                        <li><a class="" href="./error404.php">Jomashop Reviews</a></li>
-                                        <li><a href="./error404.php" class="">The Parlor: Our Blog</a></li>
-                                        <li><a href="./error404.php" class="">Affiliate Program</a></li>
-                                        <li><a href="./error404.php" class="">Authenticity Guarantee</a></li>
-                                        <li><a class="" href="./error404.php">Jomashop Coupon Codes</a></li>
-                                        <li><a class="" href="./error404.php">Jomashop Gift Cards</a></li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-2 help-center opened">
-                                    <div class="accordion-head">Help Center</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a href="./error404.php" class="">Order Information</a></li>
-                                        <li><a href="./error404.php" class="">Shipping Options</a></li>
-                                        <li><a href="./error404.php" class="">International Shipping</a></li>
-                                        <li><a href="./error404.php" class="">Payment Options</a></li>
-                                        <li><a class="" href="./error404.php">Pay with Bitpay / Crypto</a></li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-3 returns-&amp;-warranty opened">
-                                    <div class="accordion-head">Returns &amp; Warranty</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a href="./error404.php" class="">Returns &amp; Exchange Policy</a></li>
-                                        <li><a href="./error404.php" class="">Returns Center</a></li>
-                                        <li><a href="./error404.php" class="">Warranty Policy</a></li>
-                                        <li><a href="./error404.php" class="">Warranty Repair Center</a></li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-4 customer-service opened">
-                                    <div class="accordion-head">Customer Service</div>
-                                    <div class="accordion-content contain-non-links collapse show">
-                                        <div>
-                                            <li><a href="tel:877-834-1434">877-834-1434</a></li>
-                                            <li>
-                                                <address>Brooklyn Army Terminal Building A <br>140A 58th Street, Suite 6N - 6th
-                                                Floor<br>Brooklyn, NY 11220</address>
-                                            </li>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id="Footer_Mobile">
-                    <div class="footer-top">
-                        <div class="logo-footer">
-                            <img src="./dist/file/footer_logo.f00d90d3496073687709.png" alt="Logo Foolter">
-                            <p class="description-footer">— Since 1999</p>
-                            <p class="description-footer description-opacity">Your Online Shopping for Watches, Handbags and More.</p>
-                        </div>
-                        <div class="footer-social-links">
-                            <div class="social-new-design">
-                                <a href="https://www.facebook.com/JomaShop" target="_blank" class="social-item" rel="noreferrer">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_2510_108117)">
-                                            <path d="M10.5 10.125H12.375L13.125 7.125H10.5V5.625C10.5 4.8525 10.5 4.125 12 4.125H13.125V1.605C12.8805 1.57275 11.9572 1.5 10.9822 1.5C8.946 1.5 7.5 2.74275 7.5 5.025V7.125H5.25V10.125H7.5V16.5H10.5V10.125Z"
-                                            fill="white"></path>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_2510_108117">
-                                                <rect width="18" height="18" fill="white"></rect>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                                <a href="https://twitter.com/Jomashop" target="_blank" class="social-item" rel="noreferrer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 18 18" fill="white">
-                                        <g>
-                                            <path d="M 6 1.5 L 0.75 1.5 L 6.945312 9.761719 L 1.085938 16.5 L 3.074219 16.5 L 7.867188 10.988281 L 12 16.5 L 17.25 16.5 L 10.792969 7.890625 L 16.351562 1.5 L 14.363281 1.5 L 9.875 6.664062 Z M 12.75 15 L 3.75 3 L 5.25 3 L 14.25 15 Z M 12.75 15 ">
-                                            </path>
-                                        </g>
-                                    </svg>
-                                </a>
-                                <a href="https://www.instagram.com/jomashop/" target="_blank" class="social-item" rel="noreferrer">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_2510_108127)">
-                                            <path d="M9 1.5C11.0378 1.5 11.292 1.5075 12.0915 1.545C12.8902 1.5825 13.434 1.70775 13.9125 1.89375C14.4075 2.08425 14.8245 2.34225 15.2415 2.7585C15.6229 3.13342 15.918 3.58694 16.1063 4.0875C16.2915 4.56525 16.4175 5.10975 16.455 5.9085C16.4903 6.708 16.5 6.96225 16.5 9C16.5 11.0378 16.4925 11.292 16.455 12.0915C16.4175 12.8902 16.2915 13.434 16.1063 13.9125C15.9185 14.4133 15.6233 14.867 15.2415 15.2415C14.8665 15.6227 14.413 15.9178 13.9125 16.1063C13.4347 16.2915 12.8902 16.4175 12.0915 16.455C11.292 16.4903 11.0378 16.5 9 16.5C6.96225 16.5 6.708 16.4925 5.9085 16.455C5.10975 16.4175 4.566 16.2915 4.0875 16.1063C3.58674 15.9184 3.13315 15.6232 2.7585 15.2415C2.37705 14.8666 2.08195 14.4131 1.89375 13.9125C1.70775 13.4347 1.5825 12.8902 1.545 12.0915C1.50975 11.292 1.5 11.0378 1.5 9C1.5 6.96225 1.5075 6.708 1.545 5.9085C1.5825 5.109 1.70775 4.566 1.89375 4.0875C2.08143 3.58663 2.3766 3.13299 2.7585 2.7585C3.13325 2.37692 3.58682 2.0818 4.0875 1.89375C4.566 1.70775 5.109 1.5825 5.9085 1.545C6.708 1.50975 6.96225 1.5 9 1.5ZM9 5.25C8.00544 5.25 7.05161 5.64509 6.34835 6.34835C5.64509 7.05161 5.25 8.00544 5.25 9C5.25 9.99456 5.64509 10.9484 6.34835 11.6517C7.05161 12.3549 8.00544 12.75 9 12.75C9.99456 12.75 10.9484 12.3549 11.6517 11.6517C12.3549 10.9484 12.75 9.99456 12.75 9C12.75 8.00544 12.3549 7.05161 11.6517 6.34835C10.9484 5.64509 9.99456 5.25 9 5.25ZM13.875 5.0625C13.875 4.81386 13.7762 4.5754 13.6004 4.39959C13.4246 4.22377 13.1861 4.125 12.9375 4.125C12.6889 4.125 12.4504 4.22377 12.2746 4.39959C12.0988 4.5754 12 4.81386 12 5.0625C12 5.31114 12.0988 5.5496 12.2746 5.72541C12.4504 5.90123 12.6889 6 12.9375 6C13.1861 6 13.4246 5.90123 13.6004 5.72541C13.7762 5.5496 13.875 5.31114 13.875 5.0625ZM9 6.75C9.59674 6.75 10.169 6.98705 10.591 7.40901C11.0129 7.83097 11.25 8.40326 11.25 9C11.25 9.59674 11.0129 10.169 10.591 10.591C10.169 11.0129 9.59674 11.25 9 11.25C8.40326 11.25 7.83097 11.0129 7.40901 10.591C6.98705 10.169 6.75 9.59674 6.75 9C6.75 8.40326 6.98705 7.83097 7.40901 7.40901C7.83097 6.98705 8.40326 6.75 9 6.75Z"
-                                            fill="white"></path>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_2510_108127">
-                                                <rect width="18" height="18" fill="white"></rect>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                                <a href="https://www.tiktok.com/@jomashop" target="_blank" class="social-item" rel="noreferrer">
-                                    <svg fill="#ffffff" width="15" height="15" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-                                        <g stroke-width="0"></g>
-                                        <g stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8640000000000001"></g>
-                                        <g>
-                                            <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z">
-                                            </path>
-                                        </g>
-                                    </svg>
-                                </a>
-                                <a href="https://www.youtube.com/@jomashop" target="_blank" class="social-item" rel="noreferrer">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_2510_108135)">
-                                            <path d="M16.1572 4.8735C16.5 6.21 16.5 9 16.5 9C16.5 9 16.5 11.79 16.1572 13.1265C15.9667 13.8653 15.4095 14.4465 14.7037 14.643C13.422 15 9 15 9 15C9 15 4.58025 15 3.29625 14.643C2.5875 14.4435 2.031 13.863 1.84275 13.1265C1.5 11.79 1.5 9 1.5 9C1.5 9 1.5 6.21 1.84275 4.8735C2.03325 4.13475 2.5905 3.5535 3.29625 3.357C4.58025 3 9 3 9 3C9 3 13.422 3 14.7037 3.357C15.4125 3.5565 15.969 4.137 16.1572 4.8735ZM7.5 11.625L12 9L7.5 6.375V11.625Z"
-                                            fill="white"></path>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_2510_108135">
-                                                <rect width="18" height="18" fill="white"></rect>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-content-wrapper">
-                        <div class="footer-links-wrapper container-width">
-                            <div class="chat-call-section" tabindex="0">
-                                <div class="chat-call chat">
-                                    <span class="chat-text">Chat </span>
-                                    <strong class="chat-or">or </strong>
-                                    <span class="call-text">Call </span>
-                                    <span class="chat-call-phone-number">(877) 834-1434</span>
-                                </div>
-                                <ul class="chat-call-dropdown">
-                                    <li>
-                                        <a href="tel://1-877-834-1434" data-href="tel://1-877-834-1434" title="Tap here to call us!">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g clip-path="url(#clip0_448_68674)">
-                                                    <path d="M9.366 10.682C10.3043 12.3305 11.6695 13.6957 13.318 14.634L14.202 13.396C14.3442 13.1969 14.5543 13.0569 14.7928 13.0023C15.0313 12.9478 15.2814 12.9825 15.496 13.1C16.9103 13.8729 18.4722 14.3378 20.079 14.464C20.3298 14.4839 20.5638 14.5975 20.7345 14.7823C20.9052 14.9671 21 15.2094 21 15.461V19.923C21.0001 20.1706 20.9083 20.4094 20.7424 20.5932C20.5765 20.777 20.3483 20.8927 20.102 20.918C19.572 20.973 19.038 21 18.5 21C9.94 21 3 14.06 3 5.5C3 4.962 3.027 4.428 3.082 3.898C3.10725 3.6517 3.22298 3.42352 3.40679 3.25763C3.5906 3.09175 3.82941 2.99995 4.077 3H8.539C8.79056 2.99997 9.0329 3.09475 9.21768 3.26545C9.40247 3.43615 9.51613 3.67022 9.536 3.921C9.66222 5.52779 10.1271 7.08968 10.9 8.504C11.0175 8.71856 11.0522 8.96874 10.9977 9.2072C10.9431 9.44565 10.8031 9.65584 10.604 9.798L9.366 10.682ZM6.844 10.025L8.744 8.668C8.20478 7.50409 7.83535 6.26884 7.647 5H5.01C5.004 5.166 5.001 5.333 5.001 5.5C5 12.956 11.044 19 18.5 19C18.667 19 18.834 18.997 19 18.99V16.353C17.7312 16.1646 16.4959 15.7952 15.332 15.256L13.975 17.156C13.4287 16.9437 12.898 16.6931 12.387 16.406L12.329 16.373C10.3676 15.2567 8.74328 13.6324 7.627 11.671L7.594 11.613C7.30691 11.102 7.05628 10.5713 6.844 10.025Z"
-                                                    fill="black"></path>
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_448_68674">
-                                                        <rect width="24" height="24" fill="white"></rect>
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-                                            <span class="dropdown-text">Call</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Tap here to Live Chat">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.27894 2.4375L5.28125 2.4375H20.7188L20.7211 2.4375C21.6893 2.44026 22.6171 2.82611 23.3017 3.51076C23.9864 4.19541 24.3722 5.1232 24.375 6.09144L24.375 6.09375V15.8438L24.375 15.8461C24.3722 16.8143 23.9864 17.7421 23.3017 18.4267C22.6171 19.1114 21.6893 19.4972 20.7211 19.5L20.7188 19.5H12.4793L7.83281 23.3741C7.59064 23.576 7.25352 23.6195 6.96797 23.4858C6.68242 23.3521 6.5 23.0653 6.5 22.75V19.5H5.28125L5.27894 19.5C4.3107 19.4972 3.38291 19.1114 2.69826 18.4267C2.01361 17.7421 1.62776 16.8143 1.625 15.8461L1.625 15.8438V6.09375L1.625 6.09144C1.62776 5.1232 2.01361 4.19541 2.69826 3.51076C3.38291 2.82611 4.3107 2.44026 5.27894 2.4375ZM12.5926 19.4055C12.5924 19.4057 12.5922 19.4058 12.592 19.406L12.5926 19.4055ZM5.2825 4.0625C4.74402 4.06431 4.22809 4.27902 3.84731 4.65981C3.46652 5.04059 3.25181 5.55652 3.25 6.095V15.8425C3.25181 16.381 3.46652 16.8969 3.84731 17.2777C4.22811 17.6585 4.74406 17.8732 5.28256 17.875H7.3125C7.76123 17.875 8.125 18.2388 8.125 18.6875V21.0147L11.5509 18.1584C11.551 18.1582 11.5512 18.1581 11.5514 18.1579C11.7705 17.9751 12.0469 17.875 12.3322 17.875C12.3323 17.875 12.3323 17.875 12.3324 17.875H20.7174C21.2559 17.8732 21.7719 17.6585 22.1527 17.2777C22.5335 16.8969 22.7482 16.3809 22.75 15.8424V6.09506C22.7482 5.55656 22.5335 5.04061 22.1527 4.65981C21.7719 4.27902 21.256 4.06431 20.7175 4.0625H5.2825Z"
-                                                fill="black"></path>
-                                                <path d="M8.125 12.5938C9.02246 12.5938 9.75 11.8662 9.75 10.9688C9.75 10.0713 9.02246 9.34375 8.125 9.34375C7.22754 9.34375 6.5 10.0713 6.5 10.9688C6.5 11.8662 7.22754 12.5938 8.125 12.5938Z"
-                                                fill="black"></path>
-                                                <path d="M13 12.5938C13.8975 12.5938 14.625 11.8662 14.625 10.9688C14.625 10.0713 13.8975 9.34375 13 9.34375C12.1025 9.34375 11.375 10.0713 11.375 10.9688C11.375 11.8662 12.1025 12.5938 13 12.5938Z"
-                                                fill="black"></path>
-                                                <path d="M17.875 12.5938C18.7725 12.5938 19.5 11.8662 19.5 10.9688C19.5 10.0713 18.7725 9.34375 17.875 9.34375C16.9775 9.34375 16.25 10.0713 16.25 10.9688C16.25 11.8662 16.9775 12.5938 17.875 12.5938Z"
-                                                fill="black"></path>
-                                            </svg>
-                                            <span class="dropdown-text">Chat</span>
-                                        </a>
-                                    </li>
-                                    <li class="whatsapp-item">
-                                        <a href="./error404.php" title="Tap here to Live Chat" target="_blank" rel="noreferrer">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_649_65720)">
-                                                <path
-                                                    d="M7.25301 18.494L7.97701 18.917C9.19795 19.6291 10.5866 20.0029 12 20C13.5823 20 15.129 19.5308 16.4446 18.6518C17.7602 17.7727 18.7855 16.5233 19.3911 15.0615C19.9966 13.5997 20.155 11.9911 19.8463 10.4393C19.5376 8.88743 18.7757 7.46197 17.6569 6.34315C16.538 5.22433 15.1126 4.4624 13.5607 4.15372C12.0089 3.84504 10.4004 4.00346 8.93855 4.60896C7.47674 5.21447 6.22731 6.23984 5.34826 7.55544C4.46921 8.87103 4.00001 10.4177 4.00001 12C4.00001 13.436 4.37701 14.813 5.08401 16.024L5.50601 16.748L4.85301 19.149L7.25301 18.494ZM2.00401 22L3.35601 17.032C2.46515 15.5049 1.99711 13.768 2.00001 12C2.00001 6.477 6.47701 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C10.2328 22.0029 8.49667 21.5352 6.97001 20.645L2.00401 22ZM8.39101 7.308C8.52501 7.298 8.66001 7.298 8.79401 7.304C8.84801 7.308 8.90201 7.314 8.95601 7.32C9.11501 7.338 9.29001 7.435 9.34901 7.569C9.64701 8.245 9.93701 8.926 10.217 9.609C10.279 9.761 10.242 9.956 10.124 10.146C10.0429 10.2745 9.95507 10.3986 9.86101 10.518C9.74801 10.663 9.50501 10.929 9.50501 10.929C9.50501 10.929 9.40601 11.047 9.44401 11.194C9.45801 11.25 9.50401 11.331 9.54601 11.399L9.60501 11.494C9.86101 11.921 10.205 12.354 10.625 12.762C10.745 12.878 10.862 12.997 10.988 13.108C11.456 13.521 11.986 13.858 12.558 14.108L12.563 14.11C12.648 14.147 12.691 14.167 12.815 14.22C12.877 14.246 12.941 14.269 13.006 14.286C13.0732 14.3031 13.1439 14.2999 13.2093 14.2767C13.2746 14.2536 13.3316 14.2116 13.373 14.156C14.097 13.279 14.163 13.222 14.169 13.222V13.224C14.2193 13.1771 14.2791 13.1415 14.3443 13.1196C14.4095 13.0977 14.4786 13.09 14.547 13.097C14.607 13.101 14.668 13.112 14.724 13.137C15.255 13.38 16.124 13.759 16.124 13.759L16.706 14.02C16.804 14.067 16.893 14.178 16.896 14.285C16.9 14.352 16.906 14.46 16.883 14.658C16.851 14.917 16.773 15.228 16.695 15.391C16.6416 15.5022 16.5707 15.6042 16.485 15.693C16.3841 15.7989 16.2736 15.8954 16.155 15.981C16.114 16.0119 16.0723 16.0419 16.03 16.071C15.9056 16.1499 15.7778 16.2233 15.647 16.291C15.3895 16.4278 15.1052 16.5063 14.814 16.521C14.629 16.531 14.444 16.545 14.258 16.535C14.25 16.535 13.69 16.448 13.69 16.448C12.2683 16.074 10.9534 15.3735 9.85001 14.402C9.62401 14.203 9.41501 13.989 9.20101 13.776C8.31101 12.891 7.63901 11.936 7.23101 11.034C7.02218 10.5913 6.90938 10.1094 6.90001 9.62C6.89589 9.01285 7.09436 8.42167 7.46401 7.94C7.53701 7.846 7.60601 7.748 7.72501 7.635C7.85201 7.515 7.93201 7.451 8.01901 7.407C8.13469 7.34903 8.26088 7.31502 8.39001 7.307L8.39101 7.308Z"
-                                                    fill="#25D366">
-                                                </path>
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_649_65720">
-                                                    <rect width="24" height="24" fill="white"></rect>
-                                                </clipPath>
-                                            </defs>
-                                            </svg>
-                                            <span class="dropdown-text">WhatsApp</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <ul class="item-sub-cat">
-                                <div class="accordion-item col-0 contact-us opened">
-                                    <div class="accordion-head">Contact Us</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a class="" href="./error404.php">Customer Service</a></li>
-                                        <li><a class="" href="./error404.php">Order Status</a></li>
-                                        <li><a class="/email-preference-footer" href="./error404.php">Update Your Email Preferences</a></li>
-                                        <li><a class="" href="./error404.php">Trade-In Your Watch</a> </li>
-                                        <li><a class="" href="./error404.php">Sell my Rolex</a></li>
-                                        <li><a class="" href="./error404.php">Sell my Watch</a></li>
-                                        <li><a class="" href="./error404.php">Become a Vendor</a></li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-1 company-info opened">
-                                    <div class="accordion-head">Company Info</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a href="/" class="">About Jomashop</a></li>
-                                        <li><a class="" href="./error404.php">Jomashop Reviews</a></li>
-                                        <li><a href="./error404.php" class="">The Parlor: Our Blog</a></li>
-                                        <li><a href="./error404.php" class="">Affiliate Program</a></li>
-                                        <li><a href="./error404.php" lass="">Authenticity Guarantee</a></li>
-                                        <li><a class="" href="./error404.php">Jomashop Coupon Codes</a></li>
-                                        <li><a class="" href="./error404.php">Jomashop Gift Cards</a></li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-2 help-center opened">
-                                    <div class="accordion-head">Help Center</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a href="https://jomashop.zendesk.com/hc/en-us/articles/11922972264219-Where-is-my-order-/"
-                                            class="">Order Information</a></li>
-                                        <li><a
-                                            href="https://jomashop.zendesk.com/hc/en-us/articles/11923107626907-Shipping-Options-Policies/"
-                                            class="">Shipping Options</a></li>
-                                        <li><a
-                                            href="https://jomashop.zendesk.com/hc/en-us/articles/11923118455835-Do-you-ship-internationally-/"
-                                            class="">International Shipping</a></li>
-                                        <li><a
-                                            href="https://jomashop.zendesk.com/hc/en-us/articles/11923107419419-Which-payment-methods-do-you-accept-/"
-                                            class="">Payment Options</a></li>
-                                        <li><a class="" href="/pay-with-bitcoin-ethereum-dogecoin-sale.html">Pay with Bitpay / Crypto</a>
-                                        </li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-3 returns-&amp;-warranty opened">
-                                    <div class="accordion-head">Returns &amp; Warranty</div>
-                                    <div class="accordion-content collapse show">
-                                        <li><a href="//help.jomashop.com/articles/4682-what-is-your-returns-and-exchanges-policy/"
-                                            class="">Returns &amp; Exchange Policy</a></li>
-                                        <li><a href="//help.jomashop.com/articles/31751-start-a-return-returns-center/" class="">Returns
-                                            Center</a></li>
-                                        <li><a
-                                            href="https://jomashop.zendesk.com/hc/en-us/articles/11923055034139-Do-you-give-a-warranty-with-the-watch-/"
-                                            class="">Warranty Policy</a></li>
-                                        <li><a href="//help.jomashop.com/articles/5578-request-a-repair/" class="">Warranty Repair
-                                            Center</a></li>
-                                    </div>
-                                </div>
-                                <div class="accordion-item col-4 customer-service opened">
-                                    <div class="accordion-head">Customer Service</div>
-                                    <div class="accordion-content contain-non-links collapse show">
-                                        <div>
-                                            <li><a href="tel:877-834-1434">877-834-1434</a></li>
-                                            <li>
-                                                <address>Brooklyn Army Terminal Building A <br>140A 58th Street, Suite 6N - 6th Floor<br>Brooklyn, NY 11220
-                                                </address>
-                                            </li>
-                                        </div>
-                                        <div class="chat-call-section" tabindex="0">
-                                            <div class="chat-call chat">
-                                                <span class="chat-icon-support">
-                                                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M5.27894 2.4375L5.28125 2.4375H20.7188L20.7211 2.4375C21.6893 2.44026 22.6171 2.82611 23.3017 3.51076C23.9864 4.19541 24.3722 5.1232 24.375 6.09144L24.375 6.09375V15.8438L24.375 15.8461C24.3722 16.8143 23.9864 17.7421 23.3017 18.4267C22.6171 19.1114 21.6893 19.4972 20.7211 19.5L20.7188 19.5H12.4793L7.83281 23.3741C7.59064 23.576 7.25352 23.6195 6.96797 23.4858C6.68242 23.3521 6.5 23.0653 6.5 22.75V19.5H5.28125L5.27894 19.5C4.3107 19.4972 3.38291 19.1114 2.69826 18.4267C2.01361 17.7421 1.62776 16.8143 1.625 15.8461L1.625 15.8438V6.09375L1.625 6.09144C1.62776 5.1232 2.01361 4.19541 2.69826 3.51076C3.38291 2.82611 4.3107 2.44026 5.27894 2.4375ZM12.5926 19.4055C12.5924 19.4057 12.5922 19.4058 12.592 19.406L12.5926 19.4055ZM5.2825 4.0625C4.74402 4.06431 4.22809 4.27902 3.84731 4.65981C3.46652 5.04059 3.25181 5.55652 3.25 6.095V15.8425C3.25181 16.381 3.46652 16.8969 3.84731 17.2777C4.22811 17.6585 4.74406 17.8732 5.28256 17.875H7.3125C7.76123 17.875 8.125 18.2388 8.125 18.6875V21.0147L11.5509 18.1584C11.551 18.1582 11.5512 18.1581 11.5514 18.1579C11.7705 17.9751 12.0469 17.875 12.3322 17.875C12.3323 17.875 12.3323 17.875 12.3324 17.875H20.7174C21.2559 17.8732 21.7719 17.6585 22.1527 17.2777C22.5335 16.8969 22.7482 16.3809 22.75 15.8424V6.09506C22.7482 5.55656 22.5335 5.04061 22.1527 4.65981C21.7719 4.27902 21.256 4.06431 20.7175 4.0625H5.2825Z"
-                                                            fill="white"></path>
-                                                        <path
-                                                            d="M8.125 12.5938C9.02246 12.5938 9.75 11.8662 9.75 10.9688C9.75 10.0713 9.02246 9.34375 8.125 9.34375C7.22754 9.34375 6.5 10.0713 6.5 10.9688C6.5 11.8662 7.22754 12.5938 8.125 12.5938Z"
-                                                            fill="white"></path>
-                                                        <path
-                                                            d="M13 12.5938C13.8975 12.5938 14.625 11.8662 14.625 10.9688C14.625 10.0713 13.8975 9.34375 13 9.34375C12.1025 9.34375 11.375 10.0713 11.375 10.9688C11.375 11.8662 12.1025 12.5938 13 12.5938Z"
-                                                            fill="white"></path>
-                                                        <path
-                                                            d="M17.875 12.5938C18.7725 12.5938 19.5 11.8662 19.5 10.9688C19.5 10.0713 18.7725 9.34375 17.875 9.34375C16.9775 9.34375 16.25 10.0713 16.25 10.9688C16.25 11.8662 16.9775 12.5938 17.875 12.5938Z"
-                                                            fill="white"></path>
-                                                    </svg>
-                                                </span>
-                                                <span class="chat-text">Chat </span>
-                                                <strong class="chat-or">or </strong>
-                                                <span class="call-text">Call </span>
-                                                <span class="chat-call-phone-number">(877) 834-1434</span>
-                                            </div>
-                                            <ul class="chat-call-dropdown">
-                                                <li><a href="tel://1-877-834-1434" data-href="tel://1-877-834-1434"
-                                                    title="Tap here to call us!"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <g clip-path="url(#clip0_448_68674)">
-                                                        <path
-                                                        d="M9.366 10.682C10.3043 12.3305 11.6695 13.6957 13.318 14.634L14.202 13.396C14.3442 13.1969 14.5543 13.0569 14.7928 13.0023C15.0313 12.9478 15.2814 12.9825 15.496 13.1C16.9103 13.8729 18.4722 14.3378 20.079 14.464C20.3298 14.4839 20.5638 14.5975 20.7345 14.7823C20.9052 14.9671 21 15.2094 21 15.461V19.923C21.0001 20.1706 20.9083 20.4094 20.7424 20.5932C20.5765 20.777 20.3483 20.8927 20.102 20.918C19.572 20.973 19.038 21 18.5 21C9.94 21 3 14.06 3 5.5C3 4.962 3.027 4.428 3.082 3.898C3.10725 3.6517 3.22298 3.42352 3.40679 3.25763C3.5906 3.09175 3.82941 2.99995 4.077 3H8.539C8.79056 2.99997 9.0329 3.09475 9.21768 3.26545C9.40247 3.43615 9.51613 3.67022 9.536 3.921C9.66222 5.52779 10.1271 7.08968 10.9 8.504C11.0175 8.71856 11.0522 8.96874 10.9977 9.2072C10.9431 9.44565 10.8031 9.65584 10.604 9.798L9.366 10.682ZM6.844 10.025L8.744 8.668C8.20478 7.50409 7.83535 6.26884 7.647 5H5.01C5.004 5.166 5.001 5.333 5.001 5.5C5 12.956 11.044 19 18.5 19C18.667 19 18.834 18.997 19 18.99V16.353C17.7312 16.1646 16.4959 15.7952 15.332 15.256L13.975 17.156C13.4287 16.9437 12.898 16.6931 12.387 16.406L12.329 16.373C10.3676 15.2567 8.74328 13.6324 7.627 11.671L7.594 11.613C7.30691 11.102 7.05628 10.5713 6.844 10.025Z"
-                                                        fill="black"></path>
-                                                    </g>
-                                                    <defs>
-                                                        <clipPath id="clip0_448_68674">
-                                                        <rect width="24" height="24" fill="white"></rect>
-                                                        </clipPath>
-                                                    </defs>
-                                                    </svg><span class="dropdown-text">Call</span></a>
-                                                </li>
-                                                <li><a href="#" title="Tap here to Live Chat"><svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M5.27894 2.4375L5.28125 2.4375H20.7188L20.7211 2.4375C21.6893 2.44026 22.6171 2.82611 23.3017 3.51076C23.9864 4.19541 24.3722 5.1232 24.375 6.09144L24.375 6.09375V15.8438L24.375 15.8461C24.3722 16.8143 23.9864 17.7421 23.3017 18.4267C22.6171 19.1114 21.6893 19.4972 20.7211 19.5L20.7188 19.5H12.4793L7.83281 23.3741C7.59064 23.576 7.25352 23.6195 6.96797 23.4858C6.68242 23.3521 6.5 23.0653 6.5 22.75V19.5H5.28125L5.27894 19.5C4.3107 19.4972 3.38291 19.1114 2.69826 18.4267C2.01361 17.7421 1.62776 16.8143 1.625 15.8461L1.625 15.8438V6.09375L1.625 6.09144C1.62776 5.1232 2.01361 4.19541 2.69826 3.51076C3.38291 2.82611 4.3107 2.44026 5.27894 2.4375ZM12.5926 19.4055C12.5924 19.4057 12.5922 19.4058 12.592 19.406L12.5926 19.4055ZM5.2825 4.0625C4.74402 4.06431 4.22809 4.27902 3.84731 4.65981C3.46652 5.04059 3.25181 5.55652 3.25 6.095V15.8425C3.25181 16.381 3.46652 16.8969 3.84731 17.2777C4.22811 17.6585 4.74406 17.8732 5.28256 17.875H7.3125C7.76123 17.875 8.125 18.2388 8.125 18.6875V21.0147L11.5509 18.1584C11.551 18.1582 11.5512 18.1581 11.5514 18.1579C11.7705 17.9751 12.0469 17.875 12.3322 17.875C12.3323 17.875 12.3323 17.875 12.3324 17.875H20.7174C21.2559 17.8732 21.7719 17.6585 22.1527 17.2777C22.5335 16.8969 22.7482 16.3809 22.75 15.8424V6.09506C22.7482 5.55656 22.5335 5.04061 22.1527 4.65981C21.7719 4.27902 21.256 4.06431 20.7175 4.0625H5.2825Z"
-                                                        fill="black"></path>
-                                                    <path
-                                                        d="M8.125 12.5938C9.02246 12.5938 9.75 11.8662 9.75 10.9688C9.75 10.0713 9.02246 9.34375 8.125 9.34375C7.22754 9.34375 6.5 10.0713 6.5 10.9688C6.5 11.8662 7.22754 12.5938 8.125 12.5938Z"
-                                                        fill="black"></path>
-                                                    <path
-                                                        d="M13 12.5938C13.8975 12.5938 14.625 11.8662 14.625 10.9688C14.625 10.0713 13.8975 9.34375 13 9.34375C12.1025 9.34375 11.375 10.0713 11.375 10.9688C11.375 11.8662 12.1025 12.5938 13 12.5938Z"
-                                                        fill="black"></path>
-                                                    <path
-                                                        d="M17.875 12.5938C18.7725 12.5938 19.5 11.8662 19.5 10.9688C19.5 10.0713 18.7725 9.34375 17.875 9.34375C16.9775 9.34375 16.25 10.0713 16.25 10.9688C16.25 11.8662 16.9775 12.5938 17.875 12.5938Z"
-                                                        fill="black"></path>
-                                                    </svg><span class="dropdown-text">Chat</span></a>
-                                                </li>
-                                                <li class="whatsapp-item"><a
-                                                    href="https://api.whatsapp.com/send?phone=18778341450&amp;text=Hi&amp;source=&amp;data=&amp;app_absent="
-                                                    title="Tap here to Live Chat" target="_blank" rel="noreferrer"><svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g clip-path="url(#clip0_649_65720)">
-                                                        <path
-                                                        d="M7.25301 18.494L7.97701 18.917C9.19795 19.6291 10.5866 20.0029 12 20C13.5823 20 15.129 19.5308 16.4446 18.6518C17.7602 17.7727 18.7855 16.5233 19.3911 15.0615C19.9966 13.5997 20.155 11.9911 19.8463 10.4393C19.5376 8.88743 18.7757 7.46197 17.6569 6.34315C16.538 5.22433 15.1126 4.4624 13.5607 4.15372C12.0089 3.84504 10.4004 4.00346 8.93855 4.60896C7.47674 5.21447 6.22731 6.23984 5.34826 7.55544C4.46921 8.87103 4.00001 10.4177 4.00001 12C4.00001 13.436 4.37701 14.813 5.08401 16.024L5.50601 16.748L4.85301 19.149L7.25301 18.494ZM2.00401 22L3.35601 17.032C2.46515 15.5049 1.99711 13.768 2.00001 12C2.00001 6.477 6.47701 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C10.2328 22.0029 8.49667 21.5352 6.97001 20.645L2.00401 22ZM8.39101 7.308C8.52501 7.298 8.66001 7.298 8.79401 7.304C8.84801 7.308 8.90201 7.314 8.95601 7.32C9.11501 7.338 9.29001 7.435 9.34901 7.569C9.64701 8.245 9.93701 8.926 10.217 9.609C10.279 9.761 10.242 9.956 10.124 10.146C10.0429 10.2745 9.95507 10.3986 9.86101 10.518C9.74801 10.663 9.50501 10.929 9.50501 10.929C9.50501 10.929 9.40601 11.047 9.44401 11.194C9.45801 11.25 9.50401 11.331 9.54601 11.399L9.60501 11.494C9.86101 11.921 10.205 12.354 10.625 12.762C10.745 12.878 10.862 12.997 10.988 13.108C11.456 13.521 11.986 13.858 12.558 14.108L12.563 14.11C12.648 14.147 12.691 14.167 12.815 14.22C12.877 14.246 12.941 14.269 13.006 14.286C13.0732 14.3031 13.1439 14.2999 13.2093 14.2767C13.2746 14.2536 13.3316 14.2116 13.373 14.156C14.097 13.279 14.163 13.222 14.169 13.222V13.224C14.2193 13.1771 14.2791 13.1415 14.3443 13.1196C14.4095 13.0977 14.4786 13.09 14.547 13.097C14.607 13.101 14.668 13.112 14.724 13.137C15.255 13.38 16.124 13.759 16.124 13.759L16.706 14.02C16.804 14.067 16.893 14.178 16.896 14.285C16.9 14.352 16.906 14.46 16.883 14.658C16.851 14.917 16.773 15.228 16.695 15.391C16.6416 15.5022 16.5707 15.6042 16.485 15.693C16.3841 15.7989 16.2736 15.8954 16.155 15.981C16.114 16.0119 16.0723 16.0419 16.03 16.071C15.9056 16.1499 15.7778 16.2233 15.647 16.291C15.3895 16.4278 15.1052 16.5063 14.814 16.521C14.629 16.531 14.444 16.545 14.258 16.535C14.25 16.535 13.69 16.448 13.69 16.448C12.2683 16.074 10.9534 15.3735 9.85001 14.402C9.62401 14.203 9.41501 13.989 9.20101 13.776C8.31101 12.891 7.63901 11.936 7.23101 11.034C7.02218 10.5913 6.90938 10.1094 6.90001 9.62C6.89589 9.01285 7.09436 8.42167 7.46401 7.94C7.53701 7.846 7.60601 7.748 7.72501 7.635C7.85201 7.515 7.93201 7.451 8.01901 7.407C8.13469 7.34903 8.26088 7.31502 8.39001 7.307L8.39101 7.308Z"
-                                                        fill="#25D366"></path>
-                                                    </g>
-                                                    <defs>
-                                                        <clipPath id="clip0_649_65720">
-                                                        <rect width="24" height="24" fill="white"></rect>
-                                                        </clipPath>
-                                                    </defs>
-                                                    </svg><span class="dropdown-text">WhatsApp</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <?php include 'footer.php' ?>
         </div>
     </div>
     <script type="text/javascript" src="./dist/js/config.js"></script>
