@@ -3,8 +3,10 @@
 <?php 
     include 'config.php';
 
+
     session_start();
     $_SESSION['username'] = 'none';
+    $_SESSION['openSideBar'] = 'none';
 
     $sql = 'SELECT * FROM watches';
     $stmt = $conn->prepare($sql);
@@ -96,6 +98,117 @@
     <link rel="stylesheet" href="./dist/css/256.9a4d8502ef8eea2ebf3f.bundle.css">
     <link rel="stylesheet" href="./dist/css/5606.6b4ee6bd0876f7792e52.bundle.css">
     <link rel="stylesheet" href="./dist/css/8825.51df8c031c82efbe88b4.bundle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#continue").on("click", function(){
+            let emailC = $("#emailC").val();
+            let email = $("#email_register");
+
+            let acRegisterForm = $(".account-register-form");
+            let acLoginForm = $(".account-login-form");
+            let acLoginForm2 = $(".account-login-form-2");
+             
+            console.log(emailC);
+            let errEmailC = $(".errEmailC");
+            $.ajax({
+            url: "checkEmail.php",
+            method: "POST",
+            data: { emailC : emailC},
+            success : function(response){
+                var vc = response; 
+                if (response == "") {
+
+                    acRegisterForm.css("display", "block");
+                    acLoginForm.css("display", "none");
+                    email.val(emailC);
+                    console.log(email);
+                            
+                }else if (response=="This field is required"){
+                    errEmailC.html("This field is required");  
+                    
+                } else if (response=="Invalid email"){
+                    errEmailC.html("Invalid email");
+                     
+                } else if (response=="Email already exist"){
+                    errEmailC.html("Email already exist");  
+                    acLoginForm.css("display", "none");
+                    acLoginForm2.css("display", "block");
+                } 
+                errEmailC.addClass("root_error");
+            }
+            });
+
+	    });
+
+        $("#create").on("click", function() {
+            let email = $("#email_register").val();
+            console.log(email);
+            let firstName = $("#first_name").val();
+            let lastName = $("#last_name").val();
+            let passWord = $("#pass_word").val();
+            let confirmPassword = $("#confirm_password").val();
+            let acRegisterForm = $(".account-register-form");
+            
+            let acSignInForm = $(".signin");
+            
+            let errEmail = $(".errEmail");
+            let errFirstName = $(".errFirstName");
+            let errLastName = $(".errLastName");
+            let errPass = $(".errPass");
+            let errConfirm = $(".errConfirm");
+
+            $.ajax({
+                url: "RegisterAccCus.php",
+                method: "POST",
+                data: { email: email, firstName: firstName, lastName: lastName, passWord: passWord, confirmPass: confirmPassword },
+                dataType: 'json', // Expect JSON response
+                success: function(response) {
+                    // Clear previous error messages
+                    errEmail.html("");
+                    errFirstName.html("");
+                    errLastName.html("");
+                    errPass.html("");
+                    errConfirm.html("");
+
+                    // Check for specific errors and display messages
+                    if (response.errorEmail) {
+                        errEmail.html(response.errorEmail);
+                        errEmail.addClass("root_error");
+                    }
+                    if (response.errorFirstName) {
+                        errFirstName.html(response.errorFirstName);
+                        errFirstName.addClass("root_error");
+                    }
+                    if (response.errorLastName) {
+                        errLastName.html(response.errorLastName);
+                        errLastName.addClass("root_error");
+                    }
+                    if (response.errorPass) {
+                        errPass.html(response.errorPass);
+                        errPass.addClass("root_error");
+                    }
+                    if (response.errorConfirm) {
+                        errConfirm.html(response.errorConfirm);
+                        errConfirm.addClass("root_error");
+                    }
+
+                    if (response.success) {
+                        acRegisterForm.css("display", "none");
+                        acSignInForm.css("display", "block");
+                        console.log(response.success);
+                    }
+                    
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error in AJAX request:", status, error);
+                }
+            });
+        });
+    });
+
+</script>
+
 
 </head>
 <body id="body" >
@@ -316,7 +429,7 @@
                 </div>
             </header>
             <div class="multi-slide-wrapper-overlay"></div>
-            <div class="multi-slide-wrapper">
+            <div class="multi-slide-wrapper open">
                 <div class="multi-slideout-container">
                     <div class="multi-slideout-header">
                         <div class="slide-out-tabs open">
@@ -332,39 +445,20 @@
                         </button>
                     </div>
                     <div class="slide-out-content">
-                        <div class="account-form">
+                        <div class="account-form" 
+                             style="<?php 
+                                        if ($_SESSION['username']=='none') {
+                                            echo "display:block";
+                                        } else {
+                                            echo "display:none";
+                                        } 
+                             ?>">
+          
                             <div class="account-form-steps open">
-                                <div aria-labelledby="account-login-form-heading" class="account-login-form account-form-wrapper" 
-                                    style="<?php 
-                                        if (isset($_POST['continue'])) {
-                                            $emailC = $_POST['emailC']; 
-                                            $errEmailC="";
-                                            $mail_ex = "/[a-zA-Z0-9]*@[a-zA-Z0-9]*.[a-zA-Z0-9]*/i";
-                                            if (empty($emailC)) {
-                                                $errEmailC="This field is required";
-                                            } else { 
-                                                if (!preg_match($mail_ex, $emailC)){
-                                                    $errEmailC="Invalid email";
-                                                } else {
-                                                    
-                                                    $sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
-                                                    $stmt = $conn->prepare($sql);
-                                                    $stmt->bind_param('s', $emailC);
-                                                    $stmt->execute();
-                                                    $num_rows = $stmt->get_result()->num_rows;
-                                    
-                                                    if ($num_rows >0){
-                                                        $errEmailC = "Email already exist";
-                                                        echo "display:none"; 
-                                                    } else {                                        
-                                                        echo "display:none";              
-                                                    }
-                                                }
-                                            }
-                                        }                   
-                                    ?>">
+                                <div aria-labelledby="account-login-form-heading" class="account-login-form account-form-wrapper">
                                     <h3 class="title">Sign In To Jomashop</h3>
                                     <form>
+                                    <div id="error" style="color: red;"></div><div id="ok" style="color: green"></div>
                                         <button type="submit" class="social-login social-login__google btn btn-primary btn-block btn-lg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
@@ -416,115 +510,45 @@
                                             <label for="email_address" class="label">Email<span class="requiredSymbol">*</span></label>
                                             <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
                                                 <span class="input-block"><input class="input-box-new-design" field="email"
-                                                    type="email" autocomplete="email" placeholder="Email" id="email_address" name="emailC"
+                                                    type="email" autocomplete="email" placeholder="Email" id="emailC" name="emailC"
                                                     aria-required="true" value="">
                                                 </span>
                                                 <span class="before"></span>
                                                 <span class="after"></span>
                                             </div>
                                             <span class="message-root">
-                                                <p class="root<?php if (isset($errEmailC) and $errEmailC!="") echo "_error"?>"  > <?php if (isset($errEmailC)) echo $errEmailC;?></p>
+                                                <p class="errEmailC"  > <?php if (isset($errEmailC)) echo $errEmailC;?></p>
                                             </span>
                                         </div>
                                         <div class="actions-toolbar">
-                                            <button class="btn-new-design primary" type="submit" name="continue">Continue</button>
+                                            <button class="btn-new-design primary" type="button" name="continue" id="continue">Continue</button>
                                         </div>
                                     </form>
                                 </div>
-                                <?php 
-                                    if (isset($_POST['create'])) {
-                                        $email=$_POST['email'];    
-                                        $firstName = $_POST['firstname'];
-                                        $lastName = $_POST['lastname'];
-                                        $passWord = $_POST['password'];
-                                        $confirm = $_POST['confirm'];
-                                        $errEmail="";
-                                        $errFirstName="";
-                                        $errLastName="";
-                                        $errPass = "";
-                                        $errConfirm="";
-                                        
-                                        if (empty($email)) {
-                                            $errEmail = "Email required";
-                                        }
-                                        if (empty($firstName)) {
-                                            $errFirstName = "First Name required";
-                                        }
-                                        if (empty($lastName)) {
-                                            $errLastName = "Last Name required";
-                                        }
-                                        
-                                        if (empty($passWord)) $errPass="Password required";
-                                        else {
-                                            if (strlen($passWord) < 8 || !preg_match('/[A-Z]/', $passWord) or !preg_match('/[a-z]/', $passWord) or !preg_match('/[0-9]/', $passWord) or !preg_match('/[^a-zA-Z0-9]/', $passWord)) {
-                                                $errPass = "too short<br>";
-                                                $errPass .="A password must contain at least 3 of the following: lowercase, uppercase, digits, special characters.";
-                                        
-                                            }
-                                        } 
-                                        if (empty($confirm)) $errConfirm="Confirm Password required";
-                                        else {
-                                            if ($passWord!=$confirm) {
-                                                $errConfirm = "Passwords must match";
-                                            }
-                                        }
-
-                                        if($errPass=="" and $errConfirm=="" and $errEmail=="" and $errFirstName=="" and $errLastName=="") {
-                                            $option = [
-                                                'cost' => 12,
-                                            ];
-                                            $passHash = password_hash($passWord, PASSWORD_DEFAULT, $option);    
-                                            $accAuthority = 3;
-                                            $sqlAcc = 'INSERT INTO accounts(accUsername, accPassword, accAuthority) VALUES (?,?,?)';
-                                            $stmt = $conn->prepare($sqlAcc);
-                                            $stmt->bind_param("ssi", $email, $passHash, $accAuthority);
-                                            $stmt->execute();
-
-                                            $sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
-                                            $stmt = $conn->prepare($sql);
-                                            $stmt->bind_param('s', $email);
-                                            $stmt->execute();
-                                            $result = $stmt->get_result()->fetch_assoc();
-                                            
-                                            $cusCompany="";
-                                            $cusPhone="";
-                                            $cusAdd1="";
-                                            $cusAdd2="";
-                                            $cusCity="";
-                                            $cusState="";
-                                            $cusZip="";
-                                            $cusCountry="";
-                                            $accId = $result['accId'];
-                                            $insertCus = 'INSERT INTO customers (cusFirstName, cusLastName, cusCompany, cusPhone, cusEmail, cusAdd1, cusAdd2, cusCity, cusState, cusZip, cusCountry, cusAccount) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
-                                            $stmt = $conn->prepare($insertCus);
-                                            $stmt->bind_param("sssssssssssi",$firstName, $lastName,$cusCompany, $cusPhone,$email, $cusAdd1, $cusAdd2, $cusCity, $cusState, $cusZip,$cusCountry, $accId);
-                                            $stmt->execute(); 
-                                        }
-                                    }             
-                                ?>
                                 <div aria-labelledby="account-register-form-heading" class="account-register-form account-form-wrapper"
-                                    style="<?php  
-                                        if (isset($_POST['continue']) and $errEmailC=="") {
-                                            echo "display:block";
-                                        } else {
+                                    style="display: none; <?php  
+                                        // if (isset($_POST['continue']) and $errEmailC=="") {
+                                        //     echo "display:block";
+                                        // } else {
                                             
-                                            echo "display:none";
-                                        }                
+                                        //     echo "display:none";
+                                        // }  
+                                        // echo $emailC;            
                                         ?>">
                                     <div class="welcome">Welcome!</div>
                                     <div class="title">Add password to create your account</div>
                                     <form method="post">
                                         <div class="field-wrapper  can-focus   show-label is-focused">
-                                            <label for="email_address" class="label">Email<span class="requiredSymbol">*</span></label>
+                                            <label for="email_register" class="label">Email<span class="requiredSymbol">*</span></label>
                                             <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
                                                 <span class="input-block">
                                                     <input type="email" autocomplete="off" placeholder="Email" aria-required="true" class=""
-                                                        id="email_address" name="email" value="<?php if (isset($emailC)) echo $emailC ?>">
+                                                        id="email_register" name="email" value=" <?php if (isset($emailC)) echo $emailC ?> ">
                                                 </span>
                                                 <span class="before"></span><span class="after"></span>
                                             </div>
                                                 <span class="message-root"> 
-                                                    <p class="root<?php if (isset($errEmail) and $errEmail!="") echo "_error"?>"  > <?php if (isset($errEmail)) echo $errEmail;?></p>
+                                                    <p class="errEmail"> <?php if (isset($errEmail)) echo $errEmail;?></p>
                                                 </span>
                                         </div>
                                         <div class="field-wrapper  can-focus  ">
@@ -538,7 +562,7 @@
                                                 <span class="after"></span>
                                             </div>
                                             <span class="message-root">
-                                                <p class="root<?php if (isset($errFirstName) and $errFirstName!="") echo "_error"?>"  > <?php if (isset($errFirstName)) echo $errFirstName;?></p>
+                                                <p class="errFirstName"  > <?php if (isset($errFirstName)) echo $errFirstName;?></p>
                                             </span>
                                         </div>
                                         <div class="field-wrapper  can-focus  "><label for="last_name" class="label">Last Name<span
@@ -547,7 +571,7 @@
                                                         type="text" autocomplete="family-name" placeholder="Last Name" aria-required="true" class=""
                                                         id="last_name" name="lastname" value="<?php if (isset($lastName)) echo $lastName ?>"></span><span class="before"></span><span
                                                     class="after"></span></div><span class="message-root">
-                                                    <p class="root<?php if (isset($errLastName) and $errLastName!="") echo "_error"?>"  > <?php if (isset($errLastName)) echo $errLastName;?></p>
+                                                    <p class="errLastName"> <?php if (isset($errLastName)) echo $errLastName;?></p>
                                             </span>
                                         </div>
                                         <div class="ReactPasswordStrength input-password-wrapper is-strength-null">
@@ -557,10 +581,10 @@
                                                 </label>
                                                 <input type="password"
                                                     class="ReactPasswordStrength-input input-password" autocomplete="off" placeholder="Password"
-                                                    id="01c02c01-d8cf-4370-a1ca-8c7a981d234d" name="password" value="<?php if (isset($passWord)) echo $passWord ?>"
+                                                    id="pass_word" name="password" value="<?php if (isset($passWord)) echo $passWord ?>"
                                                     style="transition: none 0s ease 0s;">
                                                     <span class="message-root">
-                                                        <p class="root<?php if (isset($errPass) and $errPass!="") echo "_error"?>" > 
+                                                        <p class="errPass" > 
                                                             <?php 
                                                                 if (isset($errPass)) echo $errPass;
                                                             ?>
@@ -575,14 +599,10 @@
                                                         type="password" placeholder="Confirm Password" aria-required="true" class=""
                                                         id="confirm_password" name="confirm" value="<?php if (isset($confirm)) echo $confirm ?>"></span><span class="before"></span><span
                                                     class="after"></span></div><span class="message-root">
-                                                    <p class="root<?php if (isset($errConfirm) and $errConfirm!="") echo "_error"?>"  > 
-                                                        <?php 
-                                                            if (isset($errConfirm)) echo $errConfirm;
-                                                        ?>
-                                                    </p>
+                                                    <p class="errConfirm"  > </p>
                                             </span>
                                         </div>
-                                        <div></div><button class="btn-new-design primary" type="submit" name="create">Create Account</button>
+                                        <div></div><button class="btn-new-design primary" type="button" name="create" id="create">Create Account</button>
                                         <div aria-hidden="true" class="ownid-form-clearfix"
                                             style="overflow:hidden;z-index:-100;position:absolute;width:1px;-webkit-filter:blur(5vw);-moz-filter:blur(5px);-o-filter:blur(5px);-ms-filter:blur(5px);height:1px;background-color:#fff;">
                                             <input id="password-text-field-8wadnr2zbem" aria-hidden="true" type="password"
@@ -622,7 +642,7 @@
                                     }
                                 
                                 ?>
-                                <div aria-labelledby="account-login-form-heading" class="account-login-form account-form-wrapper" 
+                                <div aria-labelledby="account-login-form-heading" class="account-login-form account-login-form-2 account-form-wrapper" 
                                     style="<?php 
                                                 if (isset($_POST['continue']) and $errEmailC == "Email already exist") {
                                                     echo "display:block";
@@ -652,18 +672,9 @@
                                     </div>
                                 </div>
                         </div>
-                        <div class="account-form signin" 
-                            style="<?php 
-                                        if($_SESSION['username']=='none') {                                          
-                                            echo "display:none";
-                                        } else {
-                                            echo "display:block";
-                                        }
-                            
-                                    ?>"
-                            >
+                        <div class="account-form signin" style="display: none;">
                             <div class="account-form-dropdown">
-                                <h3 class="account-form-title"><a href="#">Welcome, <?php echo $_SESSION['username'] ?>!</a></h3>
+                                <h3 class="account-form-title"><a href="#">Welcome, <?php  if (isset($_SESSION['customer'])) echo $_SESSION['customer'] ?></a></h3>
                                 <div class="account-form-group">
                                     <h4 class="group-title">Recent Orders</h4><a href="#" class="group-item"><svg
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -759,6 +770,8 @@
                     </div>
                 </div>
             </div>
+
+
             <main class="page" id="maincontent">
                 <a id="contentarea" tabindex="-1"></a>
                 <div class="click-handler">
@@ -2826,5 +2839,20 @@
     </div>
     <script type="text/javascript" src="./dist/js/config.js"></script>
     <script type="text/javascript" src="./dist/js/modal.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
