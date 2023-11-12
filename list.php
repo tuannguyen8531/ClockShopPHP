@@ -1,6 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    include "config.php";
+    $products_per_page = 9;
+    if(isset($_GET['page']) && is_numeric($_GET['page'])){
+        $current_page = intval($_GET['page']);
+    }else{
+        $current_page = 1;
+    }
+    $query_count = "SELECT COUNT(*) as total FROM watches";
+    $result_count = $conn->query($query_count);
+    $row_count = $result_count->fetch_assoc();
+    $total_product = $row_count['total'];
 
+    $total_pages = ceil($total_product/$products_per_page);
+    $offset = ($current_page-1) * $products_per_page;
+    
+    $max_links = 5;
+
+    $start = max(1,$current_page - floor($max_links/2));
+    $end = min($start + $max_links - 1, $total_pages);
+
+    $start = max(1, $end - $max_links + 1);
+
+    $watch = 'SELECT * FROM watches
+    JOIN brands ON watches.brand = brands.brandId
+    JOIN styles ON watches.style = styles.styleId
+    JOIN movements ON watches.movement = movements.moveId
+    JOIN categories ON watches.category = categories.cateId
+    JOIN features ON watches.features = features.feaId
+    JOIN types ON watches.type = types.typeId
+    JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+    LIMIT ?,?';
+    $stmt = $conn->prepare($watch);
+    $stmt->bind_param("ii",$offset,$products_per_page);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $price_sale = $row['price'] * ($row['sale']/100);
+    $price_product = $row['price'] - $price_sale;
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -412,485 +451,82 @@
                             </div>
                             <div id="product-list-wrapper">
                                 <ul class="productsList">
+                                <?php while ($row = $result->fetch_assoc() ): ?>
                                     <li class="productItem">
                                         <div class="productItemBlock" data-product-scroll-target="">
                                             <div class="productImageBlock productImageBlockHover">
                                                 <button class="wishlist-icon-new-design">
                                                     <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round">
-                                                        </path>
+                                                        <path d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
                                                     </svg>
                                                 </button>
-                                                <a class="productImg-link" href="">
+                                                <a class="productImg-link" href="./detail.php?model=<?=$row['model']?>">
                                                     <span class="productImageRatio">
-                                                        <img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded">
-                                                        <img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg">
+                                                        <img alt="<?= $row['name']?>" src="./img/watches/<?= $row['img1']?>" title="<?= $row['name']?>" class="productImg secondProductImg loaded">
+                                                        <img alt="<?= $row['name']?>" src="./img/watches/<?= $row['img2']?>" title="<?= $row['name']?>" class="productImg firstProductImg">
                                                     </span>
                                                 </a>
                                             </div>
                                             <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
+                                                <h2 class="productName"><a class="productName-link" title="<?= $row['name']?>" href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span class="brand-name"><?= $row['brandName']?></span><span class="name-out-brand"><?= $row['name']?></span></a></h2>
+                                                <div class="tag-wrapper"><span class="tag-new-design discount-label"><?= $row['sale']?>% Off</span></div>
                                                 <div class="productPrice">
                                                     <div class="price-wrapper">
                                                         <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
+                                                            <div class="was-wrapper"><span class="was-label">Was:</span><span>$<?php $was = $row['price'] / (1 - ($row['sale'] / 100));
+                                                            $was = number_format($was, 2, '.', '');
+                                                            $retail = $was + 30.00;
+                                                            $retail = number_format($retail, 2, '.', '');
+                                                            echo $retail;?></span></div>
+                                                            <span class="discount-value show-red"><?= $price_sale?></span>
                                                         </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
+                                                        <div class="now-price"><span class="now-label">Now:</span><span>$<?= $row['price'] ?></span></div>
                                                     </div>
                                                 </div>
                                                 <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
+                                                    <div class="limited-qty">
+                                                        <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z" fill="#E03400"></path>
+                                                        </svg>
+                                                        <span>Limited Quantity</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="productItem">
-                                        <div class="productItemBlock"
-                                            data-product-scroll-target="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html">
-                                            <div class="productImageBlock productImageBlockHover"><button
-                                                    class="wishlist-icon-new-design"><svg width="22" height="21"
-                                                        viewBox="0 0 22 21" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button><a class="productImg-link"
-                                                    href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                        class="productImageRatio"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg"></span></a></div>
-                                            <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
-                                                <div class="productPrice">
-                                                    <div class="price-wrapper">
-                                                        <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
-                                                        </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="productItem">
-                                        <div class="productItemBlock"
-                                            data-product-scroll-target="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html">
-                                            <div class="productImageBlock productImageBlockHover"><button
-                                                    class="wishlist-icon-new-design"><svg width="22" height="21"
-                                                        viewBox="0 0 22 21" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button><a class="productImg-link"
-                                                    href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                        class="productImageRatio"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg"></span></a></div>
-                                            <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
-                                                <div class="productPrice">
-                                                    <div class="price-wrapper">
-                                                        <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
-                                                        </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="productItem">
-                                        <div class="productItemBlock"
-                                            data-product-scroll-target="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html">
-                                            <div class="productImageBlock productImageBlockHover"><button
-                                                    class="wishlist-icon-new-design"><svg width="22" height="21"
-                                                        viewBox="0 0 22 21" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button><a class="productImg-link"
-                                                    href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                        class="productImageRatio"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg"></span></a></div>
-                                            <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
-                                                <div class="productPrice">
-                                                    <div class="price-wrapper">
-                                                        <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
-                                                        </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="productItem">
-                                        <div class="productItemBlock"
-                                            data-product-scroll-target="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html">
-                                            <div class="productImageBlock productImageBlockHover"><button
-                                                    class="wishlist-icon-new-design"><svg width="22" height="21"
-                                                        viewBox="0 0 22 21" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button><a class="productImg-link"
-                                                    href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                        class="productImageRatio"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg"></span></a></div>
-                                            <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
-                                                <div class="productPrice">
-                                                    <div class="price-wrapper">
-                                                        <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
-                                                        </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="productItem">
-                                        <div class="productItemBlock"
-                                            data-product-scroll-target="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html">
-                                            <div class="productImageBlock productImageBlockHover"><button
-                                                    class="wishlist-icon-new-design"><svg width="22" height="21"
-                                                        viewBox="0 0 22 21" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button><a class="productImg-link"
-                                                    href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                        class="productImageRatio"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg"></span></a></div>
-                                            <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
-                                                <div class="productPrice">
-                                                    <div class="price-wrapper">
-                                                        <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
-                                                        </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="productItem">
-                                        <div class="productItemBlock"
-                                            data-product-scroll-target="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html">
-                                            <div class="productImageBlock productImageBlockHover"><button
-                                                    class="wishlist-icon-new-design"><svg width="22" height="21"
-                                                        viewBox="0 0 22 21" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button><a class="productImg-link"
-                                                    href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                        class="productImageRatio"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg"></span></a></div>
-                                            <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
-                                                <div class="productPrice">
-                                                    <div class="price-wrapper">
-                                                        <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
-                                                        </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="productItem">
-                                        <div class="productItemBlock"
-                                            data-product-scroll-target="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html">
-                                            <div class="productImageBlock productImageBlockHover"><button
-                                                    class="wishlist-icon-new-design"><svg width="22" height="21"
-                                                        viewBox="0 0 22 21" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.9988 17.0223L17.8913 10.0644C18.6146 9.34447 19.021 8.36807 19.021 7.34998C19.021 6.33188 18.6146 5.35548 17.8913 4.63557C17.1679 3.91567 16.1869 3.51123 15.1639 3.51123C14.1409 3.51123 13.1599 3.91567 12.4365 4.63557L10.9988 5.96821L9.56105 4.63557C8.8377 3.91567 7.85663 3.51123 6.83366 3.51123C5.8107 3.51123 4.82963 3.91567 4.10628 4.63557C3.38293 5.35548 2.97656 6.33188 2.97656 7.34998C2.97656 8.36807 3.38293 9.34447 4.10628 10.0644L10.9988 17.0223Z"
-                                                            stroke="black" stroke-width="1.4" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button><a class="productImg-link"
-                                                    href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                        class="productImageRatio"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383_2.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg secondProductImg loaded"><img
-                                                            alt="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/s/e/seiko-chronograph-quartz-champagne-dial-mens-watch-ssb383.jpg?width=350&amp;height=350"
-                                                            title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                            class="productImg firstProductImg"></span></a></div>
-                                            <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link"
-                                                        title="Chronograph Quartz Champagne Dial Men's Watch SSB383"
-                                                        href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span
-                                                            class="brand-name">Seiko</span><span class="name-out-brand">
-                                                            Chronograph Quartz Champagne Dial Men's Watch
-                                                            SSB383</span></a></h2>
-                                                <div class="tag-wrapper"><span class="tag-new-design discount-label">60%
-                                                        Off</span></div>
-                                                <div class="productPrice">
-                                                    <div class="price-wrapper">
-                                                        <div class="was-price-wrapper">
-                                                            <div class="was-wrapper"><span
-                                                                    class="was-label">Was:</span><span>$325.00</span>
-                                                            </div><span class="discount-value show-red"> 60.31</span>
-                                                        </div>
-                                                        <div class="now-price"><span
-                                                                class="now-label">Now:</span><span>$129.00</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="social-proof">
-                                                    <div class="limited-qty"><svg width="12" height="15"
-                                                            viewBox="0 0 12 15" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M2.25487 3.97881C3.28133 3.15773 4.58333 2.66675 6 2.66675C7.41667 2.66675 8.71867 3.15773 9.74513 3.97881L10.7141 3.00989L11.6569 3.9527L10.6879 4.92162C11.509 5.94807 12 7.25008 12 8.66675C12 11.9805 9.31373 14.6667 6 14.6667C2.68629 14.6667 0 11.9805 0 8.66675C0 7.25008 0.49098 5.94807 1.31207 4.92162L0.343147 3.9527L1.28595 3.00989L2.25487 3.97881ZM6 13.3334C8.57733 13.3334 10.6667 11.2441 10.6667 8.66675C10.6667 6.08942 8.57733 4.00008 6 4.00008C3.42267 4.00008 1.33333 6.08942 1.33333 8.66675C1.33333 11.2441 3.42267 13.3334 6 13.3334ZM6.66667 8.00008H8.66667L5.33333 12.3334V9.33342H3.33333L6.66667 4.99688V8.00008ZM3.33333 0.666748H8.66667V2.00008H3.33333V0.666748Z"
-                                                                fill="#E03400"></path>
-                                                        </svg><span>Limited Quantity</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                <?php endwhile; ?>
                                 </ul>
                             </div>
                             <div class="pagination-wrapper ">
                                 <ul class="pagination">
-                                    <li class="pagination-prev page-item">
-                                        <a class="page-link" href="">
-                                            <span aria-hidden="true"><</span>
-                                            <span class="sr-only">Prev</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <span class="page-link" href="">
-                                            <span class="pagination-text">1</span>
-                                            <span class="sr-only">(current)</span>
-                                        </span>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="">
-                                            <span class="pagination-text">2</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="">
-                                            <span class="pagination-text">3</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="">
-                                            <span class="pagination-text">4</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="">
-                                            <span class="pagination-text">5</span>
-                                        </a>
-                                    </li>
-                                    <li class="pagination-next page-item">
-                                        <a class="page-link" href="">
-                                            <span aria-hidden="true">›</span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>
+                                        <?php if ($current_page > 1) { ?>
+                                            <li class="pagination-prev page-item">
+                                                <a class="page-link" href="<?= 'list.php?page=' . ($current_page - 1) ?>">
+                                                    <span aria-hidden="true">&lt;</span>
+                                                    <span class="sr-only">Prev</span>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+
+                                        <?php for ($page = $start; $page <= $end; $page++) { ?>
+                                            <li class="page-item <?= ($page == $current_page) ? 'active' : '' ?>">
+                                                <a class="page-link" href="<?= 'list.php?page=' . $page ?>">
+                                                    <span class="pagination-text"><?= $page ?></span>
+                                                    <?php if ($page == $current_page) { ?>
+                                                        <span class="sr-only">(current)</span>
+                                                    <?php } ?>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+
+                                        <?php if ($current_page < $total_pages) { ?>
+                                            <li class="pagination-next page-item">
+                                                <a class="page-link" href="<?= 'list.php?page=' . ($current_page + 1) ?>">
+                                                    <span aria-hidden="true">›</span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
                                 </ul>
                             </div>
                         </div>
