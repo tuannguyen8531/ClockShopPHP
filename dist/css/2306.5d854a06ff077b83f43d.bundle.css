@@ -1,0 +1,3728 @@
+.breadcrumb-new-design {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    overflow-x: auto;
+    padding: 0
+}
+
+.breadcrumb-new-design::-webkit-scrollbar {
+    height: 0;
+    width: 0
+}
+
+.breadcrumb-new-design::-webkit-scrollbar-thumb,
+.breadcrumb-new-design::-webkit-scrollbar-track {
+    background: 0 0
+}
+
+.breadcrumb-new-design .breadcrumb-item {
+    white-space: nowrap
+}
+
+.breadcrumb-new-design .breadcrumb-item a,
+.breadcrumb-new-design .breadcrumb-item span {
+    color: #000;
+    font-size: 12px;
+    line-height: 130%
+}
+
+.breadcrumb-new-design .breadcrumb-item a:hover {
+    text-decoration: underline
+}
+
+.breadcrumb-new-design .breadcrumb-item:before {
+    border: solid #b2b2b2;
+    border-width: 1px 0 0 1px;
+    content: "";
+    display: inline-block;
+    margin-right: 6px;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg)
+}
+
+.breadcrumb-new-design .breadcrumb-item:first-child:before {
+    display: none
+}
+
+.breadcrumb-new-design .breadcrumb-item:last-child span {
+    color: #393939
+}
+
+.modal-delete-default-address .modal-content {
+    border-radius: 10px
+}
+
+.new-address-form .apartment-field label {
+    display: none
+}
+
+.new-address-form .btn-collapsed {
+    align-items: center;
+    color: #2154d8;
+    display: flex;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 130%;
+    margin-bottom: 15px
+}
+
+.new-address-form .btn-collapsed .collapsed-icon {
+    height: 15px;
+    position: relative;
+    transition: all .2s ease-in;
+    width: 15px
+}
+
+.new-address-form .btn-collapsed .collapsed-icon:after,
+.new-address-form .btn-collapsed .collapsed-icon:before {
+    background-color: #2154d8;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 6px;
+    transition: all .3s ease-in-out;
+    width: 10px
+}
+
+.new-address-form .btn-collapsed .collapsed-icon:after {
+    transform: rotate(90deg)
+}
+
+.new-address-form .btn-collapsed.open .collapsed-icon:after {
+    transform: rotate(0)
+}
+
+.root-radio {
+    align-items: center;
+    color: #000;
+    display: inline-grid;
+    font-size: 1rem;
+    font-weight: 400;
+    gap: .6rem;
+    grid-auto-flow: column;
+    grid-template-columns: auto min-content;
+    margin: .5rem;
+    vertical-align: top
+}
+
+.input-radio {
+    -webkit-appearance: none;
+    background: 0 0;
+    background-clip: content-box;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    height: 1.25rem;
+    margin: 0;
+    padding: 5px;
+    position: relative;
+    width: 1.25rem
+}
+
+.input-container input[type=radio] {
+    height: 22px;
+    line-height: 20px;
+    width: 22px
+}
+
+.input-container input[type=radio]:checked {
+    background-color: #fff;
+    border-color: #000
+}
+
+.input-container input[type=radio]:checked:before {
+    background: #000;
+    height: 14px;
+    left: 3px;
+    top: 2px;
+    width: 14px
+}
+
+.input-radio:focus {
+    border-color: #ccc;
+    box-shadow: 0 0 0 2px #ddd, 0 0 .5rem 2px #ddd;
+    outline: none
+}
+
+.label-radio {
+    align-items: center;
+    color: #000;
+    display: inline-flex;
+    font-size: 1rem;
+    line-height: 1rem
+}
+
+.address-validation-modal.modal .modal-content {
+    border-radius: 10px;
+    padding: 15px 0
+}
+
+.address-validation-modal.modal .modal-header {
+    margin-bottom: 10px;
+    padding: 0 25px 10px;
+    text-align: left
+}
+
+.address-validation-modal.modal .modal-header button.close {
+    padding: 6px 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto
+}
+
+.address-validation-modal.modal .modal-header h2 {
+    margin-top: 25px
+}
+
+.address-validation-modal.modal .modal-body {
+    border-bottom: 1px solid #999;
+    margin-top: 20px;
+    padding: 0 25px
+}
+
+.address-validation-modal.modal .modal-body label {
+    float: none;
+    padding-bottom: 30px
+}
+
+.address-validation-modal.modal .modal-footer {
+    margin-top: 10px;
+    padding-bottom: 10px
+}
+
+.address-validation-modal.modal .modal-footer button {
+    margin: 5px
+}
+
+.address-validation-modal.modal .modal-footer .btn {
+    min-width: 100px;
+    padding: 10px 20px;
+    width: auto
+}
+
+.address-validation-modal.modal .modal-footer .btn.btn-primary {
+    min-width: 226px
+}
+
+.address-validation-modal.modal hr {
+    clear: both;
+    margin: 10px 0
+}
+
+.address-validation-item .address-validation-label {
+    display: flex
+}
+
+.address-validation-item .address-validation-label .input-container {
+    align-self: flex-start
+}
+
+.address-validation-item .address-validation-label .input-container input {
+    margin: 0
+}
+
+.address-validation-item .address-validation-label .label-radio {
+    color: #000;
+    font-weight: 700;
+    margin-top: 3px
+}
+
+.address-validation-item .address-validation-label .full-address {
+    font-weight: 400;
+    margin-top: 3px
+}
+
+.address-validation-item .address-validation-label .full-address span {
+    line-height: 20px
+}
+
+.highlighted {
+    border: 1px solid red;
+    color: red;
+    padding: 0 5px
+}
+
+.loading-modal {
+    height: 350px;
+    position: relative
+}
+
+.loading-modal .indicator-container {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+input.input-box-new-design {
+    -webkit-background-clip: text;
+    background-clip: text;
+    border: 1px solid #767676;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 44px;
+    line-height: 130%;
+    outline: none;
+    padding: 11px 13px 12px
+}
+
+input.input-box-new-design:focus {
+    border: 1px solid #000
+}
+
+input.input-box-new-design:disabled {
+    background-color: rgba(0, 0, 0, .07);
+    color: #999
+}
+
+input.input-box-new-design::placeholder {
+    color: #999
+}
+
+.dropdown-new-design {
+    position: relative
+}
+
+.dropdown-new-design .dropdown-toggle {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #767676;
+    border-radius: 10px;
+    color: #000;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    height: 42px;
+    line-height: 130%;
+    padding: 10px;
+    position: relative;
+    width: 100%
+}
+
+@media(max-width:768px) {
+    .dropdown-new-design .dropdown-toggle {
+        font-size: 12px
+    }
+}
+
+.dropdown-new-design .dropdown-toggle:hover {
+    background-color: #fff;
+    color: #000
+}
+
+.dropdown-new-design .dropdown-toggle:after {
+    border: solid #b2b2b2;
+    border-width: 2px 0 0 2px;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 15px;
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg)
+}
+
+.dropdown-new-design .dropdown-label {
+    background: #fff;
+    color: #666;
+    font-size: 9px;
+    font-weight: 600;
+    left: 10px;
+    line-height: 120%;
+    padding: 0 5px;
+    position: absolute;
+    text-transform: uppercase;
+    top: -5px;
+    z-index: 9
+}
+
+.dropdown-new-design .dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    left: 0;
+    margin-top: 2px;
+    max-height: 300px;
+    overflow: auto;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 100
+}
+
+.dropdown-new-design .dropdown-menu .dropdown-item {
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    padding: 10px;
+    text-align: left
+}
+
+@media(max-width:768px) {
+    .dropdown-new-design .dropdown-menu .dropdown-item {
+        font-size: 12px
+    }
+}
+
+.dropdown-new-design .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, .05);
+    cursor: pointer
+}
+
+.dropdown-new-design.show .dropdown-toggle {
+    border: 1px solid #000
+}
+
+.dropdown-new-design.show .dropdown-toggle:after {
+    border-color: #000
+}
+
+.dropdown-new-design.show .dropdown-label {
+    color: #000
+}
+
+.checkbox-new-design {
+    align-items: center;
+    display: flex
+}
+
+.checkbox-new-design .checkbox-label {
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    margin-left: 10px
+}
+
+.checkbox-new-design .checkbox-input {
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    position: relative;
+    width: 24px
+}
+
+.checkbox-new-design .checkbox-input:checked {
+    background: #000;
+    border-color: #000;
+    border-width: 1px
+}
+
+.checkbox-new-design .checkbox-input:checked:after {
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    content: "";
+    display: inline-block;
+    height: 12px;
+    margin-bottom: 2px;
+    transform: rotate(45deg);
+    width: 6px
+}
+
+.checkbox-new-design:hover .checkbox-input {
+    background-color: #f6f6f6
+}
+
+.checkbox-new-design:hover .checkbox-input:checked {
+    background: #000
+}
+
+.checkbox-new-design.selected .checkbox-label {
+    font-weight: 600
+}
+
+.checkbox-new-design.disabled .checkbox-input,
+.checkbox-new-design.disabled .checkbox-label {
+    cursor: not-allowed
+}
+
+.new-address-form {
+    margin-top: 10px
+}
+
+.new-address-form .contact-inform-group {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between
+}
+
+.new-address-form .contact-inform-group .field-wrapper {
+    width: 100%
+}
+
+.new-address-form input[type=text],
+.new-address-form select {
+    font-size: 16px;
+    line-height: 19px;
+    max-width: 100%;
+    width: 100%
+}
+
+.new-address-form .select-box-wrapper {
+    max-width: 100%
+}
+
+.new-address-form .select-box-wrapper .after {
+    top: 15px
+}
+
+.new-address-form .select-box-wrapper .after svg {
+    stroke: #000
+}
+
+.new-address-form .field-wrapper.error-input .select-box-wrapper select {
+    border-color: #b30015;
+    color: #b30015
+}
+
+.new-address-form .field-wrapper .label {
+    color: #15171a;
+    font-size: 16px;
+    line-height: 19px
+}
+
+.new-address-form .root-checkbox {
+    margin-left: 0
+}
+
+.new-address-form .root-checkbox .label-checkbox {
+    font-size: 16px;
+    line-height: 22px
+}
+
+.new-address-form .requiredSymbol {
+    color: red
+}
+
+.new-address-form .submit-btn-form {
+    margin-top: 20px
+}
+
+.new-address-form .submit-btn-form.submit-btn-group {
+    display: flex;
+    justify-content: space-between
+}
+
+.new-address-form .submit-btn-form.submit-btn-group button {
+    width: 49%
+}
+
+.new-address-form .submit-btn-form button {
+    align-items: center;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    margin: 0;
+    width: 100%
+}
+
+.address-wrapper {
+    margin-top: 15px
+}
+
+.address-wrapper .address-title {
+    color: #15171a;
+    font-size: 14px;
+    line-height: 19px
+}
+
+.address-wrapper .address-item {
+    align-items: flex-end;
+    border: 1px solid #cbcbcb;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 19px 21px
+}
+
+.address-wrapper .address-item:hover {
+    border: 1px solid #000
+}
+
+.address-wrapper .address-content-norm,
+.address-wrapper .address-content-title {
+    color: #15171a;
+    font-size: 14px;
+    line-height: 19px
+}
+
+.address-wrapper .address-content-title {
+    margin-bottom: 5px;
+    text-transform: capitalize
+}
+
+.address-wrapper .address-edit-link {
+    font-size: 14px;
+    line-height: 19px
+}
+
+.address-wrapper .address-edit-link:hover {
+    text-decoration: underline
+}
+
+.myaccount-wrap .myaccount-content .select-box-wrapper {
+    max-width: 100%
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block .address-edit-link {
+    text-decoration: underline
+}
+
+.myaccount-wrap .myaccount-content .address-edit-link {
+    color: #15171a
+}
+
+.myaccount-wrap .myaccount-content .add-new-address {
+    margin-top: 20px
+}
+
+.myaccount-wrap .myaccount-content .add-new-address .btn-primary {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    font-size: 16px;
+    height: 50px;
+    justify-content: center;
+    line-height: 19px;
+    max-width: 100%;
+    text-decoration: none;
+    width: 100%
+}
+
+.myaccount-wrap .myaccount-content .add-new-address .btn-primary:hover {
+    color: #fff
+}
+
+.myaccount-wrap .myaccount-content .field-wrapper .message-root {
+    display: block;
+    position: relative
+}
+
+@media(min-width:768px) {
+    .myaccount-wrap .myaccount-content .address-block {
+        display: flex;
+        flex-direction: column-reverse
+    }
+
+    .myaccount-wrap .myaccount-content .address-block .add-new-address {
+        margin-top: 10px
+    }
+
+    .myaccount-wrap .myaccount-content .address-block .add-new-address .btn-primary {
+        width: 200px
+    }
+}
+
+.name-form {
+    padding: 0
+}
+
+.name-form .name-form-links a:first-child {
+    border-right: 1px solid;
+    margin-right: 10px;
+    padding-right: 10px
+}
+
+.order-overview {
+    border: 1px solid #cbcbcb;
+    padding: 0 20px
+}
+
+.order-overview .order-block {
+    margin-bottom: 0
+}
+
+.order-overview .order-block:last-child .order-item:last-child {
+    border-bottom: none
+}
+
+.order-overview .order-item {
+    border-bottom: 1px solid #cbcbcb;
+    display: flex;
+    padding: 20px 0;
+    text-decoration: none
+}
+
+.order-overview .order-item .order-image {
+    height: 80px;
+    min-height: 80px;
+    min-width: 80px;
+    width: 80px
+}
+
+.order-overview .order-item .order-image img {
+    max-height: 100%;
+    max-width: 100%
+}
+
+.order-overview .order-item .order-content {
+    padding-left: 30px;
+    padding-right: 20px;
+    position: relative;
+    width: 100%
+}
+
+.order-overview .order-item .order-content>svg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.order-overview .order-item .order-content .order-status {
+    align-items: center;
+    color: #60757e;
+    display: flex;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 3px
+}
+
+.order-overview .order-item .order-content .order-status svg {
+    margin-right: 5px;
+    padding-bottom: 2px
+}
+
+.order-overview .order-item .order-content .order-norm {
+    color: #15171a;
+    font-size: 16px;
+    line-height: 21px
+}
+
+@media(max-width:768px) {
+    .order-overview {
+        padding: 0 16px
+    }
+}
+
+.dashboard-credit {
+    float: left;
+    width: 100%
+}
+
+.dashboard-credit .store-credit-form h3 {
+    display: none
+}
+
+.store-credit-form {
+    padding: 0 0 24px
+}
+
+.store-credit-form h3 {
+    color: #000;
+    font-size: 28px;
+    line-height: 37px;
+    margin: 0 0 26px;
+    text-transform: uppercase
+}
+
+.store-credit-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between
+}
+
+.store-credit-form .store-credit-wrapper {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    max-width: 650px;
+    padding: 34px 40px 31px 36px
+}
+
+.store-credit-form .store-credit-wrapper .available-store-text {
+    color: #000;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 5px
+}
+
+.store-credit-form .store-credit-wrapper .available-store-price {
+    color: #141414;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 53px;
+    margin-bottom: 0
+}
+
+.free-checkout-message {
+    color: #419000;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px
+}
+
+@media(max-width:1024px) {
+    .store-credit-form .store-credit-wrapper {
+        padding: 34px 16px 31px
+    }
+
+    .store-credit-form .store-credit-wrapper .available-store-price {
+        font-size: 30px;
+        line-height: 42px
+    }
+}
+
+@media(max-width:767px) {
+    .store-credit-wrapper {
+        flex-wrap: wrap
+    }
+
+    .store-credit-form h3 {
+        margin-bottom: 10px
+    }
+
+    .store-credit-form .btn-new-design {
+        margin-top: 20px;
+        width: 100%
+    }
+
+    .store-credit-form .store-credit-wrapper {
+        padding: 15px
+    }
+
+    .free-checkout-wrapper .store-credit-form h3 {
+        padding-left: 15px
+    }
+
+    .myaccount-wrap .myaccount-content .default-address-container .dashboard-block.address-list:first-child {
+        margin-bottom: 30px
+    }
+}
+
+@media(min-width:768px) {
+    .myaccount-wrap {
+        min-height: 400px
+    }
+
+    .myaccount-wrap .name-form .name-form-links a:first-child button {
+        margin: 0;
+        padding: 0
+    }
+
+    .myaccount-wrap .myaccount-content .dashboard-block {
+        max-width: 650px;
+        width: 100%
+    }
+
+    .myaccount-wrap .myaccount-content .dashboard-block.address-list {
+        max-width: 98%
+    }
+
+    .myaccount-wrap .myaccount-content .dashboard-block:nth-child(2n) {
+        clear: left
+    }
+
+    .myaccount-wrap .myaccount-content .dashboard-block:nth-child(4),
+    .myaccount-wrap .myaccount-content .dashboard-block:nth-child(5) {
+        max-width: 100%
+    }
+
+    .myaccount-wrap .myaccount-content .dashboard-block .dashboard-newsletter-block {
+        min-height: 35px
+    }
+}
+
+@media(min-width:1025px) {
+    .myaccount-wrap .myaccount-content .dashboard-block {
+        max-width: 50%
+    }
+}
+
+.order-by-sku-row {
+    display: flex
+}
+
+.order-by-sku-row input {
+    max-width: none !important
+}
+
+.order-by-sku-field-SKU {
+    margin-right: 2rem;
+    width: 70%
+}
+
+.order-by-sku-field-QTY {
+    width: 15%
+}
+
+.order-by-sku-remove-button-container {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    width: 15%
+}
+
+.order-by-sku-form-group {
+    margin-bottom: 1rem;
+    margin-top: 2rem
+}
+
+.order-by-sku-mutation-error {
+    color: red;
+    padding: 1rem
+}
+
+.order-wrapper .order-block {
+    margin-bottom: 24px
+}
+
+.order-wrapper .order-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 0 20px 0 17px
+}
+
+.order-wrapper .order-item {
+    display: flex;
+    padding: 20px 0;
+    text-decoration: none
+}
+
+.order-wrapper .order-item:not(:first-child) {
+    border-top: 1px solid #eee
+}
+
+.order-wrapper .order-item .order-image {
+    height: 80px;
+    min-height: 80px;
+    min-width: 80px;
+    width: 80px
+}
+
+.order-wrapper .order-item .order-image img {
+    max-height: 100%;
+    max-width: 100%
+}
+
+.order-wrapper .order-item .order-content {
+    padding-left: 30px;
+    padding-right: 20px;
+    position: relative;
+    width: 100%
+}
+
+.order-wrapper .order-item .order-content>svg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.order-wrapper .order-item .order-content .order-status {
+    align-items: center;
+    color: #60757e;
+    display: flex;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 3px
+}
+
+.order-wrapper .order-item .order-content .order-status svg {
+    margin-right: 5px;
+    padding-bottom: 2px
+}
+
+.order-wrapper .order-item .order-content .order-norm {
+    color: #15171a;
+    font-size: 16px;
+    line-height: 21px
+}
+
+.myaccount-wrap .myaccount-content .order-block-title {
+    border-bottom: none;
+    color: #141414;
+    font-size: 16px;
+    line-height: 21px
+}
+
+.myaccount-wrap .myaccount-content .order-empty {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px
+}
+
+.myaccount-wrap .myaccount-content .order-empty-title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    margin-bottom: 16px;
+    margin-top: 45px
+}
+
+.myaccount-wrap .myaccount-content .order-empty-description {
+    color: #000;
+    font-size: 16px;
+    line-height: 19px
+}
+
+.myaccount-wrap .myaccount-content .order-empty-link {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 26px;
+    padding: 16px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 292px
+}
+
+.myaccount-wrap .myaccount-content .order-empty-link:hover {
+    background-color: transparent;
+    color: #000
+}
+
+.myaccount-wrap .myaccount-content .order-empty-button {
+    margin-top: 26px;
+    width: 292px
+}
+
+.pagination-new-design {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    justify-content: center
+}
+
+.pagination-new-design .page-item-new-design .page-link {
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    font-size: 13px;
+    font-weight: 600;
+    height: 47px;
+    justify-content: center;
+    text-transform: uppercase;
+    width: 47px
+}
+
+.pagination-new-design .page-item-new-design .page-link::selection {
+    background-color: transparent
+}
+
+.pagination-new-design .page-item-new-design.active .page-link,
+.pagination-new-design .page-item-new-design:hover .page-link {
+    border: 1px solid #000;
+    color: #000
+}
+
+.pagination-new-design .page-item-new-design.active .page-link {
+    background-color: #000;
+    color: #fff
+}
+
+.pagination-new-design .pagination-next,
+.pagination-new-design .pagination-prev {
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    height: 47px;
+    justify-content: center;
+    width: 47px
+}
+
+.pagination-new-design .pagination-next:hover,
+.pagination-new-design .pagination-prev:hover {
+    border: 1px solid #000
+}
+
+.pagination-new-design .pagination-next:after,
+.pagination-new-design .pagination-prev:after {
+    border: solid #666;
+    border-width: 0 2px 2px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg)
+}
+
+.pagination-new-design .pagination-next:after {
+    border-width: 2px 0 0 2px
+}
+
+.tab-content {
+    border: 1px solid #eaeaea;
+    margin-top: -1px;
+    padding: 25px
+}
+
+.tab-content .tab-pane {
+    background: #fff;
+    display: none
+}
+
+.tab-content .tab-pane.active {
+    display: block
+}
+
+.nav-tabs a.nav-item {
+    background: #f6f6f6;
+    color: inherit;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 40px;
+    padding: 1px 35px 2px;
+    text-decoration: none;
+    vertical-align: top
+}
+
+.nav-tabs a.nav-item.active {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-bottom: 0
+}
+
+.ordered-items {
+    font-size: 14px;
+    line-height: 1.42857143;
+    margin-bottom: 30px;
+    width: 100%
+}
+
+.ordered-items tbody tr:nth-child(2n) td {
+    background-color: #f6f6f6
+}
+
+.ordered-items thead th {
+    border-bottom: 1px solid #eaeaea
+}
+
+.ordered-items td,
+.ordered-items th {
+    padding: 16px 10px 11px;
+    vertical-align: top
+}
+
+.ordered-items tfoot tr:not(.grand_total) th {
+    font-weight: 600
+}
+
+.ordered-items tfoot tr.grand_total td,
+.ordered-items tfoot tr.grand_total th {
+    border-bottom: 1px solid #eaeaea;
+    font-weight: 700
+}
+
+.order-information__tiles {
+    margin-bottom: 20px
+}
+
+.order-details-contianer .status-badge {
+    border: 2px solid #ececec;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.42857143;
+    margin: 3px 10px 0;
+    padding: 0 10px;
+    text-transform: uppercase;
+    vertical-align: top
+}
+
+.order-details-contianer .order-date {
+    font-size: 16px;
+    margin: 0 0 18px
+}
+
+.order-details-contianer .order-action-toolbar {
+    font-size: 14px;
+    margin-bottom: 25px;
+    overflow: hidden
+}
+
+.order-details-contianer .order-action-toolbar .reorder-order-link {
+    margin-right: 35px
+}
+
+.order-details-contianer .order-action-toolbar .print-order-link {
+    float: right
+}
+
+.item-options {
+    margin-top: 10px
+}
+
+.orderd-item-head h3 {
+    display: flex;
+    justify-content: space-between
+}
+
+.orderd-item-head h3>a {
+    font-size: 14px
+}
+
+.shipment-tracking-modal {
+    max-width: 700px
+}
+
+.shipment-tracking-modal table {
+    margin-bottom: 15px;
+    width: 100%
+}
+
+.shipment-tracking-modal table td,
+.shipment-tracking-modal table th {
+    border: 1px solid #eaeaea;
+    padding: 5px 10px
+}
+
+.orderd-items-container {
+    display: inline-block;
+    margin-top: 13px;
+    width: 100%
+}
+
+.orderd-items-container .orderd-item-head h3 a {
+    font-size: 14px;
+    white-space: nowrap
+}
+
+.shipment-tracking-number-seq {
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 15px;
+    padding-top: 15px
+}
+
+.credit-card-info {
+    margin-top: 10px;
+    width: 100%
+}
+
+.credit-card-info td,
+.credit-card-info th {
+    border-top: 1px solid #eaeaea;
+    padding: 5px
+}
+
+.myaccount-wrap .myaccount-content .order-details-wrapper {
+    margin-top: 10px
+}
+
+.myaccount-wrap .myaccount-content .order-details-wrapper .shipment-content-link {
+    color: #0062ff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px
+}
+
+.myaccount-wrap .myaccount-content .order-details-wrapper p {
+    font-size: 16px;
+    line-height: 21px
+}
+
+.order-details-wrapper .order-details-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px
+}
+
+.order-details-wrapper .order-details-date {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 5px
+}
+
+.order-details-wrapper .order-details-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px 20px
+}
+
+.order-details-wrapper .order-details-product {
+    display: flex;
+    margin: 10px 0;
+    text-decoration: none
+}
+
+.order-details-wrapper .order-details-product:not(:first-child) {
+    margin-top: 30px
+}
+
+.order-details-wrapper .product-info {
+    color: #15171a;
+    margin: 0 10px;
+    min-width: 100px
+}
+
+.order-details-wrapper .product-image {
+    height: 80px;
+    min-height: 80px;
+    min-width: 80px;
+    width: 80px
+}
+
+.order-details-wrapper .product-image img {
+    max-height: 100%;
+    max-width: 100%
+}
+
+.order-details-wrapper .product-content {
+    color: #15171a;
+    flex-grow: 1;
+    padding-left: 30px
+}
+
+.order-details-wrapper .order-details-summary {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px
+}
+
+.order-details-wrapper .order-details-summary .delivery-address-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 5px
+}
+
+.order-details-wrapper .order-details-summary .delivery-address-norm {
+    font-size: 16px;
+    line-height: 21px
+}
+
+.order-details-wrapper .order-details-summary .total-wrapper {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 11px 20px
+}
+
+.order-details-wrapper .order-details-shipment-section .shipment-item {
+    margin-top: 15px
+}
+
+.order-details-wrapper .order-details-shipment-section .product-info a {
+    text-decoration: none;
+    white-space: nowrap
+}
+
+.order-details-wrapper .order-details-shipment-section .track-info {
+    min-width: auto
+}
+
+.order-details-wrapper .order-details-shipment-section .track-shipment {
+    background-color: #15a663;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px 15px
+}
+
+.order-details-wrapper .order-details-shipment-section .track-shipment p {
+    font-size: 14px;
+    font-weight: 700
+}
+
+.order-details-wrapper .order-details-shipment-section h6 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 5px
+}
+
+@media(max-width:1024px) {
+    .order-details-wrapper .order-details-product {
+        flex-wrap: wrap
+    }
+
+    .order-details-wrapper .product-info {
+        margin-top: 20px
+    }
+
+    .order-details-wrapper .product-content {
+        width: calc(100% - 100px)
+    }
+}
+
+@media(max-width:768px) {
+    .order-details-wrapper .order-details-product {
+        flex-wrap: unset
+    }
+
+    .order-details-wrapper .product-info {
+        margin: 0
+    }
+
+    .order-details-wrapper .product-content {
+        width: auto
+    }
+}
+
+@media(max-width:767px) {
+    .nav-tabs {
+        display: flex
+    }
+
+    .nav-tabs a.nav-item {
+        padding: 2px 12px
+    }
+
+    .ordered-items thead tr th {
+        display: none
+    }
+
+    .ordered-items,
+    .ordered-items tbody,
+    .ordered-items tbody tr,
+    .ordered-items tbody tr td,
+    .ordered-items tfoot,
+    .ordered-items tfoot tr {
+        border: none;
+        display: block
+    }
+
+    .ordered-items tbody tr td:before {
+        content: attr(data-th) ": ";
+        font-weight: 700;
+        padding-right: 10px
+    }
+
+    .ordered-items tbody tr td:last-child {
+        border-bottom: 1px solid #ececec
+    }
+
+    .ordered-items tbody tr td.qty ul {
+        display: inline-block;
+        vertical-align: top
+    }
+
+    .ordered-items tfoot tr {
+        overflow: hidden
+    }
+
+    .ordered-items tfoot tr th {
+        float: left;
+        width: 70%
+    }
+
+    .ordered-items tfoot tr td {
+        float: left;
+        text-align: right;
+        width: 30%
+    }
+}
+
+@media(min-width:768px) {
+    .order-information__block {
+        grid-column-gap: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr
+    }
+
+    .ordered-items td.price,
+    .ordered-items td.qty,
+    .ordered-items td.subtotal,
+    .ordered-items tfoot,
+    .ordered-items th.price,
+    .ordered-items th.qty,
+    .ordered-items th.subtotal {
+        text-align: right
+    }
+}
+
+.order-detail-payment {
+    margin-top: 10px
+}
+
+.order-detail-payment .order-detail-payment-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 5px
+}
+
+.order-detail-payment .img-card-types,
+.order-detail-payment .payment-method {
+    margin: 10px 0
+}
+
+.order-detail-payment .payment-method svg {
+    margin-right: 10px
+}
+
+.order-detail-payment .card-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr
+}
+
+.order-detail-payment .card-info .card-info-label {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.order-detail-payment .card-info .card-info-value {
+    font-size: 16px
+}
+
+.order-detail-payment .affirm_gateway,
+.order-detail-payment .amazon_payment,
+.order-detail-payment .amazon_payment_v2,
+.order-detail-payment .amazonlogin,
+.order-detail-payment .authnetcim,
+.order-detail-payment .authnetcim2,
+.order-detail-payment .braintree,
+.order-detail-payment .braintree_applepay,
+.order-detail-payment .braintree_googlepay,
+.order-detail-payment .nihaopay_payments_alipay,
+.order-detail-payment .nihaopay_payments_unionpay,
+.order-detail-payment .nihaopay_payments_wechatpay,
+.order-detail-payment .paypal_express {
+    display: inline-block;
+    font-size: 0;
+    line-height: 36px;
+    position: relative;
+    width: 100%
+}
+
+.order-detail-payment .affirm_gateway:after,
+.order-detail-payment .amazon_payment:after,
+.order-detail-payment .amazon_payment_v2:after,
+.order-detail-payment .amazonlogin:after,
+.order-detail-payment .authnetcim2:after,
+.order-detail-payment .authnetcim:after,
+.order-detail-payment .braintree:after,
+.order-detail-payment .braintree_applepay:after,
+.order-detail-payment .braintree_googlepay:after,
+.order-detail-payment .nihaopay_payments_alipay:after,
+.order-detail-payment .nihaopay_payments_unionpay:after,
+.order-detail-payment .nihaopay_payments_wechatpay:after,
+.order-detail-payment .paypal_express:after {
+    background-repeat: no-repeat;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.order-detail-payment .authnetcim2:after,
+.order-detail-payment .authnetcim:after {
+    background-image: url(/dist/file/card-logo.2de85f66fde2a2985208.png);
+    background-size: 213px;
+    height: 28px;
+    max-width: 213px
+}
+
+.order-detail-payment .braintree:after {
+    background-image: url(/dist/file/card-logo-braintree.6a3f7bf1c771563488ff.png);
+    background-size: 213px;
+    height: 28px;
+    max-width: 213px
+}
+
+.order-detail-payment .nihaopay_payments_unionpay:after {
+    background-image: url(/dist/file/unionpay.ecaf595194f1c24602a1.png);
+    background-size: 55px;
+    height: 35px;
+    max-width: 55px
+}
+
+.order-detail-payment .nihaopay_payments_wechatpay:after {
+    background-image: url(/dist/file/wechatlogo.41a0b6474471eb164eae.png);
+    background-size: 99px;
+    height: 28px;
+    max-width: 99px
+}
+
+.order-detail-payment .nihaopay_payments_alipay:after {
+    background-image: url(/dist/file/alipay.6403b88bf57ea579af5d.png);
+    background-size: 80px;
+    height: 28px;
+    max-width: 80px
+}
+
+.order-detail-payment .amazon_payment:after,
+.order-detail-payment .amazon_payment_v2:after,
+.order-detail-payment .amazonlogin:after {
+    background-image: url(/dist/file/amazon.5caa5e89b7328aee2d09.png);
+    background-size: 144px;
+    height: 36px;
+    max-width: 144px
+}
+
+.order-detail-payment .paypal_express:after {
+    background-image: url(/dist/file/paypal.6a62e812b8b02e374885.png);
+    background-size: 76px;
+    height: 20px;
+    max-width: 76px
+}
+
+.order-detail-payment .affirm_gateway:after {
+    background-image: url(/dist/file/affirm.aa62c7ab90dc2c1cca05.png);
+    background-size: 72px;
+    height: 28px;
+    max-width: 72px
+}
+
+.order-detail-payment .braintree_googlepay {
+    line-height: 39px
+}
+
+.order-detail-payment .braintree_googlepay:after {
+    background-image: url(/dist/file/googlepay.c552fc50a7f2191c69a1.png);
+    background-size: 72px;
+    height: 39px;
+    max-width: 72px
+}
+
+.order-detail-payment .braintree_applepay {
+    line-height: 45px
+}
+
+.order-detail-payment .braintree_applepay:after {
+    background-image: url(/dist/file/apple.08693dbd8f625fee9a93.png);
+    background-size: 72px;
+    height: 45px;
+    max-width: 72px
+}
+
+@media(max-width:767px) {
+    .order-detail-payment {
+        border-bottom: 1px solid #cbcbcb;
+        padding: 10px 0
+    }
+}
+
+.account-information {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 15px
+}
+
+.account-information .group-form {
+    display: flex;
+    justify-content: space-between
+}
+
+.account-information .group-form .field-wrapper {
+    width: calc(50% - 8px)
+}
+
+.account-information .field-wrapper {
+    width: 100%
+}
+
+.account-information .field-wrapper label {
+    font-size: 16px;
+    line-height: 19px
+}
+
+.account-information .field-wrapper input[type=email],
+.account-information .field-wrapper input[type=password],
+.account-information .field-wrapper input[type=text] {
+    border: 1px solid #e5e5e5;
+    height: 50px;
+    max-width: 100%
+}
+
+.account-information .field-wrapper input[type=email]:disabled,
+.account-information .field-wrapper input[type=password]:disabled,
+.account-information .field-wrapper input[type=text]:disabled {
+    background-color: #f6f6f6
+}
+
+.account-information .field-wrapper .root_error {
+    color: #e03400
+}
+
+.account-information .ReactPasswordStrength {
+    margin-bottom: 20px;
+    max-width: 100%
+}
+
+.account-information .ReactPasswordStrength input[type=password] {
+    border: 1px solid #e5e5e5;
+    height: 50px;
+    max-width: 100%
+}
+
+.account-information .ReactPasswordStrength .message-root .root_error {
+    color: #e03400
+}
+
+.account-information .input-wrapper {
+    position: relative
+}
+
+.account-information .input-wrapper svg {
+    position: absolute;
+    right: 10px;
+    top: 13px
+}
+
+.account-information .account-actions button {
+    height: 50px;
+    padding: 0;
+    width: 100%
+}
+
+.myaccount-wrap .myaccount-content .account-information .link-input {
+    color: #000
+}
+
+.myaccount-wrap .account-information .ReactPasswordStrength.input-password-wrapper .ReactPasswordStrength-strength-desc {
+    top: 25px
+}
+
+.myaccount-wrap .account-information .ReactPasswordStrength.input-password-wrapper .ReactPasswordStrength-strength-bar {
+    left: 0;
+    position: absolute;
+    top: 23px
+}
+
+@media(min-width:768px) {
+    .account-information {
+        max-width: 500px
+    }
+}
+
+.apollo-error {
+    color: red
+}
+
+.store-history tr {
+    border-bottom: 1px solid #ececec
+}
+
+.myaccount-wrap .myaccount-content .store-credit-balance .store-container a {
+    margin-right: 0
+}
+
+@media(min-width:768px) {
+    .store-credit-balance .my-account__block {
+        float: left;
+        width: 48%
+    }
+
+    .store-credit-balance .my-account__block:first-child {
+        margin-right: 4%
+    }
+
+    .store-credit-balance>.store {
+        clear: both
+    }
+}
+
+.account-form-title {
+    margin-bottom: 20px
+}
+
+.account-form-title a {
+    color: #141414;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    text-decoration: none
+}
+
+.account-form-group.account-form-sidebar .group-item {
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5
+}
+
+.account-form-group.account-form-sidebar .group-item:hover {
+    border: 1px solid #999
+}
+
+.account-form-group.account-form-sidebar .group-item.active {
+    background-color: #15171a
+}
+
+.account-form-group.account-form-sidebar .group-item.active span,
+.account-form-group.account-form-sidebar .group-item.active svg {
+    color: #fff
+}
+
+.account-form-group.account-form-sidebar .group-item.active.group-item-card svg,
+.account-form-group.account-form-sidebar .group-item.active.group-item-gift svg {
+    fill: #fff
+}
+
+.account-form-group.account-form-sidebar .group-item.active.group-item-card .icon-right,
+.account-form-group.account-form-sidebar .group-item.active.group-item-gift .icon-right {
+    fill: none
+}
+
+.account-form-group.account-form-sidebar .group-item.group-overview {
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px
+}
+
+.account-form-group.account-form-sidebar .group-item.group-overview .group-item-name,
+.account-form-group.account-form-sidebar .group-item.group-overview svg {
+    color: #15171a
+}
+
+.account-form-group.account-form-sidebar .group-item.group-overview:hover {
+    border: 1px solid #999
+}
+
+.account-form-group.account-form-sidebar .group-item.group-overview.item-active {
+    background-color: #15171a
+}
+
+.account-form-group.account-form-sidebar .group-item.group-overview.item-active .group-item-name,
+.account-form-group.account-form-sidebar .group-item.group-overview.item-active svg {
+    color: #fff
+}
+
+.account-form-group .group-title {
+    color: #141414;
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 20px
+}
+
+.account-form-group .group-item {
+    align-items: center;
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    display: flex;
+    margin-bottom: 8px;
+    min-height: 55px;
+    padding: 12px 15px;
+    position: relative;
+    text-decoration: none
+}
+
+.account-form-group .group-item:hover {
+    border: 1px solid #999
+}
+
+.account-form-group .group-item .icon-right {
+    position: absolute;
+    right: 15px;
+    top: 15px
+}
+
+.account-form-group .group-item .group-item-name {
+    color: #000;
+    font-size: 16px;
+    line-height: 19px;
+    padding-left: 13px
+}
+
+.account-form-group .group-item svg {
+    color: #000;
+    min-width: 30px
+}
+
+.account-form-group .group-btn {
+    align-items: center;
+    border: 1px solid #15171a;
+    color: #15171a;
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    line-height: 19px;
+    margin-top: 20px;
+    min-height: 55px;
+    text-decoration: none
+}
+
+.account-form-group .group-btn:hover {
+    background-color: #15171a;
+    color: #fff
+}
+
+.myaccount-wrap .myaccount-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 80px;
+    width: 100%
+}
+
+.myaccount-wrap .my-account-navigation .nav-wrapper .wish-list-button {
+    background: 0 0;
+    border: none;
+    border-left: 3px solid transparent;
+    color: #424d5d;
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 5px 18px 5px 15px;
+    text-align: left;
+    text-decoration: underline
+}
+
+.myaccount-wrap .my-account-navigation .nav-wrapper .wish-list-button:hover {
+    text-decoration: none
+}
+
+.myaccount-wrap .my-account-navigation .nav-wrapper .wish-list-button.active,
+.myaccount-wrap .my-account-navigation .nav-wrapper .wish-list-button:focus {
+    font-weight: 600
+}
+
+.myaccount-wrap .my-account-navigation .nav-list {
+    padding: 0 24px
+}
+
+.myaccount-wrap .my-account-navigation .nav-list h3 {
+    border-bottom: none
+}
+
+.myaccount-wrap .myaccount-content .my-account__block {
+    margin-top: 20px
+}
+
+.myaccount-wrap .myaccount-content .reorder-order-link {
+    display: none
+}
+
+.myaccount-wrap .myaccount-content .pagination li a {
+    color: #393838
+}
+
+.myaccount-wrap .myaccount-content .table-wrapper a:not(.btn-primary):not(.nav-item),
+.myaccount-wrap .myaccount-content .table-wrapper button:not(.btn-primary):not(.nav-item) {
+    border: 0;
+    color: #4f77b2;
+    font-size: inherit;
+    font-weight: 400;
+    margin-bottom: 0;
+    min-width: auto;
+    padding: 0;
+    text-decoration: underline
+}
+
+.myaccount-wrap .myaccount-content .table-wrapper a:not(.btn-primary):not(.nav-item):hover,
+.myaccount-wrap .myaccount-content .table-wrapper button:not(.btn-primary):not(.nav-item):hover {
+    background: 0 0;
+    text-decoration: none
+}
+
+.myaccount-wrap .myaccount-content .table-wrapper a:not(.btn-primary):not(.nav-item) {
+    margin-left: 0
+}
+
+.myaccount-wrap .myaccount-content .table-wrapper a:not(.btn-primary):not(.nav-item):first-child {
+    margin: 0 14px 0 0;
+    padding: 0
+}
+
+.myaccount-wrap .myaccount-content .table-wrapper a:not(.btn-primary):not(.nav-item):first-child button {
+    margin: 0;
+    padding: 0
+}
+
+.myaccount-wrap .myaccount-content h1 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 10px
+}
+
+.myaccount-wrap .myaccount-content h3 {
+    border-bottom: 1px solid #ccc;
+    color: #000;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 0;
+    padding-bottom: 10px
+}
+
+.myaccount-wrap .myaccount-content h4 {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px
+}
+
+.myaccount-wrap .myaccount-content p {
+    margin-bottom: 0
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block {
+    margin: 0 0 30px
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block.dashboard-block-address {
+    margin-bottom: 20px
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block.dashboard-block-order {
+    margin-top: 20px
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block.dashboard-block-order .my-account__block-title {
+    border-bottom: none;
+    margin-bottom: 0
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block button {
+    background: 0 0;
+    font-weight: 400
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block .manage-address-button {
+    font-size: 14px;
+    margin-left: 10px;
+    text-decoration: underline
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block .manage-address-button:hover {
+    text-decoration: none
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block .name-form-links a {
+    margin-right: 10px;
+    padding-right: 10px
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block.address-list {
+    margin-bottom: 0
+}
+
+.myaccount-wrap .myaccount-content .address .name {
+    color: #000;
+    font-size: 14px;
+    font-weight: 400
+}
+
+.myaccount-wrap .ReactPasswordStrength {
+    border: 0
+}
+
+.myaccount-wrap .ReactPasswordStrength .field-wrapper {
+    padding-bottom: 0;
+    padding-top: 0
+}
+
+.myaccount-wrap .ReactPasswordStrength .field-wrapper .requiredSymbol:after {
+    display: none
+}
+
+.myaccount-wrap .new-address-form .address-inform-section .root-checkbox {
+    clear: left;
+    float: left
+}
+
+.myaccount-wrap .orders-list tr td,
+.myaccount-wrap .orders-list tr th {
+    border-bottom: 1px solid #ececec
+}
+
+.myaccount-wrap .select-box-wrapper {
+    max-width: 450px
+}
+
+.myaccount-wrap .add-new-address .btn-primary {
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none
+}
+
+.myaccount-wrap .add-new-address .btn-primary:hover {
+    color: #000
+}
+
+.myaccount-wrap .btn-primary {
+    margin-left: 0
+}
+
+.myaccount-wrap .change-data-form {
+    margin-bottom: 10px
+}
+
+@media(max-width:1024px) {
+    .myaccount-wrap .myaccount-wrapper {
+        padding: 0 40px
+    }
+}
+
+@media(max-width:768px) {
+    .myaccount-wrap .my-account-navigation {
+        margin-bottom: 10px
+    }
+}
+
+@media(max-width:767px) {
+    .myaccount-wrap .myaccount-wrapper {
+        padding: 0
+    }
+
+    .myaccount-wrap .my-account-navigation {
+        display: none
+    }
+
+    .myaccount-wrap .my-account-navigation .nav-wrapper {
+        margin-top: 10px
+    }
+
+    .myaccount-wrap .my-account-navigation .nav-wrapper .wish-list-button {
+        color: #161616
+    }
+
+    .myaccount-wrap .table-wrapper table td,
+    .myaccount-wrap .table-wrapper table th {
+        padding: 7px 10px 0 0
+    }
+
+    .myaccount-wrap .default-address-contanier .default-address-container {
+        display: inline-block;
+        float: left;
+        width: 100%
+    }
+
+    .myaccount-wrap .field-wrapper .ReactPasswordStrength,
+    .myaccount-wrap .select-box-wrapper,
+    .myaccount-wrap .select-box-wrapper select,
+    .myaccount-wrap .select-box-wrapper select.input-select {
+        max-width: 100%
+    }
+}
+
+@media(min-width:767px) {
+    .myaccount-wrap .myaccount-content .dashboard-block.dashboard-block-address {
+        margin-bottom: 0
+    }
+
+    .myaccount-wrap .my-account__block {
+        margin-bottom: 25px
+    }
+
+    .myaccount-wrap .my-account__block .dashboard-block {
+        max-width: 98%
+    }
+}
+
+@media(min-width:768px) {
+    .page .myaccount-wrap.container-width {
+        margin: 40px 80px
+    }
+
+    .myaccount-wrap .my-account-navigation .nav-wrapper {
+        background: #f5f5f5;
+        padding: 15px 0
+    }
+
+    .myaccount-wrap .my-account-navigation li {
+        margin-bottom: 10px;
+        padding: 0
+    }
+
+    .myaccount-wrap .my-account-navigation li a {
+        border-left: 3px solid transparent;
+        color: #424d5d;
+        display: block;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 5px 18px 5px 15px
+    }
+
+    .myaccount-wrap .my-account-navigation li a:hover {
+        text-decoration: none
+    }
+
+    .myaccount-wrap .my-account-navigation li a.active,
+    .myaccount-wrap .my-account-navigation li a:focus {
+        font-weight: 600
+    }
+
+    .myaccount-wrap .myaccount-content .dashboard-block .manage-address-button {
+        font-size: 14px
+    }
+
+    .page .myaccount-wrap.container-width {
+        margin: 40px auto
+    }
+}
+
+.breadcrumb-wrapper .breadcrumb {
+    margin-bottom: 0;
+    padding: 0
+}
+
+.breadcrumb-wrapper .breadcrumb-item {
+    font-size: 16px;
+    line-height: 21px
+}
+
+.breadcrumb-wrapper .breadcrumb-item:before {
+    font-size: 16px
+}
+
+.breadcrumb-wrapper .breadcrumb-item a {
+    color: #60757e
+}
+
+.breadcrumb-wrapper .breadcrumb-item span {
+    color: #141414
+}
+
+.email-preferences .breadcrumb-wrapper {
+    margin-left: 35px
+}
+
+.myaccount-wrap {
+    position: relative;
+    text-align: left
+}
+
+.myaccount-wrap.container-width {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px auto
+}
+
+.myaccount-wrap .nav-wrapper {
+    position: static;
+    width: 100%
+}
+
+.myaccount-wrap .my-account-navigation .account-form-group.account-form-sidebar .group-item {
+    background-color: #fff
+}
+
+.myaccount-wrap .my-account-navigation .account-form-group.account-form-sidebar .group-item.item-active {
+    background-color: #15171a
+}
+
+.myaccount-wrap .myaccount-content .auth-form-section .field-wrapper-save {
+    display: none
+}
+
+.myaccount-wrap .myaccount-content .gift-cart-link {
+    color: #15171a;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-top: 15px;
+    text-decoration: underline
+}
+
+.myaccount-wrap .myaccount-content .about-wrapper {
+    align-items: center;
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 25px 17px
+}
+
+.myaccount-wrap .myaccount-content .about-wrapper p {
+    color: #15171a;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.myaccount-wrap .myaccount-content .about-wrapper .about-btn {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #15171a;
+    display: flex;
+    font-size: 16px;
+    height: 50px;
+    justify-content: center;
+    line-height: 19px;
+    margin-top: 15px;
+    text-decoration: none;
+    width: 100%
+}
+
+.myaccount-wrap .myaccount-content .about-wrapper .about-btn:hover {
+    background-color: #000;
+    color: #fff
+}
+
+.myaccount-wrap .myaccount-content .about-wrapper .about-btn:hover svg path {
+    fill: #fff
+}
+
+.myaccount-wrap .myaccount-content .about-wrapper .about-btn svg {
+    height: 24px;
+    margin-right: 10px;
+    width: 24px
+}
+
+.myaccount-wrap .coupon-form .styled-subscription-wrapper .description-subscribing a {
+    color: #2154d8
+}
+
+.myaccount-wrap .coupon-form .styled-subscription-wrapper .field-wrapper input[type=email]:focus {
+    border: 1px solid #000
+}
+
+.myaccount-wrap .coupon-form .coupon-error {
+    background-color: #d3edee;
+    border-radius: 10px;
+    color: #767676;
+    padding: 5px
+}
+
+.myaccount-wrap h3 {
+    border-bottom: 1px solid #ececec
+}
+
+.myaccount-wrap h3 a {
+    font-size: 21px
+}
+
+.myaccount-wrap .table-wrapper {
+    margin-bottom: 20px;
+    overflow-x: auto
+}
+
+.myaccount-wrap .table-wrapper table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+    width: 100%
+}
+
+.myaccount-wrap .table-wrapper table tr td:first-child,
+.myaccount-wrap .table-wrapper table tr th:first-child {
+    padding-left: 0
+}
+
+.myaccount-wrap .table-wrapper table tr td:last-child,
+.myaccount-wrap .table-wrapper table tr th:last-child {
+    padding-right: 0
+}
+
+.myaccount-wrap .table-wrapper table.orders-list td,
+.myaccount-wrap .table-wrapper table.orders-list th {
+    color: #000
+}
+
+.myaccount-wrap .table-wrapper table.orders-list thead th {
+    padding-top: 0
+}
+
+.myaccount-wrap .table-wrapper table.orders-list tbody th {
+    font-weight: 400
+}
+
+.myaccount-wrap .table-wrapper table.orders-list tbody td .btn-link {
+    border-left: 1px solid #000;
+    line-height: 1;
+    padding-left: 10px
+}
+
+.myaccount-wrap .table-wrapper table.orders-list tbody td .primary-link {
+    border-left: 0;
+    line-height: 1;
+    padding-left: 0;
+    padding-right: 10px
+}
+
+.myaccount-wrap .table-wrapper table.orders-list tbody td .primary-link:first-child {
+    padding-right: 10px
+}
+
+.myaccount-wrap .table-wrapper table.orders-list tbody td .grand-total {
+    font-weight: 600
+}
+
+.myaccount-wrap .table-wrapper table.orders-list tbody td.table-actions {
+    white-space: nowrap
+}
+
+.myaccount-wrap .table-wrapper table.orders-list tbody td .reorder-order-link {
+    display: none
+}
+
+.myaccount-wrap .new-address-form .address-inform-section .root-checkbox {
+    margin-bottom: 7px
+}
+
+.myaccount-wrap .new-address-form .root_error {
+    color: #e03400
+}
+
+.myaccount-wrap .email-pwrd-wrapper {
+    float: left;
+    margin-bottom: 10px;
+    width: 100%
+}
+
+.myaccount-wrap .ContactInformation .dashboard-block.name-form p {
+    padding-bottom: 5px
+}
+
+.myaccount-wrap .my-account__page-title {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 33px;
+    margin-bottom: 20px
+}
+
+.myaccount-wrap .my-account__block {
+    float: left;
+    margin-bottom: 30px;
+    width: 100%
+}
+
+.myaccount-wrap .my-account__block.address-dashboard-block {
+    width: 100%
+}
+
+.myaccount-wrap .my-account__block-title {
+    border-bottom: 1px solid #ececec;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    margin-bottom: 13px;
+    padding: 12px 0
+}
+
+.myaccount-wrap .my-account__block-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    margin-bottom: 10px
+}
+
+.myaccount-wrap .my-account__block-actions {
+    margin-top: 20px
+}
+
+.myaccount-wrap .new-address-form {
+    padding-top: 0
+}
+
+.myaccount-wrap .new-address-form .default-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
+.myaccount-wrap .submit-btn-form {
+    clear: both
+}
+
+.myaccount-wrap .ReactPasswordStrength.input-password-wrapper .ReactPasswordStrength-strength-bar {
+    top: -41px
+}
+
+.myaccount-wrap .ReactPasswordStrength.input-password-wrapper .ReactPasswordStrength-strength-desc {
+    top: 21px;
+    width: auto
+}
+
+.myaccount-wrap .ReactPasswordStrength.input-password-wrapper .message-root,
+.myaccount-wrap .myaccount-content .field-wrapper {
+    position: relative
+}
+
+.myaccount-wrap .myaccount-content .cc-number-field-wrapper {
+    padding-bottom: 19px
+}
+
+.myaccount-wrap .myaccount-content .order-details-cart {
+    border-bottom: 1px solid #cbcbcb
+}
+
+.myaccount-wrap .myaccount-content .order-details-cart .cart-item {
+    display: flex;
+    padding: 20px 0;
+    text-decoration: none
+}
+
+.myaccount-wrap .myaccount-content .order-details-cart .cart-item .product-image {
+    height: 80px;
+    min-height: 80px;
+    min-width: 80px;
+    width: 80px
+}
+
+.myaccount-wrap .myaccount-content .order-details-cart .cart-item .product-image img {
+    max-height: 100%;
+    max-width: 100%
+}
+
+.myaccount-wrap .myaccount-content .order-details-cart .cart-item .product-content {
+    padding-left: 20px
+}
+
+.myaccount-wrap .myaccount-content .order-details-cart .cart-item .product-content-norm,
+.myaccount-wrap .myaccount-content .order-details-cart .cart-item .product-content-title {
+    color: #15171a;
+    font-size: 14px
+}
+
+.myaccount-wrap .myaccount-content .order-details-cart .cart-item .product-content-title {
+    margin-bottom: 5px
+}
+
+.myaccount-wrap .myaccount-content .order-details-shipment {
+    border-bottom: 1px solid #cbcbcb;
+    padding: 20px 0
+}
+
+.myaccount-wrap .myaccount-content .order-details-shipment .shipment-title {
+    color: #141414;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.myaccount-wrap .myaccount-content .order-details-shipment .shipment-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px
+}
+
+.myaccount-wrap .myaccount-content .order-details-shipment .shipment-content-link,
+.myaccount-wrap .myaccount-content .order-details-shipment .shipment-content-norm {
+    color: #15171a;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.myaccount-wrap .myaccount-content .order-details-shipment .shipment-content-link {
+    color: #0062ff;
+    font-weight: 700
+}
+
+.myaccount-wrap .myaccount-content .order-details-shipment .delivery-address-title {
+    color: #141414;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px
+}
+
+.myaccount-wrap .myaccount-content .order-details-shipment .delivery-address-norm {
+    color: #15171a;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.myaccount-wrap .myaccount-content .order-details-total {
+    padding: 20px 0
+}
+
+.myaccount-wrap .myaccount-content .order-details-total .total-title {
+    color: #141414;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.myaccount-wrap .myaccount-content .order-details-total .total-sub-title {
+    color: #141414;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    margin: 5px 0
+}
+
+.myaccount-wrap .myaccount-content .order-details-total .total-norm {
+    color: #15171a;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.ReactPasswordStrength.input-password-wrapper.is-strength-3 .ReactPasswordStrength-strength-bar {
+    background: #578300;
+    width: 100%
+}
+
+.ReactPasswordStrength.input-password-wrapper.is-strength-3 .ReactPasswordStrength-strength-desc {
+    color: #578300
+}
+
+.ReactPasswordStrength.input-password-wrapper.is-strength-2 .ReactPasswordStrength-strength-bar {
+    background: #b34f00
+}
+
+.ReactPasswordStrength.input-password-wrapper.is-strength-2 .ReactPasswordStrength-strength-desc {
+    color: #b34f00
+}
+
+.ReactPasswordStrength.input-password-wrapper .input-block input {
+    padding-right: 64px
+}
+
+.payment-method-list {
+    margin-top: 20px
+}
+
+.payment-method-list .payment-item {
+    align-items: center;
+    border: 1px solid #cbcbcb;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    position: relative;
+    text-decoration: none
+}
+
+.payment-method-list .payment-item:hover {
+    border: 1px solid #15171a
+}
+
+.payment-method-list .payment-image {
+    align-items: center;
+    border: 1px solid #ebebeb;
+    display: flex;
+    min-height: 29px;
+    width: 44px
+}
+
+.payment-method-list .payment-image img {
+    width: 100%
+}
+
+.payment-method-list .payment-content {
+    padding-left: 20px
+}
+
+.payment-method-list .payment-content .payment-title {
+    color: #141414;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    margin-bottom: 0
+}
+
+.payment-method-list .payment-content .payment-number {
+    color: #60757e
+}
+
+.payment-method-list .arrow-right {
+    border-right: 2px solid #15171a;
+    border-top: 2px solid #15171a;
+    height: 10px;
+    position: absolute;
+    right: 20px;
+    transform: rotate(45deg);
+    width: 10px
+}
+
+.payment-method-list .add-new-link {
+    display: block;
+    margin-top: 20px;
+    width: 100%
+}
+
+.payment-method-list .add-new-link button {
+    width: 100%
+}
+
+.payment-method-list .alert-warning {
+    background: #f0f8ff;
+    border-color: #d3edee;
+    border-radius: 10px;
+    color: #767676
+}
+
+.myaccount-wrap .heading-btn-wrap {
+    display: inline-block;
+    width: 100%
+}
+
+.myaccount-wrap .heading-btn-wrap .add-new-link {
+    float: right
+}
+
+.myaccount-wrap .heading-btn-wrap .add-new-link a {
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+    text-align: center
+}
+
+.myaccount-wrap .heading-btn-wrap .add-new-link a:hover {
+    color: #000
+}
+
+.myaccount-wrap .heading-btn-wrap h1 {
+    color: #141414;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 15px;
+    margin-top: 15px
+}
+
+.myaccount-wrap .heading-btn-wrap h2 {
+    color: #141414;
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 18px
+}
+
+.myaccount-wrap .heading-btn-wrap .btn-primary {
+    color: #fff;
+    text-decoration: none
+}
+
+.myaccount-wrap .ch-info-section {
+    display: inline-block;
+    width: 100%
+}
+
+.myaccount-wrap .auth-form-section {
+    padding: 0
+}
+
+.myaccount-wrap .add-new-card-wrapper .ch-address-wrapper,
+.myaccount-wrap .add-new-card-wrapper .ch-info-wrapper {
+    width: 100%
+}
+
+.myaccount-wrap .authorize-form-container {
+    margin-top: 30px
+}
+
+.myaccount-wrap .authorize-form-container .auth-expiry-fields .auth-select-box {
+    position: relative
+}
+
+.myaccount-wrap .authorize-form-container .auth-expiry-fields .auth-select-box:last-child .label {
+    left: 0;
+    position: absolute;
+    top: -36px
+}
+
+.myaccount-wrap .authorize-form-container .auth-expiry-fields .auth-select-box .field-wrapper {
+    padding-top: 0
+}
+
+.myaccount-wrap .gift-cart-text {
+    text-align: center
+}
+
+.promo-text-filed .gift-cart-wrapper {
+    margin: 20px 0;
+    width: 100%
+}
+
+.promo-text-filed .gift-cart-wrapper .field-wrapper {
+    margin-right: 0;
+    padding-bottom: 0
+}
+
+.promo-text-filed .gift-cart-wrapper .field-wrapper label {
+    display: none
+}
+
+.promo-text-filed .gift-cart-wrapper input {
+    max-width: 100%
+}
+
+.promo-text-filed .gift-cart-wrapper button {
+    margin-top: 10px;
+    width: 100%
+}
+
+.promo-text-filed .gift-cart-wrapper .coupon-error {
+    background-color: #fff;
+    padding: 5px 0 0
+}
+
+.promo-text-filed .gift-cart-wrapper .coupon-error .message {
+    color: #e03400
+}
+
+.styled-subscription-wrapper {
+    margin-top: 16px
+}
+
+.styled-subscription-wrapper .row-contained-LS3 {
+    display: none
+}
+
+.styled-subscription-wrapper p {
+    text-align: center
+}
+
+.styled-subscription-wrapper .field-wrapper {
+    width: 100%
+}
+
+.styled-subscription-wrapper .field-wrapper input[type=email] {
+    border: 1px solid #cbcbcb;
+    height: 42px;
+    max-width: 100%
+}
+
+.styled-subscription-wrapper .field-wrapper .field-icons,
+.styled-subscription-wrapper .field-wrapper .input-block {
+    min-width: 100%
+}
+
+.styled-subscription-wrapper .field-wrapper .btn {
+    bottom: 0;
+    height: 42px;
+    margin: 0;
+    min-width: 120px;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.styled-subscription-wrapper .field-submit {
+    margin-top: 20px;
+    position: relative
+}
+
+.styled-subscription-wrapper .field-submit input[type=email] {
+    max-width: 100%
+}
+
+@media(max-width:767px) {
+    .myaccount-wrap .nav-wrapper {
+        background: #f6f6f6;
+        border: none;
+        min-height: auto;
+        padding: 15px 0
+    }
+
+    .myaccount-wrap .nav-wrapper li {
+        margin-bottom: 10px;
+        padding: 0
+    }
+
+    .myaccount-wrap .nav-wrapper li a {
+        border-left: 3px solid transparent;
+        color: #161616;
+        display: block;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 5px 18px 5px 15px
+    }
+
+    .myaccount-wrap .new-address-form .address-inform-section .field-wrapper,
+    .myaccount-wrap .new-address-form .contact-inform-section .field-wrapper {
+        float: left;
+        width: 100%
+    }
+
+    .myaccount-wrap .ReactPasswordStrength.input-password-wrapper .ReactPasswordStrength-strength-desc {
+        right: 24px;
+        top: 29px
+    }
+
+    .myaccount-wrap .heading-btn-wrap {
+        margin-bottom: 20px
+    }
+
+    .myaccount-wrap .heading-btn-wrap h1 {
+        width: 100%
+    }
+
+    .myaccount-wrap .heading-btn-wrap .add-new-link {
+        float: left
+    }
+
+    .myaccount-wrap .payment-method-table .mobile-label {
+        display: inline-block;
+        font-weight: 700;
+        margin-right: 10px
+    }
+
+    .myaccount-wrap .add-new-card-wrapper .ch-address-wrapper,
+    .myaccount-wrap .add-new-card-wrapper .ch-info-wrapper {
+        width: 100%
+    }
+
+    .myaccount-wrap .add-new-card-wrapper .authorize-form-header {
+        padding: 10px
+    }
+
+    .myaccount-wrap .card-edit-section {
+        margin-bottom: 10px
+    }
+
+    .address-list-container .my-account__block-title {
+        padding-top: 0
+    }
+
+    .my-account-navigation,
+    .myaccount-content {
+        flex-basis: 100%;
+        width: 100%
+    }
+
+    .my-account-navigation {
+        margin-bottom: 20px
+    }
+
+    .my-account-mob-menu-head {
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin-bottom: 0;
+        text-align: left
+    }
+
+    .my-account-mob-menu-head span {
+        float: right;
+        position: relative
+    }
+
+    .default-address-container {
+        flex-wrap: wrap
+    }
+
+    .default-address-container .address-list {
+        flex-basis: 100%;
+        max-width: 100%
+    }
+
+    .default-address-container .address-list:first-child {
+        margin-right: 0
+    }
+
+    .default-address-container .address-list:not(:last-child) {
+        margin-bottom: 30px
+    }
+
+    .myaccount-wrap .table-wrapper table td,
+    .myaccount-wrap .table-wrapper table th {
+        padding-left: 0;
+        padding-right: 0
+    }
+
+    .myaccount-wrap .table-wrapper table.orders-list thead tr th {
+        display: none
+    }
+
+    .myaccount-wrap .table-wrapper table.orders-list,
+    .myaccount-wrap .table-wrapper table.orders-list tbody,
+    .myaccount-wrap .table-wrapper table.orders-list tbody tr,
+    .myaccount-wrap .table-wrapper table.orders-list tbody tr td {
+        border: none;
+        display: block
+    }
+
+    .myaccount-wrap .table-wrapper table.orders-list tbody tr td:before {
+        content: attr(data-th) ": ";
+        font-weight: 700;
+        padding-right: 10px
+    }
+
+    .myaccount-wrap .table-wrapper table.orders-list tbody tr td:last-child {
+        border-bottom: 1px solid #ececec;
+        margin-bottom: 10px;
+        padding-bottom: 17px
+    }
+
+    .myaccount-wrap .table-wrapper table.orders-list tbody tr td.table-actions {
+        padding-top: 20px
+    }
+
+    .myaccount-wrap .table-wrapper table.orders-list tbody tr td.table-actions:before {
+        display: none
+    }
+
+    .myaccount-wrap .authorize-form-container {
+        width: 100%
+    }
+
+    .myaccount-wrap .authorize-form-container .auth-form-section {
+        padding: 10px
+    }
+
+    .myaccount-wrap .authorize-form-container .auth-expiry-fields .auth-select-box {
+        margin: 0 5px
+    }
+
+    .myaccount-wrap .add-new-card-wrapper .btn-primary {
+        width: 100%
+    }
+
+    .address-validation-modal.modal .modal-content,
+    .modal-delete-default-address .modal-content {
+        border-radius: 0 0 10px 10px
+    }
+}
+
+@media(min-width:768px) {
+    .myaccount-content {
+        width: calc(100% - 350px)
+    }
+
+    .my-account-navigation {
+        padding-right: 2%;
+        width: 350px
+    }
+}
+
+@media(max-width:768px) {
+
+    .my-account-navigation,
+    .myaccount-content {
+        width: 100%
+    }
+
+    .my-account-navigation .my-account-mob-menu-head {
+        align-items: center;
+        border: 1px solid #dcdcdc;
+        display: flex;
+        font-size: 16px;
+        font-weight: 700;
+        justify-content: center;
+        margin: 0;
+        padding: 10px;
+        position: relative;
+        text-align: center
+    }
+
+    .my-account-navigation .my-account-mob-menu-head.open:after {
+        transform: rotate(0deg)
+    }
+
+    .my-account-navigation .my-account-mob-menu-head:after,
+    .my-account-navigation .my-account-mob-menu-head:before {
+        background-color: #161616;
+        content: "";
+        height: 2px;
+        opacity: .3;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        transition: all .3s ease-in-out;
+        width: 12px
+    }
+
+    .my-account-navigation .my-account-mob-menu-head:after {
+        transform: rotate(90deg)
+    }
+
+    .my-account-navigation .my-account-mob-menu-head span {
+        display: none
+    }
+
+    .my-account-navigation .nav-wrapper {
+        border: 1px solid #dcdcdc;
+        display: none;
+        margin-top: 10px;
+        padding: 15px 0;
+        text-align: left;
+        width: 100%
+    }
+
+    .my-account-navigation .nav-wrapper.open {
+        display: block
+    }
+}
+
+.myaccount-wrap .myaccount-content .dashboard-newsletter-block,
+.myaccount-wrap .myaccount-content .my-account__block-subtitle,
+.myaccount-wrap .myaccount-content .my-account__block-title {
+    color: #000;
+    font-size: 16px;
+    line-height: 21px
+}
+
+.myaccount-wrap .myaccount-content .my-account__block-subtitle,
+.myaccount-wrap .myaccount-content .my-account__block-title {
+    font-weight: 700
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block.name-form p {
+    color: #000;
+    font-size: 16px;
+    line-height: 21px
+}
+
+.myaccount-wrap .myaccount-content .dashboard-block .manage-address-button,
+.myaccount-wrap .myaccount-content .dashboard-block a {
+    text-decoration: none
+}
+
+.myaccount-wrap .myaccount-content .name-form-links {
+    margin-top: 10px
+}
+
+.myaccount-wrap .myaccount-content .styled-subscription-wrapper #newsLetterForm .description-subscribing {
+    display: none
+}
+
+.myaccount-wrap .myaccount-content .styled-subscription-wrapper #newsLetterForm .field-wrapper input {
+    border-color: #767676;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%
+}
+
+.myaccount-wrap .myaccount-content .styled-subscription-wrapper #newsLetterForm .field-wrapper input::placeholder {
+    color: #767676
+}
+
+.myaccount-wrap .myaccount-content .styled-subscription-wrapper #newsLetterForm .root_error {
+    background-color: #fff;
+    bottom: 0;
+    color: #e03400;
+    margin-top: 5px
+}
+
+.address-block-container {
+    display: flex;
+    margin-top: 10px
+}
+
+.address-block-container .address-wrapper {
+    margin-top: 0;
+    width: 50%
+}
+
+.address-block-container .address-wrapper .address-title {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.address-block-container .address-wrapper:first-child {
+    margin-right: 7px
+}
+
+.address-block-container .address-wrapper:last-child {
+    margin-left: 7px
+}
+
+.address-block-container .address-wrapper .address-item {
+    margin-top: 0
+}
+
+.address-block-container .address-wrapper .address-item .address-content .address-content-norm,
+.address-block-container .address-wrapper .address-item .address-content .address-content-title {
+    color: #000;
+    font-size: 16px;
+    line-height: 21px
+}
+
+.address-block-container .address-wrapper .address-item .address-content .address-content-title {
+    font-weight: 700
+}
+
+.additional-address-container .address-wrapper {
+    width: 50%
+}
+
+.additional-address-container .address-list .address-item {
+    margin-right: 7px
+}
+
+@media(max-width:1024px) {
+    .address-block-container {
+        flex-wrap: wrap
+    }
+
+    .address-block-container .address-wrapper {
+        margin-top: 0;
+        width: 100%
+    }
+
+    .address-block-container .address-wrapper:first-child {
+        margin-right: 0
+    }
+
+    .address-block-container .address-wrapper:last-child {
+        margin-left: 0;
+        margin-top: 20px
+    }
+
+    .myaccount-wrap .myaccount-content .name-form {
+        max-width: 100%;
+        width: 100%
+    }
+
+    .additional-address-container .address-wrapper {
+        width: 100%
+    }
+
+    .additional-address-container .address-list .address-item {
+        margin-right: 0
+    }
+}
+
+@media(min-width:768px) {
+
+    .add-new-address,
+    .address-wrapper,
+    .new-address-form {
+        max-width: 650px
+    }
+
+    .myaccount-wrap .new-address-form .address-inform-section,
+    .myaccount-wrap .new-address-form .contact-inform-section {
+        width: 48%
+    }
+
+    .myaccount-wrap .new-address-form .address-inform-section .field-wrapper .label,
+    .myaccount-wrap .new-address-form .contact-inform-section .field-wrapper .label {
+        min-height: 13px
+    }
+
+    .myaccount-wrap .table-wrapper table td,
+    .myaccount-wrap .table-wrapper table th {
+        padding: 11px 10px
+    }
+
+    .myaccount-wrap .card-edit-section {
+        margin-bottom: 10px
+    }
+
+    .myaccount-wrap .ch-info-section {
+        grid-column-gap: 5%;
+        display: grid;
+        grid-template-columns: 1fr 1fr
+    }
+
+    .myaccount-wrap .authorize-form-container {
+        width: 100%
+    }
+
+    .myaccount-wrap .authorize-form-container .auth-form-section {
+        padding: 20px
+    }
+
+    .myaccount-wrap .myaccount-content .order-details-cart,
+    .myaccount-wrap .myaccount-content .order-details-shipment {
+        max-width: 500px
+    }
+
+    .myaccount-wrap .myaccount-content .about-wrapper {
+        background-color: transparent;
+        padding: 25px 0
+    }
+
+    .address-inform-section,
+    .contact-inform-section {
+        float: left;
+        width: 48%
+    }
+
+    .address-inform-section {
+        margin-left: 4%
+    }
+
+    .about-wrapper,
+    .gift-cart-link,
+    .gift-cart-text,
+    .promo-text-filed,
+    .promo-text-filed+p,
+    .styled-subscription-wrapper {
+        max-width: 500px
+    }
+}
+
+@media(min-width:1280px) {
+    .payment-method-list {
+        max-width: 400px
+    }
+}
+
+@media(max-width:768px) {
+    .payment-method-list {
+        margin-top: 0
+    }
+
+    .email-preferences .breadcrumb-wrapper {
+        margin-left: 15px
+    }
+
+    .myaccount-wrapper .styled-subscription-wrapper {
+        margin-top: 0;
+        padding-top: 20px
+    }
+
+    .myaccount-content .about-wrapper {
+        border-radius: 10px;
+        margin-bottom: 10px
+    }
+}
+
+#preference-wrapper {
+    margin: 0 auto;
+    max-width: 1440px
+}
+
+.authorize-form-container .auth-select-box #auth-cvv,
+.authorize-form-container .cc-number-field-wrapper input {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 130%;
+    outline: none;
+    padding: 11px 13px 12px
+}
+
+.authorize-form-container .auth-select-box #auth-cvv:focus,
+.authorize-form-container .cc-number-field-wrapper input:focus {
+    border: 1px solid #000
+}
+
+.authorize-form-container .auth-select-box #auth-cvv:disabled,
+.authorize-form-container .cc-number-field-wrapper input:disabled {
+    background-color: rgba(0, 0, 0, .07);
+    color: #999
+}
+
+.authorize-form-container .auth-select-box #auth-cvv::placeholder,
+.authorize-form-container .cc-number-field-wrapper input::placeholder {
+    color: #999
+}
+
+.authorize-form-container {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px
+}
+
+.authorize-form-header {
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px
+}
+
+.auth-form-section {
+    padding: 20px
+}
+
+.auth-form-section .auth-form-label {
+    margin-bottom: 10px
+}
+
+.auth-expiry-fields {
+    display: flex;
+    justify-content: space-evenly
+}
+
+.auth-expiry-fields .auth-select-box {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0 10px;
+    width: 100%
+}
+
+.auth-expiry-fields .auth-select-box:first-child {
+    margin-left: 0
+}
+
+.auth-expiry-fields .auth-select-box:last-child {
+    margin-right: 0
+}
+
+.cc-number-field-wrapper {
+    position: relative
+}
+
+.cc-number-field-wrapper .card-type-entered svg {
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px
+}
+
+.cc-number-field-wrapper input[type=text] {
+    max-width: 100%
+}
+
+.hidden-submit-button {
+    display: none
+}
+
+.auth-error-container-gql {
+    padding: 10px
+}
+
+.accept-js-error {
+    color: #b63539;
+    padding: 15px 30px 0
+}
+
+.availabe-card-types ul {
+    display: flex;
+    margin: 0;
+    padding: 0
+}
+
+.availabe-card-types ul li {
+    margin: 3px
+}
+
+.availabe-card-types ul li:first-child {
+    margin-left: 0
+}
+
+.availabe-card-types svg {
+    height: 40px;
+    width: 40px
+}
+
+.myaccount-wrap .myaccount-content .add-new-card-wrapper {
+    margin-bottom: 60px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data {
+    margin-top: 15px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data h3 {
+    border-bottom: none;
+    color: #000;
+    font-size: 16px;
+    line-height: 21px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .field-wrapper .label,
+.myaccount-wrap .myaccount-content .form-payment-data .select-box-wrapper .label {
+    color: #000;
+    font-size: 16px;
+    line-height: 19px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .field-wrapper .label .requiredSymbol,
+.myaccount-wrap .myaccount-content .form-payment-data .select-box-wrapper .label .requiredSymbol {
+    color: red
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .field-wrapper button.dropdown-toggle,
+.myaccount-wrap .myaccount-content .form-payment-data .field-wrapper input[type=text],
+.myaccount-wrap .myaccount-content .form-payment-data .select-box-wrapper button.dropdown-toggle,
+.myaccount-wrap .myaccount-content .form-payment-data .select-box-wrapper input[type=text] {
+    height: 50px;
+    max-width: 100%
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .field-wrapper .input-select .after,
+.myaccount-wrap .myaccount-content .form-payment-data .select-box-wrapper .input-select .after {
+    top: 15px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .form-group {
+    display: flex;
+    justify-content: space-between
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .form-group .field-wrapper {
+    width: 50%
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .form-group .field-wrapper:first-child {
+    margin-right: 5px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .form-group .field-wrapper:last-child {
+    margin-left: 5px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .submit-btn-container.submit-btn-group {
+    display: flex
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .submit-btn-container .delete-btn,
+.myaccount-wrap .myaccount-content .form-payment-data .submit-btn-container .submit-btn {
+    height: 50px;
+    padding: 0;
+    width: 100%
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .submit-btn-container .delete-btn {
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .submit-btn-container .delete-btn:hover {
+    background-color: #000;
+    color: #fff
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container {
+    border: none;
+    margin-bottom: 0;
+    margin-top: 0
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .accept-js-error,
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .auth-form-section {
+    padding: 0
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .auth-form-description {
+    margin-bottom: 10px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .cc-number-field-wrapper {
+    padding-bottom: 0
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .auth-form-label,
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .label {
+    color: #000;
+    font-size: 16px;
+    line-height: 19px
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .auth-form-label .requiredSymbol,
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .label .requiredSymbol {
+    color: red
+}
+
+.myaccount-wrap .myaccount-content .form-payment-data .authorize-form-container .auth-select-box:last-child .label {
+    transform: translateY(10px)
+}
+
+@media(min-width:768px) {
+    .myaccount-wrap .myaccount-content .form-payment-data {
+        max-width: 500px
+    }
+}
+
+.nav-wrapper {
+    list-style: none
+}
+
+.page .myaccount-wrap .myaccount-wrapper {
+    padding: 0
+}
+
+.page .myaccount-wrap .myaccount-wrapper .nav-wrapper,
+.page .myaccount-wrap .myaccount-wrapper .nav-wrapper .nav-list .group-item {
+    border-radius: 10px
+}
+
+.page .myaccount-wrap .myaccount-wrapper .nav-wrapper .nav-list .group-item svg {
+    width: 30px
+}
+
+.page .myaccount-wrap .myaccount-wrapper .nav-wrapper .nav-list .btn-sign-out {
+    width: 100%
+}
+
+.page .myaccount-wrap .myaccount-wrapper .myaccount-content .my-account__block-actions a,
+.page .myaccount-wrap .myaccount-wrapper .myaccount-content .my-account__block-title a {
+    color: #2154d8
+}
+
+.page .myaccount-wrap .myaccount-wrapper .myaccount-content .address-wrapper .address-list .address-item,
+.page .myaccount-wrap .myaccount-wrapper .myaccount-content .dashboard-block-order .order-overview {
+    border-radius: 10px
+}
+
+@media only screen and (min-width:768px) {
+    .nav-wrapper {
+        background: #dcdcdc;
+        bottom: 0;
+        left: 0;
+        padding: 30px;
+        position: absolute;
+        text-align: left;
+        top: 0;
+        width: 20%
+    }
+
+    .nav-wrapper li {
+        padding: 5px
+    }
+
+    .my-account-mob-menu-head {
+        display: none
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .page .myaccount-wrap .myaccount-wrapper {
+        padding: 0 15px
+    }
+
+    .nav-wrapper {
+        border: 1px solid #dcdcdc;
+        display: none;
+        padding: 30px;
+        text-align: left;
+        width: 100%
+    }
+
+    .nav-wrapper li {
+        padding: 5px
+    }
+
+    .open.nav-wrapper {
+        display: block
+    }
+
+    .my-account-mob-menu-head {
+        border: 1px solid #dcdcdc;
+        font-weight: 700;
+        margin: 0;
+        padding: 5px;
+        text-align: center
+    }
+}
+
+.myaccount-wrap .my-account-navigation li a.display-none {
+    display: none
+}
+
+.change-password-form {
+    padding: 0
+}
+
+.ReactPasswordStrength {
+    border: 0;
+    max-width: 450px
+}
+
+.password-validation {
+    border: 0;
+    margin-bottom: 20px;
+    max-width: 100%;
+    position: relative
+}
+
+.password-validation .field-wrapper {
+    padding-bottom: 0;
+    padding-top: 0
+}
+
+.password-validation .field-wrapper .requiredSymbol:after {
+    display: none
+}
+
+.password-validation.input-password-wrapper .password-validation-strength-desc {
+    top: 25px
+}
+
+.password-validation.input-password-wrapper .password-validation-strength-bar {
+    left: 0;
+    position: absolute;
+    top: 23px
+}
+
+.password-validation.is-strength-0 .password-validation-strength-desc {
+    color: #d1462f
+}
+
+.password-validation.is-strength-0 .password-validation-strength-bar {
+    background: #d1462f;
+    width: 20%
+}
+
+.password-validation.is-strength-1 .password-validation-strength-desc {
+    color: #d1462f
+}
+
+.password-validation.is-strength-1 .password-validation-strength-bar {
+    background: #d1462f;
+    width: 40%
+}
+
+.password-validation.is-strength-2 .password-validation-strength-desc {
+    color: #57b8ff
+}
+
+.password-validation.is-strength-2 .password-validation-strength-bar {
+    background: #57b8ff;
+    width: 60%
+}
+
+.password-validation.is-strength-3 .password-validation-strength-desc {
+    color: #57b8ff
+}
+
+.password-validation.is-strength-3 .password-validation-strength-bar {
+    background: #57b8ff;
+    width: 80%
+}
+
+.password-validation.is-strength-4 .password-validation-strength-desc {
+    color: #2fbf71
+}
+
+.password-validation.is-strength-4 .password-validation-strength-bar {
+    background: #2fbf71;
+    width: calc(100% + 2px)
+}
+
+.password-validation .message-root .root_error {
+    color: #b63539;
+    font-size: 13px;
+    line-height: 14px;
+    margin-top: 8px;
+    text-transform: none;
+    width: 100%
+}
+
+.password-validation-input:not(:focus).password-validation-input.is-password-invalid {
+    color: #d1462f
+}
+
+.password-validation-input:focus {
+    outline: none
+}
+
+.password-validation-strength-desc {
+    font-size: 12px;
+    font-style: italic;
+    padding: 16px 12px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 1px;
+    transition: color .25s ease-in-out;
+    white-space: nowrap;
+    width: auto
+}
+
+.password-validation-strength-bar {
+    box-sizing: border-box;
+    height: 2px;
+    left: 0;
+    margin: 0 5px;
+    max-width: calc(100% - 10px);
+    position: absolute;
+    right: 1px;
+    top: 23px;
+    transition: width .3s ease-out
+}
+
+.orders-list {
+    color: #696161;
+    font-size: 15px;
+    text-align: left;
+    width: 100%
+}
+
+.orders-list tr td,
+.orders-list tr th {
+    border-bottom: 1px solid #c5c5c5;
+    font-size: 14px;
+    padding: 13px;
+    text-align: left
+}
