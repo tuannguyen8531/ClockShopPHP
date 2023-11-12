@@ -39,23 +39,6 @@
     <div id="root" data-react-rendered="true" class="plp-page">
         <div class="Main no-sticky" data-render-context="lazy">
             <?php include 'header.php' ?>
-            <div class="multi-slide-wrapper-overlay"></div>
-            <div class="multi-slide-wrapper ">
-                <div class="multi-slideout-container">
-                    <div class="multi-slideout-header">
-                        <div class="slide-out-tabs open"><button
-                                class="slide-out-tab wishlist-tab"><span>Wishlist</span>(0)</button><button
-                                class="slide-out-tab account-tab">My Account</button><button
-                                class="slide-out-tab cart-tab"><span>Bag</span>(0)</button></div><button
-                            class="btn-close"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7.0007 5.5865L11.9504 0.636719L13.3646 2.05093L8.4149 7.0007L13.3646 11.9504L11.9504 13.3646L7.0007 8.4149L2.05093 13.3646L0.636719 11.9504L5.5865 7.0007L0.636719 2.05093L2.05093 0.636719L7.0007 5.5865Z"
-                                    fill="black"></path>
-                            </svg></button>
-                    </div>
-                </div>
-            </div>
             <main class="page" id="maincontent">
                 <a id="contentarea" tabindex="-1"></a>
                 <div class="myaccount-wrap container-width">

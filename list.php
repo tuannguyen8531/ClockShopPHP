@@ -2,6 +2,8 @@
 <html lang="en">
 <?php
     include "config.php";
+    
+    session_start();
     $products_per_page = 9;
     if(isset($_GET['page']) && is_numeric($_GET['page'])){
         $current_page = intval($_GET['page']);
@@ -420,7 +422,7 @@
                                 <div class="category-header">
                                     <div class="category-title-wrap">
                                         <h1 class="category-title">Watches</h1>
-                                        <div class="products-toolbar-filter"><span class="clp-count">53,682
+                                        <div class="products-toolbar-filter"><span class="clp-count"><?= $result->num_rows ?>
                                                 results</span>
                                             <div class="tool-bar">
                                                 <div class="sort-dropdown"><button type="button"
@@ -462,8 +464,8 @@
                                                 </button>
                                                 <a class="productImg-link" href="./detail.php?model=<?=$row['model']?>">
                                                     <span class="productImageRatio">
-                                                        <img alt="<?= $row['name']?>" src="./img/watches/<?= $row['img1']?>" title="<?= $row['name']?>" class="productImg secondProductImg loaded">
-                                                        <img alt="<?= $row['name']?>" src="./img/watches/<?= $row['img2']?>" title="<?= $row['name']?>" class="productImg firstProductImg">
+                                                        <img alt="<?= $row['name']?>" src="./img/watches/<?= $row['img2']==null ? $row['img1'] : $row['img2'] ?>" title="<?= $row['name']?>" class="productImg secondProductImg loaded">
+                                                        <img alt="<?= $row['name']?>" src="./img/watches/<?= $row['img1']?>" title="<?= $row['name']?>" class="productImg firstProductImg">
                                                     </span>
                                                 </a>
                                             </div>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
+    
+    session_start();
+
     if(isset($_GET['model'])) {
         include 'config.php';
 

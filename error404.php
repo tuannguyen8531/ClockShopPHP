@@ -2,7 +2,6 @@
 <html lang="en">
 <?php
     session_start();
-    var_dump($_SESSION['customer']);
 ?>
 <head>
     <meta charset="UTF-8">

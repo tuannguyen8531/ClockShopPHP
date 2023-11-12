@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = $_POST['lastName'];
     $passWord = $_POST['passWord'];
     $confirm = $_POST['confirmPass'];
-    $_SESSION['customer'] ='none';
+    $_SESSION['customer'] = 'none';
     
     $response = []; 
 
