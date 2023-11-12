@@ -6288,7 +6288,7 @@ header .rhs .account-form-link button:focus-visible {
 
 .multi-slide-wrapper {
     border-left: 0;
-    display: none;
+    display: none; 
     height: 100vh;
     max-height: 100vh;
     max-width: 0;
@@ -7468,4 +7468,4 @@ header .rhs .account-form-link button:focus-visible {
     background-color: transparent;
     color: #000;
 }
-                             
+               
