@@ -1241,7 +1241,7 @@ a.banner-link-pPa {
 }
 
 .home-page .cross-sell-wrapper {
-    display: none
+    display: block;
 }
 
 .home-page .today-deal-shop-wrapper {

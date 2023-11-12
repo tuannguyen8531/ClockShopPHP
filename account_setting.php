@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-image-optimizing-origin="" data-media-backend="https://www.jomashop.com/media/">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
