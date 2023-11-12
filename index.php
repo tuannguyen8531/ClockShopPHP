@@ -90,119 +90,114 @@
     <link rel="stylesheet" type="text/css" href="./dist/css/8890.6659a6f809d9fbafb555.bundle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
-    $(document).ready(function() {
-        $("#continue").on("click", function(){
-            let emailC = $("#emailC").val();
-            let email = $("#email_register");
+        $(document).ready(function() {
+            $("#continue").on("click", function(){
+                let emailC = $("#emailC").val();
+                let email = $("#email_register");
 
-            let acRegisterForm = $(".account-register-form");
-            let acLoginForm = $(".account-login-form");
-            let acLoginForm2 = $(".account-login-form-2");
-             
-            console.log(emailC);
-            let errEmailC = $(".errEmailC");
-            $.ajax({
-            url: "checkEmail.php",
-            method: "POST",
-            data: { emailC : emailC},
-            success : function(response){
-                var vc = response; 
-                if (response == "") {
+                let acRegisterForm = $(".account-register-form");
+                let acLoginForm = $(".account-login-form");
+                let acLoginForm2 = $(".account-login-form-2");
+                
+                console.log(emailC);
+                let errEmailC = $(".errEmailC");
+                $.ajax({
+                url: "checkEmail.php",
+                method: "POST",
+                data: { emailC : emailC},
+                success : function(response){
+                    var vc = response; 
+                    if (response == "") {
 
-                    acRegisterForm.css("display", "block");
-                    acLoginForm.css("display", "none");
-                    email.val(emailC);
-                    console.log(email);
-                            
-                }else if (response=="This field is required"){
-                    errEmailC.html("This field is required");  
-                    
-                } else if (response=="Invalid email"){
-                    errEmailC.html("Invalid email");
-                     
-                } else if (response=="Email already exist"){
-                    errEmailC.html("Email already exist");  
-                    acLoginForm.css("display", "none");
-                    acLoginForm2.css("display", "block");
-                } 
-                errEmailC.addClass("root_error");
-            }
+                        acRegisterForm.css("display", "block");
+                        acLoginForm.css("display", "none");
+                        email.val(emailC);
+                        console.log(email);
+                                
+                    }else if (response=="This field is required"){
+                        errEmailC.html("This field is required");  
+                        
+                    } else if (response=="Invalid email"){
+                        errEmailC.html("Invalid email");
+                        
+                    } else if (response=="Email already exist"){
+                        errEmailC.html("Email already exist");  
+                        acLoginForm.css("display", "none");
+                        acLoginForm2.css("display", "block");
+                    } 
+                    errEmailC.addClass("root_error");
+                }
+                });
+
             });
 
-	    });
+            $("#create").on("click", function() {
+                let email = $("#email_register").val();
+                console.log(email);
+                let firstName = $("#first_name").val();
+                let lastName = $("#last_name").val();
+                let passWord = $("#pass_word").val();
+                let confirmPassword = $("#confirm_password").val();
+                let acRegisterForm = $(".account-register-form");
+                
+                let acSignInForm = $(".signin");
+                
+                let errEmail = $(".errEmail");
+                let errFirstName = $(".errFirstName");
+                let errLastName = $(".errLastName");
+                let errPass = $(".errPass");
+                let errConfirm = $(".errConfirm");
 
-        $("#create").on("click", function() {
-            let email = $("#email_register").val();
-            console.log(email);
-            let firstName = $("#first_name").val();
-            let lastName = $("#last_name").val();
-            let passWord = $("#pass_word").val();
-            let confirmPassword = $("#confirm_password").val();
-            let acRegisterForm = $(".account-register-form");
-            
-            let acSignInForm = $(".signin");
-            
-            let errEmail = $(".errEmail");
-            let errFirstName = $(".errFirstName");
-            let errLastName = $(".errLastName");
-            let errPass = $(".errPass");
-            let errConfirm = $(".errConfirm");
+                $.ajax({
+                    url: "RegisterAccCus.php",
+                    method: "POST",
+                    data: { email: email, firstName: firstName, lastName: lastName, passWord: passWord, confirmPass: confirmPassword },
+                    dataType: 'json', // Expect JSON response
+                    success: function(response) {
+                        // Clear previous error messages
+                        errEmail.html("");
+                        errFirstName.html("");
+                        errLastName.html("");
+                        errPass.html("");
+                        errConfirm.html("");
 
-            $.ajax({
-                url: "RegisterAccCus.php",
-                method: "POST",
-                data: { email: email, firstName: firstName, lastName: lastName, passWord: passWord, confirmPass: confirmPassword },
-                dataType: 'json', // Expect JSON response
-                success: function(response) {
-                    // Clear previous error messages
-                    errEmail.html("");
-                    errFirstName.html("");
-                    errLastName.html("");
-                    errPass.html("");
-                    errConfirm.html("");
+                        // Check for specific errors and display messages
+                        if (response.errorEmail) {
+                            errEmail.html(response.errorEmail);
+                            errEmail.addClass("root_error");
+                        }
+                        if (response.errorFirstName) {
+                            errFirstName.html(response.errorFirstName);
+                            errFirstName.addClass("root_error");
+                        }
+                        if (response.errorLastName) {
+                            errLastName.html(response.errorLastName);
+                            errLastName.addClass("root_error");
+                        }
+                        if (response.errorPass) {
+                            errPass.html(response.errorPass);
+                            errPass.addClass("root_error");
+                        }
+                        if (response.errorConfirm) {
+                            errConfirm.html(response.errorConfirm);
+                            errConfirm.addClass("root_error");
+                        }
 
-                    // Check for specific errors and display messages
-                    if (response.errorEmail) {
-                        errEmail.html(response.errorEmail);
-                        errEmail.addClass("root_error");
+                        if (response.success) {
+                            acRegisterForm.css("display", "none");
+                            acSignInForm.css("display", "block");
+                            console.log(response.success);
+                        }
+                        
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error in AJAX request:", status, error);
                     }
-                    if (response.errorFirstName) {
-                        errFirstName.html(response.errorFirstName);
-                        errFirstName.addClass("root_error");
-                    }
-                    if (response.errorLastName) {
-                        errLastName.html(response.errorLastName);
-                        errLastName.addClass("root_error");
-                    }
-                    if (response.errorPass) {
-                        errPass.html(response.errorPass);
-                        errPass.addClass("root_error");
-                    }
-                    if (response.errorConfirm) {
-                        errConfirm.html(response.errorConfirm);
-                        errConfirm.addClass("root_error");
-                    }
-
-                    if (response.success) {
-                        acRegisterForm.css("display", "none");
-                        acSignInForm.css("display", "block");
-                        console.log(response.success);
-                    }
-                    
-                },
-                error: function(xhr, status, error) {
-                    console.log("Error in AJAX request:", status, error);
-                }
+                });
             });
         });
-    });
 
-</script>
-
-
-
-
-
+    </script>
 </head>
 <body id="body" >
     <div id="root" data-react-rendered="true" class="home-page">
@@ -763,8 +758,6 @@
                     </div>
                 </div>
             </div>
-
-
             <main class="page" id="maincontent">
                 <a id="contentarea" tabindex="-1"></a>
                 <div class="click-handler">

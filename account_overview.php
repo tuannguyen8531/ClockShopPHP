@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="./dist/css/5933.cc91bfa41b34ed8acab8.bundle.css">
 </head>
 
-<body data-model-type="CATEGORY" data-model-id="871" data-model-relative-url="watches.html" data-model-redirect-code="0">
+<body id="body">
     <div id="root" data-react-rendered="true" class="plp-page">
         <div class="Main no-sticky" data-render-context="lazy">
             <?php include 'header.php' ?>
