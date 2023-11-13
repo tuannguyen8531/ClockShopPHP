@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insertCus = 'INSERT INTO customers (cusFirstName, cusLastName, cusCompany, cusPhone, cusEmail, cusAdd1, cusAdd2, cusCity, cusState, cusZip, cusCountry, cusAccount) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
         $stmt = $conn->prepare($insertCus);
         $stmt->bind_param("sssssssssssi",$firstName, $lastName,$cusCompany, $cusPhone,$email, $cusAdd1, $cusAdd2, $cusCity, $cusState, $cusZip,$cusCountry, $accId);
-        $stmt->execute(); 
+        
         if (!$stmt->execute()) {
             $response['errorSQL'] = $stmt->error;
         } else {
