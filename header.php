@@ -295,7 +295,7 @@
                                 <li class="menu-item level-1 watches-for-men">
                                     <div class="menu-item-header">
                                         <input class="menu-item-input" aria-label="Men's">
-                                        <a class="levelTop" href="" aria-label="Men's" tabindex="-1">Men's</a>
+                                        <a class="levelTop" href="./list.php?gender=1" aria-label="Men's" tabindex="-1">Men's</a>
                                     </div>
                                     <div class="subCat">
                                         <div class="subCatParent">
@@ -306,7 +306,7 @@
                                 <li class="menu-item level-1 watches-for-women">
                                     <div class="menu-item-header">
                                         <input class="menu-item-input" aria-label="Ladies">
-                                        <a class="levelTop" href="" aria-label="Ladies" tabindex="-1">Ladies</a>
+                                        <a class="levelTop" href="./list.php?gender=0" aria-label="Ladies" tabindex="-1">Ladies</a>
                                     </div>
                                     <div class="subCat">
                                         <div class="subCatParent">

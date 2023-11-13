@@ -234,22 +234,22 @@
                                         <div class="columnGroup-root-Q2r" style="display: flex;">
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./list.php?gender=1">
                                                         <img loading="lazy" alt="watches for men" src="./img/catalog/mens.png" title="watches for men" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px;" width="150" height="150">
                                                     </a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
-                                                    <div><button priority="high" type="button" class="btn btn-primary" style="text-align: center; justify-content: center;">Men's Watches</button></div>
+                                                    <div><button priority="high" type="button" class="btn btn-primary" style="text-align: center; justify-content: center;" onclick="location.href = './list.php?gender=1'">Men's Watches</button></div>
                                                 </div>
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href="">
+                                                    <a href="./list.php?gender=0">
                                                         <img loading="lazy" alt="watches for women" src="./img/catalog/ladies.png" title="watches for women" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0;" width="150" height="150">
                                                     </a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding-bottom: 0px; justify-content: flex-start;">
-                                                    <div><button priority="high" type="button" class="btn btn-primary" style="text-align: center; justify-content: center;">Ladies Watches</button></div>
+                                                    <div><button priority="high" type="button" class="btn btn-primary" style="text-align: center; justify-content: center;" onclick="location.href = './list.php?gender=0'">Ladies Watches</button></div>
                                                 </div>
                                             </div>
                                             <div class="column-root-k2m pagebuilder-column departments-circle-wrapper" style="align-self: stretch; border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; display: flex; flex-direction: column; justify-content: flex-start; margin: 0px; padding: 5px 10px 33px; text-align: center; width: 16.6667%;">
@@ -407,11 +407,11 @@
                                         <div class="columnGroup-root-Q2r" style="display: flex;">
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="watches" src="./img/catalog/mens.png" title="watches"></a>
+                                                    <a href="./list.php?gender=1"><img loading="lazy" alt="watches" src="./img/catalog/mens.png" title="watches"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
-                                                        <button priority="low" type="button" class="btn btn-primary" style="text-align: center; padding: 10px; justify-content: center;">Men's Watches</button>
+                                                        <button priority="low" type="button" class="btn btn-primary" style="text-align: center; padding: 10px; justify-content: center;" onclick="location.href = './list.php?gender=1'">Men's Watches</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -429,11 +429,11 @@
                                         <div class="columnGroup-root-Q2r" style="display: flex;">
                                             <div class="column-root-k2m pagebuilder-column department" style="align-self: stretch; border-style: solid; border-image: initial; display: flex; flex-direction: column; justify-content: center; text-align: left; width: 50%;">
                                                 <div class="" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px;">
-                                                    <a href=""><img loading="lazy" alt="Watches for women" src="./img/catalog/ladies.png" title="Watches for women"></a>
+                                                    <a href="./list.php?gender=0"><img loading="lazy" alt="Watches for women" src="./img/catalog/ladies.png" title="Watches for women"></a>
                                                 </div>
                                                 <div class="buttons-root-nkA buttons-inline-zrH buttons" style="border-width: 1px; border-style: none; border-image: initial; border-radius: 0px; margin: 0px; padding: 0px; justify-content: flex-start;">
                                                     <div>
-                                                        <button priority="low" type="button" class="btn btn-primary" style="text-align: center; padding: 10px; justify-content: center;">Ladies Watches</button>
+                                                        <button priority="low" type="button" class="btn btn-primary" style="text-align: center; padding: 10px; justify-content: center;" onclick="location.href = './list.php?gender=0'">Ladies Watches</button>
                                                     </div>
                                                 </div>
                                             </div>
