@@ -706,6 +706,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./dist/js/detail.js"></script>
-    
+    <script type="text/javascript" src="./dist/js/modal.js"></script>
 </body>
 </html>

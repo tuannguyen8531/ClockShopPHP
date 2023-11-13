@@ -72,6 +72,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $response['success'] = "Registration successful";
             $_SESSION['customer'] = $email;
+       
+            $sql = 'SELECT * FROM customers WHERE cusEmail LIKE ?';
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+            $result = $stmt->get_result()->fetch_assoc();
+            $cusId = $result['cusId'];
+
+            $insertCart = 'INSERT INTO carts (cartCustomerId) VALUES (?)';
+            $stmt = $conn->prepare($insertCart);
+            $stmt->bind_param("i", $cusId);
+            $stmt->execute();
+
         }
     }
 
