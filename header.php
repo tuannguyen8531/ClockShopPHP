@@ -773,224 +773,226 @@
                             <p class="text">You have no items in your shopping bag Let’s go buy something!</p>
                             <button class="btn-new-design primary button-wrap">Continue Shopping</button>
                         </div>
-                        <div class="lhs">
-                            <div class="cart-items-container">
-                                <div class="cart-item-list-wrapper ">
-                                    <div class="cart-item-list">
-                                        <div class="cart-item">
-                                            <div class="cart-item-wrapper">
-                                                <div class="cart-item-image"><a href="/victorinox-alliance-sport-watch-241818.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/v/i/victorinox-alliance-sport-chronograph-grey-dial-mens-watch-241818--.jpg?width=80&amp;height=80" alt="Victorinox Alliance Sport Chronograph Grey Dial Men's Watch 241818"></a></div>
-                                                <div class="cart-item-content">
-                                                    <div class="cart-item-details">
-                                                        <div class="cart-item-info">
-                                                            <div class="cart-item-name"><span class="item-brand-name">Victorinox</span><a href="/victorinox-alliance-sport-watch-241818.html">Alliance Sport Chronograph Grey Dial Men's Watch 241818</a></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cart-item-data">
-                                                        <div class="cart-item-data-inner">
-                                                            <div class="price-wrapper">
-                                                                <div class="discount-wrapper"><span>You saved $326.00</span></div><span class="cart-item-subtotal" data-label="Subtotal">$299.00</span><span class="was-wrapper">$625.00</span>
+                        <div style="display: <?= isset($_SESSION['customer']) ? 'block' : 'none' ?>">
+                            <div class="lhs">
+                                <div class="cart-items-container">
+                                    <div class="cart-item-list-wrapper ">
+                                        <div class="cart-item-list">
+                                            <div class="cart-item">
+                                                <div class="cart-item-wrapper">
+                                                    <div class="cart-item-image"><a href="/victorinox-alliance-sport-watch-241818.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/v/i/victorinox-alliance-sport-chronograph-grey-dial-mens-watch-241818--.jpg?width=80&amp;height=80" alt="Victorinox Alliance Sport Chronograph Grey Dial Men's Watch 241818"></a></div>
+                                                    <div class="cart-item-content">
+                                                        <div class="cart-item-details">
+                                                            <div class="cart-item-info">
+                                                                <div class="cart-item-name"><span class="item-brand-name">Victorinox</span><a href="/victorinox-alliance-sport-watch-241818.html">Alliance Sport Chronograph Grey Dial Men's Watch 241818</a></div>
                                                             </div>
-                                                            <div class="cart-item-data-actions">
-                                                                <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241818" aria-label="quantity">Qty</label>
-                                                                    <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241818" title="Quantity" placeholder="1" name="product-qty" value="1"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
+                                                        </div>
+                                                        <div class="cart-item-data">
+                                                            <div class="cart-item-data-inner">
+                                                                <div class="price-wrapper">
+                                                                    <div class="discount-wrapper"><span>You saved $326.00</span></div><span class="cart-item-subtotal" data-label="Subtotal">$299.00</span><span class="was-wrapper">$625.00</span>
+                                                                </div>
+                                                                <div class="cart-item-data-actions">
+                                                                    <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241818" aria-label="quantity">Qty</label>
+                                                                        <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241818" title="Quantity" placeholder="1" name="product-qty" value="1"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="cart-item-actions">
-                                                        <div class="move-to-wishlist "><a title="Move to Wishlist" href="/victorinox-alliance-sport-watch-241818.html">Move to Wishlist</a></div>
-                                                        <div class="cart-item-action"><span class="cart-item-edit"><a title="Edit" href="/victorinox-alliance-sport-watch-241818.html"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="edit-icon">
-                                                                        <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
-                                                                        <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
-                                                                    </svg>Edit</a></span></div>
-                                                        <div class="save-for-later-sec"><a class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <g opacity="0.5">
-                                                                        <path d="M8.00033 13.3337L13.4418 7.84053C14.0128 7.27219 14.3337 6.50134 14.3337 5.69758C14.3337 4.89382 14.0128 4.12298 13.4418 3.55463C12.8707 2.98629 12.0962 2.66699 11.2886 2.66699C10.481 2.66699 9.70645 2.98629 9.13538 3.55463L8.00033 4.60671L6.86527 3.55463C6.29421 2.98629 5.51968 2.66699 4.71207 2.66699C3.90447 2.66699 3.12994 2.98629 2.55888 3.55463C1.98781 4.12298 1.66699 4.89382 1.66699 5.69758C1.66699 6.50134 1.98781 7.27219 2.55888 7.84053L8.00033 13.3337Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                                    </g>
-                                                                </svg>Move to Favorites</a></div>
-                                                        <div class="cart-item-action"><span class="cart-item-remove"><a title="Remove" class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M12.75 4.5H16.5V6H15V15.75C15 16.1642 14.6642 16.5 14.25 16.5H3.75C3.33579 16.5 3 16.1642 3 15.75V6H1.5V4.5H5.25V2.25C5.25 1.83579 5.58579 1.5 6 1.5H12C12.4142 1.5 12.75 1.83579 12.75 2.25V4.5ZM13.5 6H4.5V15H13.5V6ZM6.75 8.25H8.25V12.75H6.75V8.25ZM9.75 8.25H11.25V12.75H9.75V8.25ZM6.75 3V4.5H11.25V3H6.75Z" fill="black"></path>
-                                                                    </svg></a></span></div>
+                                                        <div class="cart-item-actions">
+                                                            <div class="move-to-wishlist "><a title="Move to Wishlist" href="/victorinox-alliance-sport-watch-241818.html">Move to Wishlist</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-edit"><a title="Edit" href="/victorinox-alliance-sport-watch-241818.html"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="edit-icon">
+                                                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                                                        </svg>Edit</a></span></div>
+                                                            <div class="save-for-later-sec"><a class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <g opacity="0.5">
+                                                                            <path d="M8.00033 13.3337L13.4418 7.84053C14.0128 7.27219 14.3337 6.50134 14.3337 5.69758C14.3337 4.89382 14.0128 4.12298 13.4418 3.55463C12.8707 2.98629 12.0962 2.66699 11.2886 2.66699C10.481 2.66699 9.70645 2.98629 9.13538 3.55463L8.00033 4.60671L6.86527 3.55463C6.29421 2.98629 5.51968 2.66699 4.71207 2.66699C3.90447 2.66699 3.12994 2.98629 2.55888 3.55463C1.98781 4.12298 1.66699 4.89382 1.66699 5.69758C1.66699 6.50134 1.98781 7.27219 2.55888 7.84053L8.00033 13.3337Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                        </g>
+                                                                    </svg>Move to Favorites</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-remove"><a title="Remove" class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M12.75 4.5H16.5V6H15V15.75C15 16.1642 14.6642 16.5 14.25 16.5H3.75C3.33579 16.5 3 16.1642 3 15.75V6H1.5V4.5H5.25V2.25C5.25 1.83579 5.58579 1.5 6 1.5H12C12.4142 1.5 12.75 1.83579 12.75 2.25V4.5ZM13.5 6H4.5V15H13.5V6ZM6.75 8.25H8.25V12.75H6.75V8.25ZM9.75 8.25H11.25V12.75H9.75V8.25ZM6.75 3V4.5H11.25V3H6.75Z" fill="black"></path>
+                                                                        </svg></a></span></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="cart-item">
-                                            <div class="cart-item-wrapper">
-                                                <div class="cart-item-image"><a href="/victorinox-alliance-sport-watch-241819.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/v/i/victorinox-alliance-sport-chronograph-quartz-white-dial-mens-watch-241819.jpg?width=80&amp;height=80" alt="Victorinox Alliance Sport Chronograph Quartz White Dial Men's Watch 241819"></a></div>
-                                                <div class="cart-item-content">
-                                                    <div class="cart-item-details">
-                                                        <div class="cart-item-info">
-                                                            <div class="cart-item-name"><span class="item-brand-name">Victorinox</span><a href="/victorinox-alliance-sport-watch-241819.html">Alliance Sport Chronograph Quartz White Dial Men's Watch 241819</a></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cart-item-data">
-                                                        <div class="cart-item-data-inner">
-                                                            <div class="price-wrapper">
-                                                                <div class="discount-wrapper"><span>You saved $351.00</span></div><span class="cart-item-subtotal" data-label="Subtotal">$224.00</span><span class="was-wrapper">$575.00</span>
-                                                                <div class="coupon-tag"><span>$45.00 coupon</span></div>
+                                            <div class="cart-item">
+                                                <div class="cart-item-wrapper">
+                                                    <div class="cart-item-image"><a href="/victorinox-alliance-sport-watch-241819.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/v/i/victorinox-alliance-sport-chronograph-quartz-white-dial-mens-watch-241819.jpg?width=80&amp;height=80" alt="Victorinox Alliance Sport Chronograph Quartz White Dial Men's Watch 241819"></a></div>
+                                                    <div class="cart-item-content">
+                                                        <div class="cart-item-details">
+                                                            <div class="cart-item-info">
+                                                                <div class="cart-item-name"><span class="item-brand-name">Victorinox</span><a href="/victorinox-alliance-sport-watch-241819.html">Alliance Sport Chronograph Quartz White Dial Men's Watch 241819</a></div>
                                                             </div>
-                                                            <div class="cart-item-data-actions">
-                                                                <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241819" aria-label="quantity">Qty</label>
-                                                                    <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241819" title="Quantity" placeholder="1" name="product-qty" value="1"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
+                                                        </div>
+                                                        <div class="cart-item-data">
+                                                            <div class="cart-item-data-inner">
+                                                                <div class="price-wrapper">
+                                                                    <div class="discount-wrapper"><span>You saved $351.00</span></div><span class="cart-item-subtotal" data-label="Subtotal">$224.00</span><span class="was-wrapper">$575.00</span>
+                                                                    <div class="coupon-tag"><span>$45.00 coupon</span></div>
+                                                                </div>
+                                                                <div class="cart-item-data-actions">
+                                                                    <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241819" aria-label="quantity">Qty</label>
+                                                                        <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241819" title="Quantity" placeholder="1" name="product-qty" value="1"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="cart-item-actions">
-                                                        <div class="move-to-wishlist "><a title="Move to Wishlist" href="/victorinox-alliance-sport-watch-241818.html">Move to Wishlist</a></div>
-                                                        <div class="cart-item-action"><span class="cart-item-edit"><a title="Edit" href="/victorinox-alliance-sport-watch-241818.html"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="edit-icon">
-                                                                        <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
-                                                                        <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
-                                                                    </svg>Edit</a></span></div>
-                                                        <div class="save-for-later-sec"><a class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <g opacity="0.5">
-                                                                        <path d="M8.00033 13.3337L13.4418 7.84053C14.0128 7.27219 14.3337 6.50134 14.3337 5.69758C14.3337 4.89382 14.0128 4.12298 13.4418 3.55463C12.8707 2.98629 12.0962 2.66699 11.2886 2.66699C10.481 2.66699 9.70645 2.98629 9.13538 3.55463L8.00033 4.60671L6.86527 3.55463C6.29421 2.98629 5.51968 2.66699 4.71207 2.66699C3.90447 2.66699 3.12994 2.98629 2.55888 3.55463C1.98781 4.12298 1.66699 4.89382 1.66699 5.69758C1.66699 6.50134 1.98781 7.27219 2.55888 7.84053L8.00033 13.3337Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                                    </g>
-                                                                </svg>Move to Favorites</a></div>
-                                                        <div class="cart-item-action"><span class="cart-item-remove"><a title="Remove" class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M12.75 4.5H16.5V6H15V15.75C15 16.1642 14.6642 16.5 14.25 16.5H3.75C3.33579 16.5 3 16.1642 3 15.75V6H1.5V4.5H5.25V2.25C5.25 1.83579 5.58579 1.5 6 1.5H12C12.4142 1.5 12.75 1.83579 12.75 2.25V4.5ZM13.5 6H4.5V15H13.5V6ZM6.75 8.25H8.25V12.75H6.75V8.25ZM9.75 8.25H11.25V12.75H9.75V8.25ZM6.75 3V4.5H11.25V3H6.75Z" fill="black"></path>
-                                                                    </svg></a></span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rhs-cart">
-                            <div class="coupon-form ">
-                                <div class="discount-coupon-form accordion-wrapper">
-                                    <div class="collapsible-wrapper false">
-                                        <div class="collapsible-header"><button class="collapsible-toggle" type="button" aria-expanded="true" tabindex="-1">
-                                                <div class="collapsible-title">Apply Code</div>
-                                                <div class="collapsible-arrow-wrapper" tabindex="0"><span class="collapsible-arrow"></span></div>
-                                            </button></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shipping-form">
-                                <div class="accordion-wrapper">
-                                    <div class="collapsible-wrapper false">
-                                        <div class="collapsible-header"><button class="collapsible-toggle" type="button" aria-expanded="true" tabindex="-1">
-                                                <div class="collapsible-title">Estimate Shipping</div>
-                                                <div class="collapsible-arrow-wrapper" tabindex="0"><span class="collapsible-arrow"></span></div>
-                                            </button></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="summary-wrapper ">
-                                <div class="summary-block">
-                                    <div class="cart-subtotal">
-                                        <div class="row">
-                                            <div class="col-left">Item(s) total</div>
-                                            <div class="col-right cart-subtotal-value">$568.00</div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-savings">
-                                        <div class="row">
-                                            <div class="col-left">Savings</div>
-                                            <div class="col-right cart-savings-value">56%</div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-tax">
-                                        <div class="row">
-                                            <div class="col-left">Tax </div>
-                                            <div class="col-right"><span><i>calculated in checkout</i></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-discount">
-                                        <div class="row">
-                                            <div class="col-left">Discount <span class="rmv-coupon">"VIC45"<a>X</a></span></div>
-                                            <div class="col-right cart-discount-value">-$45.00</div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-grand-total">
-                                        <div class="row">
-                                            <div class="col-left"><b>Total</b></div>
-                                            <div class="col-right cart-discount-value"><b>$523.00</b></div>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-wrapper shipping-active">
-                                        <div class="shipping-message"><svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                                <g clip-path="url(#clip0_2510_63950)">
-                                                    <path d="M6.72375 13.5C6.63459 14.1257 6.32266 14.6983 5.84526 15.1125C5.36786 15.5267 4.75704 15.7547 4.125 15.7547C3.49296 15.7547 2.88214 15.5267 2.40474 15.1125C1.92734 14.6983 1.61541 14.1257 1.52625 13.5H0.75V4.5C0.75 4.30109 0.829018 4.11032 0.96967 3.96967C1.11032 3.82902 1.30109 3.75 1.5 3.75H12C12.1989 3.75 12.3897 3.82902 12.5303 3.96967C12.671 4.11032 12.75 4.30109 12.75 4.5V6H15L17.25 9.042V13.5H15.7238C15.6346 14.1257 15.3227 14.6983 14.8453 15.1125C14.3679 15.5267 13.757 15.7547 13.125 15.7547C12.493 15.7547 11.8821 15.5267 11.4047 15.1125C10.9273 14.6983 10.6154 14.1257 10.5263 13.5H6.72375ZM11.25 5.25H2.25V11.2875C2.54592 10.9854 2.91045 10.7593 3.31257 10.6283C3.71468 10.4974 4.14247 10.4656 4.55953 10.5355C4.9766 10.6055 5.37058 10.7752 5.70796 11.0302C6.04533 11.2852 6.31611 11.6179 6.49725 12H10.7528C10.8788 11.7353 11.0475 11.4945 11.25 11.2875V5.25ZM12.75 9.75H15.75V9.53625L14.244 7.5H12.75V9.75ZM13.125 14.25C13.4235 14.25 13.7097 14.1314 13.9208 13.9204C14.1318 13.7093 14.2504 13.4231 14.2504 13.1246C14.2504 12.8262 14.1318 12.5399 13.9208 12.3289C13.7097 12.1178 13.4235 11.9993 13.125 11.9993C12.8265 11.9993 12.5403 12.1178 12.3292 12.3289C12.1182 12.5399 11.9996 12.8262 11.9996 13.1246C11.9996 13.4231 12.1182 13.7093 12.3292 13.9204C12.5403 14.1314 12.8265 14.25 13.125 14.25ZM5.25 13.125C5.25 12.9773 5.2209 12.831 5.16437 12.6945C5.10783 12.558 5.02496 12.434 4.9205 12.3295C4.81603 12.225 4.69201 12.1422 4.55552 12.0856C4.41903 12.0291 4.27274 12 4.125 12C3.97726 12 3.83097 12.0291 3.69448 12.0856C3.55799 12.1422 3.43397 12.225 3.32951 12.3295C3.22504 12.434 3.14217 12.558 3.08564 12.6945C3.0291 12.831 3 12.9773 3 13.125C3 13.4234 3.11853 13.7095 3.32951 13.9205C3.54048 14.1315 3.82663 14.25 4.125 14.25C4.42337 14.25 4.70952 14.1315 4.9205 13.9205C5.13147 13.7095 5.25 13.4234 5.25 13.125Z" fill="black" stroke="#F5F5F5" stroke-width="0.3"></path>
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_2510_63950">
-                                                        <rect width="18" height="18" fill="white"></rect>
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-                                            <div class="tooltip-wrapper"><strong>Congratulations! You've got free USA shipping</strong>
-                                                <div class="tooltip-overlay-wrapper">
-                                                    <div class="tooltip-overlay">
-                                                        <div class="tooltip-dropdown"><span class="tooltip-text">Orders over $100 are automatically Eligible for Free Shipping (Contiguous USA Only)</span></div>
+                                                        <div class="cart-item-actions">
+                                                            <div class="move-to-wishlist "><a title="Move to Wishlist" href="/victorinox-alliance-sport-watch-241818.html">Move to Wishlist</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-edit"><a title="Edit" href="/victorinox-alliance-sport-watch-241818.html"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="edit-icon">
+                                                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                                                        </svg>Edit</a></span></div>
+                                                            <div class="save-for-later-sec"><a class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <g opacity="0.5">
+                                                                            <path d="M8.00033 13.3337L13.4418 7.84053C14.0128 7.27219 14.3337 6.50134 14.3337 5.69758C14.3337 4.89382 14.0128 4.12298 13.4418 3.55463C12.8707 2.98629 12.0962 2.66699 11.2886 2.66699C10.481 2.66699 9.70645 2.98629 9.13538 3.55463L8.00033 4.60671L6.86527 3.55463C6.29421 2.98629 5.51968 2.66699 4.71207 2.66699C3.90447 2.66699 3.12994 2.98629 2.55888 3.55463C1.98781 4.12298 1.66699 4.89382 1.66699 5.69758C1.66699 6.50134 1.98781 7.27219 2.55888 7.84053L8.00033 13.3337Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                        </g>
+                                                                    </svg>Move to Favorites</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-remove"><a title="Remove" class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M12.75 4.5H16.5V6H15V15.75C15 16.1642 14.6642 16.5 14.25 16.5H3.75C3.33579 16.5 3 16.1642 3 15.75V6H1.5V4.5H5.25V2.25C5.25 1.83579 5.58579 1.5 6 1.5H12C12.4142 1.5 12.75 1.83579 12.75 2.25V4.5ZM13.5 6H4.5V15H13.5V6ZM6.75 8.25H8.25V12.75H6.75V8.25ZM9.75 8.25H11.25V12.75H9.75V8.25ZM6.75 3V4.5H11.25V3H6.75Z" fill="black"></path>
+                                                                        </svg></a></span></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="shipping-progress">
-                                            <div class="progress-line">
-                                                <div class="progress-current" style="width: 523%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rhs-cart">
+                                <div class="coupon-form ">
+                                    <div class="discount-coupon-form accordion-wrapper">
+                                        <div class="collapsible-wrapper false">
+                                            <div class="collapsible-header"><button class="collapsible-toggle" type="button" aria-expanded="true" tabindex="-1">
+                                                    <div class="collapsible-title">Apply Code</div>
+                                                    <div class="collapsible-arrow-wrapper" tabindex="0"><span class="collapsible-arrow"></span></div>
+                                                </button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shipping-form">
+                                    <div class="accordion-wrapper">
+                                        <div class="collapsible-wrapper false">
+                                            <div class="collapsible-header"><button class="collapsible-toggle" type="button" aria-expanded="true" tabindex="-1">
+                                                    <div class="collapsible-title">Estimate Shipping</div>
+                                                    <div class="collapsible-arrow-wrapper" tabindex="0"><span class="collapsible-arrow"></span></div>
+                                                </button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summary-wrapper ">
+                                    <div class="summary-block">
+                                        <div class="cart-subtotal">
+                                            <div class="row">
+                                                <div class="col-left">Item(s) total</div>
+                                                <div class="col-right cart-subtotal-value">$568.00</div>
                                             </div>
-                                            <p class="progress-label">$0</p>
-                                            <p class="progress-label">$100</p>
+                                        </div>
+                                        <div class="cart-savings">
+                                            <div class="row">
+                                                <div class="col-left">Savings</div>
+                                                <div class="col-right cart-savings-value">56%</div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-tax">
+                                            <div class="row">
+                                                <div class="col-left">Tax </div>
+                                                <div class="col-right"><span><i>calculated in checkout</i></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-discount">
+                                            <div class="row">
+                                                <div class="col-left">Discount <span class="rmv-coupon">"VIC45"<a>X</a></span></div>
+                                                <div class="col-right cart-discount-value">-$45.00</div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-grand-total">
+                                            <div class="row">
+                                                <div class="col-left"><b>Total</b></div>
+                                                <div class="col-right cart-discount-value"><b>$523.00</b></div>
+                                            </div>
+                                        </div>
+                                        <div class="shipping-wrapper shipping-active">
+                                            <div class="shipping-message"><svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                                    <g clip-path="url(#clip0_2510_63950)">
+                                                        <path d="M6.72375 13.5C6.63459 14.1257 6.32266 14.6983 5.84526 15.1125C5.36786 15.5267 4.75704 15.7547 4.125 15.7547C3.49296 15.7547 2.88214 15.5267 2.40474 15.1125C1.92734 14.6983 1.61541 14.1257 1.52625 13.5H0.75V4.5C0.75 4.30109 0.829018 4.11032 0.96967 3.96967C1.11032 3.82902 1.30109 3.75 1.5 3.75H12C12.1989 3.75 12.3897 3.82902 12.5303 3.96967C12.671 4.11032 12.75 4.30109 12.75 4.5V6H15L17.25 9.042V13.5H15.7238C15.6346 14.1257 15.3227 14.6983 14.8453 15.1125C14.3679 15.5267 13.757 15.7547 13.125 15.7547C12.493 15.7547 11.8821 15.5267 11.4047 15.1125C10.9273 14.6983 10.6154 14.1257 10.5263 13.5H6.72375ZM11.25 5.25H2.25V11.2875C2.54592 10.9854 2.91045 10.7593 3.31257 10.6283C3.71468 10.4974 4.14247 10.4656 4.55953 10.5355C4.9766 10.6055 5.37058 10.7752 5.70796 11.0302C6.04533 11.2852 6.31611 11.6179 6.49725 12H10.7528C10.8788 11.7353 11.0475 11.4945 11.25 11.2875V5.25ZM12.75 9.75H15.75V9.53625L14.244 7.5H12.75V9.75ZM13.125 14.25C13.4235 14.25 13.7097 14.1314 13.9208 13.9204C14.1318 13.7093 14.2504 13.4231 14.2504 13.1246C14.2504 12.8262 14.1318 12.5399 13.9208 12.3289C13.7097 12.1178 13.4235 11.9993 13.125 11.9993C12.8265 11.9993 12.5403 12.1178 12.3292 12.3289C12.1182 12.5399 11.9996 12.8262 11.9996 13.1246C11.9996 13.4231 12.1182 13.7093 12.3292 13.9204C12.5403 14.1314 12.8265 14.25 13.125 14.25ZM5.25 13.125C5.25 12.9773 5.2209 12.831 5.16437 12.6945C5.10783 12.558 5.02496 12.434 4.9205 12.3295C4.81603 12.225 4.69201 12.1422 4.55552 12.0856C4.41903 12.0291 4.27274 12 4.125 12C3.97726 12 3.83097 12.0291 3.69448 12.0856C3.55799 12.1422 3.43397 12.225 3.32951 12.3295C3.22504 12.434 3.14217 12.558 3.08564 12.6945C3.0291 12.831 3 12.9773 3 13.125C3 13.4234 3.11853 13.7095 3.32951 13.9205C3.54048 14.1315 3.82663 14.25 4.125 14.25C4.42337 14.25 4.70952 14.1315 4.9205 13.9205C5.13147 13.7095 5.25 13.4234 5.25 13.125Z" fill="black" stroke="#F5F5F5" stroke-width="0.3"></path>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_2510_63950">
+                                                            <rect width="18" height="18" fill="white"></rect>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                                <div class="tooltip-wrapper"><strong>Congratulations! You've got free USA shipping</strong>
+                                                    <div class="tooltip-overlay-wrapper">
+                                                        <div class="tooltip-overlay">
+                                                            <div class="tooltip-dropdown"><span class="tooltip-text">Orders over $100 are automatically Eligible for Free Shipping (Contiguous USA Only)</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shipping-progress">
+                                                <div class="progress-line">
+                                                    <div class="progress-current" style="width: 523%;"></div>
+                                                </div>
+                                                <p class="progress-label">$0</p>
+                                                <p class="progress-label">$100</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="button-sticky-wrap"><button class="btn-new-design primary"><span class="text-co">Checkout </span><span class="btn-co">$523.00</span></button>
-                            <p class="checkout-with">or checkout with</p>
-                            <div class="button-wrap">
-                                <div class="paypal-button">
-                                    <div class="paypal-payment-button">
-                                        <div class=" undefined"></div><a id="paypal-payment-button" href="#" class=""><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal"></a>
-                                    </div>
-                                </div>
-                                <div class="amazon-pay-button">
-                                    <div class="amazon-button amazonpay-button-parent-container-checkout-A2TPIY28J6VK2X" id="AmazonPayButton" role="button" aria-label="Amazon Pay - Use your Amazon account" title="Pay using the information already stored in your Amazon account" style="height: 45px; position: relative; width: 166.5px;">
-                                        <div class="amazonpay-button-container amazonpay-button-enabled amazonpay-button-container-rows-affirm" id="maxo-button-wrapper-1699883603458">
-                                            <div class="amazonpay-button-view1 amazonpay-button-view1-gold" tabindex="0">
-                                                <picture class="amazonpay-button-logo"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/PWA_dark-en_US._CB620220074_.svg"></picture>
-                                                <picture class="amazonpay-button-chevrons"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/AmazonPay_button_chevron._CB1558391205_.svg"></picture>
-                                            </div>
-                                            <div class="amazonpay-button-view2"></div>
-                                            <div class="amazonpay-button-view3">
-                                                <div class="ala-sm"><span>As low as $48/mo </span><img src="https://cdn-assets.affirm.com/images/black_logo-white_bg.svg"></div>
-                                            </div>
+                            <div class="button-sticky-wrap"><button class="btn-new-design primary"><span class="text-co">Checkout </span><span class="btn-co">$523.00</span></button>
+                                <p class="checkout-with">or checkout with</p>
+                                <div class="button-wrap">
+                                    <div class="paypal-button">
+                                        <div class="paypal-payment-button">
+                                            <div class=" undefined"></div><a id="paypal-payment-button" href="#" class=""><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal"></a>
                                         </div>
-                                
                                     </div>
+                                    <div class="amazon-pay-button">
+                                        <div class="amazon-button amazonpay-button-parent-container-checkout-A2TPIY28J6VK2X" id="AmazonPayButton" role="button" aria-label="Amazon Pay - Use your Amazon account" title="Pay using the information already stored in your Amazon account" style="height: 45px; position: relative; width: 166.5px;">
+                                            <div class="amazonpay-button-container amazonpay-button-enabled amazonpay-button-container-rows-affirm" id="maxo-button-wrapper-1699883603458">
+                                                <div class="amazonpay-button-view1 amazonpay-button-view1-gold" tabindex="0">
+                                                    <picture class="amazonpay-button-logo"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/PWA_dark-en_US._CB620220074_.svg"></picture>
+                                                    <picture class="amazonpay-button-chevrons"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/AmazonPay_button_chevron._CB1558391205_.svg"></picture>
+                                                </div>
+                                                <div class="amazonpay-button-view2"></div>
+                                                <div class="amazonpay-button-view3">
+                                                    <div class="ala-sm"><span>As low as $48/mo </span><img src="https://cdn-assets.affirm.com/images/black_logo-white_bg.svg"></div>
+                                                </div>
+                                            </div>
+                                    
+                                        </div>
 
-                                    <div class="amazon-button" id="AmazonPayButton"></div>
-                                </div>
-                                <div class="google-pay-button">
-                                    <div>
-                                        <div id="google-pay-container">
-                                            <div class="gpay-card-info-container-fill">
-                                                <button type="button" aria-label="Buy with GPay" class="gpay-card-info-container black long en">
-                                                    <div class="gpay-card-info-animation-container black gpay-card-info-animation-container-fade-out">
-                                                        <div class="gpay-card-info-placeholder-container">
-                                                            <div class="gpay-card-info-animation-gpay-logo black"></div>
-                                                            <div class="gpay-card-info-placeholder-svg-container"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" direction="ltr" viewBox="0 0 130 36">
-                                                                    <style>
-                                                                        @import url(//fonts.googleapis.com/css?family=Google+Sans:500)
-                                                                    </style>
-                                                                    <line x1="8" y1="7" x2="8" y2="26" style="stroke: #5f6368; stroke-width:2"></line>
-                                                                    <image x="16" y="2.5" width="37.5" height="29" preserveAspectRatio="none" xlink:href="https://www.gstatic.com/images/icons/material/system/1x/payment_white_36dp.png"></image><text x="57" y="22" class="small" style="font: 15px 'Google Sans', sans-serif; fill: #fff">••••••</text>
-                                                                </svg></div>
-                                                        </div>
-                                                        <div class="gpay-card-info-animated-progress-bar-container">
-                                                            <div class="gpay-card-info-animated-progress-bar">
-                                                                <div class="gpay-card-info-animated-progress-bar-indicator"></div>
+                                        <div class="amazon-button" id="AmazonPayButton"></div>
+                                    </div>
+                                    <div class="google-pay-button">
+                                        <div>
+                                            <div id="google-pay-container">
+                                                <div class="gpay-card-info-container-fill">
+                                                    <button type="button" aria-label="Buy with GPay" class="gpay-card-info-container black long en">
+                                                        <div class="gpay-card-info-animation-container black gpay-card-info-animation-container-fade-out">
+                                                            <div class="gpay-card-info-placeholder-container">
+                                                                <div class="gpay-card-info-animation-gpay-logo black"></div>
+                                                                <div class="gpay-card-info-placeholder-svg-container"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" direction="ltr" viewBox="0 0 130 36">
+                                                                        <style>
+                                                                            @import url(//fonts.googleapis.com/css?family=Google+Sans:500)
+                                                                        </style>
+                                                                        <line x1="8" y1="7" x2="8" y2="26" ></line>
+                                                                        <image x="16" y="2.5" width="37.5" height="29" preserveAspectRatio="none" xlink:href="https://www.gstatic.com/images/icons/material/system/1x/payment_white_36dp.png"></image><text x="57" y="22" class="small">••••••</text>
+                                                                    </svg></div>
                                                             </div>
-                                                        </div>
-                                                    </div><iframe class="gpay-card-info-iframe gpay-card-info-iframe-fade-in" scrolling="no" src="https://pay.google.com/gp/p/generate_gpay_btn_img?buttonColor=black&amp;browserLocale=en&amp;buttonSizeMode=fill&amp;enableGpayNewButtonAsset=false"></iframe>
-                                                </button>
+                                                            <div class="gpay-card-info-animated-progress-bar-container">
+                                                                <div class="gpay-card-info-animated-progress-bar">
+                                                                    <div class="gpay-card-info-animated-progress-bar-indicator"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div><iframe class="gpay-card-info-iframe gpay-card-info-iframe-fade-in" scrolling="no" src="https://pay.google.com/gp/p/generate_gpay_btn_img?buttonColor=black&amp;browserLocale=en&amp;buttonSizeMode=fill&amp;enableGpayNewButtonAsset=false"></iframe>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
