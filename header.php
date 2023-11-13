@@ -59,6 +59,7 @@
             $("#continue").on("click", function(){
                 let emailC = $("#emailC").val();
                 let email = $("#email_register");
+                let emailLogin = $("#email_address");
 
                 let acRegisterForm = $(".account-register-form");
                 let acLoginForm = $(".account-login-form");
@@ -87,6 +88,8 @@
                         
                     } else if (response=="Email already exist"){
                         errEmailC.html("Email already exist");  
+                        emailLogin.val(emailC);
+        
                         acLoginForm.css("display", "none");
                         acLoginForm2.css("display", "block");
                     } 
@@ -160,6 +163,53 @@
                     }
                 });
             });
+
+            $("#login").on("click", function() {
+                let emailLogin = $("#email_address").val();
+                console.log(emailLogin);
+                let passLogin = $("#password").val();              
+                let acSignInForm = $(".signin");
+                
+                let errEmailLogin = $(".errEmailLogin");
+                let errPassLogin = $(".errPassLogin");
+                let acLoginForm2 = $(".account-login-form-2");
+
+                $.ajax({
+                    url: "LoginAccCus.php",
+                    method: "POST",
+                    data: { emailLogin: emailLogin, passLogin: passLogin},
+                    dataType: 'json', // Expect JSON response
+                    success: function(response) {
+                        // Clear previous error messages
+                        errEmailLogin.html("");
+                        errPassLogin.html("");
+
+                        // Check for specific errors and display messages
+                        if (response.errorEmailLogin) {
+                            errEmailLogin.html(response.errorEmailLogin);
+                            errEmailLogin.addClass("root_error");
+                        }
+    
+                        if (response.errorPassLogin) {
+                            errPassLogin.html(response.errorPassLogin);
+                            errPassLogin.addClass("root_error");
+                        }
+      
+
+                        if (response.success) {
+                            acLoginForm2.css("display", "none");
+                            acSignInForm.css("display", "block");
+                            location.reload();
+                        }
+                        
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error in AJAX request:", status, error);
+                    }
+                });
+            });
+
+          
         });
 
     </script>
@@ -460,7 +510,7 @@
                                         <span class="after"></span>
                                     </div>
                                     <span class="message-root">
-                                        <p class="errEmailC"  > <?php if (isset($errEmailC)) echo $errEmailC;?></p>
+                                        <p class="errEmailC"></p>
                                     </span>
                                 </div>
                                 <div class="actions-toolbar">
@@ -469,15 +519,7 @@
                             </form>
                         </div>
                         <div aria-labelledby="account-register-form-heading" class="account-register-form account-form-wrapper"
-                            style="display: none; <?php  
-                                // if (isset($_POST['continue']) and $errEmailC=="") {
-                                //     echo "display:block";
-                                // } else {
-                                    
-                                //     echo "display:none";
-                                // }  
-                                // echo $emailC;            
-                                ?>">
+                            style="display: none;">
                             <div class="welcome">Welcome!</div>
                             <div class="title">Add password to create your account</div>
                             <form method="post">
@@ -492,7 +534,7 @@
                                         <span class="after"></span>
                                     </div>
                                     <span class="message-root"> 
-                                        <p class="errEmail"> <?php if (isset($errEmail)) echo $errEmail;?></p>
+                                        <p class="errEmail"></p>
                                     </span>
                                 </div>
                                 <div class="field-wrapper  can-focus  ">
@@ -505,7 +547,7 @@
                                         <span class="after"></span>
                                     </div>
                                     <span class="message-root">
-                                        <p class="errFirstName"><?php if (isset($errFirstName)) echo $errFirstName;?></p>
+                                        <p class="errFirstName"></p>
                                     </span>
                                 </div>
                                 <div class="field-wrapper  can-focus  ">
@@ -518,7 +560,7 @@
                                         <span class="after"></span>
                                     </div>
                                     <span class="message-root">
-                                        <p class="errLastName"> <?php if (isset($errLastName)) echo $errLastName;?></p>
+                                        <p class="errLastName"></p>
                                     </span>
                                 </div>
                                 <div class="ReactPasswordStrength input-password-wrapper is-strength-null">
@@ -528,11 +570,7 @@
                                         </label>
                                         <input type="password" class="ReactPasswordStrength-input input-password" autocomplete="off" placeholder="Password" id="pass_word" name="password" value="<?php if (isset($passWord)) echo $passWord ?>" style="transition: none 0s ease 0s;">
                                         <span class="message-root">
-                                            <p class="errPass" > 
-                                                <?php 
-                                                    if (isset($errPass)) echo $errPass;
-                                                ?>
-                                            </p>
+                                            <p class="errPass"></p>
                                         </span>
                                     </div>
                                     <div class="ReactPasswordStrength-strength-bar"></div>
@@ -547,7 +585,7 @@
                                         <span class="after"></span>
                                     </div>
                                     <span class="message-root">
-                                            <p class="errConfirm"> </p>
+                                            <p class="errConfirm"></p>
                                     </span>
                                 </div>
                                 <div></div>
@@ -570,35 +608,8 @@
                                 <button class="btn-new-design link" title="Sign In">Sign In</button>
                             </div>
                         </div>
-                        <?php 
-                            if (isset($_POST['login'])) {
-                                $passLogin = $_POST['passLogin'];
-                                $emailLogin = $_POST['emailLogin'];
-                                $sqlLogin = 'SELECT * FROM accounts WHERE accUsername = ?';
-                                $stmt = $conn->prepare($sqlLogin);
-                                $stmt->bind_param('s', $emailLogin);
-                                $stmt->execute();
-                                $result = $stmt->get_result();
-                                if($result->num_rows==0) {
-                                    
-                                } else {
-                                    $acc = $result->fetch_assoc();
-                                    if(password_verify($passLogin, $acc['accPassword'])) {
-                                        $_SESSION['customer'] = $emailLogin;
-                                        echo("<meta http-equiv='refresh' content='0'>");
-                                    }
-                                }
-                            }
-                        ?>
                         <div aria-labelledby="account-login-form-heading" class="account-login-form account-login-form-2 account-form-wrapper" 
-                            style="<?php 
-                                        if (isset($_POST['continue']) and $errEmailC == "Email already exist") {
-                                            echo "display:block";
-                                        } else {
-                                            echo "display:none";
-                                        }                    
-                                    ?>"     
-                            >
+                            style="display:none">
                             <div id="account-login-form-heading" class="customer exist"><span>Enter your password to continue</span></div>
                             <form method="post">
                                 <div class="field-wrapper  can-focus  ">
@@ -611,7 +622,7 @@
                                         <span class="after"></span>
                                     </div>
                                     <span class="message-root">
-                                        <p class="root"></p>
+                                        <p class="errEmailLogin"></p>
                                     </span>
                                 </div>
                                 <div class="field-wrapper  can-focus  ">
@@ -619,20 +630,16 @@
                                     <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
                                         <span class="input-block" style="position: relative;">
                                             <input class="input-box-new-design" field="password" type="password" autocomplete="new-password" placeholder="Password" id="password" aria-required="true" value="" name="passLogin" style="width: 290px !important; margin-right: 78px !important; transition: none 0s ease 0s;">
-                                            <!-- <ownid-win-button-widget data-or="or" position="end" height="44" language="en" tabindex="0" style="--ownid-button-widget-background: #FFFFFF; --ownid-button-widget-color: #0070F2; --ownid-button-widget-border-color: #000000; opacity: 1; height: 44px; --ownid-qr-or-width: 24px; top: 0px; left: 300px;">Skip Password
-                                                    <ownid-tooltip-expandable slot="tooltip" position="bottom" arrow-position="right" data-title="Sign-in faster without a password" data-details-title="Sign-in faster without a password" data-details-description="Sign in securely with your device’s unlock method, when available, or by scanning a QR code. Biometric data never leaves your device." data-c="Close" data-mi="More info" style="--ownid-tooltip-arrow-bg-color: var(--ownid-tooltip-bg-color); --ownid-tooltip-arrow-horizontal-pos: 22px;">
-                                                </ownid-tooltip-expandable>
-                                            </ownid-win-button-widget> -->
                                         </span>
                                         <span class="before"></span>
                                         <span class="after"></span>
                                     </div>
                                     <span class="message-root">
-                                        <p class="root"></p>
+                                        <p class="errPassLogin"></p>
                                     </span>
                                 </div>
                                 <div class="actions-toolbar">
-                                    <button class="btn-new-design primary" type="submit" name="login">Sign In</button>
+                                    <button class="btn-new-design primary" type="button" name="login" id="login">Sign In</button>
                                     <div></div>
                                     <a title="Forgot password?" class="forgot-password-link" href="/">Forgot password?</a>
                                 </div>
