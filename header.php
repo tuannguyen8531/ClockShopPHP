@@ -56,15 +56,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+        let acLoginForm = $(".account-login-form-1");
+        let acLoginForm2 = $(".account-login-form-2");
+        let acRegisterForm = $(".account-register-form");
+        let acSignInForm = $(".signin");
             $("#continue").on("click", function(){
                 let emailC = $("#emailC").val();
                 let email = $("#email_register");
-                let emailLogin = $("#email_address");
-
-                let acRegisterForm = $(".account-register-form");
-                let acLoginForm = $(".account-login-form");
-                let acLoginForm2 = $(".account-login-form-2");
-                
+                let emailLogin = $("#email_address");             
                 console.log(emailC);
                 let errEmailC = $(".errEmailC");
                 $.ajax({
@@ -87,7 +86,7 @@
                         errEmailC.html("Invalid email");
                         
                     } else if (response=="Email already exist"){
-                        errEmailC.html("Email already exist");  
+                       
                         emailLogin.val(emailC);
         
                         acLoginForm.css("display", "none");
@@ -105,11 +104,7 @@
                 let firstName = $("#first_name").val();
                 let lastName = $("#last_name").val();
                 let passWord = $("#pass_word").val();
-                let confirmPassword = $("#confirm_password").val();
-                let acRegisterForm = $(".account-register-form");
-                
-                let acSignInForm = $(".signin");
-                
+                let confirmPassword = $("#confirm_password").val();             
                 let errEmail = $(".errEmail");
                 let errFirstName = $(".errFirstName");
                 let errLastName = $(".errLastName");
@@ -167,13 +162,10 @@
             $("#login").on("click", function() {
                 let emailLogin = $("#email_address").val();
                 console.log(emailLogin);
-                let passLogin = $("#password").val();              
-                let acSignInForm = $(".signin");
-                
+                let passLogin = $("#password").val();                           
                 let errEmailLogin = $(".errEmailLogin");
                 let errPassLogin = $(".errPassLogin");
-                let acLoginForm2 = $(".account-login-form-2");
-
+   
                 $.ajax({
                     url: "LoginAccCus.php",
                     method: "POST",
@@ -209,6 +201,22 @@
                 });
             });
 
+   
+
+            $('#email_register').on('input', function() {
+         
+                acLoginForm.css("display", "block");
+                acRegisterForm.css("display", "none");
+            });
+            // // Kiểm tra sự thay đổi khi người dùng chỉnh sửa giá trị
+            $('#email_address').on('input', function() {
+                
+                acLoginForm.css("display", "block");
+                acLoginForm2.css("display", "none");
+            });
+
+
+ 
           
         });
 
@@ -448,7 +456,7 @@
             <div class="slide-out-content">
                 <div class="account-form" >
                     <div class="account-form-steps open">
-                        <div aria-labelledby="account-login-form-heading" class="account-login-form account-form-wrapper" style="display: <?= isset($_SESSION['customer']) ? 'none' : 'block'?>">
+                        <div aria-labelledby="account-login-form-heading" class="account-login-form account-login-form-1 account-form-wrapper" style="display: <?= isset($_SESSION['customer']) ? 'none' : 'block'?>">
                             <h3 class="title">Sign In To Jomashop</h3>
                             <form>
                                 <div id="error" style="color: red;"></div>
@@ -649,7 +657,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="account-form signin" >
+                <div class="account-form signin" style="display: none;" >
                     <div class="account-form-dropdown" style="display: <?= isset($_SESSION['customer']) ? 'block' : 'none'?>">
                         <h3 class="account-form-title">
                             <a href="#">Welcome, <?php  if (isset($_SESSION['customer'])) echo $_SESSION['customer'] ?></a>
@@ -780,6 +788,8 @@
         let slideOutContent = document.querySelector(".slide-out-content");
         let accountForm = document.querySelector(".account-form");
         let cartPage = document.querySelector(".cart-page");
+
+        
         // let signIn = document.querySelector(".signin");
         // let globalOverlay = document.querySelector(".global-overlay");
 
@@ -831,6 +841,7 @@
         function close(){
             swaper.classList.remove('open');
             body.classList.remove('page-overlay');
+
             // globalOverlay.classList.remove('overlay-open');
             // globalOverlay.classList.add('overlay-hide');
         }
