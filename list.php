@@ -2,28 +2,24 @@
 <html lang="en">
 <?php
     include "config.php";
-    
     session_start();
-    $products_per_page = 9;
+
+    $products_per_page = 8;
     if(isset($_GET['page']) && is_numeric($_GET['page'])){
         $current_page = intval($_GET['page']);
     }else{
         $current_page = 1;
     }
-    $query_count = "SELECT COUNT(*) as total FROM watches";
-    $result_count = $conn->query($query_count);
-    $row_count = $result_count->fetch_assoc();
-    $total_product = $row_count['total'];
-
-    $total_pages = ceil($total_product/$products_per_page);
-    $offset = ($current_page-1) * $products_per_page;
-    
-    $max_links = 5;
-
-    $start = max(1,$current_page - floor($max_links/2));
-    $end = min($start + $max_links - 1, $total_pages);
-
-    $start = max(1, $end - $max_links + 1);
+    // $query_count = "SELECT COUNT(*) as total FROM watches";
+    // $result_count = $conn->query($query_count);
+    // $row_count = $result_count->fetch_assoc();
+    // $total_product = $row_count['total'];
+    // $total_pages = ceil($total_product/$products_per_page);
+    // $offset = ($current_page-1) * $products_per_page;
+    // $max_links = 5;
+    // $start = max(1,$current_page - floor($max_links/2));
+    // $end = min($start + $max_links - 1, $total_pages);
+    // $start = max(1, $end - $max_links + 1);
 
     $watch = 'SELECT * FROM watches
     JOIN brands ON watches.brand = brands.brandId
@@ -33,14 +29,63 @@
     JOIN features ON watches.features = features.feaId
     JOIN types ON watches.type = types.typeId
     JOIN caseshapes ON watches.caseShape = caseshapes.caseId
-    LIMIT ?,?';
+    WHERE (1=1) ';
+    if(isset($_GET['gender'])) {
+        $watch .= ' AND watches.gender =' . $_GET['gender'];
+    }
+    if(isset($_GET['style'])) {
+        $watch .= ' AND watches.style =' . $_GET['style'];
+    }
+    if(isset($_GET['move'])) {
+        $watch .= ' AND watches.movement =' . $_GET['move'];
+    }
+    if(isset($_GET['fea'])) {
+        $watch .= ' AND watches.features =' . $_GET['fea'];
+    }
+    if(isset($_GET['case'])) {
+        $watch .= ' AND watches.caseShape =' . $_GET['case'];
+    }
+    if(isset($_GET['type'])) {
+        $watch .= ' AND watches.type =' . $_GET['type'];
+    }
+    if(isset($_GET['min'])) {
+        $watch .= ' AND watches.caseSize >' . $_GET['min'] . ' AND watches.caseSize <' . $_GET['max'];
+    }
+    $numRows = $conn->query($watch)->num_rows;
+    $offset = ($current_page-1) * $products_per_page;
+    $watch .= ' ORDER BY watches.view DESC LIMIT ?,?';
     $stmt = $conn->prepare($watch);
-    $stmt->bind_param("ii",$offset,$products_per_page);
+    $stmt->bind_param("ii", $offset, $products_per_page);
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-    $price_sale = $row['price'] * ($row['sale']/100);
-    $price_product = $row['price'] - $price_sale;
+    $maxPages = floor($numRows/$products_per_page) + 1;
+    $max_links = 5;
+    $start = max(1, $current_page - floor($max_links/2));
+    $end = min($start + $max_links - 1, $maxPages);
+    $start = max(1, $end - $max_links + 1);
+
+    
+    
+    // if(isset($_GET['gender'])) {
+    //     $watch = 'SELECT * FROM watches
+    //     JOIN brands ON watches.brand = brands.brandId
+    //     JOIN styles ON watches.style = styles.styleId
+    //     JOIN movements ON watches.movement = movements.moveId
+    //     JOIN categories ON watches.category = categories.cateId
+    //     JOIN features ON watches.features = features.feaId
+    //     JOIN types ON watches.type = types.typeId
+    //     JOIN caseshapes ON watches.caseShape = caseshapes.caseId
+    //     WHERE watches.gender = ? LIMIT ?,?';
+    //     $stmt = $conn->prepare($watch);
+    //     $stmt->bind_param("iii",$_GET['gender'], $offset, $products_per_page);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result();
+    //     $query_count = "SELECT COUNT(id) AS total FROM watches WHERE gender = ?";
+    //     $stmt = $conn->prepare($query_count);
+    //     $stmt->bind_param("i",$_GET['gender']);
+    //     $stmt->execute();
+    //     $total_product = $stmt->get_result()->fetch_assoc()['total'];
+    // }
 ?>
 <head>
     <meta charset="utf-8">
@@ -199,9 +244,9 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat gender">
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="26" id="product_checkbox_26" class="checkbox-input" aria-label="Ladies"><a href="/collections/watches/Ladies-Watches~Z2VuZGVyfkxhZGllcw?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Ladies</a></li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="25" id="product_checkbox_25" class="checkbox-input" aria-label="Men's"><a href="/collections/watches/Men's-Watches~Z2VuZGVyfk1lbidz?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Men's</a></li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="27" id="product_checkbox_27" class="checkbox-input" aria-label="Unisex"><a href="/collections/watches/Unisex-Watches~Z2VuZGVyflVuaXNleA?get_it_fast=Yes&amp;has_coupon=Yes" class="label-checkbox">Unisex</a>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="26" id="product_checkbox_26" class="checkbox-input" aria-label="Ladies" <?= (isset($_GET['gender']) and $_GET['gender']==0) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['gender']) or $_GET['gender']!=0) ? '' : '?gender=0' ?>" class="label-checkbox">Ladies</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="25" id="product_checkbox_25" class="checkbox-input" aria-label="Men's" <?= (isset($_GET['gender']) and $_GET['gender']==1) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['gender']) or $_GET['gender']!=1) ? '' : '?gender=1' ?>" class="label-checkbox">Men's</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="27" id="product_checkbox_27" class="checkbox-input" aria-label="Unisex" <?= (isset($_GET['gender']) and $_GET['gender']==2) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['gender']) or $_GET['gender']!=2) ? '' : '?gender=2' ?>" class="label-checkbox">Unisex</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -215,33 +260,16 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat style">
+                                                            <?php
+                                                                $sqlStyle = 'SELECT * FROM styles';
+                                                                $styleRows = $conn->query($sqlStyle);
+                                                            ?>
+                                                            <?php while ($row = $styleRows->fetch_assoc()) { ?>
                                                             <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="45099" id="product_checkbox_45099" class="checkbox-input" aria-label="Casual">
-                                                                <a href="/collections/watches/Casual-Watches~c3R5bGV-Q2FzdWFs" class="label-checkbox">Casual</a>
+                                                                <input type="checkbox" name="" id="" class="checkbox-input" aria-label="<?= $row['styleName'] ?>" <?= (isset($_GET['style']) and $_GET['style']==$row['styleId']) ? 'checked' : '' ?>>
+                                                                <a href="./list.php<?= !(!isset($_GET['style']) or $_GET['style']!=$row['styleId']) ? '' : '?style=' . $row['styleId'] ?>" class="label-checkbox"><?= $row['styleName'] ?></a>
                                                             </li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="45115" id="product_checkbox_45115" class="checkbox-input" aria-label="Dive">
-                                                                <a href="/collections/watches/Dive-Watches~c3R5bGV-RGl2ZQ" class="label-checkbox">Dive</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="45098" id="product_checkbox_45098" class="checkbox-input" aria-label="Dress">
-                                                                <a href="/collections/watches/Dress-Watches~c3R5bGV-RHJlc3M" class="label-checkbox">Dress</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="45476" id="product_checkbox_45476" class="checkbox-input" aria-label="Fashion">
-                                                                <a href="/collections/watches/Fashion-Watches~c3R5bGV-RmFzaGlvbg" class="label-checkbox">Fashion</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="45137" id="product_checkbox_45137" class="checkbox-input" aria-label="Luxury">
-                                                                <a href="/collections/watches/Luxury-Watches~c3R5bGV-THV4dXJ5" class="label-checkbox">Luxury</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="45128" id="product_checkbox_45128" class="checkbox-input" aria-label="Military">
-                                                                <a href="/collections/watches/Military-Watches~c3R5bGV-TWlsaXRhcnk" class="label-checkbox">Military</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="45395" id="product_checkbox_45395" class="checkbox-input" aria-label="Pilot">
-                                                                <a href="/collections/watches/Pilot-Watches~c3R5bGV-UGlsb3Q" class="label-checkbox">Pilot</a>
-                                                            </li>
+                                                            <?php } ?>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -255,21 +283,16 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat movement">
+                                                            <?php
+                                                                $sqlMovement = 'SELECT * FROM movements';
+                                                                $movementRows = $conn->query($sqlMovement);
+                                                            ?>
+                                                            <?php while ($row = $movementRows->fetch_assoc()) { ?>
                                                             <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="404" id="product_checkbox_404" class="checkbox-input" aria-label="Automatic">
-                                                                <a href="/collections/watches/Automatic-Watches~bW92ZW1lbnR-QXV0b21hdGlj" class="label-checkbox">Automatic</a>
+                                                                <input type="checkbox" name="" id="" class="checkbox-input" aria-label="<?= $row['moveName'] ?>" <?= (isset($_GET['move']) and $_GET['move']==$row['moveId']) ? 'checked' : '' ?>>
+                                                                <a href="./list.php<?= !(!isset($_GET['move']) or $_GET['move']!=$row['moveId']) ? '' : '?move=' . $row['moveId'] ?>" class="label-checkbox"><?= $row['moveName'] ?></a>
                                                             </li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="24345" id="product_checkbox_24345" class="checkbox-input" aria-label="Eco-Drive">
-                                                                <a href="/collections/watches/Eco-Drive-Watches~bW92ZW1lbnR-RWNvLURyaXZl" class="label-checkbox">Eco-Drive</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="1082" id="product_checkbox_1082" class="checkbox-input" aria-label="Hand Wind">
-                                                                <a href="/collections/watches/Hand-Wind-Watches~bW92ZW1lbnR-SGFuZCUyMFdpbmQ" class="label-checkbox">Hand Wind</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="1084" id="product_checkbox_1084" class="checkbox-input" aria-label="Quartz">
-                                                                <a href="/collections/watches/Quartz-Watches~bW92ZW1lbnR-UXVhcnR6" class="label-checkbox">Quartz</a>
-                                                            </li>
+                                                            <?php } ?>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -284,30 +307,16 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="false" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat features">
+                                                            <?php
+                                                                $sqlfeature = 'SELECT * FROM features';
+                                                                $featureRows = $conn->query($sqlfeature);
+                                                            ?>
+                                                            <?php while ($row = $featureRows->fetch_assoc()) { ?>
                                                             <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="437" id="product_checkbox_437" class="checkbox-input" aria-label="Alarm">
-                                                                <a href="/collections/watches/Alarm-Watches~ZmVhdHVyZXN-QWxhcm0" class="label-checkbox">Alarm</a>
+                                                                <input type="checkbox" name="" id="" class="checkbox-input" aria-label="<?= $row['feaName'] ?>" <?= (isset($_GET['fea']) and $_GET['fea']==$row['feaId']) ? 'checked' : '' ?>>
+                                                                <a href="./list.php<?= !(!isset($_GET['fea']) or $_GET['fea']!=$row['feaId']) ? '' : '?fea=' . $row['feaId'] ?>" class="label-checkbox"><?= $row['feaName'] ?></a>
                                                             </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="87311" id="product_checkbox_87311" class="checkbox-input" aria-label="Alligator Leather">
-                                                                <a href="/collections/watches/Alligator-Leather-Watches~ZmVhdHVyZXN-QWxsaWdhdG9yJTIwTGVhdGhlcg" class="label-checkbox">Alligator Leather</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="438" id="product_checkbox_438" class="checkbox-input" aria-label="Altimeter">
-                                                                <a href="/collections/watches/Altimeter-Watches~ZmVhdHVyZXN-QWx0aW1ldGVy" class="label-checkbox">Altimeter</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="82002" id="product_checkbox_82002" class="checkbox-input" aria-label="Analog">
-                                                                <a href="/collections/watches/Analog-Watches~ZmVhdHVyZXN-QW5hbG9n" class="label-checkbox">Analog</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="28313" id="product_checkbox_28313" class="checkbox-input" aria-label="Annual Calendar">
-                                                                <a href="/collections/watches/Annual-Calendar-Watches~ZmVhdHVyZXN-QW5udWFsJTIwQ2FsZW5kYXI" class="label-checkbox">Annual Calendar</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="439" id="product_checkbox_439" class="checkbox-input" aria-label="Atomic Timekeeping">
-                                                                <a href="/collections/watches/Atomic-Timekeeping-Watches~ZmVhdHVyZXN-QXRvbWljJTIwVGltZWtlZXBpbmc" class="label-checkbox">Atomic Timekeeping</a>
-                                                            </li>
+                                                            <?php } ?>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -322,35 +331,16 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse">
                                                         <ul class="item-sub-cat case_shape">
+                                                            <?php
+                                                                $sqlcaseshape = 'SELECT * FROM caseshapes';
+                                                                $caseshapeRows = $conn->query($sqlcaseshape);
+                                                            ?>
+                                                            <?php while ($row = $caseshapeRows->fetch_assoc()) { ?>
                                                             <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="25827" id="product_checkbox_25827" class="checkbox-input" aria-label="Cushion">
-                                                                <a href="/collections/watches/Cushion-Watches~Y2FzZV9zaGFwZX5DdXNoaW9u" class="label-checkbox">Cushion</a>
+                                                                <input type="checkbox" name="7" id="" class="checkbox-input" aria-label="<?= $row['caseName'] ?>" <?= (isset($_GET['case']) and $_GET['case']==$row['caseId']) ? 'checked' : '' ?>>
+                                                                <a href="./list.php<?= !(!isset($_GET['case']) or $_GET['case']!=$row['caseId']) ? '' : '?case=' . $row['caseId'] ?>" class="label-checkbox"><?= $row['caseName'] ?></a>
                                                             </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="351" id="product_checkbox_351" class="checkbox-input" aria-label="Dodecagon">
-                                                                <a href="/collections/watches/Dodecagon-Watches~Y2FzZV9zaGFwZX5Eb2RlY2Fnb24" class="label-checkbox">Dodecagon</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="filter-band_type">
-                                                <div class="accordion">
-                                                    <button role="tab" aria-selected="false" aria-expanded="false" type="button" class="expanded btn btn-link" wz_dt_ref="true">
-                                                        <div class="filter-head">
-                                                            <strong class="filter-name" role="heading" aria-level="2">Band Type</strong>
-                                                            <span class="expand-icon"></span>
-                                                        </div>
-                                                    </button>
-                                                    <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
-                                                        <ul class="item-sub-cat band_type">
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="24333" id="product_checkbox_24333" class="checkbox-input" aria-label="Bracelet">
-                                                                <a href="/collections/watches/Bracelet-Watches~YmFuZF90eXBlfkJyYWNlbGV0" class="label-checkbox">Bracelet</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="24331" id="product_checkbox_24331" class="checkbox-input" aria-label="Strap">
-                                                                <a href="/collections/watches/Strap-Watches~YmFuZF90eXBlflN0cmFw" class="label-checkbox">Strap</a>
-                                                            </li>
+                                                            <?php } ?>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -365,18 +355,16 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat dial_type">
+                                                            <?php
+                                                                $sqltype = 'SELECT * FROM types';
+                                                                $typeRows = $conn->query($sqltype);
+                                                            ?>
+                                                            <?php while ($row = $typeRows->fetch_assoc()) { ?>
                                                             <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="24339" id="product_checkbox_24339" class="checkbox-input" aria-label="Analog">
-                                                                <a href="/collections/watches/Analog-Watches~ZGlhbF90eXBlfkFuYWxvZw" class="label-checkbox">Analog</a>
+                                                                <input type="checkbox" name="" id="" class="checkbox-input" aria-label="<?= $row['typeName'] ?>" <?= (isset($_GET['type']) and $_GET['type']==$row['typeId']) ? 'checked' : '' ?>>
+                                                                <a href="./list.php<?= !(!isset($_GET['type']) or $_GET['type']!=$row['typeId']) ? '' : '?type=' . $row['typeId'] ?>" class="label-checkbox"><?= $row['typeName'] ?></a>
                                                             </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="24337" id="product_checkbox_24337" class="checkbox-input" aria-label="Analog-Digital">
-                                                                <a href="/collections/watches/Analog-Digital-Watches~ZGlhbF90eXBlfkFuYWxvZy1EaWdpdGFs" class="label-checkbox">Analog-Digital</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="24341" id="product_checkbox_24341" class="checkbox-input" aria-label="Digital">
-                                                                <a href="/collections/watches/Digital-Watches~ZGlhbF90eXBlfkRpZ2l0YWw" class="label-checkbox">Digital</a>
-                                                            </li>
+                                                            <?php } ?>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -391,27 +379,17 @@
                                                     </button>
                                                     <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
                                                         <ul class="item-sub-cat watchsize">
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="28379" id="product_checkbox_28379" class="checkbox-input" aria-label="<20 mm">
-                                                                <a href="/collections/watches/%3C20-mm-Watches~d2F0Y2hzaXplfiUzQzIwJTIwbW0" class="label-checkbox">&lt;20 mm</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design">
-                                                                <input type="checkbox" name="28363" id="product_checkbox_28363" class="checkbox-input" aria-label=">55 mm">
-                                                                <a href="/collections/watches/%3E55-mm-Watches~d2F0Y2hzaXplfiUzRTU1JTIwbW0" class="label-checkbox">&gt;55 mm</a>
-                                                            </li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28377" id="product_checkbox_28377" class="checkbox-input" aria-label="20-25 mm"><a href="/collections/watches/20-25-mm-Watches~d2F0Y2hzaXplfjIwLTI1JTIwbW0" class="label-checkbox">20-25 mm</a></li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28375" id="product_checkbox_28375" class="checkbox-input" aria-label="25-30 mm"><a href="/collections/watches/25-30-mm-Watches~d2F0Y2hzaXplfjI1LTMwJTIwbW0" class="label-checkbox">25-30 mm</a></li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28373" id="product_checkbox_28373" class="checkbox-input" aria-label="30-35 mm"><a href="/collections/watches/30-35-mm-Watches~d2F0Y2hzaXplfjMwLTM1JTIwbW0" class="label-checkbox">30-35 mm</a></li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28371" id="product_checkbox_28371" class="checkbox-input" aria-label="35-40 mm"><a href="/collections/watches/35-40-mm-Watches~d2F0Y2hzaXplfjM1LTQwJTIwbW0" class="label-checkbox">35-40 mm</a></li>
-                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="28369" id="product_checkbox_28369" class="checkbox-input" aria-label="40-45 mm"><a href="/collections/watches/40-45-mm-Watches~d2F0Y2hzaXplfjQwLTQ1JTIwbW0" class="label-checkbox">40-45 mm</a></li>
-                                                            <li><a class="see-more" href="#">See More</a></li>
-                                                            <li class="filter-item checkbox-new-design no-display"><input type="checkbox" name="28367" id="product_checkbox_28367" class="checkbox-input" aria-label="45-50 mm"><a href="/collections/watches/45-50-mm-Watches~d2F0Y2hzaXplfjQ1LTUwJTIwbW0" class="label-checkbox">45-50 mm</a></li>
-                                                            <li class="filter-item checkbox-new-design no-display"><input type="checkbox" name="28365" id="product_checkbox_28365" class="checkbox-input" aria-label="50-55 mm"><a href="/collections/watches/50-55-mm-Watches~d2F0Y2hzaXplfjUwLTU1JTIwbW0" class="label-checkbox">50-55 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="" id="" class="checkbox-input" aria-label="20-25 mm" <?= (isset($_GET['min']) and $_GET['min']==20) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['min']) or $_GET['min']!=20) ? '' : '?min=20&max=25'?>" class="label-checkbox">20-25 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="" id="" class="checkbox-input" aria-label="25-30 mm" <?= (isset($_GET['min']) and $_GET['min']==25) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['min']) or $_GET['min']!=25) ? '' : '?min=25&max=30'?>" class="label-checkbox">25-30 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="" id="" class="checkbox-input" aria-label="30-35 mm" <?= (isset($_GET['min']) and $_GET['min']==30) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['min']) or $_GET['min']!=30) ? '' : '?min=30&max=35'?>" class="label-checkbox">30-35 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="" id="" class="checkbox-input" aria-label="35-40 mm" <?= (isset($_GET['min']) and $_GET['min']==35) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['min']) or $_GET['min']!=35) ? '' : '?min=35&max=40'?>" class="label-checkbox">35-40 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="" id="" class="checkbox-input" aria-label="40-45 mm" <?= (isset($_GET['min']) and $_GET['min']==40) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['min']) or $_GET['min']!=40) ? '' : '?min=40&max=45'?>" class="label-checkbox">40-45 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="" id="" class="checkbox-input" aria-label="45-50 mm" <?= (isset($_GET['min']) and $_GET['min']==45) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['min']) or $_GET['min']!=45) ? '' : '?min=45&max=50'?>" class="label-checkbox">45-50 mm</a></li>
+                                                            <li class="filter-item checkbox-new-design"><input type="checkbox" name="" id="" class="checkbox-input" aria-label="50-55 mm" <?= (isset($_GET['min']) and $_GET['min']==50) ? 'checked' : '' ?>><a href="./list.php<?= !(!isset($_GET['min']) or $_GET['min']!=50) ? '' : '?min=50&max=55'?>" class="label-checkbox">50-55 mm</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </li>
-                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -422,7 +400,7 @@
                                 <div class="category-header">
                                     <div class="category-title-wrap">
                                         <h1 class="category-title">Watches</h1>
-                                        <div class="products-toolbar-filter"><span class="clp-count"><?= $result->num_rows ?>
+                                        <div class="products-toolbar-filter"><span class="clp-count"><?= $numRows ?>
                                                 results</span>
                                             <div class="tool-bar">
                                                 <div class="sort-dropdown"><button type="button"
@@ -503,7 +481,18 @@
                                 <ul class="pagination">
                                         <?php if ($current_page > 1) { ?>
                                             <li class="pagination-prev page-item">
-                                                <a class="page-link" href="<?= 'list.php?page=' . ($current_page - 1) ?>">
+                                                <?php 
+                                                    $linkPrev = 'list.php?&page=' . ($current_page - 1);
+                                                    isset($_GET['gender']) ? $linkPrev .= '&gender=' . $_GET['gender'] : $linkPrev = $linkPrev;
+                                                    isset($_GET['style']) ? $linkPrev .= '&style=' . $_GET['style'] : $linkPrev = $linkPrev;
+                                                    isset($_GET['move']) ? $linkPrev .= '&move=' . $_GET['move'] : $linkPrev = $linkPrev;
+                                                    isset($_GET['fea']) ? $linkPrev .= '&fea=' . $_GET['fea'] : $linkPrev = $linkPrev;
+                                                    isset($_GET['case']) ? $linkPrev .= '&case=' . $_GET['case'] : $linkPrev = $linkPrev;
+                                                    isset($_GET['type']) ? $linkPrev .= '&type=' . $_GET['type'] : $linkPrev = $linkPrev;
+                                                    isset($_GET['type']) ? $linkPrev .= '&min=' . $_GET['min'] . '&max=' . $_GET['max'] : $linkPrev = $linkPrev;
+                                                    
+                                                ?>
+                                                <a class="page-link" href="<?= $linkPrev ?>">
                                                     <span aria-hidden="true">&lt;</span>
                                                     <span class="sr-only">Prev</span>
                                                 </a>
@@ -512,7 +501,17 @@
 
                                         <?php for ($page = $start; $page <= $end; $page++) { ?>
                                             <li class="page-item <?= ($page == $current_page) ? 'active' : '' ?>">
-                                                <a class="page-link" href="<?= 'list.php?page=' . $page ?>">
+                                                <?php 
+                                                    $link = 'list.php?&page=' . $page;
+                                                    isset($_GET['gender']) ? $link .= '&gender=' . $_GET['gender'] : $link = $link;
+                                                    isset($_GET['style']) ? $link .= '&style=' . $_GET['style'] : $link = $link;
+                                                    isset($_GET['move']) ? $link .= '&move=' . $_GET['move'] : $link = $link;
+                                                    isset($_GET['fea']) ? $link .= '&fea=' . $_GET['fea'] : $link = $link;
+                                                    isset($_GET['case']) ? $link .= '&case=' . $_GET['case'] : $link = $link;
+                                                    isset($_GET['type']) ? $link .= '&type=' . $_GET['type'] : $link = $link;
+                                                    isset($_GET['type']) ? $link .= '&min=' . $_GET['min'] . '&max=' . $_GET['max'] : $link = $link;
+                                                ?>
+                                                <a class="page-link" href="<?= $link ?>">
                                                     <span class="pagination-text"><?= $page ?></span>
                                                     <?php if ($page == $current_page) { ?>
                                                         <span class="sr-only">(current)</span>
@@ -521,9 +520,19 @@
                                             </li>
                                         <?php } ?>
 
-                                        <?php if ($current_page < $total_pages) { ?>
+                                        <?php if ($current_page < $maxPages) { ?>
                                             <li class="pagination-next page-item">
-                                                <a class="page-link" href="<?= 'list.php?page=' . ($current_page + 1) ?>">
+                                                <?php 
+                                                    $linkNext = 'list.php?&page=' . ($current_page + 1);
+                                                    isset($_GET['gender']) ? $linkNext .= '&gender=' . $_GET['gender'] : $linkNext = $linkNext;
+                                                    isset($_GET['style']) ? $linkNext .= '&style=' . $_GET['style'] : $linkNext = $linkNext;
+                                                    isset($_GET['move']) ? $linkNext .= '&move=' . $_GET['move'] : $linkNext = $linkNext;
+                                                    isset($_GET['fea']) ? $linkNext .= '&fea=' . $_GET['fea'] : $linkNext = $linkNext;
+                                                    isset($_GET['case']) ? $linkNext .= '&case=' . $_GET['case'] : $linkNext = $linkNext;
+                                                    isset($_GET['type']) ? $linkNext .= '&type=' . $_GET['type'] : $linkNext = $linkNext;
+                                                    isset($_GET['type']) ? $linkNext .= '&min=' . $_GET['min'] . '&max=' . $_GET['max'] : $linkNext = $linkNext;
+                                                ?>
+                                                <a class="page-link" href="<?= $linkNext ?>">
                                                     <span aria-hidden="true">›</span>
                                                     <span class="sr-only">Next</span>
                                                 </a>
@@ -550,6 +559,8 @@
                 div.classList.toggle("show");
             };
         }
+
+
     </script>
     <script type="text/javascript" src="./dist/js/modal.js"></script>
 </body>
