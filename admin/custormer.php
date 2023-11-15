@@ -213,7 +213,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    include 'D:\xampp\htdocs\ClockShopPHP\config.php';
+                                    include '../config.php';
                                     $sql = 'SELECT * FROM customers';
                                     $stmt = $conn->prepare($sql);
                                     $stmt->execute();

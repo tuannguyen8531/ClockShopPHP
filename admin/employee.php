@@ -190,7 +190,7 @@
 				</div>
 				<!-- View Filter -->
 				<?php
-				include 'D:\xampp\htdocs\ClockShopPHP\config.php';
+				include '../config.php';
 
 				// Truy vấn SQL với phân trang
 				$sql = 'SELECT * FROM managers';
@@ -247,7 +247,7 @@
 
 		<!-- Add Employee Modal -->
 		<?php
-		include 'D:\xampp\htdocs\ClockShopPHP\config.php';
+		include '../config.php';
 
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
