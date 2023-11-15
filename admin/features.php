@@ -174,7 +174,7 @@
 
 				<!-- View Filter -->
 				<?php
-				include 'D:\xampp\htdocs\ClockShopPHP\config.php';
+				include '../config.php';
 
 				// Truy vấn SQL với phân trang
 				$sql = 'SELECT * FROM features';

@@ -174,7 +174,7 @@
 
 				<!-- View Filter -->
 				<?php
-				include 'D:\xampp\htdocs\ClockShopPHP\config.php';
+				include '../config.php';
 
 				// Truy vấn SQL với phân trang
 				$sql = 'SELECT * FROM types';
@@ -227,7 +227,7 @@
 
 		<?php
 		session_start();
-		include 'D:/xampp/htdocs/ClockShopPHP/config.php';
+		include 'config.php';
 
 		$update = false;
 		$id = "";
@@ -391,9 +391,9 @@
 		</div>
 
 	</div>
+	
 	<!-- /Page Wrapper -->
 
-	</div>
 	<!-- /Main Wrapper -->
 
 	<!-- jQuery -->
