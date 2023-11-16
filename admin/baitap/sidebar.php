@@ -111,7 +111,7 @@
                 <li class="submenu">
                     <a href="#"><i class="la la-book"></i><span>Bài tập</span><span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="./php_form/baitap1.php">Bài tập</a></li>
+                        <li><a href="../php_form/baitap1.php">Bài tập</a></li>
                         <li><a href="#"></i>Thông tin cá nhân</a></li>
                     </ul>
                 </li>
