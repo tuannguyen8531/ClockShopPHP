@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+	session_start();
+	include '../config.php';
 
+	$sql = 'SELECT * FROM accounts
+		JOIN authorities ON accounts.accAuthority = authorities.authId
+		WHERE accounts.accUsername LIKE ?';
+	$stmt = $conn->prepare($sql);
+	$stmt->bind_param('s', $_SESSION['username']);
+	$stmt->execute();
+
+	$result = $stmt->get_result();
+	$admin = $result->fetch_assoc();
+?>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -131,15 +144,10 @@
 							<span>Tài khoản</span>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="la la-user"></i> <span>Hồ Sơ</span></a>
+							<a href="#"><i class="la la-user"></i><span>Hồ Sơ</span></a>
 						</li>
-						<li class="submenu">
-							<a href="#"><i class="la la-key"></i> <span>Cài đặt</span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="login.php"> Đăng nhập </a></li>
-								<li><a href="register.php"> Đăng ký </a></li>
-								<li><a href="forgot-password.php"> Quên mật khẩu </a></li>
-							</ul>
+						<li class="">
+							<a href="./login.php"><i class="la la-key"></i><span>Đăng xuất</span></a>
 						</li>
 					</ul>
 				</div>
@@ -157,9 +165,9 @@
 				<div class="page-header">
 					<div class="row">
 						<div class="col-sm-12">
-							<h3 class="page-title">Hello World!</h3>
+							<h3 class="page-title">Hello <?= $_SESSION['username'] ?>!</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item active">Quản trị</li>
+								<li class="breadcrumb-item active"><?= $admin['authName'] ?></li>
 							</ul>
 						</div>
 					</div>
@@ -223,22 +231,22 @@
 	<!-- /Main Wrapper -->
 
 	<!-- jQuery -->
-	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="./assets/js/jquery-3.5.1.min.js"></script>
 
 	<!-- Bootstrap Core JS -->
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="./assets/js/popper.min.js"></script>
+	<script src="./assets/js/bootstrap.min.js"></script>
 
 	<!-- Slimscroll JS -->
-	<script src="assets/js/jquery.slimscroll.min.js"></script>
+	<script src="./assets/js/jquery.slimscroll.min.js"></script>
 
 	<!-- Chart JS -->
-	<script src="assets/plugins/morris/morris.min.js"></script>
-	<script src="assets/plugins/raphael/raphael.min.js"></script>
-	<script src="assets/js/chart.js"></script>
+	<script src="./assets/plugins/morris/morris.min.js"></script>
+	<script src="./assets/plugins/raphael/raphael.min.js"></script>
+	<script src="./assets/js/chart.js"></script>
 
 	<!-- Custom JS -->
-	<script src="assets/js/app.js"></script>
+	<script src="./assets/js/app.js"></script>
 
 </body>
 

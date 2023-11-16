@@ -1,4 +1,41 @@
 <!DOCTYPE html>
+<?php 
+	session_start();
+	include '../config.php';
+	unset($_SESSION['username']);
+	if(isset($_POST['login'])) {
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+
+		$sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param('s', $username);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$nums = $result->num_rows;
+
+		$isValid = true;
+		if(empty($username)) {
+			$msgUser = 'This field is required';
+			$isValid = false;
+		} else if($nums==0) {
+			$msgUser = 'This username doesn\'t exist';
+			$isValid = false;
+		}
+		if(empty($password)) {
+			$msgPass = 'This field is required';
+			$isValid = false;
+		} else if(!password_verify($password, $result->fetch_assoc()['accPassword'])) {
+			$msgPass = 'Wrong password';
+			$isValid = false;
+		}
+		if($isValid) {
+			$_SESSION['username'] = $username;
+			header('location: index.php');
+		}
+	}
+
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -7,7 +44,7 @@
 		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Login - HRMS admin template</title>
+        <title>Login - JOMASHOP Dashboard</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.png">
@@ -36,20 +73,21 @@
 				
 					<!-- Account Logo -->
 					<div class="account-logo">
-						<a href="index.html"><img src="assets/img/logo2.png" alt="Dreamguy's Technologies"></a>
+						<a href="index.html"><img src="./assets/img/user.jpg" alt="Dreamguy's Technologies"></a>
 					</div>
 					<!-- /Account Logo -->
 					
 					<div class="account-box">
 						<div class="account-wrapper">
 							<h3 class="account-title">Login</h3>
-							<p class="account-subtitle">Access to our dashboard</p>
+							<p class="account-subtitle">Access to Administration Dashboard</p>
 							
 							<!-- Account Form -->
-							<form action="index.html">
+							<form method="post">
 								<div class="form-group">
-									<label>Email Address</label>
-									<input class="form-control" type="text">
+									<label>Username</label>
+									<input class="form-control" type="text" name="username" value="<?= isset($username) ? $username : '' ?>">
+									<span style="color: red;"><?= isset($msgUser) ? $msgUser : '' ?></span>
 								</div>
 								<div class="form-group">
 									<div class="row">
@@ -57,18 +95,16 @@
 											<label>Password</label>
 										</div>
 										<div class="col-auto">
-											<a class="text-muted" href="forgot-password.html">
+											<a class="text-muted" href="">
 												Forgot password?
 											</a>
 										</div>
 									</div>
-									<input class="form-control" type="password">
+									<input class="form-control" type="password" name="password">
+									<span style="color: red;"><?= isset($msgPass) ? $msgPass : '' ?></span>
 								</div>
 								<div class="form-group text-center">
-									<button class="btn btn-primary account-btn" type="submit">Login</button>
-								</div>
-								<div class="account-footer">
-									<p>Don't have an account yet? <a href="register.html">Register</a></p>
+									<button class="btn btn-primary account-btn" type="submit" name="login">Login</button>
 								</div>
 							</form>
 							<!-- /Account Form -->
