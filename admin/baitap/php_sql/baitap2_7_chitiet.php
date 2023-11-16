@@ -162,30 +162,22 @@
                 <div>
                     <?php 
                         include 'bt_config.php';
-                        mysqli_set_charset($conn, 'utf8mb4');
-                        $rowsPerPage = 2;
-                        if (!isset($_GET['page'])) $_GET['page'] = 1;
-                        $offset = ($_GET['page'] - 1) * $rowsPerPage;
-                        $query = 'SELECT *
-                                FROM sua S 
-                                JOIN hang_sua HS 
-                                ON S.Ma_hang_sua = HS.Ma_hang_sua 
-                                JOIN loai_sua LS
-                                ON S.Ma_loai_sua = LS.Ma_loai_sua
-                                LIMIT ' . $offset . ', ' . $rowsPerPage . ';';
-                        $stmt = $conn->prepare($query);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-                        $numRows = $result->num_rows;
-                        $maxPage = ceil($numRows / $rowsPerPage);
+                        if(isset($_GET['id'])) {
+                            $id = $_GET['id'];
+                            $query = 'SELECT * FROM sua WHERE Ma_sua = ?';
+                            $stmt = $conn->prepare($query);
+                            $stmt->bind_param('s', $id);
+                            $stmt->execute();
+                            $get = $stmt->get_result();
+                            $result = $get->fetch_assoc();
+                        }
                     ?>
                     <style>
                         table, th, td {
                             border: 1px solid black;
-                            border-collapse: collapse;
                         }
                         th, td {
-                            padding: 20px;
+                            padding: 5px;
                         }
 
                         #title_kh th {
@@ -198,74 +190,37 @@
                         .center {
                             margin-left: auto;
                             margin-right: auto;
-                            text-align: center;
+                            width: 35%;
                         }
                     </style>
-                    <div style='overflow-x: auto;'>
-                        <table class="center" style="text-align: left; width: 60%">
+                    <div>
+                        <table class="center">
                             <tr style='background:pink;'>
-                                <th colspan='6'>
-                                    <p class='center'>CHI TIẾT CÁC LOẠI SỮA</p>
+                                <th colspan="5" style="color: red;">
+                                    <?= $result['Ten_sua'] ?>
                                 </th>
                             </tr>
-                            <?php 
-                                $temp = $_GET['page'] * $rowsPerPage;
-                                if($temp <= $rowsPerPage) $num = 0;
-                                else $num = $temp - $rowsPerPage;
-                            ?>
-                            <?php while($row = $result->fetch_assoc()) { ?>
-                                <tr style='background:pink;'>
-                                    <th colspan="5" style="color: red;">
-                                        <?= $row['Ten_sua'] ?>
-                                    </th>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="./Hinh_sua/<?= $result['Hinh'] ?>" alt="">
+                                    </td>
+                                    <td>
+                                        <strong>Thành phần dinh dưỡng:</strong> <br>
+                                        <?= $result['TP_Dinh_Duong'] ?> <br>
+                                        <p></p>
+                                        <strong>Lợi ích:</strong> <br>
+                                        <?= $result['Loi_ich'] ?> <br>
+                                        <p style="text-align: right; width: 100%;"><strong>Trọng lượng</strong>: <?= $result['Trong_luong'] ?> gr - <strong>Đơn giá</strong>: <?= $result['Don_gia'] ?> VND</p>
+                                    </td>
                                 </tr>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="./Hinh_sua/<?= $row['Hinh'] ?>" alt="">
-                                        </td>
-                                        <td>
-                                            <strong>Thành phần dinh dưỡng:</strong> <br>
-                                            <?= $row['TP_Dinh_Duong'] ?> <br>
-                                            <p></p>
-                                            <strong>Lợi ích:</strong> <br>
-                                            <?= $row['Loi_ich'] ?> <br>
-                                            <p style="text-align: right; width: 100%;"><strong>Trọng lượng</strong>: <?= $row['Trong_luong'] ?> gr - <strong>Đơn giá</strong>: <?= $row['Don_gia'] ?> VND</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            <?php } ?>
-                            <?php   
-                                $re = 'SELECT * FROM sua';
-                                $stmt = $conn->prepare($re);
-                                $stmt->execute();
-                                $re = $stmt->get_result();
-                                $numRows = $re->num_rows;
-                                $maxPage = floor($numRows/$rowsPerPage) + 1;
-                            ?>
+                                <tr>
+                                    <td style="text-align: right;">
+                                        <a href="javascript:window.history.back(-1);">Quay về</a>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
-                    </div>
-                    <div class="center">
-                        <?php 
-                            echo "<a  href=" . $_SERVER['PHP_SELF'] . "?page=" . (1) . "><<</a> "; 
-                            if ($_GET['page'] > 1) {
-                                echo "<a  href=" . $_SERVER['PHP_SELF'] . "?page=" . ($_GET['page'] - 1) . "><</a> "; 
-                            }
-                            for ($i = 1 ; $i <= $maxPage ; $i++)
-                            {
-                                if ($i == $_GET['page'])
-                                {
-                                    echo '<b class="center">'.$i.'</b> '; 
-                                }
-                                else {
-                                    echo "<a  href=" . $_SERVER['PHP_SELF'] . "?page=" . $i . "> " . $i . "</a> ";
-                                }
-                            }
-                            if ($_GET['page'] < $maxPage) {
-                                echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . ($_GET['page'] + 1) . ">></a>";  
-                            }
-                            echo "<a  href=" . $_SERVER['PHP_SELF'] . "?page=" . ($maxPage) . ">>></a> ";
-                        ?>
                     </div>
                 </div>
 			</div>
