@@ -339,7 +339,7 @@
                                 <li class="menu-item level-1 flash-sale-offers">
                                     <div class="menu-item-header">
                                         <input class="menu-item-input" aria-label="Sale">
-                                        <a class="levelTop" href="" aria-label="Sale" tabindex="-1">Sale</a>
+                                        <a class="levelTop" href="./list.php?sale=true" aria-label="Sale" tabindex="-1">Sale</a>
                                     </div>
                                     <div class="subCat">
                                         <div class="subCatParent">

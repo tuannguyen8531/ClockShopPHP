@@ -56,7 +56,9 @@
     }
     $numRows = $conn->query($watch)->num_rows;
     $offset = ($current_page-1) * $products_per_page;
-    $watch .= ' ORDER BY watches.view DESC LIMIT ?,?';
+    if(isset($_GET['sale'])) {
+        $watch .= ' ORDER BY watches.sale DESC LIMIT ?,?';
+    } else $watch .= ' ORDER BY watches.view DESC LIMIT ?,?';
     $stmt = $conn->prepare($watch);
     $stmt->bind_param("ii", $offset, $products_per_page);
     $stmt->execute();
@@ -388,7 +390,7 @@
                                                                 <path
                                                                     d="M20 4V16H23L19 21L15 16H18V4H20ZM12 18V20H3V18H12ZM14 11V13H3V11H14ZM14 4V6H3V4H14Z"
                                                                     fill="currentColor"></path>
-                                                            </svg>SORT:</div><span class="plp-btn-txt">Most Viewed<svg
+                                                            </svg>SORT:</div><span class="plp-btn-txt"><?= !isset($_GET['sale']) ? 'Most Viewed' : 'Sale' ?><svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="18"
                                                                 height="18" viewBox="0 0 18 18" fill="none">
                                                                 <path d="M9 12L4.5 7.5H13.5L9 12Z" fill="currentColor">
