@@ -5,7 +5,7 @@
     
     if (isset($_POST['signout'])) {
         unset($_SESSION['customer']);
-        echo("<meta http-equiv='refresh' content='0'>");
+        header('location: index.php');
     }
 ?>
 <head>

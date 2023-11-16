@@ -368,7 +368,7 @@
                                         <div class="">
                                             <div class="popular-wrapper" style="text-transform: uppercase;">
                                                 <?php
-                                                    $sqlBrands = 'SELECT brandName, SUM(view) AS total
+                                                    $sqlBrands = 'SELECT *, SUM(view) AS total
                                                     FROM brands
                                                     INNER JOIN watches ON brands.brandId = watches.brand
                                                     GROUP BY brands.brandName
@@ -379,9 +379,9 @@
                                                     $resultBrands = $stmt->get_result();
                                                 ?>
                                                 <?php while($brand = $resultBrands->fetch_assoc()) { ?>
-                                                    <a href="" class="popular-item"><?= $brand['brandName'] ?></a>
+                                                    <a href="./list.php?brand=<?= $brand['brandId'] ?>" class="popular-item"><?= $brand['brandName'] ?></a>
                                                 <?php } ?>
-                                                <a href="" class="popular-item popular-active">SHOW ALL BRANDS</a>
+                                                <a href="./error404.php" class="popular-item popular-active">SHOW ALL BRANDS</a>
                                             </div>
                                             <style>
                                                 @media only screen and (min-width: 1280px) {
