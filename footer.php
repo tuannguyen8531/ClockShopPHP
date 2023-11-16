@@ -52,63 +52,63 @@
                                     </style>
                                     <div class="entire-catalog-row">
                                         <div class="entire-catalog-item">
-                                            <a href="/watches-for-men.html" aria-label="Men's Watches">
+                                            <a href="./list.php?gender=1" aria-label="Men's Watches">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt=""src="./img/catalog/home_mens_watches.png" title="Men's Watches">
                                                 </div>
                                             </a>
-                                            <a href="/watches-for-men.html" aria-label="Men's Watches" class="entire-catalog-btn">Men’s Watches</a>
+                                            <a href="./list.php?gender=1" aria-label="Men's Watches" class="entire-catalog-btn">Men’s Watches</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/watches-for-women.html" aria-label="Women’s watches">
+                                            <a href="./list.php?gender=0" aria-label="Women’s watches">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="" src="./img/catalog/home_womens_watches.png" title="Women’s watches">
                                                 </div>
                                             </a>
-                                            <a href="/watches-for-women.html" aria-label="Women’s watches" class="entire-catalog-btn">Women’s watches</a>
+                                            <a href="./list.php?gender=0" aria-label="Women’s watches" class="entire-catalog-btn">Women’s watches</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/sunglasses.html" aria-label="SUNGLASSES">
+                                            <a href="./error404.php" aria-label="SUNGLASSES">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="" src="./img/catalog/home_sunglasses.png" title="SUNGLASSES">
                                                 </div>
                                             </a>
-                                            <a href="/sunglasses.html" aria-label="SUNGLASSES" class="entire-catalog-btn">SUNGLASSES</a>
+                                            <a href="./error404.php" aria-label="SUNGLASSES" class="entire-catalog-btn">SUNGLASSES</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/fragrances.html" aria-label="Fragrances">
+                                            <a href="./error404.php" aria-label="Fragrances">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Fragrances" src="./img/catalog/home_fragrances.png" title="Fragrances">
                                                 </div>
                                             </a>
-                                            <a href="/fragrances.html" aria-label="Fragrances" class="entire-catalog-btn">Fragrances</a>
+                                            <a href="./error404.php" aria-label="Fragrances" class="entire-catalog-btn">Fragrances</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/handbags-accessories.html" aria-label="Bags">
+                                            <a href="./error404.php" aria-label="Bags">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Bags" src="./img/catalog/home_bags.png" title="Bags">
                                                 </div>
                                             </a>
-                                            <a href="/handbags-accessories.html" aria-label="Bags" class="entire-catalog-btn">Bags</a>
+                                            <a href="./error404.php" aria-label="Bags" class="entire-catalog-btn">Bags</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/shoes.html" aria-label="Shoes">
+                                            <a href="./error404.php" aria-label="Shoes">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Shoes" src="./img/catalog/home_shoes.png" title="Shoes">
                                                 </div>
                                             </a>
-                                            <a href="/shoes.html" aria-label="Shoes" class="entire-catalog-btn">Shoes</a>
+                                            <a href="./error404.php" aria-label="Shoes" class="entire-catalog-btn">Shoes</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/ladies-mens-apparel.html" aria-label="Apparel">
+                                            <a href="./error404.php" aria-label="Apparel">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Apparel" src="./img/catalog/home_apparel.png" title="Apparel">
                                                 </div>
                                             </a>
-                                            <a href="/ladies-mens-apparel.html" aria-label="Apparel" class="entire-catalog-btn">Apparel</a>
+                                            <a href="./error404.php" aria-label="Apparel" class="entire-catalog-btn">Apparel</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/fashion-and-apparel.html?apparel_type=Scarves%7CBelts%7CShoe+Accessories"
+                                            <a href="./error404.php"
                                                 aria-label="Accessories">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Accessories" src="./img/catalog/home_accessories.png" title="Accessories">
@@ -117,36 +117,36 @@
                                             <a href="./error404.php" aria-label="Accessories" class="entire-catalog-btn">Accessories</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/jewelry.html" aria-label="Jewelry">
+                                            <a href="./error404.php" aria-label="Jewelry">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Jewelry" src="./img/catalog/home_jewelry.png" title="Jewelry">
                                                 </div>
                                             </a>
-                                            <a href="/jewelry.html" aria-label="Jewelry" class="entire-catalog-btn">Jewelry</a>
+                                            <a href="./error404.php" aria-label="Jewelry" class="entire-catalog-btn">Jewelry</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/luxury-pens.html" aria-label="Luxury pens">
+                                            <a href="./error404.php" aria-label="Luxury pens">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Luxury pens" src="./img/catalog/home_pens.png" title="Luxury pens">
                                                 </div>
                                             </a>
-                                            <a href="/luxury-pens.html" aria-label="Luxury pens" class="entire-catalog-btn">Luxury pens</a>
+                                            <a href="./error404.php" aria-label="Luxury pens" class="entire-catalog-btn">Luxury pens</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/preowned.html" aria-label="Preowned">
+                                            <a href="./error404.php" aria-label="Preowned">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Preowned" src="./img/catalog/home_preowned.png" title="Preowned">
                                                 </div>
                                             </a>
-                                            <a href="/preowned.html" aria-label="Preowned" class="entire-catalog-btn">Preowned</a>
+                                            <a href="./error404.php" aria-label="Preowned" class="entire-catalog-btn">Preowned</a>
                                         </div>
                                         <div class="entire-catalog-item">
-                                            <a href="/flash-sale-offers.html" aria-label="Sales">
+                                            <a href="./error404.php" aria-label="Sales">
                                                 <div class="entire-catalog-image">
                                                     <img loading="lazy" alt="Sales" src="./img/catalog/home_sale.png" title="Sales">
                                                 </div>
                                             </a>
-                                            <a href="/flash-sale-offers.html" aria-label="Sales" class="entire-catalog-btn">Sales</a>
+                                            <a href="./error404.php" aria-label="Sales" class="entire-catalog-btn">Sales</a>
                                         </div>
                                     </div>
                                 </div>

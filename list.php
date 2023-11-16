@@ -51,9 +51,14 @@
     if(isset($_GET['min'])) {
         $watch .= ' AND watches.caseSize >' . $_GET['min'] . ' AND watches.caseSize <' . $_GET['max'];
     }
+    if(isset($_GET['brand'])) {
+        $watch .= ' AND watches.brand LIKE ' . $_GET['brand'];
+    }
     $numRows = $conn->query($watch)->num_rows;
     $offset = ($current_page-1) * $products_per_page;
-    $watch .= ' ORDER BY watches.view DESC LIMIT ?,?';
+    if(isset($_GET['sale'])) {
+        $watch .= ' ORDER BY watches.sale DESC LIMIT ?,?';
+    } else $watch .= ' ORDER BY watches.view DESC LIMIT ?,?';
     $stmt = $conn->prepare($watch);
     $stmt->bind_param("ii", $offset, $products_per_page);
     $stmt->execute();
@@ -190,52 +195,26 @@
                                                 </div>
                                             </li>
                                             <li class="filter-manufacturer">
-                                                <div class="accordion">
-                                                    <button role="tab" aria-selected="false" aria-expanded="false" type="button" class="expanded btn btn-link">
-                                                        <div class="filter-head"><strong class="filter-name"
-                                                                role="heading" aria-level="2">Brand</strong><span
-                                                                class="expand-icon"></span></div>
+                                                <div class="accordion"><button role="tab" aria-selected="false" aria-expanded="false" type="button" class="expanded btn btn-link">
+                                                        <div class="filter-head"><strong class="filter-name" role="heading" aria-level="2">Brand</strong>
+                                                            <span class="expand-icon" wz_dt_ref="true"></span>
+                                                        </div>
                                                     </button>
-                                                    <div role="tabpanel" aria-hidden="true" aria-expanded="true"
-                                                        class="add_section collapse " style="">
-                                                        <div class="item-filter-search"><input class="filter-input"
-                                                                type="text" placeholder="Find a brand"
-                                                                aria-label="Find a brand" value=""></div>
-                                                        <div class="alphabets-wrapper">
-                                                            <div class="alphabet-item ">
-                                                                <span tabindex="-1" class="alphabet-number">B</span>
-                                                            </div>
-                                                            <div class="alphabet-item">
-                                                                <span tabindex="0" class="alphabet-number">C</span>
-                                                            </div>
-                                                            <div class="alphabet-item">
-                                                                <span tabindex="0" class="alphabet-number">H</span>
-                                                            </div>
-                                                            <div class="alphabet-item ">
-                                                                <span tabindex="-1" class="alphabet-number">I</span>
-                                                            </div>
-                                                            <div class="alphabet-item ">
-                                                                <span tabindex="-1" class="alphabet-number">L</span>
-                                                            </div>
-                                                            <div class="alphabet-item">
-                                                                <span tabindex="0" class="alphabet-number">O</span>
-                                                            </div>
-                                                            <div class="alphabet-item">
-                                                                <span tabindex="0" class="alphabet-number">M</span>
-                                                            </div>
-                                                            <div class="alphabet-item ">
-                                                                <span tabindex="-1" class="alphabet-number">P</span>
-                                                            </div>
-                                                            <div class="alphabet-item ">
-                                                                <span tabindex="-1" class="alphabet-number">R</span>
-                                                            </div>
-                                                            <div class="alphabet-item ">
-                                                                <span tabindex="-1" class="alphabet-number">S</span>
-                                                            </div>
-                                                            <div class="alphabet-item ">
-                                                                <span tabindex="-1" class="alphabet-number">T</span>
-                                                            </div>
-
+                                                    <div role="tabpanel" aria-hidden="true" aria-expanded="true" class="add_section collapse " style="">
+                                                        <ul class="item-sub-cat style">
+                                                            <?php
+                                                                $sqlBrand = 'SELECT * FROM brands';
+                                                                $brandRows = $conn->query($sqlBrand);
+                                                            ?>
+                                                            <?php while ($row = $brandRows->fetch_assoc()) { ?>
+                                                            <li class="filter-item checkbox-new-design">
+                                                                <input type="checkbox" name="" id="" class="checkbox-input" aria-label="<?= $row['brandName'] ?>" <?= (isset($_GET['brand']) and $_GET['brand']==$row['brandId']) ? 'checked' : '' ?>>
+                                                                <a href="./list.php<?= !(!isset($_GET['brand']) or $_GET['brand']!=$row['brandId']) ? '' : '?brand=' . $row['brandId'] ?>" class="label-checkbox"><?= $row['brandName'] ?></a>
+                                                            </li>
+                                                            <?php } ?>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             </li>
                                             <li class="filter-gender">
                                                 <div class="accordion">
@@ -411,7 +390,7 @@
                                                                 <path
                                                                     d="M20 4V16H23L19 21L15 16H18V4H20ZM12 18V20H3V18H12ZM14 11V13H3V11H14ZM14 4V6H3V4H14Z"
                                                                     fill="currentColor"></path>
-                                                            </svg>SORT:</div><span class="plp-btn-txt">Most Viewed<svg
+                                                            </svg>SORT:</div><span class="plp-btn-txt"><?= !isset($_GET['sale']) ? 'Most Viewed' : 'Sale' ?><svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="18"
                                                                 height="18" viewBox="0 0 18 18" fill="none">
                                                                 <path d="M9 12L4.5 7.5H13.5L9 12Z" fill="currentColor">
@@ -448,7 +427,7 @@
                                                 </a>
                                             </div>
                                             <div class="product-details">
-                                                <h2 class="productName"><a class="productName-link" title="<?= $row['name']?>" href="/seiko-chronograph-champagne-dial-mens-watch-ssb383.html"><span class="brand-name"><?= $row['brandName']?></span><span class="name-out-brand"><?= $row['name']?></span></a></h2>
+                                                <h2 class="productName"><a class="productName-link" title="<?= $row['name']?>" href="./detail.php?model=<?= $row['model'] ?>"><span class="brand-name"><?= $row['brandName']?></span><span class="name-out-brand"><?= $row['name']?></span></a></h2>
                                                 <div class="tag-wrapper"><span class="tag-new-design discount-label"><?= $row['sale']?>% Off</span></div>
                                                 <div class="productPrice">
                                                     <div class="price-wrapper">
@@ -490,6 +469,7 @@
                                                     isset($_GET['case']) ? $linkPrev .= '&case=' . $_GET['case'] : $linkPrev = $linkPrev;
                                                     isset($_GET['type']) ? $linkPrev .= '&type=' . $_GET['type'] : $linkPrev = $linkPrev;
                                                     isset($_GET['type']) ? $linkPrev .= '&min=' . $_GET['min'] . '&max=' . $_GET['max'] : $linkPrev = $linkPrev;
+                                                    isset($_GET['brand']) ? $linkPrev .= '&brand=' . $_GET['brand'] : $linkPrev = $linkPrev;
                                                     
                                                 ?>
                                                 <a class="page-link" href="<?= $linkPrev ?>">
@@ -510,6 +490,7 @@
                                                     isset($_GET['case']) ? $link .= '&case=' . $_GET['case'] : $link = $link;
                                                     isset($_GET['type']) ? $link .= '&type=' . $_GET['type'] : $link = $link;
                                                     isset($_GET['type']) ? $link .= '&min=' . $_GET['min'] . '&max=' . $_GET['max'] : $link = $link;
+                                                    isset($_GET['brand']) ? $link .= '&brand=' . $_GET['brand'] : $link = $link;
                                                 ?>
                                                 <a class="page-link" href="<?= $link ?>">
                                                     <span class="pagination-text"><?= $page ?></span>
@@ -531,6 +512,7 @@
                                                     isset($_GET['case']) ? $linkNext .= '&case=' . $_GET['case'] : $linkNext = $linkNext;
                                                     isset($_GET['type']) ? $linkNext .= '&type=' . $_GET['type'] : $linkNext = $linkNext;
                                                     isset($_GET['type']) ? $linkNext .= '&min=' . $_GET['min'] . '&max=' . $_GET['max'] : $linkNext = $linkNext;
+                                                    isset($_GET['brand']) ? $linkNext .= '&brand=' . $_GET['brand'] : $linkNext = $linkNext;
                                                 ?>
                                                 <a class="page-link" href="<?= $linkNext ?>">
                                                     <span aria-hidden="true">›</span>
