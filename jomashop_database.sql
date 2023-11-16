@@ -54,7 +54,7 @@ INSERT INTO `accounts` (`accId`, `accUsername`, `accPassword`, `accAuthority`) V
 (13, 'maingoc', '12345678', 3),
 (14, 'namphong', '12345678', 3),
 (15, 'quyethanh', '12345678', 3),
-(16, 'thanhviem@gmail.com', '12345678', 3);
+(16, 'thanhviem', '12345678', 3);
 
 -- --------------------------------------------------------
 
