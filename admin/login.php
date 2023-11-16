@@ -2,7 +2,9 @@
 <?php 
 	session_start();
 	include '../config.php';
-	unset($_SESSION['username']);
+	if(isset($_SESSION['username'])){
+		unset($_SESSION['username']);
+	}
 	if(isset($_POST['login'])) {
 		$username = $_POST['username'];
 		$password = $_POST['password'];
