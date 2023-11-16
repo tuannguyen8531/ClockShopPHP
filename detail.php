@@ -31,9 +31,50 @@
         $stmt = $conn->prepare($upView);
         $stmt->bind_param('s', $model);
         $stmt->execute();
+
+        if(isset($_SESSION['customer'])) {
+            if(isset($_POST['button-cart'])){
+                $sqlCartId = 'SELECT * FROM carts 
+                JOIN customers ON carts.cartCustomerId = customers.cusId
+                WHERE customers.cusEmail LIKE ?';
+                $stmt = $conn->prepare($sqlCartId);
+                $stmt->bind_param('s', $_SESSION['customer']);
+                $stmt->execute();
+                $cartId = $stmt->get_result()->fetch_assoc()['cartId'];
+                
+
+                $checkExistence = "SELECT * FROM cartdetails WHERE cartId = ? AND watchId = ?";
+                $stmt = $conn->prepare($checkExistence);
+                $stmt->bind_param('ii', $cartId, $product['id']);
+                $stmt->execute();
+                $resultExistence = $stmt->get_result();
+                $existence = $resultExistence->num_rows;
+
+                if($existence==0){
+                    $watchQuantity = 1;
+                    $sqlAddToBag = 'INSERT INTO cartdetails(cartId,watchId,watchQuanlity)
+                                    VALUES (?,?,?)';
+                    $stmt = $conn->prepare($sqlAddToBag);
+                    $stmt->bind_param('iii', $cartId, $product['id'], $watchQuantity);
+                    $stmt->execute();
+                }else{
+                    $updateCartDetail = "UPDATE cartdetails 
+                    SET watchQuanlity = watchQuanlity + 1 
+                    WHERE cartId = ? AND watchId = ?";
+                    $stmt = $conn->prepare($updateCartDetail);
+                    $stmt->bind_param('ii', $cartId, $product['id']);
+                    $stmt->execute();
+                }
+                exit();
+            }
+            
+        }
     } else {
         header('location: error404.php');
-    }
+    } 
+    
+
+    
 ?>
 <head>
     <meta charset="UTF-8">
@@ -207,7 +248,9 @@
                                             <div class="stock-content"><span class="stock-dot"></span>Enjoy Free Shipping</div>
                                         </div>
                                         <div class="add-to-cart ">
-                                            <button class="btn-new-design primary add-to-cart-btn"><span>Add to Bag</span></button>
+                                            <form action="" method="post">
+                                            <button class="btn-new-design primary add-to-cart-btn" name="button-cart" id="add-to-cart-btn"><span>Add to Bag</span></button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="product-info-wrapper">
@@ -707,5 +750,6 @@
     </div>
     <script type="text/javascript" src="./dist/js/detail.js"></script>
     <script type="text/javascript" src="./dist/js/modal.js"></script>
+    
 </body>
 </html>
