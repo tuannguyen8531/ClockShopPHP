@@ -17,18 +17,19 @@
 		$nums = $result->num_rows;
 
 		$isValid = true;
-		if(empty($username)) {
-			$msgUser = 'This field is required';
-			$isValid = false;
-		} else if($nums==0) {
+		if($nums==0) {
 			$msgUser = 'This username doesn\'t exist';
+			$isValid = false;
+		} else if(!password_verify($password, $result->fetch_assoc()['accPassword'])) {
+			$msgPass = 'Wrong password';
 			$isValid = false;
 		}
 		if(empty($password)) {
 			$msgPass = 'This field is required';
 			$isValid = false;
-		} else if(!password_verify($password, $result->fetch_assoc()['accPassword'])) {
-			$msgPass = 'Wrong password';
+		} 
+		if(empty($username)) {
+			$msgUser = 'This field is required';
 			$isValid = false;
 		}
 		if($isValid) {

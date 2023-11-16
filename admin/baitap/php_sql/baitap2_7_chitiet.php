@@ -51,28 +51,21 @@
                 <div>
                     <?php 
                         include 'bt_config.php';
-                        $colPerRow = 5;
-                        $index = 1;
-                        $offset = ($index - 1) * $colPerRow;
-                        $count = 'SELECT * FROM sua';
-                        $stmt = $conn->prepare($count);
-                        $stmt->execute();
-                        $totalProduct = $stmt->get_result()->num_rows;
-                        $numsOfRow = ceil($totalProduct / $colPerRow);
-                        $query = 'SELECT * 
-                                FROM sua S 
-                                JOIN hang_sua HS 
-                                ON S.Ma_hang_sua = HS.Ma_hang_sua 
-                                JOIN loai_sua LS
-                                ON S.Ma_loai_sua = LS.Ma_loai_sua
-                                LIMIT ?, ?';
+                        if(isset($_GET['id'])) {
+                            $id = $_GET['id'];
+                            $query = 'SELECT * FROM sua WHERE Ma_sua = ?';
+                            $stmt = $conn->prepare($query);
+                            $stmt->bind_param('s', $id);
+                            $stmt->execute();
+                            $get = $stmt->get_result();
+                            $result = $get->fetch_assoc();
+                        }
                     ?>
                     <style>
                         table, th, td {
                             border: 1px solid black;
-                            border-collapse: collapse;
                         }
-                        th {
+                        th, td {
                             padding: 5px;
                         }
 
@@ -86,36 +79,35 @@
                         .center {
                             margin-left: auto;
                             margin-right: auto;
-                            text-align: center;
+                            width: 35%;
                         }
                     </style>
                     <div>
                         <table class="center">
                             <tr style='background:pink;'>
-                                <th colspan="5">
-                                    THÔNG TIN CÁC SẢN PHẨM
+                                <th colspan="5" style="color: red;">
+                                    <?= $result['Ten_sua'] ?>
                                 </th>
                             </tr>
                             <tbody>
-                                <?php for($i=0; $i<$numsOfRow; $i++) { ?>
-                                    <tr>
-                                        <?php
-                                            $offset = ($index - 1) * $colPerRow;
-                                            $stmt = $conn->prepare($query);
-                                            $stmt->bind_param('ii', $offset, $colPerRow);
-                                            $stmt->execute();
-                                            $row = $stmt->get_result();
-                                        ?>
-                                        <?php while($col = $row->fetch_assoc()) { ?>
-                                            <td>
-                                                <a href="./baitap2_7_chitiet.php?id=<?= $col['Ma_sua'] ?>"><?= $col['Ten_sua'] ?></a> <br>
-                                                <?= $col['Trong_luong'] ?> gr - <?= $col['Don_gia'] ?> VND <br>
-                                                <img src="./Hinh_sua/<?= $col['Hinh'] ?>" alt="">
-                                            </td>
-                                        <?php } ?>
-                                        <?php $index++ ?>
-                                    </tr>
-                                <?php } ?>
+                                <tr>
+                                    <td>
+                                        <img src="./Hinh_sua/<?= $result['Hinh'] ?>" alt="">
+                                    </td>
+                                    <td>
+                                        <strong>Thành phần dinh dưỡng:</strong> <br>
+                                        <?= $result['TP_Dinh_Duong'] ?> <br>
+                                        <p></p>
+                                        <strong>Lợi ích:</strong> <br>
+                                        <?= $result['Loi_ich'] ?> <br>
+                                        <p style="text-align: right; width: 100%;"><strong>Trọng lượng</strong>: <?= $result['Trong_luong'] ?> gr - <strong>Đơn giá</strong>: <?= $result['Don_gia'] ?> VND</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: right;">
+                                        <a href="javascript:window.history.back(-1);">Quay về</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
