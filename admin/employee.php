@@ -1,5 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+	include '../config.php';
+	$sql = 'SELECT * FROM managers';
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$results = $stmt->get_result();
+
+	if (isset($_POST['add_employee'])) {
+		$firstName = $_POST['firstname'];
+		$lastName = $_POST['lastname'];
+		$phone = $_POST['phone'];
+		$userName = $_POST['accUsername'];
+		$passWord = $_POST['accPassword'];
+		$authority = $_POST['accAuthority'];
+		$errUserName="";
+		$errPassword="";
+		// Kiểm tra xem giá trị của username đã tồn tại trong bảng accounts chưa
+			$sql = 'SELECT * FROM accounts WHERE accUsername = ? ';
+			$stmt = $conn->prepare($sql);
+			$stmt->bind_param("s", $userName);
+			$stmt->execute();
+			$result = $stmt->get_result();
+
+
+		if ($result->num_rows != 0) {	
+			$errUserName = "Username already exists";
+			echo '<script language="javascript">alert("Failed to add employee!");</script>';
+		} else {
+			$option = [
+                'cost' => 12,
+            ];
+        	$passHash = password_hash($passWord, PASSWORD_DEFAULT, $option);    
+			$sql = 'INSERT INTO accounts(accUsername, accPassword, accAuthority) VALUES (?, ?, ?)';
+			$stmt = $conn->prepare($sql);
+			$stmt->bind_param("sss", $userName, $passHash, $authority);
+			$stmt->execute();
+
+			$sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
+			$stmt = $conn->prepare($sql);
+			$stmt->bind_param('s', $userName);
+			$stmt->execute();
+			$result = $stmt->get_result()->fetch_assoc();
+			$id = $result['accId'];
+
+			$sql = 'INSERT INTO managers (manFirstName, manLastName, manPhone, manAccount) VALUES (?, ?, ?, ?)';
+			$stmt = $conn->prepare($sql);
+			$stmt->bind_param("sssi", $firstName, $lastName, $phone, $id );
+			$stmt->execute();
+			echo '<script language="javascript">alert("Employee added successfully!");</script>';
+			header("Refresh: 1; URL=employee.php");
+		}
+		
+	}
+
+	if (isset($_GET['delete'])) {
+        $manId = $_GET['delete'];
+
+		$sql = 'SELECT * FROM managers WHERE manId = ?';
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param("i", $manId);
+		$stmt->execute();
+		$result = $stmt->get_result()->fetch_assoc();
+		$manAcc = $result['manAccount'];
+
+
+        $delete = 'DELETE FROM managers WHERE manId = ? ';
+        $stmt = $conn->prepare($delete);
+        $stmt->bind_param("i", $manId);
+		$stmt->execute();
+
+	
+		$sql = 'DELETE FROM accounts WHERE accId = ?';
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param("i", $manAcc);
+     
+        if ($stmt->execute()) {
+            echo '<script language="javascript">alert("Delete successfull!");</script>';
+
+            header("Refresh: 0; URL=employee.php");
+        }else{
+            echo '<script language="javascript">alert("Delete failed!");</script>';
+        } 
+        
+
+    }
+
+	if (isset($_GET['searchEmployee'])) {
+        
+		$id = $_GET['manId'];
+		$name = $_GET['name'];
+		
+		$sql = 'SELECT * FROM managers WHERE 1=1 ';
+		
+		if (!empty($id) and !empty($name)) {
+			$sql .= ' AND managers.manId LIKE CONCAT("%", ?, "%") AND CONCAT(managers.manFirstName, " ", managers.manLastName) LIKE CONCAT("%", ?, "%")';
+			
+			$stmt = $conn->prepare($sql);
+			$stmt->bind_param("is", $id, $name);
+		} else  {
+            if (!empty($id)) {
+                $sql.= ' AND managers.manId LIKE CONCAT("%", ?, "%")';
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $id);       
+            }
+                   
+            if (!empty($name)) {
+                $sql.= ' AND  CONCAT(managers.manFirstName, " ", managers.manLastName) LIKE CONCAT("%", ?, "%")';
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $name);       
+            }
+        }   
+
+        if ((empty($id) and empty($name))) {
+            $stmt = $conn->prepare($sql);
+        }        
+        $stmt->execute();
+        $results = $stmt->get_result();
+
+    }
+
+
+	
+
+
+?>
+
+
+
+
 
 <head>
 	<meta charset="utf-8">
@@ -18,6 +147,8 @@
 
 	<!-- Lineawesome CSS -->
 	<link rel="stylesheet" href="assets/css/line-awesome.min.css">
+			<!-- Select2 CSS -->
+	<link rel="stylesheet" href="assets/css/select2.min.css">
 
 	<!-- Chart CSS -->
 	<link rel="stylesheet" href="assets/plugins/morris/morris.css">
@@ -36,116 +167,7 @@
 	<!-- Main Wrapper -->
 	<div class="main-wrapper">
 
-		<!-- Header -->
-		<div class="header">
-
-			<!-- Logo -->
-			<div class="header-left">
-				<a href="index.php" class="logo">
-					<img src="assets/img/logo.png" width="40" height="40" alt="">
-				</a>
-			</div>
-			<!-- /Logo -->
-
-			<a id="toggle_btn" href="javascript:void(0);">
-				<span class="bar-icon">
-					<span></span>
-					<span></span>
-					<span></span>
-				</span>
-			</a>
-
-			<!-- Header Title -->
-			<div class="page-title-box">
-				<h3>JomaShop</h3>
-			</div>
-			<!-- /Header Title -->
-		</div>
-		<!-- /Header -->
-
-		<!-- Sidebar -->
-		<div class="sidebar" id="sidebar">
-			<div class="sidebar-inner slimscroll">
-				<div id="sidebar-menu" class="sidebar-menu">
-					<ul>
-						<li class="menu-title">
-							<span>JomaShop</span>
-						</li>
-						<li class="submenu">
-							<a href="#"><i class="la la-dashboard"></i> <span>Quản lý</span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="index.php">Quản trị Admin</a></li>
-							</ul>
-						</li>
-
-						<li class="submenu">
-							<a href="#" class=""><i class="la la-user"></i> <span>Nhân Viên</span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="employee.php">Thông tin nhân viên</a></li>
-							</ul>
-						</li>
-						<li class="submenu">
-							<a href="#" class=""><i class="la la-cube"></i> <span>Sản Phẩm</span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li>
-									<a href="./watches.php"> Watches</a>
-								</li>
-								<li>
-									<a href="./category.php">Category</a>
-								</li>
-								<li>
-									<a href="./types.php">Types</a>
-								</li>
-								<li>
-									<a href="./movement.php">Movement</a>
-								</li>
-								<li>
-									<a href="./features.php">Features</a>
-								</li>
-								<li>
-									<a href="./caseshape.php">CaseShape</a>
-								</li>
-								<li>
-									<a href="./brand.php">Brand</a>
-								</li>
-								<li>
-									<a href="./style.php">Style</a>
-								</li>
-							</ul>
-						</li>
-
-						<li class="submenu">
-							<a href="#" class=""><i class="la la-user"></i> <span>Khách Hàng</span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="custormer.php">Thông tin khách hàng</a></li>
-							</ul>
-						</li>
-						<li class="submenu">
-							<a href="#" class=""><i class="la la-money"></i> <span>Hóa Đơn</span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="#">Thanh Toán</a></li>
-								<li><a href="#"></i>Thống kê</a></li>
-							</ul>
-						</li>
-						<li class="menu-title">
-							<span>Tài khoản</span>
-						</li>
-						<li class="submenu">
-							<a href="#"><i class="la la-user"></i> <span>Hồ Sơ</span></a>
-						</li>
-						<li class="submenu">
-							<a href="#"><i class="la la-key"></i> <span>Cài đặt</span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="login.php"> Đăng nhập </a></li>
-								<li><a href="register.php"> Đăng ký </a></li>
-								<li><a href="forgot-password.php"> Quên mật khẩu </a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- /Sidebar -->
+		<?php include 'header_sidebar.php' ?>
 
 		<!-- Page Wrapper -->
 		<div class="page-wrapper">
@@ -171,35 +193,26 @@
 				<!-- /Page Header -->
 
 				<!-- Search Filter -->
+			<form method="GET" action="employee.php">
 				<div class="row filter-row">
 					<div class="col-sm-6 col-md-3">
 						<div class="form-group form-focus">
-							<input type="text" class="form-control floating">
+							<input type="text" class="form-control floating" name="manId" value="<?php if (isset($manId)) echo $manId ?>">
 							<label class="focus-label">Nhân viên ID</label>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="form-group form-focus">
-							<input type="text" class="form-control floating">
-							<label class="focus-label">Tên nhân viên</label>
+							<input type="text" class="form-control floating" name="name" value="<?php if (isset($name)) echo $name ?>">
+							<label class="focus-label">Họ tên nhân viên</label>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
-						<a href="#" class="btn btn-success btn-block"> Tìm kiếm </a>
+						<button type="submit" class="btn btn-success btn-block" name="searchEmployee">Tìm kiếm</button>
 					</div>
 				</div>
+			</form>
 				<!-- View Filter -->
-				<?php
-				include '../config.php';
-
-				// Truy vấn SQL với phân trang
-				$sql = 'SELECT * FROM managers';
-
-				$stmt = $conn->prepare($sql);
-				$stmt->execute();
-				$result = $stmt->get_result();
-
-				?>
 				<!-- Pagination -->
 				<div class="row" style="width: 100%;">
 					<div class="col-md-12">
@@ -207,7 +220,7 @@
 							<table class="table table-striped custom-table datatable">
 								<thead>
 									<tr>
-										<th>STT</th>
+										<th>Id</th>
 										<th>Last Name</th>
 										<th>First Name</th>
 										<th>Phone</th>
@@ -217,10 +230,10 @@
 								<tbody>
 									<?php
 									$count = 1;
-									while ($row = $result->fetch_assoc()) {
+									while ($row = $results->fetch_assoc()) {
 									?>
 										<tr>
-											<td><?= $count++ ?></td>
+											<td><?= $row['manId']?></td>
 											<td><?= $row['manLastName'] ?></td>
 											<td><?= $row['manFirstName'] ?></td>
 											<td><?= $row['manPhone'] ?></td>
@@ -228,8 +241,8 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item" href="detail_employee.php?detail=<?= $row['manId']?>" ><i class="fa fa-eye m-r-5"></i>Detail</a>
+                                                        <a class="dropdown-item" href="employee.php?delete=<?= $row['manId']?>" onclick="return confirm('Are you sure want to delete?')"; ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 													</div>
 												</div>
 											</td>
@@ -246,88 +259,67 @@
 		</div>
 
 		<!-- Add Employee Modal -->
-		<?php
-		include '../config.php';
-
-		$stmt = $conn->prepare($sql);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		if (isset($_POST['add'])) {
-			$username = $_POST['accUsername'];
-			$password = $_POST['accPassword'];
-			$authority = $_POST['accAuthority'];
-
-			// Kiểm tra xem giá trị của accAuthority đã tồn tại trong bảng authorities chưa
-			$checkAuthorityQuery = 'SELECT * FROM authorities WHERE authID = ?';
-			$checkStmt = $conn->prepare($checkAuthorityQuery);
-			$checkStmt->bind_param("s", $authority);
-			$checkStmt->execute();
-			$checkResult = $checkStmt->get_result();
-
-			if ($checkResult->num_rows == 0) {
-				// Nếu giá trị không tồn tại, có thể in ra hoặc xử lý theo cách phù hợp với ứng dụng của bạn
-				echo "Giá trị authAuthority không hợp lệ!";
-			} else {
-				// Thêm vào bảng accounts sau khi đảm bảo giá trị tồn tại trong authorities
-				$queryAccounts = 'INSERT INTO accounts(accUsername, accPassword, accAuthority) VALUES (?, ?, ?)';
-				$stmtAccounts = $conn->prepare($queryAccounts);
-				$stmtAccounts->bind_param("sss", $username, $password, $authority);
-				$stmtAccounts->execute();
-
-				header('location:index.php');
-				$_SESSION['response'] = "Successfully Inserted to the database!";
-				$_SESSION['res_type'] = "success";
-			}
-			
-		}
-		?>
-
-
 		<div id="add_employee" class="modal custom-modal fade" role="dialog">
 			<div class="modal-dialog modal-dialog-centered modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Thêm Nhân viên</h5>
+						<h5 class="modal-title">Add Employee</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<form method="post">
+						<form method="post" action="employee.php">
 							<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+										<label class="col-form-label">Fist Name<span class="text-danger">*</span></label>
+										<input class="form-control" type="text" required name="firstname" value="<?php if (isset($firstName)) echo $firstName;?>">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-form-label">Last Name<span class="text-danger">*</span></label>
+										<input class="form-control" type="text"  required name="lastname" value="<?php if (isset($lastName)) echo $lastName;?>">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-form-label">Phone<span class="text-danger">*</span></label>
+										<input class="form-control" type="number" required name="phone" value="<?php if (isset($phone)) echo $phone;?>">
+									</div>
+								</div>			
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="col-form-label">UserName<span class="text-danger">*</span></label>
-										<input class="form-control" type="text" name="accUsername">
+										<input class="form-control" type="text" required name="accUsername" value="<?php if (isset($userName)) echo $userName;?>">
+										<medium class="text-danger"><?php if (isset($errUserName)) echo $errUserName?></medium>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="col-form-label">Password<span class="text-danger">*</span></label>
-										<input class="form-control" type="password" name="accPassword">
+										<input class="form-control" type="password" required name="accPassword">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="col-form-label">Vai trò</label>
-										<select class="form-control" name="accAuthority">
-											<option value="employee">Nhân viên</option>
-											<option value="admin">Admin</option>
+										<select class="select" name="accAuthority">
+											<option value="2" <?php if (isset($authority) and $authority == 2 ) echo "selected" ?>>Nhân viên</option>
+											<option value="1" <?php if (isset($authority) and $authority == 1 ) echo "selected" ?>>Admin</option>
 										</select>
 									</div>
 								</div>
-								<div class="submit-section">
-									<button class="btn btn-primary submit-btn" name="add">Thêm</button>
-								</div>
+							</div>
+							<div class="submit-section">
+								<button class="btn btn-primary submit-btn" type="submit" name="add_employee">Thêm</button>
+							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- Edit Employee Modal -->
-
-		<!-- Delete Employee Modal -->
 
 	</div>
 	<!-- /Page Wrapper -->

@@ -183,117 +183,7 @@
     <!-- Main Wrapper -->
     <div class="main-wrapper">
 
-        <!-- Header -->
-        <div class="header">
-
-            <!-- Logo -->
-            <div class="header-left">
-                <a href="index.php" class="logo">
-                    <!-- <img src="../dist/file/jomashop_logo.7c0762d85d36b44f0c59.png" style="width: 90%; height: auto;"  alt=""> -->
-                    <img src="assets/img/logo.png" width="40" height="40" alt="">
-                </a>
-            </div>
-            <!-- /Logo -->
-
-            <a id="toggle_btn" href="javascript:void(0);">
-                <span class="bar-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-            </a>
-
-            <!-- Header Title -->
-            <div class="page-title-box">
-                <h3>JomaShop</h3>
-            </div>
-            <!-- /Header Title -->
-        </div>
-        <!-- /Header -->
-
-        <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li class="menu-title">
-                            <span>JomaShop</span>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-dashboard"></i> <span>Quản lý</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="index.php">Quản trị Admin</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#" class=""><i class="la la-user"></i> <span>Nhân Viên</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="employee.php">Thông tin nhân viên</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#" class=""><i class="la la-cube"></i> <span>Sản Phẩm</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li>
-                                    <a href="./watches.php"> Watches</a>
-                                </li>
-                                <li>
-                                    <a href="./category.php">Category</a>
-                                </li>
-                                <li>
-                                    <a href="./types.php">Types</a>
-                                </li>
-                                <li>
-                                    <a href="./movement.php">Movement</a>
-                                </li>
-                                <li>
-                                    <a href="./features.php">Features</a>
-                                </li>
-                                <li>
-                                    <a href="./caseshape.php">CaseShape</a>
-                                </li>
-                                <li>
-                                    <a href="./brand.php">Brand</a>
-                                </li>
-                                <li>
-                                    <a href="./style.php">Style</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="submenu">
-                            <a href="#" class=""><i class="la la-user"></i> <span>Khách Hàng</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="custormer.php">Thông tin khách hàng</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#" class=""><i class="la la-money"></i> <span>Hóa Đơn</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="#">Thanh Toán</a></li>
-                                <li><a href="#"></i>Thống kê</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-title">
-                            <span>Tài khoản</span>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-user"></i> <span>Hồ Sơ</span></a>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-key"></i> <span>Cài đặt</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="login.php"> Đăng nhập </a></li>
-                                <li><a href="register.php"> Đăng ký </a></li>
-                                <li><a href="forgot-password.php"> Quên mật khẩu </a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- /Sidebar -->
+        <?php include 'header_sidebar.php' ?>
 
         <!-- Page Wrapper -->
         <div class="page-wrapper">
@@ -323,13 +213,13 @@
                     <div class="row filter-row">
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group form-focus">
-                                <input type="number" class="form-control floating" name="watches_id">
+                                <input type="number" class="form-control floating" name="watches_id" value="<?php if(isset($id)) echo $id ?>">
                                 <label class="focus-label">Watches ID</label>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="name_watches">
+                                <input type="text" class="form-control floating" name="name_watches" value="<?php if (isset($name)) echo $name ?>">
                                 <label class="focus-label">Name Watches</label>
                             </div>
                         </div>
@@ -341,42 +231,6 @@
 
 
                 <!-- View Filter -->
-                <?php
-    
-                // // Số lượng bản ghi trên mỗi trang
-                // $recordsPerPage = 10;
-
-                // // Xác định trang hiện tại
-                // if (isset($_GET['page'])) {
-                //     $currentPage = (int)$_GET['page'];
-                // } else {
-                //     $currentPage = 1;
-                // }
-
-                // // Tính toán OFFSET cho truy vấn SQL
-                // $offset = ($currentPage - 1) * $recordsPerPage;
-
-                // Truy vấn SQL với phân trang
-                // $sql = 'SELECT * FROM watches
-                //         JOIN brands ON watches.brand = brands.brandId
-                //         JOIN styles ON watches.style = styles.styleId
-                //         JOIN movements ON watches.movement = movements.moveId
-                //         JOIN categories ON watches.category = categories.cateId
-                //         JOIN features ON watches.features = features.feaId
-                //         JOIN types ON watches.type = types.typeId
-                //         JOIN caseshapes ON watches.caseShape = caseshapes.caseId';
-                // $stmt = $conn->prepare($sql);
-                // $stmt->execute();
-                // $result = $stmt->get_result();
-
-                // Tính tổng số bản ghi
-                // $totalRecords = $result->num_rows;
-
-                // // Tính toán tổng số trang
-                // $totalPages = ceil($totalRecords / $recordsPerPage);
-                ?>
-
-
 
                 <!-- Pagination -->
                 <div class="row" style="width: 100%;">
