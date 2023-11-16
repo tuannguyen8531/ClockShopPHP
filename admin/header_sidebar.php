@@ -105,12 +105,14 @@
                 <li class="submenu">
                     <a href="#"><i class="la la-user"></i> <span>Hồ Sơ</span></a>
                 </li>
+                <li class="">
+                    <a href="./login.php"><i class="la la-key"></i><span>Đăng xuất</span></a>
+                </li>
                 <li class="submenu">
-                    <a href="#"><i class="la la-key"></i> <span>Cài đặt</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="la la-book"></i><span>Bài tập</span><span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="login.php"> Đăng nhập </a></li>
-                        <li><a href="register.php"> Đăng ký </a></li>
-                        <li><a href="forgot-password.php"> Quên mật khẩu </a></li>
+                        <li><a href="">Bài tập</a></li>
+                        <li><a href="#"></i>Thông tin cá nhân</a></li>
                     </ul>
                 </li>
             </ul>
