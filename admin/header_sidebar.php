@@ -103,8 +103,8 @@
                         <li><a href="bill.php">Hóa đơn</a></li>
                     </ul>
                 </li>
-                <li class="submenu">
-                    <a href="#"><i class="la la-user"></i> <span>Thống kê</span></a>
+                <li class="">
+                    <a href="./report.php"><i class="la la-user"></i> <span>Thống kê</span></a>
                 </li>
                 <li class="menu-title">
                     <span>Tài khoản</span>
