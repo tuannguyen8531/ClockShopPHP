@@ -834,12 +834,7 @@
 
                                     }
 
-                                ?>
-                            
-                            
-                            
-                            "
-                        >
+                                ?>">
                             <div class="empty-cart-face">
                                 <svg width="168" height="188" viewBox="0 0 168 188" xmlns="http://www.w3.org/2000/svg">
                                     <g>

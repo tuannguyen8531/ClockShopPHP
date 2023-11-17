@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JomaShop</title>
 </head>
+<?php
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+		header('location: login.php');
+	}
+?>
 <body>
     		<!-- Header -->
     <div class="header">
@@ -96,8 +103,8 @@
                         <li><a href="bill.php">Hóa đơn</a></li>
                     </ul>
                 </li>
-                <li class="submenu">
-                    <a href="#"><i class="la la-user"></i> <span>Thống kê</span></a>
+                <li class="">
+                    <a href="./report.php"><i class="la la-user"></i> <span>Thống kê</span></a>
                 </li>
                 <li class="menu-title">
                     <span>Tài khoản</span>
