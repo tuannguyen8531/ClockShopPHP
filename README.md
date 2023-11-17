@@ -13,6 +13,6 @@ Nhóm 12 - Lớp 62.CNTT-2
 
 
 ## Giới thiệu
-ClockShopPHP là bài tập đồ án nhóm môn Phát triển phần mềm mã nguồn mở. Phát triển dựa trên website [JOMASHOP](www.jomashop.com).
+ClockShopPHP là bài tập đồ án nhóm môn Phát triển phần mềm mã nguồn mở. Phát triển dựa trên website [JOMASHOP](www.jomashop.com)..
 
 
