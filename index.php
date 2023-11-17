@@ -1381,20 +1381,5 @@
     </div>
     <script type="text/javascript" src="./dist/js/config.js"></script>
     <script type="text/javascript" src="./dist/js/modal.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
