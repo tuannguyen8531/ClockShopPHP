@@ -323,6 +323,12 @@
                                                 $stmt->execute();
 
                                             }
+                                            $delete = 'DELETE FROM cartdetails WHERE cartId  = ?';
+                                            $stmt = $conn->prepare($delete);
+                                            $stmt->bind_param("i",$cartId); 
+                                            $stmt->execute();
+
+                       
                                         }
                                         // header("Refresh: 2; URL=watches.php");
                                         }else{
