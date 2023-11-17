@@ -4,9 +4,6 @@
     include 'config.php';
     session_start();
 
-
-    
-
 ?>
 
 <head>
