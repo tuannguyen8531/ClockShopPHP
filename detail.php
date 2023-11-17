@@ -48,7 +48,7 @@
                 $stmt->bind_param('ii', $cartId, $product['id']);
                 $stmt->execute();
                 $resultExistence = $stmt->get_result();
-                $existence = $resultExistence->num_rows;  
+                $existence = $resultExistence->num_rows;
 
                 if($existence==0){
                     $watchQuantity = 1;
@@ -65,8 +65,7 @@
                     $stmt->bind_param('ii', $cartId, $product['id']);
                     $stmt->execute();
                 }
-                // header('location: detail.php');
-                // exit();
+                exit();
             }
             
         }
@@ -250,7 +249,7 @@
                                         </div>
                                         <div class="add-to-cart ">
                                             <form action="" method="post">
-                                                <button class="btn-new-design primary add-to-cart-btn" type="submit" name="button-cart" id="add-to-cart-btn"><span>Add to Bag</span></button>
+                                            <button class="btn-new-design primary add-to-cart-btn" name="button-cart" id="add-to-cart-btn"><span>Add to Bag</span></button>
                                             </form>
                                         </div>
                                     </div>

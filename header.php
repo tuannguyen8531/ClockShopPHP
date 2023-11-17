@@ -7,53 +7,7 @@
         unset($_SESSION['customer']);
         header('location: index.php');
     }
-  
-    if(isset($_SESSION['customer'])) {
-
-        $usesCus = $_SESSION['customer'];
-        $sql = 'SELECT * FROM customers
-        WHERE cusEmail = ?   ';
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $usesCus);
-        $stmt->execute();
-        $result1 = $stmt->get_result()->fetch_assoc();
-
-        $cusId = $result1['cusId'];
-
-        $sql = 'SELECT * FROM carts WHERE cartCustomerId = ? ';
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $cusId);
-        $stmt->execute();
-        $result2 = $stmt->get_result()->fetch_assoc();
-
-        $cartId = $result2['cartId'];
-        
-
-        $sql = 'SELECT * FROM cartdetails
-        -- JOIN watches ON watches.id = cartdetails.watchId
-        JOIN carts ON carts.cartId  = cartdetails.cartId 
-        WHERE cartdetails.cartId = ?   ';
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $cartId);
-        $stmt->execute();
-        $results = $stmt->get_result();
-        if($results->num_rows>0) {
-            $count=$results->num_rows;
-            $display = "display:none";
-            
-        } else {
-            $count=0;
-            $display = "display:block";
-           
-        }
-
-    // var_dump($watchesId);
-    // var_dump($watchQuanlity);
-
-    }
-
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -330,7 +284,6 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.97169C11.0149 2.97169 10.0641 3.36275 9.35841 4.06842C8.6518 4.77504 8.25 5.73911 8.25 6.74988V7.52808H15.75V6.74988C15.75 5.73911 15.3482 4.77504 14.6416 4.06842C13.9359 3.36275 12.9851 2.97169 12 2.97169ZM17.25 7.52808V6.74988C17.25 5.37371 16.7036 4.04859 15.7224 3.06738C14.7402 2.08522 13.4019 1.52808 12 1.52808C10.5981 1.52808 9.25978 2.08522 8.27763 3.06738C7.29641 4.04859 6.75 5.37371 6.75 6.74988V7.52808H3.75C3.3427 7.52808 2.95817 7.69013 2.67928 7.96903C2.40133 8.24698 2.25 8.61827 2.25 8.99988V19.1249C2.25 20.9147 3.76646 22.4717 5.625 22.4717H18.375C20.2118 22.4717 21.75 20.9947 21.75 19.1835V8.99988C21.75 8.61827 21.5987 8.24698 21.3207 7.96903C21.0418 7.69013 20.6573 7.52808 20.25 7.52808H17.25ZM3.75864 8.97168C3.75511 8.97613 3.75 8.98573 3.75 8.99988V19.1249C3.75 20.1701 4.64854 21.0281 5.625 21.0281H18.375C19.3732 21.0281 20.25 20.2073 20.25 19.1835V8.99988C20.25 8.98573 20.2449 8.97613 20.2414 8.97168H3.75864Z" fill="black"></path>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 9.77808C7.91421 9.77808 8.25 10.1012 8.25 10.4999V11.2499C8.25 12.2607 8.6518 13.2247 9.35841 13.9313C10.0641 14.637 11.0149 15.0281 12 15.0281C12.9851 15.0281 13.9359 14.637 14.6416 13.9313C15.3482 13.2247 15.75 12.2607 15.75 11.2499V10.4999C15.75 10.1012 16.0858 9.77808 16.5 9.77808C16.9142 9.77808 17.25 10.1012 17.25 10.4999V11.2499C17.25 12.6261 16.7036 13.9512 15.7224 14.9324C14.7402 15.9145 13.4019 16.4717 12 16.4717C10.5981 16.4717 9.25979 15.9145 8.27763 14.9324C7.29641 13.9512 6.75 12.6261 6.75 11.2499V10.4999C6.75 10.1012 7.08579 9.77808 7.5 9.77808Z" fill="black"></path>
                         </svg>
-                        <div style="<?php if(isset($count) and $count>0) echo "display:block"; else echo "display:none"?>" class="cart-items-wrapper"><span class="cart-items"><?php if(isset($count)) echo $count;  ?></span></div>
                     </button>
                 </div>
             </div>
@@ -494,8 +447,7 @@
                 <div class="slide-out-tabs open">
                     <button class="slide-out-tab wishlist-tab"><span>Wishlist</span>(0)</button>
                     <button class="slide-out-tab account-tab ">My Account</button>
-                
-                    <button class="slide-out-tab cart-tab"><span>Bag</span>(<?php if(isset($count)) echo $count; else echo 0;?>)</button>
+                    <button class="slide-out-tab cart-tab"><span>Bag</span>(0)</button>
                 </div>
                 <button class="btn-close">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -790,56 +742,7 @@
                 </div>
                 <div class="cart-page">
                     <div class="cart-container">
-                        <div class="empty-cart"
-                            style="
-                                <?php
-                                    if(isset($_SESSION['customer'])) {
-        
-                                        $usesCus = $_SESSION['customer'];
-                                        $sql = 'SELECT * FROM customers
-                                        WHERE cusEmail = ?   ';
-                                        $stmt = $conn->prepare($sql);
-                                        $stmt->bind_param("s", $usesCus);
-                                        $stmt->execute();
-                                        $result1 = $stmt->get_result()->fetch_assoc();
-
-                                        $cusId = $result1['cusId'];
-                            
-                                        $sql = 'SELECT * FROM carts WHERE cartCustomerId = ? ';
-                                        $stmt = $conn->prepare($sql);
-                                        $stmt->bind_param("i", $cusId);
-                                        $stmt->execute();
-                                        $result2 = $stmt->get_result()->fetch_assoc();
-
-                                        $cartId = $result2['cartId'];
-                                        
-
-                                        $sql = 'SELECT * FROM cartdetails
-                                        -- JOIN watches ON watches.id = cartdetails.watchId
-                                        JOIN carts ON carts.cartId  = cartdetails.cartId 
-                                        WHERE cartdetails.cartId = ?   ';
-                                        $stmt = $conn->prepare($sql);
-                                        $stmt->bind_param("i", $cartId);
-                                        $stmt->execute();
-                                        $results = $stmt->get_result();
-                                        if($results->num_rows>0) {
-                                            $count=$results->num_rows;
-                                            echo "display:none";
-                                        } else {
-                                            echo "display:block";
-                                        }
-
-                                    // var_dump($watchesId);
-                                    // var_dump($watchQuanlity);
-
-                                    }
-
-                                ?>
-                            
-                            
-                            
-                            "
-                        >
+                        <div class="empty-cart">
                             <div class="empty-cart-face">
                                 <svg width="168" height="188" viewBox="0 0 168 188" xmlns="http://www.w3.org/2000/svg">
                                     <g>
@@ -870,108 +773,95 @@
                             <p class="text">You have no items in your shopping bag Let’s go buy something!</p>
                             <button class="btn-new-design primary button-wrap">Continue Shopping</button>
                         </div>
-  
                         <div style="display: <?= isset($_SESSION['customer']) ? 'block' : 'none' ?>">
-                            <div class="lhs" style="<?php if ($results->num_rows>0) echo "display:block"; else echo "display:none";  ?>">
+                            <div class="lhs">
                                 <div class="cart-items-container">
                                     <div class="cart-item-list-wrapper ">
                                         <div class="cart-item-list">
-                                            <?php
-                                                if (isset($_SESSION['customer'])) {
-                                                    $itemTotal=0;
-                                                    $sumRetail=0;
-                                                    $sumSaved=0;
-                                                    while($rows = $results->fetch_assoc()) {
-                                                        $watchId = $rows['watchId'];
-                                                        $watchQuanlity = $rows['watchQuanlity'];
-
-                                                        $sqlSelect = 'SELECT * FROM watches 
-                                                        JOIN brands ON watches.brand = brands.brandId
-                                                        JOIN styles ON watches.style = styles.styleId
-                                                        JOIN movements ON watches.movement = movements.moveId
-                                                        JOIN categories ON watches.category = categories.cateId
-                                                        JOIN features ON watches.features = features.feaId
-                                                        JOIN types ON watches.type = types.typeId
-                                                        JOIN caseshapes ON watches.caseShape = caseshapes.caseId
-                                                        WHERE watches.id = ?';
-
-                                                        $stmt = $conn->prepare($sqlSelect);
-                                                        $stmt->bind_param("i", $watchId);
-                                                        $stmt->execute();
-                                                        $resultsSelect = $stmt->get_result();
-                                                        
-                                                        $row = $resultsSelect->fetch_assoc();
-                                                        $brandName = $row['brandName'];
-                                                        $name = $row['name'];
-                                                        $img = $row['img1'];
-                                                        $price = $row['price'];
-                                                        $sale = $row['sale'];
-
-                                                        $was = $price / (1 - ($row['sale'] / 100));
-                                                        $was = number_format($was, 2, '.', '');
-                                                        $retail = $was + 30.00;
-                                                        $retail = number_format($retail, 2, '.', '');
-
-                                                        $saved = ($sale/100) * $retail; 
-                
-                                                        $itemTotal += $price;
-                                                        $sumRetail += $retail;
-                                                        $sumSaved += $saved;
-                                                        
-                                  
-                                                ?>
-
-                                                    <div class="cart-item">
-                                                        <div class="cart-item-wrapper">
-                                                            <div class="cart-item-image"><a href="/victorinox-alliance-sport-watch-241818.html"><img src="./img/watches/<?= $img ?>" alt="<?= $name ?>"></a></div>
-                                                            <div class="cart-item-content">
-                                                                <div class="cart-item-details">
-                                                                    <div class="cart-item-info">
-                                                                        <div class="cart-item-name"><span class="item-brand-name"><?= $brandName ?></span><a href="/victorinox-alliance-sport-watch-241818.html"><?= $name ?></a></div>
-                                                                    </div>
+                                            <div class="cart-item">
+                                                <div class="cart-item-wrapper">
+                                                    <div class="cart-item-image"><a href="/victorinox-alliance-sport-watch-241818.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/v/i/victorinox-alliance-sport-chronograph-grey-dial-mens-watch-241818--.jpg?width=80&amp;height=80" alt="Victorinox Alliance Sport Chronograph Grey Dial Men's Watch 241818"></a></div>
+                                                    <div class="cart-item-content">
+                                                        <div class="cart-item-details">
+                                                            <div class="cart-item-info">
+                                                                <div class="cart-item-name"><span class="item-brand-name">Victorinox</span><a href="/victorinox-alliance-sport-watch-241818.html">Alliance Sport Chronograph Grey Dial Men's Watch 241818</a></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cart-item-data">
+                                                            <div class="cart-item-data-inner">
+                                                                <div class="price-wrapper">
+                                                                    <div class="discount-wrapper"><span>You saved $326.00</span></div><span class="cart-item-subtotal" data-label="Subtotal">$299.00</span><span class="was-wrapper">$625.00</span>
                                                                 </div>
-                                                                <div class="cart-item-data">
-                                                                    <div class="cart-item-data-inner">
-                                                                        <div class="price-wrapper">
-                                                                            <div class="discount-wrapper"><span>You saved $<?= number_format($saved, 2, '.', ''); ?></span></div><span class="cart-item-subtotal" data-label="Subtotal">$<?= $price ?></span><span class="was-wrapper">$<?= $retail ?></span>
-                                                                        </div>
-                                                                        <div class="cart-item-data-actions">
-                                                                            <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241818" aria-label="quantity">Qty</label>
-                                                                                <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241818" title="Quantity" placeholder="1" name="product-qty" value="<?= $watchQuanlity ?>"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cart-item-actions">
-                                                                    <div class="move-to-wishlist "><a title="Move to Wishlist" href="/victorinox-alliance-sport-watch-241818.html">Move to Wishlist</a></div>
-                                                                    <div class="cart-item-action"><span class="cart-item-edit"><a title="Edit" href="/victorinox-alliance-sport-watch-241818.html"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="edit-icon">
-                                                                                    <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
-                                                                                    <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
-                                                                                </svg>Edit</a></span></div>
-                                                                    <div class="save-for-later-sec"><a class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                <g opacity="0.5">
-                                                                                    <path d="M8.00033 13.3337L13.4418 7.84053C14.0128 7.27219 14.3337 6.50134 14.3337 5.69758C14.3337 4.89382 14.0128 4.12298 13.4418 3.55463C12.8707 2.98629 12.0962 2.66699 11.2886 2.66699C10.481 2.66699 9.70645 2.98629 9.13538 3.55463L8.00033 4.60671L6.86527 3.55463C6.29421 2.98629 5.51968 2.66699 4.71207 2.66699C3.90447 2.66699 3.12994 2.98629 2.55888 3.55463C1.98781 4.12298 1.66699 4.89382 1.66699 5.69758C1.66699 6.50134 1.98781 7.27219 2.55888 7.84053L8.00033 13.3337Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                                                </g>
-                                                                            </svg>Move to Favorites</a></div>
-                                                                    <div class="cart-item-action">
-                                                                        
-                                                                            <span class="cart-item-remove"><a title="Remove" class="" href="index.php?delete=<?= $watchId ?>&cartId=<?= $cartId ?>" onclick="return confirm('Are you sure you would like to remove this item from the shopping cart?')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                    <path d="M12.75 4.5H16.5V6H15V15.75C15 16.1642 14.6642 16.5 14.25 16.5H3.75C3.33579 16.5 3 16.1642 3 15.75V6H1.5V4.5H5.25V2.25C5.25 1.83579 5.58579 1.5 6 1.5H12C12.4142 1.5 12.75 1.83579 12.75 2.25V4.5ZM13.5 6H4.5V15H13.5V6ZM6.75 8.25H8.25V12.75H6.75V8.25ZM9.75 8.25H11.25V12.75H9.75V8.25ZM6.75 3V4.5H11.25V3H6.75Z" fill="black"></path>
-                                                                                </svg></a>
-                                                                            </span>
-                                                                        
+                                                                <div class="cart-item-data-actions">
+                                                                    <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241818" aria-label="quantity">Qty</label>
+                                                                        <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241818" title="Quantity" placeholder="1" name="product-qty" value="1"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="cart-item-actions">
+                                                            <div class="move-to-wishlist "><a title="Move to Wishlist" href="/victorinox-alliance-sport-watch-241818.html">Move to Wishlist</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-edit"><a title="Edit" href="/victorinox-alliance-sport-watch-241818.html"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="edit-icon">
+                                                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                                                        </svg>Edit</a></span></div>
+                                                            <div class="save-for-later-sec"><a class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <g opacity="0.5">
+                                                                            <path d="M8.00033 13.3337L13.4418 7.84053C14.0128 7.27219 14.3337 6.50134 14.3337 5.69758C14.3337 4.89382 14.0128 4.12298 13.4418 3.55463C12.8707 2.98629 12.0962 2.66699 11.2886 2.66699C10.481 2.66699 9.70645 2.98629 9.13538 3.55463L8.00033 4.60671L6.86527 3.55463C6.29421 2.98629 5.51968 2.66699 4.71207 2.66699C3.90447 2.66699 3.12994 2.98629 2.55888 3.55463C1.98781 4.12298 1.66699 4.89382 1.66699 5.69758C1.66699 6.50134 1.98781 7.27219 2.55888 7.84053L8.00033 13.3337Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                        </g>
+                                                                    </svg>Move to Favorites</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-remove"><a title="Remove" class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M12.75 4.5H16.5V6H15V15.75C15 16.1642 14.6642 16.5 14.25 16.5H3.75C3.33579 16.5 3 16.1642 3 15.75V6H1.5V4.5H5.25V2.25C5.25 1.83579 5.58579 1.5 6 1.5H12C12.4142 1.5 12.75 1.83579 12.75 2.25V4.5ZM13.5 6H4.5V15H13.5V6ZM6.75 8.25H8.25V12.75H6.75V8.25ZM9.75 8.25H11.25V12.75H9.75V8.25ZM6.75 3V4.5H11.25V3H6.75Z" fill="black"></path>
+                                                                        </svg></a></span></div>
+                                                        </div>
                                                     </div>
-                                               <?php }  ?>
-                                            <?php } ?>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item">
+                                                <div class="cart-item-wrapper">
+                                                    <div class="cart-item-image"><a href="/victorinox-alliance-sport-watch-241819.html"><img src="https://cdn2.jomashop.com/media/catalog/product/cache/65076e0eec254d6ea41c2ba023b4122a/v/i/victorinox-alliance-sport-chronograph-quartz-white-dial-mens-watch-241819.jpg?width=80&amp;height=80" alt="Victorinox Alliance Sport Chronograph Quartz White Dial Men's Watch 241819"></a></div>
+                                                    <div class="cart-item-content">
+                                                        <div class="cart-item-details">
+                                                            <div class="cart-item-info">
+                                                                <div class="cart-item-name"><span class="item-brand-name">Victorinox</span><a href="/victorinox-alliance-sport-watch-241819.html">Alliance Sport Chronograph Quartz White Dial Men's Watch 241819</a></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cart-item-data">
+                                                            <div class="cart-item-data-inner">
+                                                                <div class="price-wrapper">
+                                                                    <div class="discount-wrapper"><span>You saved $351.00</span></div><span class="cart-item-subtotal" data-label="Subtotal">$224.00</span><span class="was-wrapper">$575.00</span>
+                                                                    <div class="coupon-tag"><span>$45.00 coupon</span></div>
+                                                                </div>
+                                                                <div class="cart-item-data-actions">
+                                                                    <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241819" aria-label="quantity">Qty</label>
+                                                                        <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241819" title="Quantity" placeholder="1" name="product-qty" value="1"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cart-item-actions">
+                                                            <div class="move-to-wishlist "><a title="Move to Wishlist" href="/victorinox-alliance-sport-watch-241818.html">Move to Wishlist</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-edit"><a title="Edit" href="/victorinox-alliance-sport-watch-241818.html"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="edit-icon">
+                                                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                                                        </svg>Edit</a></span></div>
+                                                            <div class="save-for-later-sec"><a class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <g opacity="0.5">
+                                                                            <path d="M8.00033 13.3337L13.4418 7.84053C14.0128 7.27219 14.3337 6.50134 14.3337 5.69758C14.3337 4.89382 14.0128 4.12298 13.4418 3.55463C12.8707 2.98629 12.0962 2.66699 11.2886 2.66699C10.481 2.66699 9.70645 2.98629 9.13538 3.55463L8.00033 4.60671L6.86527 3.55463C6.29421 2.98629 5.51968 2.66699 4.71207 2.66699C3.90447 2.66699 3.12994 2.98629 2.55888 3.55463C1.98781 4.12298 1.66699 4.89382 1.66699 5.69758C1.66699 6.50134 1.98781 7.27219 2.55888 7.84053L8.00033 13.3337Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                        </g>
+                                                                    </svg>Move to Favorites</a></div>
+                                                            <div class="cart-item-action"><span class="cart-item-remove"><a title="Remove" class="" href="/victorinox-alliance-sport-watch-241818.html"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M12.75 4.5H16.5V6H15V15.75C15 16.1642 14.6642 16.5 14.25 16.5H3.75C3.33579 16.5 3 16.1642 3 15.75V6H1.5V4.5H5.25V2.25C5.25 1.83579 5.58579 1.5 6 1.5H12C12.4142 1.5 12.75 1.83579 12.75 2.25V4.5ZM13.5 6H4.5V15H13.5V6ZM6.75 8.25H8.25V12.75H6.75V8.25ZM9.75 8.25H11.25V12.75H9.75V8.25ZM6.75 3V4.5H11.25V3H6.75Z" fill="black"></path>
+                                                                        </svg></a></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="rhs-cart" style="<?php if ($results->num_rows>0) echo "display:block"; else echo "display:none";  ?>">
+                            <div class="rhs-cart">
                                 <div class="coupon-form ">
                                     <div class="discount-coupon-form accordion-wrapper">
                                         <div class="collapsible-wrapper false">
@@ -997,13 +887,13 @@
                                         <div class="cart-subtotal">
                                             <div class="row">
                                                 <div class="col-left">Item(s) total</div>
-                                                <div class="col-right cart-subtotal-value">$<?= $itemTotal ?></div>
+                                                <div class="col-right cart-subtotal-value">$568.00</div>
                                             </div>
                                         </div>
                                         <div class="cart-savings">
                                             <div class="row">
                                                 <div class="col-left">Savings</div>
-                                                <div class="col-right cart-savings-value"><?= number_format(($sumSaved/$sumRetail)*100 , 2, '.', ''); ?>%</div>
+                                                <div class="col-right cart-savings-value">56%</div>
                                             </div>
                                         </div>
                                         <div class="cart-tax">
@@ -1012,10 +902,16 @@
                                                 <div class="col-right"><span><i>calculated in checkout</i></span></div>
                                             </div>
                                         </div>
+                                        <div class="cart-discount">
+                                            <div class="row">
+                                                <div class="col-left">Discount <span class="rmv-coupon">"VIC45"<a>X</a></span></div>
+                                                <div class="col-right cart-discount-value">-$45.00</div>
+                                            </div>
+                                        </div>
                                         <div class="cart-grand-total">
                                             <div class="row">
                                                 <div class="col-left"><b>Total</b></div>
-                                                <div class="col-right cart-discount-value"><b>$<?=$itemTotal?></b></div>
+                                                <div class="col-right cart-discount-value"><b>$523.00</b></div>
                                             </div>
                                         </div>
                                         <div class="shipping-wrapper shipping-active">
@@ -1048,66 +944,60 @@
                                     </div>
                                 </div>
                             </div>
-                            <form action="checkout_address.php" method="post" style="<?php if ($results->num_rows>0) echo "display:block"; else echo "display:none";  ?>">
-                                <div class="button-sticky-wrap">
-                                    <button class="btn-new-design primary" type="submit" name="check_out">
-                                        <span class="text-co">Checkout</span>
-                                        <span class="btn-co">$<?= $itemTotal?></span>
-                                    </button>
-                                    <p class="checkout-with">or checkout with</p>
-                                    <div class="button-wrap">
-                                        <div class="paypal-button">
-                                            <div class="paypal-payment-button">
-                                                <div class=" undefined"></div><a id="paypal-payment-button" href="#" class=""><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal"></a>
-                                            </div>
+                            <div class="button-sticky-wrap"><button class="btn-new-design primary"><span class="text-co">Checkout </span><span class="btn-co">$523.00</span></button>
+                                <p class="checkout-with">or checkout with</p>
+                                <div class="button-wrap">
+                                    <div class="paypal-button">
+                                        <div class="paypal-payment-button">
+                                            <div class=" undefined"></div><a id="paypal-payment-button" href="#" class=""><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal"></a>
                                         </div>
-                                        <div class="amazon-pay-button">
-                                            <div class="amazon-button amazonpay-button-parent-container-checkout-A2TPIY28J6VK2X" id="AmazonPayButton" role="button" aria-label="Amazon Pay - Use your Amazon account" title="Pay using the information already stored in your Amazon account" style="height: 45px; position: relative; width: 166.5px;">
-                                                <div class="amazonpay-button-container amazonpay-button-enabled amazonpay-button-container-rows-affirm" id="maxo-button-wrapper-1699883603458">
-                                                    <div class="amazonpay-button-view1 amazonpay-button-view1-gold" tabindex="0">
-                                                        <picture class="amazonpay-button-logo"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/PWA_dark-en_US._CB620220074_.svg"></picture>
-                                                        <picture class="amazonpay-button-chevrons"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/AmazonPay_button_chevron._CB1558391205_.svg"></picture>
-                                                    </div>
-                                                    <div class="amazonpay-button-view2"></div>
-                                                    <div class="amazonpay-button-view3">
-                                                        <div class="ala-sm"><span>As low as $48/mo </span><img src="https://cdn-assets.affirm.com/images/black_logo-white_bg.svg"></div>
-                                                    </div>
+                                    </div>
+                                    <div class="amazon-pay-button">
+                                        <div class="amazon-button amazonpay-button-parent-container-checkout-A2TPIY28J6VK2X" id="AmazonPayButton" role="button" aria-label="Amazon Pay - Use your Amazon account" title="Pay using the information already stored in your Amazon account" style="height: 45px; position: relative; width: 166.5px;">
+                                            <div class="amazonpay-button-container amazonpay-button-enabled amazonpay-button-container-rows-affirm" id="maxo-button-wrapper-1699883603458">
+                                                <div class="amazonpay-button-view1 amazonpay-button-view1-gold" tabindex="0">
+                                                    <picture class="amazonpay-button-logo"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/PWA_dark-en_US._CB620220074_.svg"></picture>
+                                                    <picture class="amazonpay-button-chevrons"><img src="https://m.media-amazon.com/images/G/01/AmazonPay/Maxo/AmazonPay_button_chevron._CB1558391205_.svg"></picture>
                                                 </div>
-                                        
+                                                <div class="amazonpay-button-view2"></div>
+                                                <div class="amazonpay-button-view3">
+                                                    <div class="ala-sm"><span>As low as $48/mo </span><img src="https://cdn-assets.affirm.com/images/black_logo-white_bg.svg"></div>
+                                                </div>
                                             </div>
-
-                                            <div class="amazon-button" id="AmazonPayButton"></div>
+                                    
                                         </div>
-                                        <div class="google-pay-button">
-                                            <div>
-                                                <div id="google-pay-container">
-                                                    <div class="gpay-card-info-container-fill">
-                                                        <button type="button" aria-label="Buy with GPay" class="gpay-card-info-container black long en">
-                                                            <div class="gpay-card-info-animation-container black gpay-card-info-animation-container-fade-out">
-                                                                <div class="gpay-card-info-placeholder-container">
-                                                                    <div class="gpay-card-info-animation-gpay-logo black"></div>
-                                                                    <div class="gpay-card-info-placeholder-svg-container"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" direction="ltr" viewBox="0 0 130 36">
-                                                                            <style>
-                                                                                @import url(//fonts.googleapis.com/css?family=Google+Sans:500)
-                                                                            </style>
-                                                                            <line x1="8" y1="7" x2="8" y2="26" ></line>
-                                                                            <image x="16" y="2.5" width="37.5" height="29" preserveAspectRatio="none" xlink:href="https://www.gstatic.com/images/icons/material/system/1x/payment_white_36dp.png"></image><text x="57" y="22" class="small">••••••</text>
-                                                                        </svg></div>
+
+                                        <div class="amazon-button" id="AmazonPayButton"></div>
+                                    </div>
+                                    <div class="google-pay-button">
+                                        <div>
+                                            <div id="google-pay-container">
+                                                <div class="gpay-card-info-container-fill">
+                                                    <button type="button" aria-label="Buy with GPay" class="gpay-card-info-container black long en">
+                                                        <div class="gpay-card-info-animation-container black gpay-card-info-animation-container-fade-out">
+                                                            <div class="gpay-card-info-placeholder-container">
+                                                                <div class="gpay-card-info-animation-gpay-logo black"></div>
+                                                                <div class="gpay-card-info-placeholder-svg-container"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" direction="ltr" viewBox="0 0 130 36">
+                                                                        <style>
+                                                                            @import url(//fonts.googleapis.com/css?family=Google+Sans:500)
+                                                                        </style>
+                                                                        <line x1="8" y1="7" x2="8" y2="26" ></line>
+                                                                        <image x="16" y="2.5" width="37.5" height="29" preserveAspectRatio="none" xlink:href="https://www.gstatic.com/images/icons/material/system/1x/payment_white_36dp.png"></image><text x="57" y="22" class="small">••••••</text>
+                                                                    </svg></div>
+                                                            </div>
+                                                            <div class="gpay-card-info-animated-progress-bar-container">
+                                                                <div class="gpay-card-info-animated-progress-bar">
+                                                                    <div class="gpay-card-info-animated-progress-bar-indicator"></div>
                                                                 </div>
-                                                                <div class="gpay-card-info-animated-progress-bar-container">
-                                                                    <div class="gpay-card-info-animated-progress-bar">
-                                                                        <div class="gpay-card-info-animated-progress-bar-indicator"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div><iframe class="gpay-card-info-iframe gpay-card-info-iframe-fade-in" scrolling="no" src="https://pay.google.com/gp/p/generate_gpay_btn_img?buttonColor=black&amp;browserLocale=en&amp;buttonSizeMode=fill&amp;enableGpayNewButtonAsset=false"></iframe>
-                                                        </button>
-                                                    </div>
+                                                            </div>
+                                                        </div><iframe class="gpay-card-info-iframe gpay-card-info-iframe-fade-in" scrolling="no" src="https://pay.google.com/gp/p/generate_gpay_btn_img?buttonColor=black&amp;browserLocale=en&amp;buttonSizeMode=fill&amp;enableGpayNewButtonAsset=false"></iframe>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
