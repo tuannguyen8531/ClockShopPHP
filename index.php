@@ -55,6 +55,18 @@
     $stmt = $conn->prepare($sqlTrending);
     $stmt->execute(); 
     $trendingResult = $stmt->get_result();
+
+    if (isset($_GET['delete'])) {
+
+        $watchId = $_GET['delete'];  
+        $cartId = $_GET['cartId'];  
+     
+        $delete = 'DELETE FROM cartdetails WHERE cartId  = ? and watchId = ? ';
+        $stmt = $conn->prepare($delete);
+        $stmt->bind_param("ii",$cartId, $watchId); 
+        $stmt->execute();
+        // header("Refresh: 0; URL=index.php");
+    }
 ?>
 <head>
     <meta charset="UTF-8">
@@ -384,7 +396,7 @@
                                                 <a href="./error404.php" class="popular-item popular-active">SHOW ALL BRANDS</a>
                                             </div>
                                             <style>
-                                                @media only screen and (min-width: 1280px) {
+                                        @media only screen and (min-width: 1280px) {
                                                     .popular-wrapper {
                                                         justify-content: center;
                                                     }
