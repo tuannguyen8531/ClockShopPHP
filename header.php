@@ -997,7 +997,14 @@
                                         <div class="cart-savings">
                                             <div class="row">
                                                 <div class="col-left">Savings</div>
-                                                <div class="col-right cart-savings-value"><?= number_format(($sumSaved/$sumRetail)*100 , 2, '.', ''); ?>%</div>
+                                                <?php
+                                                    if($sumRetail!=0) {
+                                                        $temp = number_format(($sumSaved / $sumRetail)*100 , 2, '.', '');
+                                                    } else {
+                                                        $temp = 10.00;
+                                                    }
+                                                ?>
+                                                <div class="col-right cart-savings-value"><?= $temp ?>%</div>
                                             </div>
                                         </div>
                                         <div class="cart-tax">
