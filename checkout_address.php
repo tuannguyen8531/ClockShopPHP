@@ -325,15 +325,13 @@
                                             $stmt->bind_param("i",$cartId); 
                                             $stmt->execute();
 
-                       
+                                           
                                         }
-                                        // header("Refresh: 2; URL=watches.php");
+                                       
                                         }else{
                                             echo '<script language="javascript">alert("Order failed!");</script>';
                                         }
-                                       // $result1 = $stmt->get_result()->fetch_assoc();
-                                       // insert bill
-                                       // insrert billdetails
+                
                                        
                                     }
                         
