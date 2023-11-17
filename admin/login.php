@@ -9,7 +9,9 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		$sql = 'SELECT * FROM accounts WHERE accUsername LIKE ?';
+		$sql = 'SELECT * FROM accounts
+			JOIN authorities ON accounts.accAuthority = authorities.authId
+			WHERE ((accounts.accAuthority = 1) OR (accounts.accAuthority = 2)) AND (accounts.accUsername LIKE ?)';
 		$stmt = $conn->prepare($sql);
 		$stmt->bind_param('s', $username);
 		$stmt->execute();

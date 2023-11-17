@@ -183,7 +183,7 @@
                                         <tr>
                                             <td><?= $row['billId'] ?> </td>
                                             <td><?= $row['billOrderDate'] ?></td>
-                                            <td><?= $row['billDeliveryDate'] ?></td>
+                                            <td><?= ($row['billDeliveryDate']!='0000-00-00') ? $row['billDeliveryDate'] : '' ?></td>
                                             <td><?= $row['cusLastName']." ".$row['cusFirstName'] ?></td>
                                             <td><?= $row['manLastName']." ".$row['manFirstName'] ?></td>
                                             <td class="<?php switch ($row['statusId']) {

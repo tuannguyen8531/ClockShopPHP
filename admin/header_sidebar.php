@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JomaShop</title>
 </head>
+<?php
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+		header('location: login.php');
+	}
+?>
 <body>
     		<!-- Header -->
     <div class="header">
