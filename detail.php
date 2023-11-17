@@ -65,7 +65,7 @@
                     $stmt->bind_param('ii', $cartId, $product['id']);
                     $stmt->execute();
                 }
-                exit();
+                // header("Refresh: 0; URL=detail.php");
             }
             
         }
