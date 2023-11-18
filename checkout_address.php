@@ -183,7 +183,7 @@
                                                             $brandName = $row['brandName'];
                                                             $name = $row['name'];
                                                             $img = $row['img1'];
-                                                            $price = $row['price'];
+                                                            $price = $row['price'] * $watchQuanlity;
                                                             $sale = $row['sale'];
 
                                                             $was = $price / (1 - ($row['sale'] / 100));

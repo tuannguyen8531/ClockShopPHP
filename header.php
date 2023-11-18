@@ -264,8 +264,66 @@
             });
 
 
- 
-          
+            let numberCartItem = $(".cart-item").length;
+
+            if (numberCartItem>=1) {
+
+            for (let i = 1; i <= numberCartItem; i++) {
+                $("#de" + i).on("click", function() {
+                let watchId = $("#de"+i).val();
+                console.log(watchId);
+                let increment = 0;
+                let decrement = 1;
+                $.ajax({
+                    url: "increment_decrement.php",
+                    method: "POST",
+                    data: { watchId: watchId, increment: increment, decrement: decrement},
+                    success: function(response) {
+                        if (response!="-1") {
+                            $("#quanlity" + i).val(parseInt(response, 10));
+                        }else {
+                            // location.reload();
+                        }                 
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error in AJAX request:", status, error);
+                    },
+                    
+                });
+           
+    
+                })
+
+                $("#in"+i).on("click", function() {
+                let watchId = $("#in"+i).val();
+                console.log(watchId);
+                let increment = 1;
+                let decrement = 0;
+                  
+                $.ajax({
+                    url: "increment_decrement.php",
+                    method: "POST",
+                    data: { watchId: watchId, increment: increment, decrement: decrement},
+                    success: function(response) {
+                        $("#quanlity"+i).val(parseInt(response, 10));
+                        console.log(response);         
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error in AJAX request:", status, error);
+                    }
+                });
+
+
+                
+            });
+
+            }
+            
+        }
+   
+
+            
+   
         });
 
     </script>
@@ -875,9 +933,15 @@
                                                     $itemTotal=0;
                                                     $sumRetail=0;
                                                     $sumSaved=0;
+                                                    $in1=0; 
+                                                    $de1=0;
+                                                    $quanlity=0;
                                                     while($rows = $results->fetch_assoc()) {
                                                         $watchId = $rows['watchId'];
                                                         $watchQuanlity = $rows['watchQuanlity'];
+                                                        $in1++; 
+                                                        $de1++;
+                                                        $quanlity++;
 
                                                         $sqlSelect = 'SELECT * FROM watches 
                                                         JOIN brands ON watches.brand = brands.brandId
@@ -898,7 +962,8 @@
                                                         $brandName = $row['brandName'];
                                                         $name = $row['name'];
                                                         $img = $row['img1'];
-                                                        $price = $row['price'];
+                                                        $price = $row['price'] * $watchQuanlity;
+                                  
                                                         $sale = $row['sale'];
 
                                                         $was = $price / (1 - ($row['sale'] / 100));
@@ -911,6 +976,7 @@
                                                         $itemTotal += $price;
                                                         $sumRetail += $retail;
                                                         $sumSaved += $saved;
+                                                        
                                                         
                                   
                                                 ?>
@@ -927,11 +993,11 @@
                                                                 <div class="cart-item-data">
                                                                     <div class="cart-item-data-inner">
                                                                         <div class="price-wrapper">
-                                                                            <div class="discount-wrapper"><span>You saved $<?= number_format($saved, 2, '.', ''); ?></span></div><span class="cart-item-subtotal" data-label="Subtotal">$<?= $price ?></span><span class="was-wrapper">$<?= $retail ?></span>
+                                                                            <div class="discount-wrapper"><span >You saved $<?= number_format($saved, 2, '.', ''); ?></span></div><span class="cart-item-subtotal" data-label="Subtotal">$<?= $price ?></span><span class="was-wrapper">$<?= $retail ?></span>
                                                                         </div>
                                                                         <div class="cart-item-data-actions">
                                                                             <div class="cart-item-qty" data-label="Qty"><label class="qty-label" for="qty-victorinox-alliance-sport-watch-241818" aria-label="quantity">Qty</label>
-                                                                                <div class="qty-selector-items"><button type="button" class="qty-btn decrement-btn" aria-label="Decrease product item quantity"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="qty-victorinox-alliance-sport-watch-241818" title="Quantity" placeholder="1" name="product-qty" value="<?= $watchQuanlity ?>"><button type="button" class="qty-btn increment-btn" aria-label="Increase product item quantity"><span class="icon-style" aria-hidden="true">+</span></button></div>
+                                                                                <div class="qty-selector-items"><button value="<?= $watchId ?>" type="button"  class="qty-btn decrement-btn" id="de<?= isset($de1) ? $de1 : 0    ?>" aria-label="Decrease product item quantity" name="decrement-btn"><span class="icon-style" aria-hidden="true">–</span></button><input class="quantity-input" type="number" id="quanlity<?= isset($quanlity)? $quanlity : 0 ?>" title="Quantity" name="product-qty" value="<?= $watchQuanlity ?>" ><button type="button" value="<?= $watchId ?>" id="in<?= isset($in1) ? $in1 : 0    ?>" class="qty-btn increment-btn" aria-label="Increase product item quantity" name="increment-btn"><span class="icon-style" aria-hidden="true">+</span></button></div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -991,7 +1057,7 @@
                                         <div class="cart-subtotal">
                                             <div class="row">
                                                 <div class="col-left">Item(s) total</div>
-                                                <div class="col-right cart-subtotal-value">$<?= $itemTotal ?></div>
+                                                <div class="col-right cart-subtotal-value">$<?= $itemTotal  ?></div>
                                             </div>
                                         </div>
                                         <div class="cart-savings">
@@ -1016,7 +1082,7 @@
                                         <div class="cart-grand-total">
                                             <div class="row">
                                                 <div class="col-left"><b>Total</b></div>
-                                                <div class="col-right cart-discount-value"><b>$<?=$itemTotal?></b></div>
+                                                <div class="col-right cart-discount-value"><b>$<?= isset($itemTotal)? $itemTotal : 0?></b></div>
                                             </div>
                                         </div>
                                         <div class="shipping-wrapper shipping-active">
@@ -1053,7 +1119,7 @@
                                 <div class="button-sticky-wrap">
                                     <button class="btn-new-design primary" type="submit" name="check_out">
                                         <span class="text-co">Checkout</span>
-                                        <span class="btn-co">$<?= $itemTotal?></span>
+                                        <span class="btn-co">$<?= isset($itemTotal)? $itemTotal : 0 ?></span>
                                     </button>
                                     <p class="checkout-with">or checkout with</p>
                                     <div class="button-wrap">
