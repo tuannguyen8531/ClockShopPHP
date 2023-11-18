@@ -3,74 +3,37 @@
 <?php 
     include 'config.php';
     session_start();
-    $sqlCusInfo = 'SELECT * FROM customers
-        JOIN accounts ON customers.cusAccount = accounts.accId
+
+    if(isset($_SESSION['customer'])) {
+        $sqlCusInfo = 'SELECT * FROM customers
+        -- JOIN accounts ON customers.cusAccount = accounts.accId
         WHERE customers.cusEmail LIKE ?';
     
     $stmt = $conn->prepare($sqlCusInfo);
     $stmt->bind_param('s', $_SESSION['customer']);
     $stmt->execute();
     $customer = $stmt->get_result()->fetch_assoc();
+    $cusId = $customer['cusId'];
+
+
+    $billCus = 'SELECT * FROM bills 
+    JOIN statuses ON bills.billStatus = statuses.statusId 
+    WHERE billCustomer LIKE ?';
+    $stmt = $conn->prepare($billCus);
+    $stmt->bind_param('i', $cusId);
+    $stmt->execute();
+    $resultsBill = $stmt->get_result();
+    // $count = $resultsBill->num_rows;
     
 
-    if(isset($_POST['save'])) {
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $phone = $_POST['phone'];
-        $company = $_POST['company'];
-        $country = $_POST['country'];
-        $address = $_POST['address'];
-        $city = $_POST['city'];
-        $state = $_POST['state'];
-        $zip = $_POST['zip'];
 
-        $isValid = true;
-        if(empty($firstname)) {
-            $msgFirstName = 'This is a required field';
-            $isValid = false;
-        }
-        if(empty($lastname)) {
-            $msgLastName = 'This is a required field';
-            $isValid = false;
-        }
-        if(empty($phone)) {
-            $msgPhone = 'This is a required field';
-            $isValid = false;
-        }
-        if(empty($address)) {
-            $msgAddress = 'This is a required field';
-            $isValid = false;
-        }
-        if(empty($city)) {
-            $msgCity = 'This is a required field';
-            $isValid = false;
-        }
-        if(empty($state)) {
-            $msgState = 'This is a required field';
-            $isValid = false;
-        }
-        if(empty($zip)) {
-            $msgZip = 'This is a required field';
-            $isValid = false;
-        }
 
-        if($isValid) {
-            $sqlEditInfo = 'UPDATE customers SET
-                cusFirstName = ?,
-                cusLastName = ?,
-                cusCompany = ?,
-                cusPhone = ?,
-                cusCity = ?,
-                cusCountry = ?,
-                cusState = ?,
-                cusAdd1 = ?,
-                cusZip = ?
-                WHERE cusEmail = ?';
-            $stmt = $conn->prepare($sqlEditInfo);
-            $stmt->bind_param('ssssssssss', $firstname, $lastname, $company, $phone, $city, $country, $state, $address, $zip, $_SESSION['customer']);
-            $stmt->execute();
-        }
+    
+
     }
+
+
+    
 ?>
 <head>
     <meta charset="utf-8">
@@ -113,6 +76,25 @@
 
         
     </style>
+
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="./admin/assets/css/bootstrap.min.css">
+
+<!-- Fontawesome CSS -->
+<link rel="stylesheet" href="./admin/assets/css/font-awesome.min.css">
+
+<!-- Lineawesome CSS -->
+<link rel="stylesheet" href="./admin/assets/css/line-awesome.min.css">
+        <!-- Select2 CSS -->
+<link rel="stylesheet" href="./admin/assets/css/select2.min.css">
+
+<!-- Chart CSS -->
+<link rel="stylesheet" href="./admin/assets/plugins/morris/morris.css">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="./admin/assets/css/style.css">
 </head>
 
 <body id="body">
@@ -146,7 +128,8 @@
                                             </svg>
                                         </a>
                                         <h4 class="group-title">Recent Orders</h4>
-                                        <a class="group-item" href="./account_order.php">
+                                        <a class="group-item item-active active" href="./account_order.php" aria-current="page">
+                                        <!-- <a class="group-item" href="/my-account/orders"> -->
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                                                 <path d="M12 1L21.5 6.5V17.5L12 23L2.5 17.5V6.5L12 1ZM5.49388 7.0777L12.0001 10.8444L18.5062 7.07774L12 3.311L5.49388 7.0777ZM4.5 8.81329V16.3469L11.0001 20.1101V12.5765L4.5 8.81329ZM13.0001 20.11L19.5 16.3469V8.81337L13.0001 12.5765V20.11Z" fill="currentColor"></path>
                                             </svg>
@@ -189,7 +172,7 @@
                                                 <polyline points="12 5 19 12 12 19"></polyline>
                                             </svg>
                                         </a>
-                                        <a class="group-item item-active active" href="/my-account/address" aria-current="page">
+                                        <a class="group-item" href="/my-account/address" aria-current="page">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                                                 <path d="M12 20.8995L16.9497 15.9497C19.6834 13.2161 19.6834 8.78392 16.9497 6.05025C14.2161 3.31658 9.78392 3.31658 7.05025 6.05025C4.31658 8.78392 4.31658 13.2161 7.05025 15.9497L12 20.8995ZM12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13ZM12 15C9.79086 15 8 13.2091 8 11C8 8.79086 9.79086 7 12 7C14.2091 7 16 8.79086 16 11C16 13.2091 14.2091 15 12 15Z" fill="currentColor"></path>
                                             </svg>
@@ -211,97 +194,65 @@
                                 <div class="address-book content-wrapper">
                                     <ol class="breadcrumb-new-design">
                                         <li class="breadcrumb-item"><a href="/my-account">My account</a></li>
-                                        <li class="breadcrumb-item"><a href="/my-account/address">Manage Addresses</a>
+                                        <li class="breadcrumb-item"><a href="/my-account/address">View All Order</a>
                                         </li>
-                                        <li class="breadcrumb-item"><span>Add New Address</span></li>
+                                       
                                     </ol>
                                     <div class="address-header">
-                                        <h1 class="my-account__page-title">New Address</h1>
+                                        <h1 class="my-account__page-title">Order infomation</h1>
                                     </div>
-                                    <div class="new-address-form">
-                                        <form method="post">
-                                            <div class="contact-inform-group">
-                                                <div class="field-wrapper  can-focus  "><label for="firstname" class="label">First Name<span class="requiredSymbol">*</span></label>
-                                                    <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                        <span class="input-block"><input class="input-box-new-design" field="firstname" type="text" id="firstname" name="firstname" autocomplete="given-name" placeholder="First Name" value="<?= $customer['cusFirstName'] ?>"></span><span class="before"></span><span class="after"></span>
-                                                    </div><span class="message-root">
-                                                        <p class="root_error"><?= !isset($msgFirstName) ? '' : $msgFirstName  ?></p>
-                                                    </span>
-                                                </div>
-                                                <div class="field-wrapper  can-focus  "><label for="lastname" class="label">Last Name<span class="requiredSymbol">*</span></label>
-                                                    <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                        <span class="input-block"><input class="input-box-new-design" field="lastname" type="text" id="lastname" name="lastname" autocomplete="last-name" placeholder="Last Name" value="<?= $customer['cusLastName'] ?>"></span><span class="before"></span><span class="after"></span>
-                                                    </div><span class="message-root">
-                                                        <p class="root_error"><?= !isset($msgLastName) ? '' : $msgLastName  ?></p>
-                                                    </span>
-                                                </div>
+                                    <?php $count = $resultsBill->num_rows ?>
+                                    <div class="row" style="<?php if (isset($count) and ($count>0)) echo "display:block;"; else echo "display:none;"?> width: 100%;">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped custom-table datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Order date</th>
+                                                            <th>Delivery date</th>
+                                                            <th>Status</th>
+                                                            <th>Address</th>
+                                                            <th>Total</th>       
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $no=0;
+                                                        while ($row = $resultsBill->fetch_assoc()) {
+                                                        ?>
+                                                            <tr>
+                                                                <td><?= $no++ ?></td>
+                                                                <td><?= $row['billOrderDate'] ?></td>
+                                                                <td><?= $row['billDeliveryDate'] ?></td>
+                                                                <td><?= $row['statusName'] ?></td>
+                                                                <td><?= $row['billRevAdd'] ?></td>
+                                                                <td><?= $row['billTotal'] ?></td>
+                                                                
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                            <div class="field-wrapper  can-focus  "><label for="company" class="label">Company</label>
-                                                <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                    <span class="input-block"><input class="input-box-new-design" field="company" type="text" id="company" name="company" autocomplete="company-name" placeholder="Company" value="<?= $customer['cusCompany'] ?>"></span><span class="before"></span><span class="after"></span>
-                                                </div><span class="message-root">
-                                                    <p class="root_error"></p>
-                                                </span>
-                                            </div>
-                                            <div class="field-wrapper  can-focus  "><label for="telephone" class="label">Phone Number<span class="requiredSymbol">*</span></label>
-                                                <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                    <span class="input-block"><input class="input-box-new-design" field="telephone" type="text" id="telephone" name="phone" autocomplete="telephone-name" placeholder="Phone Number" value="<?= $customer['cusPhone'] ?>"></span><span class="before"></span><span class="after"></span>
-                                                </div><span class="message-root">
-                                                    <p class="root_error"><?= !isset($msgPhone) ? '' : $msgPhone  ?></p>
-                                                </span>
-                                            </div>
-                                            <div class="field-wrapper  can-focus  ">
-                                                <label for="country_id" class="label">Country
-                                                    <span class="requiredSymbol">*</span>
-                                                </label>
-                                                <div class="select-box-wrapper">
-                                                    <div class="dropdown-new-design input-select">
-                                                        <span class="dropdown-label"></span>
-                                                        <!-- <button type="button" class="dropdown-toggle expanded" id="countryButton"></button> -->
-                                                        <input type="text" class="dropdown-toggle expanded" readonly id="countryButton" name="country" value="<?= $customer['cusCountry'] ?>">
-                                                        <div class="add_section dropdown-menu">
-                                                            <?php foreach($countries as $country) { ?>
-                                                                <div class="dropdown-item"><?= $country ?></div>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <span class="message-root">
-                                                    <p class="root_error"></p>
-                                                </span>
-                                            </div>
-                                            <div class="field-wrapper  can-focus  "><label for="street[0]" class="label">Street Address<span class="requiredSymbol">*</span></label>
-                                                <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                    <span class="input-block"><input class="input-box-new-design" field="street[0]" type="text" id="street[0]" name="address" autocomplete="street-name" placeholder="Street Address" value="<?= $customer['cusAdd1'] ?>"></span><span class="before"></span><span class="after"></span>
-                                                </div><span class="message-root">
-                                                    <p class="root_error"><?= !isset($msgAddress) ? '' : $msgAddress  ?></p>
-                                                </span>
-                                            </div>
-                                            <div class="contact-inform-group">
-                                                <div class="field-wrapper  can-focus  "><label for="city" class="label">City<span class="requiredSymbol">*</span></label>
-                                                    <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                        <span class="input-block"><input class="input-box-new-design" field="city" type="text" id="city" name="city" autocomplete="city-name" placeholder="City" value="<?= $customer['cusCity'] ?>"></span><span class="before"></span><span class="after"></span>
-                                                    </div><span class="message-root">
-                                                        <p class="root_error"><?= !isset($msgCity) ? '' : $msgCity  ?></p>
-                                                    </span>
-                                                </div>
-                                                <div class="field-wrapper  can-focus  "><label for="region" class="label">State/Province<span class="requiredSymbol">*</span></label>
-                                                    <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;"><span class="input-block"><input class="input-box-new-design" field="region" type="text" id="region" name="state" placeholder="State/Province" autocomplete="region-name" value="<?= $customer['cusState'] ?>"></span><span class="before"></span><span class="after"></span></div><span class="message-root">
-                                                        <p class="root_error"><?= !isset($msgState) ? '' : $msgState  ?></p>
-                                                    </span>
-                                                </div>
-                                                <div class="field-wrapper  can-focus  "><label for="postcode" class="label">Zip/Postal Code<span class="requiredSymbol">*</span></label>
-                                                    <div class="field-icons" style="--iconsBefore: 0; --iconsAfter: 0;">
-                                                        <span class="input-block"><input class="input-box-new-design" field="postcode" type="text" id="postcode" name="zip" autocomplete="postcode-name" placeholder="Zip/Postal Code" value="<?= $customer['cusZip'] ?>"></span><span class="before"></span><span class="after"></span>
-                                                    </div><span class="message-root">
-                                                        <p class="root_error"><?= !isset($msgZip) ? '' : $msgZip  ?></p>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="submit-btn-form"><button class="btn-new-design primary" type="submit" name="save">Save Changes</button></div>
-                                        </form>
+                                        </div>
                                     </div>
-                                </div>
+            
+                                    <div class="order-wrapper" style="<?php if(isset($count) and ($count==0)) echo "display:block "; else echo "display:none" ; ?>">
+                                        <div class="order-empty" style=""><svg xmlns="http://www.w3.org/2000/svg" width="85.751" height="90.241" viewBox="0 0 85.751 90.241">
+                                                <g transform="translate(-76.398 -12.851)">
+                                                    <path d="M139.879,206.176c-1.357-.72-2.715-1.431-4.072-2.151q-4.9-2.59-9.816-5.18-5.914-3.13-11.838-6.251-5.125-2.715-10.259-5.42c-1.653-.868-3.278-1.819-4.959-2.622a.4.4,0,0,1-.065-.037c.3.536.609,1.062.914,1.6V148.15c0-1.745.065-3.5,0-5.245v-.074c-.923.536-1.856,1.062-2.779,1.6,1.357.72,2.715,1.431,4.072,2.151q4.9,2.59,9.816,5.189,5.914,3.13,11.838,6.251,5.125,2.715,10.259,5.42c1.653.868,3.278,1.819,4.959,2.622a.4.4,0,0,1,.065.037c-.3-.536-.609-1.062-.914-1.6v37.924c0,1.745-.046,3.5,0,5.245v.074a1.847,1.847,0,0,0,3.694,0V169.822c0-1.745.046-3.5,0-5.245V164.5a1.861,1.861,0,0,0-.914-1.6c-1.357-.72-2.715-1.431-4.072-2.151q-4.9-2.59-9.816-5.189-5.914-3.13-11.838-6.251-5.125-2.715-10.259-5.42c-1.653-.877-3.3-1.773-4.959-2.622a.4.4,0,0,1-.065-.037,1.867,1.867,0,0,0-2.779,1.6v37.961c0,1.745-.046,3.5,0,5.245v.074a1.861,1.861,0,0,0,.914,1.6c1.357.72,2.715,1.431,4.072,2.151q4.9,2.59,9.816,5.18,5.914,3.13,11.838,6.251,5.125,2.715,10.259,5.42c1.653.877,3.3,1.773,4.959,2.622a.4.4,0,0,1,.065.037,1.85,1.85,0,0,0,1.865-3.195Z" transform="translate(-19.674 -106.516)"></path>
+                                                    <path d="M380.881,184.708c-1.357.72-2.715,1.431-4.072,2.151q-4.9,2.59-9.816,5.18-5.914,3.13-11.838,6.251-5.125,2.715-10.259,5.42c-1.653.868-3.352,1.69-4.959,2.622-.018.009-.046.028-.065.037.923.536,1.856,1.062,2.779,1.6V170.045c0-1.745.074-3.5,0-5.245v-.074c-.3.536-.609,1.062-.914,1.6,1.357-.72,2.715-1.431,4.072-2.151q4.9-2.59,9.816-5.189,5.914-3.13,11.838-6.251,5.125-2.715,10.259-5.42c1.653-.868,3.352-1.69,4.959-2.622.018-.009.046-.028.065-.037-.923-.536-1.856-1.062-2.779-1.6v37.961c0,1.745-.046,3.5,0,5.245v.074a1.847,1.847,0,0,0,3.694,0V148.373c0-1.745.046-3.5,0-5.245v-.074a1.867,1.867,0,0,0-2.779-1.6c-1.357.72-2.715,1.431-4.072,2.151q-4.9,2.59-9.816,5.189-5.914,3.13-11.838,6.251-5.125,2.715-10.259,5.42c-1.653.877-3.343,1.7-4.959,2.622-.018.009-.046.028-.065.037a1.841,1.841,0,0,0-.914,1.6V202.65c0,1.745-.046,3.5,0,5.245v.074a1.867,1.867,0,0,0,2.779,1.6c1.357-.72,2.715-1.431,4.072-2.152q4.9-2.59,9.816-5.18,5.914-3.13,11.838-6.251,5.125-2.715,10.259-5.42c1.653-.868,3.343-1.7,4.959-2.622.018-.009.046-.028.065-.037a1.862,1.862,0,0,0,.665-2.53,1.9,1.9,0,0,0-2.53-.665Z" transform="translate(-221.532 -106.701)"></path>
+                                                    <path d="M179.144,34.736c-1.357.72-2.715,1.431-4.072,2.151q-4.9,2.59-9.816,5.189-5.914,3.13-11.838,6.251-5.125,2.715-10.259,5.42c-1.653.868-3.343,1.69-4.959,2.622-.018.009-.046.028-.065.037H140c-1.357-.72-2.715-1.431-4.072-2.151q-4.9-2.59-9.816-5.189-5.914-3.13-11.838-6.251-5.125-2.715-10.259-5.42c-1.653-.868-3.278-1.819-4.959-2.622a.4.4,0,0,1-.065-.037v3.186c1.357-.72,2.715-1.431,4.072-2.151q4.9-2.59,9.816-5.18,5.914-3.13,11.838-6.251,5.125-2.715,10.259-5.42c1.653-.868,3.343-1.69,4.959-2.622.018-.009.046-.028.065-.037h-1.865c1.357.72,2.715,1.431,4.072,2.151q4.9,2.59,9.816,5.18,5.914,3.13,11.838,6.251,5.125,2.715,10.259,5.42c1.653.877,3.3,1.773,4.959,2.622a.4.4,0,0,1,.065.037,1.85,1.85,0,1,0,1.865-3.195c-1.376-.729-2.742-1.45-4.118-2.179q-4.917-2.6-9.843-5.2-5.942-3.13-11.875-6.27-5.111-2.7-10.231-5.4c-1.625-.859-3.241-1.764-4.894-2.585a2.464,2.464,0,0,0-2.521.286c-.85.452-1.7.9-2.539,1.348q-4.626,2.438-9.243,4.885l-11.856,6.261q-5.333,2.812-10.665,5.633c-1.948,1.025-3.887,2.05-5.836,3.084a2.486,2.486,0,0,0-.268.148,1.859,1.859,0,0,0,0,3.186c1.376.729,2.742,1.45,4.118,2.179q4.917,2.6,9.843,5.2,5.942,3.144,11.875,6.279,5.111,2.7,10.231,5.4c1.625.859,3.241,1.773,4.894,2.585a2.464,2.464,0,0,0,2.521-.286c.85-.452,1.7-.9,2.539-1.348q4.626-2.438,9.243-4.885l11.856-6.261q5.333-2.826,10.665-5.642c1.948-1.025,3.887-2.059,5.836-3.084a2.484,2.484,0,0,0,.268-.148,1.862,1.862,0,0,0,.665-2.53,1.893,1.893,0,0,0-2.53-.646Z" transform="translate(-19.796 0)"></path>
+                                                    <path d="M220.363,102.033c1.357-.72,2.715-1.431,4.072-2.151q4.9-2.59,9.816-5.189,5.914-3.13,11.838-6.251,5.125-2.715,10.259-5.42c1.653-.877,3.343-1.7,4.959-2.622.018-.009.046-.028.065-.037a1.862,1.862,0,0,0,.665-2.53,1.9,1.9,0,0,0-2.53-.665c-1.357.72-2.715,1.431-4.072,2.151q-4.9,2.59-9.816,5.189-5.914,3.13-11.838,6.251-5.125,2.715-10.259,5.42c-1.653.877-3.343,1.7-4.959,2.622-.018.009-.046.028-.065.037a1.862,1.862,0,0,0-.665,2.53A1.881,1.881,0,0,0,220.363,102.033Z" transform="translate(-120.666 -53.261)"></path>
+                                                </g>
+                                            </svg>
+                                            <h2 class="order-empty-title">You Don’t have any orders yet</h2>
+                                            <p class="order-empty-description">Looks like you haven’t made your order yet</p><button class="btn-new-design primary order-empty-button">Start Shopping</button>
+                                        </div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
