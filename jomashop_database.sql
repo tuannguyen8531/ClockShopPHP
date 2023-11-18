@@ -120,7 +120,7 @@ CREATE TABLE `bills` (
   `billDeliveryDate` date NOT NULL,
   `billTotal` double NOT NULL,
   `billCustomer` int(10) NOT NULL,
-  `billManager` int(10) NOT NULL,
+  `billManager` int(10) NULL,
   `billStatus` int(10) NOT NULL,
   `billRevAdd` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
