@@ -265,10 +265,10 @@
                                        $billManager=1;
                                        $billStatus=1;
                                        $billRevAdd=$street;
-                                       $insertBill =  'INSERT INTO `bills`(`billOrderDate`, `billDeliveryDate`, `billTotal`, `billCustomer`, `billManager`, `billStatus`, `billRevAdd`) 
-                                       VALUES (?,?,?,?,?,?,?)';
+                                       $insertBill =  'INSERT INTO `bills`(`billOrderDate`, `billDeliveryDate`, `billTotal`, `billCustomer`, `billStatus`, `billRevAdd`) 
+                                       VALUES (?,?,?,?,?,?)';
                                        $stmt = $conn->prepare($insertBill);
-                                       $stmt->bind_param("ssdiiis", $billOrderDate, $billDeliveryDate, $billTotal, $billCustomer,  $billManager, $billStatus, $billRevAdd);
+                                       $stmt->bind_param("ssdiis", $billOrderDate, $billDeliveryDate, $billTotal, $billCustomer, $billStatus, $billRevAdd);
                                        if ($stmt->execute()) {
                                             echo '<script language="javascript">alert("Order successfully !");</script>';
                                             $billId = $conn->insert_id;  

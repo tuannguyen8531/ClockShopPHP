@@ -17,7 +17,7 @@
         GROUP BY watches.model, watches.name';
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $result = $stmt->get_result();
+    $resultWatch = $stmt->get_result();
 
     if(isset($_GET['submit'])) {
         $startDate = $_GET['startDate'];
@@ -39,7 +39,7 @@
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('ss', $startDate, $endDate);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $resultWatch = $stmt->get_result();
     }
 ?>
 <head>
@@ -149,7 +149,7 @@
                                         $totalProfit = 0;
                                         $totalCount = 0;
                                     ?>
-                                    <?php while($row = $result->fetch_assoc()) { ?>
+                                    <?php while($row = $resultWatch->fetch_assoc()) { ?>
                                         <tr>
                                             <td><?= $index ?></td>
                                             <td><?= $row['model'] ?></td>

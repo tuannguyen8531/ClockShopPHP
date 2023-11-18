@@ -35,31 +35,7 @@
 	<!-- Main Wrapper -->
 	<div class="main-wrapper">
 
-		<?php 
-			include 'header_sidebar.php';
-			include '../config.php';
-
-			$sql = 'SELECT * FROM accounts
-				JOIN authorities ON accounts.accAuthority = authorities.authId
-				WHERE accounts.accUsername LIKE ?';
-			$stmt = $conn->prepare($sql);
-			$stmt->bind_param('s', $_SESSION['username']);
-			$stmt->execute();
-
-			$result = $stmt->get_result();
-			$admin = $result->fetch_assoc();
-
-			if($admin['authId']!=1) {
-				$sql = 'SELECT * FROM accounts
-					JOIN managers ON accounts.accId = managers.manAccount
-					WHERE accounts.accUsername LIKE ?';
-				$stmt = $conn->prepare($sql);
-				$stmt->bind_param('s', $_SESSION['username']);
-				$stmt->execute();
-				$result = $stmt->get_result();
-				$manager = $result->fetch_assoc();
-			}
-		?>
+		<?php include 'header_sidebar.php'; ?>
 		<!-- Page Wrapper -->
 		<div class="page-wrapper">
 
@@ -70,7 +46,7 @@
 				<div class="page-header">
 					<div class="row">
 						<div class="col-sm-12">
-							<h3 class="page-title">Hello <?= ($admin['authId']==1) ? $admin['accUsername'] : $manager['manLastName'] . ' ' . $manager['manFirstName'] ?>!</h3>
+							<h3 class="page-title">Hello <?= ($_SESSION['auth']==1) ? $admin['accUsername'] : $manager['manLastName'] . ' ' . $manager['manFirstName'] ?>!</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item active"><?= $admin['authName'] ?></li>
 							</ul>
