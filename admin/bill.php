@@ -130,22 +130,22 @@
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group form-focus select-focus">
-                                    <select class="select floating" name="statuses"> 
-                                        <option value=""> Select status</option>
-                                        <?php
-                                            $status = 'SELECT * FROM statuses';
-                                            $stmt = $conn->prepare($status);
-                                            $stmt->execute(); 
-                                            $result = $stmt->get_result();
-                                            while ($rows = $result->fetch_assoc()) { 
-                                                if ($statuses==$rows['statusId']) {
-                                                    $selected = "selected";
-                                                } else $selected="";
-                                                echo "<option value='{$rows['statusId']}' $selected >{$rows['statusName']}</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                    <label class="focus-label">Status</label>
+                                <select class="select floating" name="statuses"> 
+                                    <option value=""> Select status</option>
+                                    <?php
+                                        $status = 'SELECT * FROM statuses';
+                                        $stmt = $conn->prepare($status);
+                                        $stmt->execute(); 
+                                        $result = $stmt->get_result();
+                                        while ($rows = $result->fetch_assoc()) { 
+                                            if ($statuses==$rows['statusId']) {
+                                                $selected = "selected";
+                                            } else $selected="";
+                                            echo "<option value='{$rows['statusId']}' $selected >{$rows['statusName']}</option>";
+                                        }
+                                    ?>
+                                </select>
+                                <label class="focus-label">Status</label>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-3">
@@ -170,7 +170,7 @@
                                         <th>Customer</th>
                                         <th>Manager</th>
                                         <th>Status</th>
-                                        <th>Revice Address</th>
+                                        <th>Receive Address</th>
                                         <th>Total</th>
                                         <th class="text-right">Action</th>
                                     </tr>
