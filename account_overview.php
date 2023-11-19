@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    include 'config.php';
+    session_start();
+    $sqlCusInfo = 'SELECT * FROM customers
+        JOIN accounts ON customers.cusAccount = accounts.accId
+        WHERE customers.cusEmail LIKE ?';
 
+    $stmt = $conn->prepare($sqlCusInfo);
+    $stmt->bind_param('s', $_SESSION['customer']);
+    $stmt->execute();
+    $customer = $stmt->get_result()->fetch_assoc();
+
+    if(isset($_POST['save'])) {
+        $lastname = $_POST['lastname'];
+
+        $isValid = true;
+        if(empty($lastname)) {
+            $msgLastName = 'This is a required field';
+            $isValid = false;
+        }
+        if($isValid) {
+            $sqlEditInfo = 'UPDATE customers SET cusLastName = ? WHERE cusEmail = ?';
+            $stmt = $conn->prepare($sqlEditInfo);
+            $stmt->bind_param('ss', $lastname, $_SESSION['customer']);
+            $stmt->execute();
+            header('refresh: 0');
+        }
+    }
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -139,13 +167,13 @@
                                     <h2 class="my-account__block-title">Account Information</h2>
                                     <div class="name-form dashboard-block">
                                         <h2 class="my-account__block-subtitle">Contact Information</h2>
-                                        <p>Tuấn Nguyễn Dương Anh</p>
-                                        <p>tuan.nda.62cntt@ntu.edu.vn</p>
+                                        <p><?= $customer['cusFirstName'] . ' ' . $customer['cusLastName'] ?></p>
+                                        <p><?= $_SESSION['customer'] ?></p>
                                         <div class="name-form-links my-account__block-actions">
-                                            <a title="Edit" class="edit-link" href="/my-account/account-information/edit/">
+                                            <a title="Edit" class="edit-link" href="./change_info.php">
                                                 <span>Edit</span>
                                             </a>
-                                            <a title="Change Password" class="password-link" href="/my-account/account-information/password/">
+                                            <a title="Change Password" class="password-link" href="./change_password.php">
                                                 <span>Change Password</span>
                                             </a>
                                         </div>
